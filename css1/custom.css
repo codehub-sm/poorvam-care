@@ -129,7 +129,7 @@ img{
 	width: 100%;
 }
 .label {
-    background: rgb(212, 26, 36);
+    background: rgb(212, 26, 36); /*rgb(212 186 26)*/
     color: rgb(255,255,255);
     font-size: 28px;
     padding: 4px 15px;
