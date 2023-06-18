@@ -68,7 +68,7 @@ img{
 	font-size: 14px;
 }
 .nav-item .active{
-	color: rgb(240, 82, 84);
+	color: rgb(255, 255, 255);
 }
 .nav-link:hover{
 	color: rgb(240, 82, 84);
@@ -129,7 +129,7 @@ img{
 	width: 100%;
 }
 .label {
-    background: rgb(212, 26, 36); /*rgb(212 186 26)*/
+    background: rgb(133 125 126); /*rgb(212 186 26)*/
     color: rgb(255,255,255);
     font-size: 28px;
     padding: 4px 15px;
@@ -174,7 +174,7 @@ img{
 	text-align: center;
 }
 .therapy-title{
-	background-color: rgb(212, 26, 36);
+	background-color: rgb(133 125 126);
     color: rgb(255,255,255);
     text-align: center;
     position: absolute;
@@ -203,7 +203,7 @@ img{
 	margin-top: 50px;
 }
 .color-red{
-	color: rgb(212, 26, 36);
+	color: rgb(240 229 230) /*rgb(212, 26, 36)*/;
 }
 #team p{
 	font-family: 'Verdana';
@@ -295,7 +295,7 @@ img{
     padding: 5px 30px;
 }
 #gallery .nav-item .active{
-	background-color: rgb(212, 26, 36);
+	background-color: 	;
 	color: rgb(255,255,255);
 	border-color: transparent;
 	border-radius: 0;
@@ -374,7 +374,7 @@ footer ul li a:hover{
     margin-right: 5px;
 }
 .copy{
-	border-bottom: 10px solid rgb(212, 26, 36);
+	border-bottom: 10px solid rgb(0, 0, 0);
 	background-color: rgb(51, 51, 53);
 	color: rgb(255,255,255);
 	font-size: 14px;
@@ -417,7 +417,7 @@ footer ul li a:hover{
 	text-align: justify;
 }
 i{
-	color: rgb(212, 26, 36);
+	color: rgb(255,255,255);
 }
 .banner-text i{
 	color: rgb(255,255,255)
@@ -450,7 +450,7 @@ i{
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
 }
 .team h6{
-	color: rgb(212, 26, 36);
+	color: rgb(22 15 15) /*rgb(212, 26, 36)*/;
 }
 .team-popup-person{
 	background-color: rgb(41, 41, 42);
@@ -745,4 +745,9 @@ i{
 	    max-width: 70%;
 	    margin: 1.75rem auto;
 	}
+}
+.whatsapp_float{
+	position: fixed;
+	bottom:40px;
+	right:20px;
 }
