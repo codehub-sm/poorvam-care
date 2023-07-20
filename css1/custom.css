@@ -370,8 +370,8 @@ footer ul li a:hover{
 .footer-call-icon{
 	float: left;
     width: 25px;
-    margin-top: 10px;
-    margin-right: 5px;
+    /* margin-top: 10px; */
+    margin-right: 5px;	
 }
 .copy{
 	border-bottom: 10px solid rgb(0, 0, 0);
@@ -437,7 +437,7 @@ i{
 }
 .team-img{
 	border-radius: 50%;
-    height: 200px;
+    /* height: 200px; */
     object-fit: cover;
     padding: 5px;
     border: 3px dashed rgb(180, 27, 38);
@@ -448,6 +448,7 @@ i{
     background-color: rgb(249, 249, 249);
     padding: 20px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+	min-height: 410px;
 }
 .team h6{
 	color: rgb(22 15 15) /*rgb(212, 26, 36)*/;
@@ -474,7 +475,7 @@ i{
 	text-align: justify;
 }
 .team-mem-name{
-	min-height: 100px;
+	margin-top: 10px;
 }
 .booking{
 	background-image: url(../img/booking-page-bg.jpg);
@@ -693,7 +694,7 @@ i{
 }
 @media only screen and (max-width: 768px) {
 	.logo {
-	    width: 7rem;
+	    width: 12rem;
 	}
 	.nav-link{
 		font-size: 13px;
@@ -703,6 +704,9 @@ i{
 	}
 }
 @media only screen and (max-width: 767px) {
+	.navbar{
+		position: fixed;
+	}
 	.navbar-nav{
 		padding-left: 10px;
 	}
@@ -750,4 +754,5 @@ i{
 	position: fixed;
 	bottom:40px;
 	right:20px;
+	z-index: 1;
 }
