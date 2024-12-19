@@ -1,0 +1,59 @@
+/* Footer styles */
+.footer-link {
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
+
+/* Social media icons animation */
+.social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: #ffffff;
+}
+
+/* Footer sections spacing */
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .footer-section {
+        margin-bottom: 0;
+    }
+}
+
+/* Footer bottom border animation */
+.footer-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-border::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #4B5563;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.footer-border:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Copyright text styles */
+.copyright {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}

@@ -1,0 +1,42 @@
+/* Header styles */
+.header-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile menu animation */
+@media (max-width: 768px) {
+    nav {
+        transition: all 0.3s ease-in-out;
+    }
+
+    nav.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    nav.block {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation links hover effect */
+nav a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #4F46E5;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
