@@ -9,8 +9,24 @@ applications:
           commands:
             - npm run build
       artifacts:
+        baseDirectory: dist/public
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: .
+  - backend:
+      phases:
+        build:
+          commands:
+            - npm run build
+      artifacts:
         baseDirectory: dist
         files:
+          - index.js
+          - routes.js
+          - vite.js
           - '**/*'
       cache:
         paths:
