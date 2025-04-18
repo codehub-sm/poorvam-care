@@ -47,8 +47,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Send email notification
       const mailOptions = {
-        from: '"Bright Beginnings Website" <noreply@brightbeginnings.com>',
-        to: process.env.NOTIFICATION_EMAIL || 'info@brightbeginnings.com',
+        from: '"Poorvam Care Website" <noreply@poorvamcare.com>',
+        to: process.env.NOTIFICATION_EMAIL || 'info@poorvamcare.com',
         subject: `New Contact Form Submission: ${validatedData.service}`,
         text: `
 Name: ${validatedData.name}
@@ -116,25 +116,19 @@ Message: ${validatedData.message}
       
       // Send confirmation email
       const mailOptions = {
-        from: '"Bright Beginnings Newsletter" <newsletter@brightbeginnings.com>',
+        from: '"Poorvam Care Newsletter" <newsletter@poorvamcare.com>',
         to: validatedData.email,
-        subject: 'Welcome to Bright Beginnings Newsletter!',
+        subject: 'Welcome to Poorvam Care Newsletter!',
         text: `
-Thank you for subscribing to the Bright Beginnings newsletter!
-
-You'll now receive updates about our services, events, and resources for child development.
-
-If you didn't sign up for this newsletter, please disregard this email.
+Thank you for subscribing to the Poorvam Care newsletter!
 
 Best regards,
-The Bright Beginnings Team
+The Poorvam Care Team
         `,
         html: `
-<h2>Welcome to the Bright Beginnings Newsletter!</h2>
-<p>Thank you for subscribing to our newsletter!</p>
-<p>You'll now receive updates about our services, events, and resources for child development.</p>
-<p>If you didn't sign up for this newsletter, please disregard this email.</p>
-<p>Best regards,<br>The Bright Beginnings Team</p>
+<h2>Welcome to the Poorvam Care Newsletter!</h2>
+<p>Thank you for subscribing! We'll keep you updated with our latest news and events.</p>
+<p>Best regards,<br>The Poorvam Care Team</p>
         `
       };
       

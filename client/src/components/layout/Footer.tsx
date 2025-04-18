@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
               <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center">
                 <Sprout className="text-primary h-5 w-5" />
               </div>
-              <h2 className="font-heading font-bold text-2xl">Bright Beginnings</h2>
+              <h2 className="font-heading font-bold text-2xl">Poorvam Care</h2>
             </div>
             <p className="mb-4">
               Nurturing development and unlocking potential in every child through specialized care and support.
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/80 text-sm">
-          <p>&copy; {new Date().getFullYear()} Bright Beginnings Child Development Center. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Poorvam Care Child Development Center. All rights reserved.</p>
           <div className="flex justify-center space-x-4 mt-2">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

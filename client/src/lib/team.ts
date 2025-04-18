@@ -7,27 +7,39 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
-    id: 'maria-chen',
-    name: 'Dr. Maria Chen',
-    role: 'Founder & Director',
-    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200'
+    id: 'apporva-rai',
+    name: 'Apporva Rai',
+    role: 'Founder & Clinical Director',
+    imageUrl: 'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=200&h=200'
   },
   {
-    id: 'sarah-johnson',
-    name: 'Sarah Johnson',
-    role: 'Speech Therapist',
-    imageUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200&h=200'
+    id: 'niranjana-kumar',
+    name: 'Niranjana',
+    role: 'Sr. Speech Therapist & Pathologist',
+    imageUrl: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&q=80&w=200&h=200'
   },
   {
-    id: 'david-garcia',
-    name: 'David Garcia',
-    role: 'Occupational Therapist',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200'
+    id: 'marriapan-kumar',
+    name: 'Marriapan Kumar',
+    role: 'Sr. Occupational Therapist',
+    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200&h=200'
   },
   {
-    id: 'michelle-williams',
-    name: 'Michelle Williams',
-    role: 'Child Psychologist',
-    imageUrl: 'https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?auto=format&fit=crop&q=80&w=200&h=200'
+    id: 'albin-jose',
+    name: 'Albin Jose',
+    role: 'Physical Therapist',
+    imageUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200&h=200'
+  },
+  {
+    id: 'pooja-kumar',
+    name: 'Pooja',
+    role: 'Special Educator',
+    imageUrl: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&q=80&w=200&h=200'
+  },
+  {
+    id: 'sreeshma-kumar',
+    name: 'Sreeshma',
+    role: 'Sr. Behavioural Therapist',
+    imageUrl: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200'
   }
 ];

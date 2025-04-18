@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
               Nurturing Growth for Every Child
             </h2>
             <p className="text-white/90 text-lg mb-8">
-              At Bright Beginnings, we provide specialized developmental services to help children reach their full potential in a supportive, engaging environment.
+              At Poorvam Care, we provide specialized developmental services to help children reach their full potential in a supportive, engaging environment.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
@@ -43,8 +43,8 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1574840881669-be18d3bf1bc1?auto=format&fit=crop&q=80&w=700&h=500" 
-              alt="Diverse children in learning environment" 
+              src="https://images.unsplash.com/photo-1602046819770-9571767bc3d3?auto=format&fit=crop&q=80&w=700&h=500" 
+              alt="Child development therapy session" 
               className="rounded-2xl shadow-lg w-full h-auto object-cover"
             />
             <motion.div 

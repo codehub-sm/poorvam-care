@@ -25,6 +25,7 @@ const fadeIn = {
 const extendedContactSchema = insertContactMessageSchema.extend({
   name: z.string().min(2, 'Please enter your name'),
   email: z.string().email('Please enter a valid email address'),
+  phone: z.string().optional(),
   service: z.string().min(1, 'Please select a service'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
   consent: z.boolean().refine(val => val === true, {
@@ -269,7 +270,7 @@ const ContactSection: React.FC = () => {
                 <div className="flex items-start mb-4">
                   <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
                   <div>
-                    <p className="font-medium">Bright Beginnings Child Development Center</p>
+                    <p className="font-medium">Poorvam Care Child Development Center</p>
                     <p className="text-neutral-600">123 Growth Avenue, Suite 200<br />Sunnyville, CA 90210</p>
                   </div>
                 </div>
@@ -294,7 +295,7 @@ const ContactSection: React.FC = () => {
                   <Mail className="text-primary h-5 w-5 mr-3 mt-1" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-neutral-600">info@brightbeginningscenter.com</p>
+                    <p className="text-neutral-600">info@poorvamcare.com</p>
                   </div>
                 </div>
               </CardContent>

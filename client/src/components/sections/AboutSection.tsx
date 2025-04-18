@@ -33,7 +33,7 @@ const AboutSection: React.FC = () => {
           >
             <h2 className="font-heading font-bold text-3xl text-neutral-800 mb-6">About Our Center</h2>
             <p className="text-neutral-600 mb-4">
-              Founded in 2001, Bright Beginnings has been a trusted resource for families seeking developmental support for their children. Our center was created by Dr. Maria Chen, a developmental psychologist passionate about creating accessible, evidence-based interventions for children of all abilities.
+              Founded in 2001, Poorvam Care has been a trusted resource for families seeking developmental support for their children. Our center was created by Dr. Maria Chen, a developmental psychologist passionate about creating accessible, evidence-based interventions for children of all abilities.
             </p>
             <p className="text-neutral-600 mb-6">
               Today, our team of over 25 specialists works together to provide comprehensive care in a supportive, play-based environment. We've helped more than 5,000 children achieve developmental milestones and build confidence in their abilities.
@@ -71,29 +71,29 @@ const AboutSection: React.FC = () => {
           >
             <motion.div variants={fadeInUp}>
               <img 
-                src="https://images.unsplash.com/photo-1544776193-68e6f0533f56?auto=format&fit=crop&q=80&w=400&h=500" 
-                alt="Child development activity" 
+                src="https://images.unsplash.com/photo-1599552683573-9dc48255a20d?auto=format&fit=crop&q=80&w=400&h=500" 
+                alt="Speech therapy session" 
                 className="w-full h-64 object-cover rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div variants={fadeInUp}>
               <img 
-                src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?auto=format&fit=crop&q=80&w=400&h=300" 
-                alt="Therapist working with child" 
+                src="https://images.unsplash.com/photo-1599503699525-8f0a2c95d6cd?auto=format&fit=crop&q=80&w=400&h=300" 
+                alt="Occupational therapy for children" 
                 className="w-full h-40 object-cover rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div variants={fadeInUp}>
               <img 
-                src="https://images.unsplash.com/photo-1510739859545-e7b9e979de86?auto=format&fit=crop&q=80&w=400&h=300" 
-                alt="Child learning through play" 
+                src="https://images.unsplash.com/photo-1599552683589-0c943e6498fc?auto=format&fit=crop&q=80&w=400&h=300" 
+                alt="Physical therapy for children" 
                 className="w-full h-40 object-cover rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div variants={fadeInUp}>
               <img 
-                src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69799?auto=format&fit=crop&q=80&w=400&h=500" 
-                alt="Supportive therapy environment" 
+                src="https://images.unsplash.com/photo-1599552683589-0c943e6498fc?auto=format&fit=crop&q=80&w=400&h=500" 
+                alt="Child development activities" 
                 className="w-full h-64 object-cover rounded-xl shadow-md"
               />
             </motion.div>

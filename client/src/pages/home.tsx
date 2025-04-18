@@ -9,7 +9,7 @@ import ContactSection from '@/components/sections/ContactSection';
 const Home: React.FC = () => {
   // Handle smooth scrolling and setting document title
   useEffect(() => {
-    document.title = "Bright Beginnings - Child Development Center";
+    document.title = "Poorvam Care - Child Development Center";
     
     // Smooth scroll to section on page load if URL has hash
     const handleHashScroll = () => {

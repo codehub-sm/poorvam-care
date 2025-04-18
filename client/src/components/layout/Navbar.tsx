@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
               <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center">
                 <Sprout className="text-white h-5 w-5" />
               </div>
-              <h1 className="font-heading font-bold text-2xl text-primary">Bright Beginnings</h1>
+              <h1 className="font-heading font-bold text-2xl text-primary">Poorvam Care</h1>
             </a>
           </Link>
           
