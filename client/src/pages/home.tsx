@@ -4,6 +4,7 @@ import MissionSection from '@/components/sections/MissionSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ResourcesSection from '@/components/sections/ResourcesSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ContactSection from '@/components/sections/ContactSection';
 
 const Home: React.FC = () => {
@@ -43,6 +44,7 @@ const Home: React.FC = () => {
       <MissionSection />
       <ServicesSection />
       <AboutSection />
+      <TestimonialsSection />
       <ResourcesSection />
       <ContactSection />
     </>

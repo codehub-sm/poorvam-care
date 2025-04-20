@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageSquare, Activity, Heart, Users, Baby, BookOpen } from 'lucide-react';
 import { services } from '@/lib/services';
 
 const fadeIn = {
@@ -48,12 +48,15 @@ const ServicesSection: React.FC = () => {
             <motion.div key={service.id} variants={fadeIn}>
               <Card className="service-card bg-white hover:-translate-y-1 transition-all duration-300 h-full">
                 <CardContent className="p-6">
-                  <div className="mb-4">
-                    <img 
-                      src={service.imageUrl}
-                      alt={service.imageAlt}
-                      className="w-full h-48 object-cover rounded-xl"
-                    />
+                  <div className="mb-4 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
+                      {service.id === 'speech' && <MessageSquare className="h-12 w-12 text-primary" />}
+                      {service.id === 'occupational' && <Activity className="h-12 w-12 text-primary" />}
+                      {service.id === 'physical' && <Heart className="h-12 w-12 text-primary" />}
+                      {service.id === 'social' && <Users className="h-12 w-12 text-primary" />}
+                      {service.id === 'early' && <Baby className="h-12 w-12 text-primary" />}
+                      {service.id === 'parent' && <BookOpen className="h-12 w-12 text-primary" />}
+                    </div>
                   </div>
                   <h3 className="font-heading font-semibold text-xl mb-2">{service.title}</h3>
                   <p className="text-neutral-600 mb-4">

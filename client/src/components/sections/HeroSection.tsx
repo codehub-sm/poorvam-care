@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Sprout } from 'lucide-react';
+import { Sprout, Clock, Users, Star } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
             <p className="text-white/90 text-lg mb-8">
               At Poorvam Care, we provide specialized developmental services to help children reach their full potential in a supportive, engaging environment.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
               <Button 
                 asChild
                 className="bg-white text-primary hover:bg-white/90 font-heading font-semibold px-8 py-6 rounded-xl shadow-md hover:shadow-lg"
@@ -34,6 +34,31 @@ const HeroSection: React.FC = () => {
                 <a href="#contact">Contact Us</a>
               </Button>
             </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8">
+              <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                <div className="flex items-center mb-2">
+                  <Clock className="h-5 w-5 text-[#FFD966] mr-2" />
+                  <span className="text-white font-bold">2000+</span>
+                </div>
+                <p className="text-white/90 text-sm">Hours of Sessions</p>
+              </div>
+              <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                <div className="flex items-center mb-2">
+                  <Users className="h-5 w-5 text-[#FFD966] mr-2" />
+                  <span className="text-white font-bold">500+</span>
+                </div>
+                <p className="text-white/90 text-sm">Happy Families</p>
+              </div>
+              <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                <div className="flex items-center mb-2">
+                  <Star className="h-5 w-5 text-[#FFD966] mr-2" />
+                  <span className="text-white font-bold">20+ Years</span>
+                </div>
+                <p className="text-white/90 text-sm">of Excellence</p>
+              </div>
+            </div>
           </motion.div>
           
           <motion.div 
@@ -47,8 +72,10 @@ const HeroSection: React.FC = () => {
               alt="Child development therapy session" 
               className="rounded-2xl shadow-lg w-full h-auto object-cover"
             />
+            
+            {/* Google Reviews Preview */}
             <motion.div 
-              className="absolute -bottom-5 -left-5 bg-[#FFD966] p-4 rounded-xl shadow-lg"
+              className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs"
               animate={{ y: [0, -10, 0] }}
               transition={{ 
                 repeat: Infinity, 
@@ -56,8 +83,16 @@ const HeroSection: React.FC = () => {
                 ease: "easeInOut"
               }}
             >
-              <div className="font-heading font-bold text-neutral-800">20+ Years</div>
-              <div className="text-sm text-neutral-700">of Child Development Excellence</div>
+              <div className="flex items-center mb-2">
+                <div className="flex text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <span className="ml-2 text-sm font-medium">4.9/5</span>
+              </div>
+              <p className="text-neutral-600 text-sm">"Amazing support for our child's development. The therapists are incredibly skilled and caring!"</p>
+              <p className="text-neutral-500 text-xs mt-2">- Parent Review on Google</p>
             </motion.div>
           </motion.div>
         </div>

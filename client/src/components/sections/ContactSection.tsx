@@ -266,12 +266,20 @@ const ContactSection: React.FC = () => {
           >
             <Card className="bg-neutral-50 shadow-sm mb-8">
               <CardContent className="p-8">
-                <h3 className="font-heading font-semibold text-xl mb-4">Our Location</h3>
-                <div className="flex items-start mb-4">
+                <h3 className="font-heading font-semibold text-xl mb-4">Our Locations</h3>
+                <div className="flex items-start mb-6">
                   <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
                   <div>
-                    <p className="font-medium">Poorvam Care Child Development Center</p>
-                    <p className="text-neutral-600">123 Growth Avenue, Suite 200<br />Sunnyville, CA 90210</p>
+                    <p className="font-medium">Location 1</p>
+                    <p className="text-neutral-600">Ananth Nagar - Phase 1, Electronic City Phase 2<br />Bangalore, Karnataka - 560100<br /><span className="text-sm italic">Landmark: Above Bata Showroom, Opps to Udipi Aaradhya</span></p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start mb-6">
+                  <MapPin className="text-primary h-5 w-5 mr-3 mt-1" />
+                  <div>
+                    <p className="font-medium">Location 2</p>
+                    <p className="text-neutral-600">PHOENIX GRANDE, Sy. No. 331<br />Hulimangala Main Road, Electronic City Phase-1<br />Bangalore - 560100<br /><span className="text-sm italic">Landmark: Sai Baba Temple Road</span></p>
                   </div>
                 </div>
                 
@@ -287,7 +295,7 @@ const ContactSection: React.FC = () => {
                   <Phone className="text-primary h-5 w-5 mr-3 mt-1" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-neutral-600">(555) 123-4567</p>
+                    <p className="text-neutral-600">(+91)- 8861764343</p>
                   </div>
                 </div>
                 
@@ -295,17 +303,27 @@ const ContactSection: React.FC = () => {
                   <Mail className="text-primary h-5 w-5 mr-3 mt-1" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-neutral-600">info@poorvamcare.com</p>
+                    <p className="text-neutral-600">poorvam.care@gmail.com</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
             
             {/* Map */}
-            <Map 
-              address="123 Growth Avenue, Suite 200, Sunnyville, CA 90210" 
-              className="h-80" 
-            />
+            <a 
+              href="https://maps.app.goo.gl/NnVDyMsu9n1o3QW99"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="bg-neutral-100 rounded-2xl overflow-hidden shadow-sm h-80 flex items-center justify-center">
+                <div className="text-center p-4 w-full h-full flex flex-col items-center justify-center hover:bg-neutral-200 transition-colors">
+                  <MapPin className="h-16 w-16 text-neutral-500 mb-4" />
+                  <p className="text-neutral-600 font-medium mb-2">View Our Location</p>
+                  <p className="text-primary mt-4 text-sm font-medium">Open in Google Maps</p>
+                </div>
+              </Card>
+            </a>
           </motion.div>
         </div>
       </div>

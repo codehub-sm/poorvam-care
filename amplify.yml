@@ -4,10 +4,12 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - echo "NODE_ENV=production"
     build:
       commands:
         - npm run build
   artifacts:
     baseDirectory: dist
     files:
-      - '**/*' 
+      - '**/*'
+    discard-paths: no 

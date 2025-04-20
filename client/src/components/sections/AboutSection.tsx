@@ -72,28 +72,28 @@ const AboutSection: React.FC = () => {
             <motion.div variants={fadeInUp}>
               <img 
                 src="https://images.unsplash.com/photo-1599552683573-9dc48255a20d?auto=format&fit=crop&q=80&w=400&h=500" 
-                alt="Speech therapy session" 
+                alt="Speech therapy session with child" 
                 className="w-full h-64 object-cover rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div variants={fadeInUp}>
               <img 
-                src="https://images.unsplash.com/photo-1599503699525-8f0a2c95d6cd?auto=format&fit=crop&q=80&w=400&h=300" 
-                alt="Occupational therapy for children" 
-                className="w-full h-40 object-cover rounded-xl shadow-md"
-              />
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <img 
                 src="https://images.unsplash.com/photo-1599552683589-0c943e6498fc?auto=format&fit=crop&q=80&w=400&h=300" 
-                alt="Physical therapy for children" 
+                alt="Child in occupational therapy" 
                 className="w-full h-40 object-cover rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div variants={fadeInUp}>
               <img 
-                src="https://images.unsplash.com/photo-1599552683589-0c943e6498fc?auto=format&fit=crop&q=80&w=400&h=500" 
-                alt="Child development activities" 
+                src="https://images.unsplash.com/photo-1602046819770-9571767bc3d3?auto=format&fit=crop&q=80&w=400&h=300" 
+                alt="Physical therapy activities" 
+                className="w-full h-40 object-cover rounded-xl shadow-md"
+              />
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <img 
+                src="https://images.unsplash.com/photo-1599552683573-9dc48255a20d?auto=format&fit=crop&q=80&w=400&h=500" 
+                alt="Early intervention therapy" 
                 className="w-full h-64 object-cover rounded-xl shadow-md"
               />
             </motion.div>

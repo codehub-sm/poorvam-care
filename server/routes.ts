@@ -45,10 +45,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store in database
       const contactMessage = await storage.createContactMessage(validatedData);
       
+      // Debug log for email configuration
+      console.log('Email Configuration:', {
+        notificationEmail: process.env.NOTIFICATION_EMAIL,
+        defaultEmail: 'poorvam.care@gmail.com',
+        finalEmail: process.env.NOTIFICATION_EMAIL || 'poorvam.care@gmail.com'
+      });
+      
       // Send email notification
       const mailOptions = {
         from: '"Poorvam Care Website" <noreply@poorvamcare.com>',
-        to: process.env.NOTIFICATION_EMAIL || 'info@poorvamcare.com',
+        to: process.env.NOTIFICATION_EMAIL || 'poorvam.care@gmail.com',
         subject: `New Contact Form Submission: ${validatedData.service}`,
         text: `
 Name: ${validatedData.name}
