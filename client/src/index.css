@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-=======
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
@@ -58,7 +56,6 @@
   --ring: hsl(240, 4.9%, 83.9%);
 }
 
->>>>>>> b7fb164 (new site changes)
 @layer base {
   * {
     @apply border-border;
@@ -66,10 +63,6 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-<<<<<<< HEAD
-  }
-}
-=======
     font-family: 'Nunito', sans-serif;
   }
 }
@@ -170,4 +163,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(207, 90%, 44%);
 }
->>>>>>> b7fb164 (new site changes)
