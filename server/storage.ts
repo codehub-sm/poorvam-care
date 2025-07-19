@@ -11,6 +11,11 @@ import {
 } from "@shared/schema";
 import { writeFileSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
+import { fileURLToPath } from "url";
+
+// Get __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = join(__filename, '..');
 
 // File storage paths
 const DATA_DIR = join(__dirname, "data");
