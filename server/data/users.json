@@ -1,0 +1,11 @@
+[
+  {
+    "id": 2,
+    "email": "admin@poorvam.care",
+    "password": "admin123",
+    "role": "employee",
+    "firstName": "Admin",
+    "lastName": "User",
+    "createdAt": "2025-07-19T18:38:34.103Z"
+  }
+]
