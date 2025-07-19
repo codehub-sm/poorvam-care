@@ -1,3 +1,12 @@
+<<<<<<< HEAD
 node_modules/*
 .env
 dist/*
+=======
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+>>>>>>> b7fb164 (new site changes)
