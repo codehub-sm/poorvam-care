@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
 import AdminPage from "@/pages/admin";
+import FloatingWhatsApp from "@/components/floating-whatsapp";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <FloatingWhatsApp />
       </TooltipProvider>
     </QueryClientProvider>
   );

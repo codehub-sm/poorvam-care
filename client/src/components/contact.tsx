@@ -111,6 +111,8 @@ export default function Contact() {
     }
   ];
 
+
+
   const quickActions = [
     {
       icon: Calendar,
@@ -122,6 +124,7 @@ export default function Contact() {
       title: "Request Callback",
       color: "bg-green-600 hover:bg-green-700"
     },
+
     {
       icon: Download,
       title: "Download Brochure",
@@ -163,6 +166,8 @@ export default function Contact() {
                     </div>
                   );
                 })}
+                
+
               </div>
             </div>
             
