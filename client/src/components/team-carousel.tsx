@@ -80,7 +80,7 @@ export default function TeamCarousel() {
     },
     {
       name: "Sreeshma",
-      title: "Speech and Language Pathologist",
+      title: "Behavioural Therapist",
       description: "Passionate speech therapist dedicated to helping children overcome communication challenges. Specializes in articulation disorders, language delays, and social communication skills.",
       image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/sreeshma.jpg",
       specializations: ["Articulation Disorders", "Language Delays", "Social Communication", "Speech Therapy"],
