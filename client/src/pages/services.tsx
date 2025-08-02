@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
+import ServiceToggle from "@/components/service-toggle";
 import ServicesTabs from "@/components/services-tabs";
+import TeamCarousel from "@/components/team-carousel";
 import Footer from "@/components/footer";
 import LoginModals from "@/components/login-modals";
+import { useServiceContext } from "@/contexts/ServiceContext";
 
 export default function Services() {
   const [location] = useLocation();
-  const [activeTab, setActiveTab] = useState<'early-intervention' | 'hearing'>('early-intervention');
+  const { activeService, setActiveService } = useServiceContext();
   const [isParentModalOpen, setIsParentModalOpen] = useState(false);
   const [isEmployeeModalOpen, setIsEmployeeModalOpen] = useState(false);
 
@@ -20,11 +23,11 @@ export default function Services() {
   useEffect(() => {
     const hash = location.split('#')[1];
     if (hash === 'hearing') {
-      setActiveTab('hearing');
+      setActiveService('hearing');
     } else if (hash === 'early-intervention') {
-      setActiveTab('early-intervention');
+      setActiveService('early-intervention');
     }
-  }, [location]);
+  }, [location, setActiveService]);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -41,27 +44,15 @@ export default function Services() {
             Choose the service that best fits your needs.
           </p>
           
-          {/* Quick Navigation */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <a 
-              href="#early-intervention"
-              onClick={() => setActiveTab('early-intervention')}
-              className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300"
-            >
-              Early Intervention Services
-            </a>
-            <a 
-              href="#hearing"
-              onClick={() => setActiveTab('hearing')}
-              className="bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-700 transition-all duration-300"
-            >
-              Hearing Services
-            </a>
+          {/* Service Toggle */}
+          <div className="mt-12">
+            <ServiceToggle />
           </div>
         </div>
       </section>
 
-      <ServicesTabs initialActiveTab={activeTab} />
+      <ServicesTabs />
+      <TeamCarousel />
       <Footer />
       <LoginModals 
         isParentModalOpen={isParentModalOpen}

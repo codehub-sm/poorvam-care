@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useServiceContext } from "@/contexts/ServiceContext";
+import { Award, Users, Clock, Star } from "lucide-react";
 
 interface TeamMember {
   name: string;
@@ -13,9 +12,7 @@ interface TeamMember {
   role: 'early-intervention' | 'hearing' | 'both';
 }
 
-export default function TeamCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [expandedSpecializations, setExpandedSpecializations] = useState<number | null>(null);
+export default function TeamSection() {
   const { activeService } = useServiceContext();
   
   const allTeamMembers: TeamMember[] = [
@@ -43,10 +40,10 @@ export default function TeamCarousel() {
         name: "Ananya",
         title: "Clinic Manager & Behavioural Therapist",
         description: "Passionate behavioral therapist dedicated to helping children overcome communication and behavioral challenges. Specializes in behavioral interventions and social communication skills.",
-        image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/sreeshma.jpg",
+        image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/ananya.jpg",
         specializations: ["Behavioral Interventions", "Social Communication", "Behavioral Therapy", "Social Skills"],
-        experience: "3+",
-        clients: "200+",
+        experience: "2+",
+        clients: "100+",
         role: "early-intervention"
     },
     {
@@ -79,6 +76,27 @@ export default function TeamCarousel() {
       clients: "100+",
       role: "early-intervention"
     },
+    {
+        name: "Soundarya",
+        title: "Behavioural & Speech Therapist",
+        description: "Passionate behavioral therapist dedicated to helping children overcome communication and behavioral challenges. Specializes in behavioral interventions and social communication skills.",
+        image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/soundarya.jpg",
+        specializations: ["Behavioral Interventions", "Social Communication", "Behavioral Therapy", "Social Skills"],
+        experience: "2+",
+        clients: "100+",
+        role: "early-intervention"
+    },
+    {
+        name: "Albin",
+        title: "Physiotherapist / Play Therapist",
+        description: "Unique dual-specialist combining physical therapy expertise with play-based interventions. Helps children improve mobility, strength, and coordination through engaging therapeutic play activities.",
+        image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/albiin.png",
+        specializations: ["Physical Therapy", "Play Therapy", "Motor Development", "Therapeutic Play"],
+        experience: "1+",
+        clients: "50+",
+        role: "early-intervention"
+      },
+
     {
       name: "Aftab",
       title: "Physiotherapist / Play Therapist",
@@ -176,29 +194,11 @@ export default function TeamCarousel() {
 
   const teamMembers = getTeamMembers();
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % teamMembers.length);
-    setExpandedSpecializations(null); // Reset expanded specializations when changing slides
+  const getServiceTitle = () => {
+    return activeService === 'hearing' 
+      ? "Our Hearing Care Specialists" 
+      : "Our Early Intervention Team";
   };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-    setExpandedSpecializations(null); // Reset expanded specializations when changing slides
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    setExpandedSpecializations(null); // Reset expanded specializations when changing slides
-  };
-
-  const toggleSpecializations = (index: number) => {
-    setExpandedSpecializations(expandedSpecializations === index ? null : index);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 8000);
-    return () => clearInterval(interval);
-  }, [teamMembers.length]);
 
   const getServiceDescription = () => {
     return activeService === 'hearing'
@@ -213,126 +213,144 @@ export default function TeamCarousel() {
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
             Meet Our <span className="text-blue-600">Team</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif mb-8">
             {getServiceDescription()}
           </p>
-        </div>
-        
-        <div className="relative">
-          <div className="carousel-container overflow-hidden">
-            <div 
-              className="carousel-track flex transition-transform duration-500"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {teamMembers.map((member, index) => (
-                <div key={index} className="flex-shrink-0 w-full px-4">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden mx-auto max-w-5xl flex flex-col lg:flex-row h-[600px] lg:h-[500px]">
-                    <div className="lg:w-1/2 h-64 lg:h-full flex items-center justify-center p-8">
-                      <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-blue-100 shadow-lg">
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=256&background=3B82F6&color=fff&font-size=0.4`;
-                          }}
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="lg:w-1/2 p-8 flex flex-col justify-center h-full overflow-y-auto">
-                      <h3 className="text-2xl font-serif font-bold text-gray-800 mb-2">{member.name}</h3>
-                      <p className="text-lg text-blue-600 font-semibold mb-3 font-serif">{member.title}</p>
-                      
-                      <p className="text-gray-600 mb-4 leading-relaxed font-serif text-base">
-                        {member.description}
-                      </p>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-bold text-sm mb-2 text-gray-800 font-serif">Specializations:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {expandedSpecializations === index 
-                            ? member.specializations.map((spec, specIndex) => (
-                                <span key={specIndex} className="bg-blue-50 text-blue-600 px-2 py-1 rounded-full text-xs font-medium font-serif">
-                                  {spec}
-                                </span>
-                              ))
-                            : (
-                              <>
-                                {member.specializations.slice(0, 3).map((spec, specIndex) => (
-                                  <span key={specIndex} className="bg-blue-50 text-blue-600 px-2 py-1 rounded-full text-xs font-medium font-serif">
-                                    {spec}
-                                  </span>
-                                ))}
-                                {member.specializations.length > 3 && (
-                                  <button 
-                                    onClick={() => toggleSpecializations(index)}
-                                    className="bg-gray-50 text-gray-600 px-2 py-1 rounded-full text-xs font-medium font-serif hover:bg-gray-100 transition-colors cursor-pointer"
-                                  >
-                                    +{member.specializations.length - 3} more
-                                  </button>
-                                )}
-                              </>
-                            )
-                          }
-                          {expandedSpecializations === index && member.specializations.length > 3 && (
-                            <button 
-                              onClick={() => toggleSpecializations(index)}
-                              className="bg-gray-50 text-gray-600 px-2 py-1 rounded-full text-xs font-medium font-serif hover:bg-gray-100 transition-colors cursor-pointer"
-                            >
-                              Show less
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                      
-                      <div className="flex space-x-4">
-                        <div className="text-center">
-                          <p className="text-lg font-bold text-blue-600 font-serif">{member.clients}</p>
-                          <p className="text-xs text-gray-600 font-serif">Clients Helped</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-lg font-bold text-green-600 font-serif">{member.experience}</p>
-                          <p className="text-xs text-gray-600 font-serif">Years Experience</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          
+          {/* Service-specific stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center justify-center mb-4">
+                <Award className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 font-serif mb-2">
+                {activeService === 'hearing' ? 'Certified Audiologists' : 'Licensed Therapists'}
+              </h3>
+              <p className="text-gray-600 font-serif">
+                {activeService === 'hearing' ? 'All specialists are certified by recognized audiological boards' : 'All therapists are licensed and certified professionals'}
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center justify-center mb-4">
+                <Users className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 font-serif mb-2">
+                {activeService === 'hearing' ? 'All Age Groups' : 'Child-Centered Care'}
+              </h3>
+              <p className="text-gray-600 font-serif">
+                {activeService === 'hearing' ? 'From newborns to seniors, we serve all age groups' : 'Specialized care designed specifically for children\'s needs'}
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center justify-center mb-4">
+                <Star className="w-8 h-8 text-yellow-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 font-serif mb-2">
+                {activeService === 'hearing' ? 'Advanced Technology' : 'Evidence-Based'}
+              </h3>
+              <p className="text-gray-600 font-serif">
+                {activeService === 'hearing' ? 'State-of-the-art equipment and latest hearing technology' : 'Research-backed interventions and proven methodologies'}
+              </p>
             </div>
           </div>
-          
-          {/* Carousel Controls */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 z-10"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 z-10"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-          
-          {/* Carousel Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {teamMembers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-              />
-            ))}
+        </div>
+        
+        {/* Team Grid - Reduced to 4 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {teamMembers.map((member, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            >
+              {/* Profile Image - Smaller */}
+              <div className="relative h-48 bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center p-6">
+                <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-105 transition-transform duration-300">
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=256&background=3B82F6&color=fff&font-size=0.4`;
+                    }}
+                  />
+                </div>
+                
+                {/* Experience Badge */}
+                <div className="absolute top-3 right-3 bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-bold font-serif">
+                  {member.experience} Years
+                </div>
+              </div>
+              
+              {/* Member Info - Compact */}
+              <div className="p-4">
+                <h3 className="text-lg font-serif font-bold text-gray-800 mb-1">{member.name}</h3>
+                <p className="text-blue-600 font-semibold mb-3 font-serif text-sm">{member.title}</p>
+                
+                <p className="text-gray-600 mb-3 leading-relaxed font-serif text-xs line-clamp-3">
+                  {member.description}
+                </p>
+                
+                {/* Specializations - Compact */}
+                <div className="mb-3">
+                  <h4 className="font-bold text-xs mb-1 text-gray-800 font-serif">Specializations:</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {member.specializations.slice(0, 2).map((spec, specIndex) => (
+                      <span key={specIndex} className="bg-blue-50 text-blue-600 px-2 py-1 rounded-full text-xs font-medium font-serif">
+                        {spec}
+                      </span>
+                    ))}
+                    {member.specializations.length > 2 && (
+                      <span className="bg-gray-50 text-gray-600 px-2 py-1 rounded-full text-xs font-medium font-serif">
+                        +{member.specializations.length - 2} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Stats - Compact */}
+                <div className="flex justify-between items-center pt-3 border-t border-gray-100">
+                  <div className="text-center">
+                    <p className="text-sm font-bold text-blue-600 font-serif">{member.clients}</p>
+                    <p className="text-xs text-gray-600 font-serif">Clients</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm font-bold text-green-600 font-serif">{member.experience}</p>
+                    <p className="text-xs text-gray-600 font-serif">Years</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center">
+                      <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                      <span className="text-xs font-bold text-gray-800 font-serif ml-1">5.0</span>
+                    </div>
+                    <p className="text-xs text-gray-600 font-serif">Rating</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
+            <h3 className="text-2xl font-serif font-bold mb-4">
+              Ready to Get Started?
+            </h3>
+            <p className="text-lg mb-6 opacity-90 font-serif">
+              {activeService === 'hearing' 
+                ? 'Schedule your hearing assessment with our certified audiologists today.'
+                : 'Book a consultation with our early intervention specialists.'
+              }
+            </p>
+            <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 font-serif">
+              Book Consultation
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
-}
+} 

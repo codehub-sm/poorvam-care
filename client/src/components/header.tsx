@@ -29,27 +29,27 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
               alt="Poorvam Care & Hearing Solutions Logo" 
               className="w-12 h-12 rounded-full object-cover"
             />
-            <h2 className="text-2xl font-baloo font-bold text-blue-600">Poorvam Care & Hearing Solutions</h2>
+            <h2 className="text-2xl font-serif font-bold text-blue-600">Poorvam Care & Hearing Solutions</h2>
           </Link>
           
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             {location === '/' ? (
               <>
-                <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</button>
-                <button onClick={() => scrollToSection('onboarding')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">How It Works</button>
-                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</button>
-                <button onClick={() => scrollToSection('team')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Team</button>
-                <button onClick={() => scrollToSection('resources')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Resources</button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</button>
+                <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Home</button>
+                <button onClick={() => scrollToSection('onboarding')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">How It Works</button>
+                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Services</button>
+                <button onClick={() => scrollToSection('team')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Team</button>
+                <button onClick={() => scrollToSection('resources')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Resources</button>
+                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Contact</button>
               </>
             ) : (
               <>
-                <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</Link>
-                <Link href="/services" className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</Link>
-                <Link href="/#team" className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Team</Link>
-                <Link href="/#resources" className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Resources</Link>
-                <Link href="/#contact" className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</Link>
+                <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Home</Link>
+                <Link href="/services" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Services</Link>
+                <Link href="/#team" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Team</Link>
+                <Link href="/#resources" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Resources</Link>
+                <Link href="/#contact" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Contact</Link>
               </>
             )}
           </nav>
@@ -86,20 +86,20 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
           <div className="px-4 py-2 space-y-2">
             {location === '/' ? (
               <>
-                <button onClick={() => scrollToSection('home')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Home</button>
-                <button onClick={() => scrollToSection('onboarding')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">How It Works</button>
-                <button onClick={() => scrollToSection('services')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Services</button>
-                <button onClick={() => scrollToSection('team')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Team</button>
-                <button onClick={() => scrollToSection('resources')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Resources</button>
-                <button onClick={() => scrollToSection('contact')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Contact</button>
+                <button onClick={() => scrollToSection('home')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Home</button>
+                <button onClick={() => scrollToSection('onboarding')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">How It Works</button>
+                <button onClick={() => scrollToSection('services')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Services</button>
+                <button onClick={() => scrollToSection('team')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Team</button>
+                <button onClick={() => scrollToSection('resources')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Resources</button>
+                <button onClick={() => scrollToSection('contact')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Contact</button>
               </>
             ) : (
               <>
-                <Link href="/" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Home</Link>
-                <Link href="/services" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Services</Link>
-                <Link href="/#team" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Team</Link>
-                <Link href="/#resources" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Resources</Link>
-                <Link href="/#contact" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2">Contact</Link>
+                <Link href="/" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Home</Link>
+                <Link href="/services" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Services</Link>
+                <Link href="/#team" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Team</Link>
+                <Link href="/#resources" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Resources</Link>
+                <Link href="/#contact" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Contact</Link>
               </>
             )}
           </div>

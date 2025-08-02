@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Puzzle, TrendingUp, Activity, Heart, Hand, Zap, ChevronDown, Baby, User, Users, Check, Ear, Volume2, Headphones } from "lucide-react";
+import { useServiceContext } from "@/contexts/ServiceContext";
 
 interface DisorderCard {
   id: string;
@@ -30,12 +31,8 @@ interface HearingService {
   features: string[];
 }
 
-interface ServicesTabsProps {
-  initialActiveTab?: 'early-intervention' | 'hearing';
-}
-
-export default function ServicesTabs({ initialActiveTab = 'early-intervention' }: ServicesTabsProps) {
-  const [activeTab, setActiveTab] = useState<'early-intervention' | 'hearing'>(initialActiveTab);
+export default function ServicesTabs() {
+  const { activeService } = useServiceContext();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const disorders: DisorderCard[] = [
@@ -203,52 +200,22 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
     <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-baloo font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
             Our <span className="text-blue-600">Specialized Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
             Comprehensive care for developmental disorders and hearing health across all age groups.
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-lg">
-            <div className="flex space-x-2">
-              <button
-                onClick={() => setActiveTab('early-intervention')}
-                className={`px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center space-x-2 ${
-                  activeTab === 'early-intervention'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                <Puzzle className="w-5 h-5" />
-                <span>Early Intervention</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('hearing')}
-                className={`px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center space-x-2 ${
-                  activeTab === 'hearing'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                <Ear className="w-5 h-5" />
-                <span>Hearing Services</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Early Intervention Tab Content */}
-        {activeTab === 'early-intervention' && (
+        {activeService === 'early-intervention' && (
           <div className="space-y-8">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-baloo font-bold text-gray-800 mb-4">
+              <h3 className="text-3xl font-serif font-bold text-gray-800 mb-4">
                 Conditions We <span className="text-blue-600">Specialize In</span>
               </h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-serif">
                 Our expert team provides comprehensive care for a wide range of developmental and communication disorders.
               </p>
             </div>
@@ -275,15 +242,15 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                         <div className={`w-12 h-12 ${disorder.bgColor} rounded-full flex items-center justify-center mr-4`}>
                           <IconComponent className={`${disorder.color} w-6 h-6`} />
                         </div>
-                        <h3 className="text-2xl font-baloo font-semibold text-gray-800">{disorder.title}</h3>
+                        <h3 className="text-2xl font-serif font-semibold text-gray-800">{disorder.title}</h3>
                       </div>
                       
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-gray-600 mb-4 font-serif">
                         {disorder.description}
                       </p>
                       
                       <div className="flex items-center justify-between">
-                        <span className="text-blue-600 font-semibold">Learn More</span>
+                        <span className="text-blue-600 font-semibold font-serif">Learn More</span>
                         <ChevronDown className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
                       </div>
                       
@@ -291,8 +258,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                         <div className={`mt-6 p-6 ${disorder.bgColor} rounded-xl`}>
                           {disorder.details.approach && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Our Approach:</h4>
-                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Our Approach:</h4>
+                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4 font-serif">
                                 {disorder.details.approach.map((item, index) => (
                                   <li key={index}>{item}</li>
                                 ))}
@@ -302,8 +269,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                           
                           {disorder.details.treatmentAreas && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Treatment Areas:</h4>
-                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Treatment Areas:</h4>
+                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4 font-serif">
                                 {disorder.details.treatmentAreas.map((item, index) => (
                                   <li key={index}>{item}</li>
                                 ))}
@@ -313,8 +280,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                           
                           {disorder.details.services && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Our Services:</h4>
-                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Our Services:</h4>
+                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4 font-serif">
                                 {disorder.details.services.map((item, index) => (
                                   <li key={index}>{item}</li>
                                 ))}
@@ -324,8 +291,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                           
                           {disorder.details.supportAreas && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Support Areas:</h4>
-                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Support Areas:</h4>
+                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4 font-serif">
                                 {disorder.details.supportAreas.map((item, index) => (
                                   <li key={index}>{item}</li>
                                 ))}
@@ -335,8 +302,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                           
                           {disorder.details.methods && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Our Methods:</h4>
-                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Our Methods:</h4>
+                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4 font-serif">
                                 {disorder.details.methods.map((item, index) => (
                                   <li key={index}>{item}</li>
                                 ))}
@@ -346,8 +313,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                           
                           {disorder.details.interventionStrategies && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Intervention Strategies:</h4>
-                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Intervention Strategies:</h4>
+                              <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4 font-serif">
                                 {disorder.details.interventionStrategies.map((item, index) => (
                                   <li key={index}>{item}</li>
                                 ))}
@@ -357,8 +324,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                           
                           {disorder.details.ageGroups && (
                             <>
-                              <h4 className={`font-bold text-lg mb-3 ${disorder.color}`}>Age Groups:</h4>
-                              <p className="text-gray-600">{disorder.details.ageGroups}</p>
+                              <h4 className={`font-bold text-lg mb-3 ${disorder.color} font-serif`}>Age Groups:</h4>
+                              <p className="text-gray-600 font-serif">{disorder.details.ageGroups}</p>
                             </>
                           )}
                         </div>
@@ -372,13 +339,13 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
         )}
 
         {/* Hearing Services Tab Content */}
-        {activeTab === 'hearing' && (
+        {activeService === 'hearing' && (
           <div className="space-y-8">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-baloo font-bold text-gray-800 mb-4">
+              <h3 className="text-3xl font-serif font-bold text-gray-800 mb-4">
                 Comprehensive <span className="text-blue-600">Hearing Center</span>
               </h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-serif">
                 Complete audiological services for all age groups with state-of-the-art equipment and expert care.
               </p>
             </div>
@@ -398,8 +365,8 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                       <IconComponent className="text-white w-8 h-8" />
                     </div>
                     
-                    <h3 className="text-2xl font-baloo font-bold text-gray-800 mb-4">{service.title}</h3>
-                    <p className="text-gray-600 mb-6">
+                    <h3 className="text-2xl font-serif font-bold text-gray-800 mb-4">{service.title}</h3>
+                    <p className="text-gray-600 mb-6 font-serif">
                       {service.description}
                     </p>
                     
@@ -407,7 +374,7 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center">
                           <Check className="text-blue-600 w-5 h-5 mr-3" />
-                          <span className="text-gray-600">{feature}</span>
+                          <span className="text-gray-600 font-serif">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -418,17 +385,17 @@ export default function ServicesTabs({ initialActiveTab = 'early-intervention' }
             
             {/* Call to Action */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-12 text-center text-white">
-              <h3 className="text-3xl font-baloo font-bold mb-6">
+              <h3 className="text-3xl font-serif font-bold mb-6">
                 Schedule Your Hearing Assessment Today
               </h3>
-              <p className="text-xl mb-8 opacity-90">
+              <p className="text-xl mb-8 opacity-90 font-serif">
                 Early detection and intervention can make all the difference. Our certified audiologists are here to help.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300">
+                <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 font-serif">
                   Book Hearing Test
                 </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 font-serif">
                   Download Resources
                 </button>
               </div>

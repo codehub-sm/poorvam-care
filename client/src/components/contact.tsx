@@ -136,10 +136,10 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-baloo font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
             Get in <span className="text-blue-600">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
             Ready to start your child's journey? Contact us today for a free consultation and assessment.
           </p>
         </div>
@@ -149,7 +149,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-baloo font-bold text-gray-800 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-serif font-bold text-gray-800 mb-6">Contact Information</h3>
               
               <div className="space-y-6">
                 {contactInfo.map((info, index) => {
@@ -160,8 +160,8 @@ export default function Contact() {
                         <IconComponent className="text-white w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-800">{info.title}</h4>
-                        <p className="text-gray-600 whitespace-pre-line">{info.content}</p>
+                        <h4 className="font-semibold text-gray-800 font-serif">{info.title}</h4>
+                        <p className="text-gray-600 whitespace-pre-line font-serif">{info.content}</p>
                       </div>
                     </div>
                   );
@@ -173,13 +173,13 @@ export default function Contact() {
             
             {/* Quick Actions */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-baloo font-bold text-gray-800 mb-6">Quick Actions</h3>
+              <h3 className="text-2xl font-serif font-bold text-gray-800 mb-6">Quick Actions</h3>
               
               <div className="space-y-4">
                 {quickActions.map((action, index) => {
                   const IconComponent = action.icon;
                   return (
-                    <button key={index} className={`w-full ${action.color} text-white py-4 rounded-lg font-semibold transition-colors flex items-center justify-center`}>
+                    <button key={index} className={`w-full ${action.color} text-white py-4 rounded-lg font-semibold transition-colors flex items-center justify-center font-serif`}>
                       <IconComponent className="w-5 h-5 mr-3" />
                       {action.title}
                     </button>
@@ -191,12 +191,12 @@ export default function Contact() {
           
           {/* Contact Form */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-baloo font-bold text-gray-800 mb-6">Send us a Message</h3>
+            <h3 className="text-2xl font-serif font-bold text-gray-800 mb-6">Send us a Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="firstName">First Name *</Label>
+                  <Label htmlFor="firstName" className="font-serif">First Name *</Label>
                   <Input 
                     id="firstName"
                     type="text"
@@ -204,11 +204,12 @@ export default function Contact() {
                     value={formData.firstName}
                     onChange={(e) => updateFormData('firstName', e.target.value)}
                     placeholder="Enter your first name"
+                    className="font-serif"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="lastName">Last Name *</Label>
+                  <Label htmlFor="lastName" className="font-serif">Last Name *</Label>
                   <Input 
                     id="lastName"
                     type="text"
@@ -216,13 +217,14 @@ export default function Contact() {
                     value={formData.lastName}
                     onChange={(e) => updateFormData('lastName', e.target.value)}
                     placeholder="Enter your last name"
+                    className="font-serif"
                   />
                 </div>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="email">Email *</Label>
+                  <Label htmlFor="email" className="font-serif">Email *</Label>
                   <Input 
                     id="email"
                     type="email"
@@ -230,11 +232,12 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => updateFormData('email', e.target.value)}
                     placeholder="your@email.com"
+                    className="font-serif"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="phone">Phone *</Label>
+                  <Label htmlFor="phone" className="font-serif">Phone *</Label>
                   <Input 
                     id="phone"
                     type="tel"
@@ -242,26 +245,28 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={(e) => updateFormData('phone', e.target.value)}
                     placeholder="(555) 123-4567"
+                    className="font-serif"
                   />
                 </div>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="childName">Child's Name</Label>
+                  <Label htmlFor="childName" className="font-serif">Child's Name</Label>
                   <Input 
                     id="childName"
                     type="text"
                     value={formData.childName}
                     onChange={(e) => updateFormData('childName', e.target.value)}
                     placeholder="Child's name"
+                    className="font-serif"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="childAge">Child's Age</Label>
+                  <Label htmlFor="childAge" className="font-serif">Child's Age</Label>
                   <Select value={formData.childAge} onValueChange={(value) => updateFormData('childAge', value)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="font-serif">
                       <SelectValue placeholder="Select age" />
                     </SelectTrigger>
                     <SelectContent>
@@ -276,9 +281,9 @@ export default function Contact() {
               </div>
               
               <div>
-                <Label htmlFor="serviceType">Service of Interest</Label>
+                <Label htmlFor="serviceType" className="font-serif">Service of Interest</Label>
                 <Select value={formData.serviceType} onValueChange={(value) => updateFormData('serviceType', value)}>
-                  <SelectTrigger>
+                  <SelectTrigger className="font-serif">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
@@ -294,13 +299,14 @@ export default function Contact() {
               </div>
               
               <div>
-                <Label htmlFor="message">Message</Label>
+                <Label htmlFor="message" className="font-serif">Message</Label>
                 <Textarea 
                   id="message"
                   rows={4}
                   value={formData.message}
                   onChange={(e) => updateFormData('message', e.target.value)}
                   placeholder="Tell us about your concerns or questions..."
+                  className="font-serif"
                 />
               </div>
               
@@ -311,7 +317,7 @@ export default function Contact() {
                   onCheckedChange={(checked) => updateFormData('consent', checked as boolean)}
                   required
                 />
-                <Label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+                <Label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed font-serif">
                   I consent to being contacted by Poorvam Care & Hearing Solutions regarding my inquiry and understand that my information will be handled according to the privacy policy. *
                 </Label>
               </div>
@@ -319,7 +325,7 @@ export default function Contact() {
               <Button 
                 type="submit" 
                 disabled={contactMutation.isPending}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg font-serif"
               >
                 {contactMutation.isPending ? "Sending..." : "Send Message"}
               </Button>

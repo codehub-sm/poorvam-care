@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import ServiceToggle from "@/components/service-toggle";
 import Onboarding from "@/components/onboarding";
 import ServicesTabs from "@/components/services-tabs";
 import TeamCarousel from "@/components/team-carousel";
@@ -21,6 +22,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
+      <div className="pt-20">
+        <ServiceToggle />
+      </div>
       <Hero />
       <Onboarding />
       <ServicesTabs />

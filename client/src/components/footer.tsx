@@ -48,10 +48,10 @@ export default function Footer() {
                 alt="Poorvam Care & Hearing Solutions Logo" 
                 className="w-12 h-12 rounded-full object-cover"
               />
-              <h3 className="text-3xl font-baloo font-bold text-blue-400">Poorvam Care & Hearing Solutions</h3>
+              <h3 className="text-3xl font-serif font-bold text-blue-400">Poorvam Care & Hearing Solutions</h3>
             </div>
             
-            <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
+            <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md font-serif">
               Dedicated to unlocking every child's potential through compassionate, evidence-based therapy and early intervention services.
             </p>
             
@@ -73,13 +73,13 @@ export default function Footer() {
           
           {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-baloo font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-xl font-serif font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button 
                     onClick={link.action}
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-left"
+                    className="text-gray-300 hover:text-blue-400 transition-colors text-left font-serif"
                   >
                     {link.name}
                   </button>
@@ -90,13 +90,13 @@ export default function Footer() {
           
           {/* Services */}
           <div>
-            <h4 className="text-xl font-baloo font-semibold mb-6">Our Services</h4>
+            <h4 className="text-xl font-serif font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
                   <button 
                     onClick={service.action}
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-left"
+                    className="text-gray-300 hover:text-blue-400 transition-colors text-left font-serif"
                   >
                     {service.name}
                   </button>
@@ -107,14 +107,14 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 mb-4 md:mb-0">
+          <p className="text-gray-400 mb-4 md:mb-0 font-serif">
             © 2024 Poorvam Care & Hearing Solutions Child Development Center. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             {legalLinks.map((link, index) => (
               <button 
                 key={index}
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-gray-400 hover:text-blue-400 transition-colors font-serif"
               >
                 {link}
               </button>
