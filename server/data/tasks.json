@@ -1,0 +1,68 @@
+[
+  {
+    "id": 2,
+    "title": "Daily Speech Exercises",
+    "patientId": 2,
+    "assignedTo": 3,
+    "description": "Practice vowel sounds for 15 minutes daily",
+    "goalId": null,
+    "status": "pending",
+    "dueDate": "2024-12-25T00:00:00.000Z",
+    "createdAt": "2025-08-02T19:11:35.247Z"
+  },
+  {
+    "id": 3,
+    "title": "Occupational Therapy Assessment",
+    "patientId": 3,
+    "assignedTo": 4,
+    "description": "Complete fine motor skills assessment",
+    "goalId": null,
+    "status": "pending",
+    "dueDate": "2024-12-22T00:00:00.000Z",
+    "createdAt": "2025-08-02T19:11:35.247Z"
+  },
+  {
+    "id": 4,
+    "title": "Behavioral Observation",
+    "patientId": 5,
+    "assignedTo": 5,
+    "description": "Observe social interactions in group setting",
+    "goalId": null,
+    "status": "pending",
+    "dueDate": "2024-12-23T00:00:00.000Z",
+    "createdAt": "2025-08-02T19:11:35.247Z"
+  },
+  {
+    "id": 5,
+    "title": "Daily Speech Exercises",
+    "patientId": 6,
+    "assignedTo": 9,
+    "description": "Practice vowel sounds for 15 minutes daily",
+    "goalId": null,
+    "status": "pending",
+    "dueDate": "2024-12-25T00:00:00.000Z",
+    "createdAt": "2025-08-02T20:22:57.937Z"
+  },
+  {
+    "id": 6,
+    "title": "Occupational Therapy Assessment",
+    "patientId": 7,
+    "assignedTo": 10,
+    "description": "Complete fine motor skills assessment",
+    "goalId": null,
+    "status": "pending",
+    "dueDate": "2024-12-22T00:00:00.000Z",
+    "createdAt": "2025-08-02T20:22:57.937Z"
+  },
+  {
+    "id": 7,
+    "title": "Behavioral Observation",
+    "patientId": 9,
+    "assignedTo": 11,
+    "description": "Observe social interactions in group setting",
+    "goalId": null,
+    "status": "pending",
+    "dueDate": "2024-12-23T00:00:00.000Z",
+    "createdAt": "2025-08-02T20:22:57.937Z"
+  }
+]
