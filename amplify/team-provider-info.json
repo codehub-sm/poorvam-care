@@ -15,7 +15,7 @@
       "function": {
         "poorvamcare22677bcf": {
           "deploymentBucketName": "amplify-poorvamcare-dev-9e21f-deployment",
-          "s3Key": "amplify-builds/poorvamcare22677bcf-355546377755464b5741-build.zip"
+          "s3Key": "amplify-builds/poorvamcare22677bcf-2f6c754c4d577856316a-build.zip"
         }
       },
       "api": {
