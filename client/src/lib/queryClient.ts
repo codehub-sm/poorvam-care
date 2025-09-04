@@ -40,7 +40,6 @@ export async function apiRequest(
       method,
       headers,
       body: data ? JSON.stringify(data) : undefined,
-      credentials: "include",
     });
 
     // Handle unauthorized separately to allow for redirect to login
@@ -79,7 +78,6 @@ export const getQueryFn: <T>(options: {
 
     const res = await fetch(fullUrl, {
       headers,
-      credentials: "include",
     });
 
     if (unauthorizedBehavior === "returnNull" && res.status === 401) {
