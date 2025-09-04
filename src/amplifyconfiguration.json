@@ -1,0 +1,10 @@
+{
+  "aws_project_region": "ap-south-1",
+  "aws_cloud_logic_custom": [
+    {
+      "name": "api476e83c2",
+      "endpoint": "https://cy36o6bdgj.execute-api.ap-south-1.amazonaws.com/dev",
+      "region": "ap-south-1"
+    }
+  ]
+}

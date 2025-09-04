@@ -1,37 +1,62 @@
-node_modules
-dist
-.DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Environment variables
 .env
 .env.local
-.env.development
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Google credentials
-google-credentials.json
-
-#amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/mock-api-resources
-amplify/backend/amplify-meta.json
-amplify/backend/.temp
-build/
+# Build outputs
 dist/
-node_modules/
-aws-exports.js
-awsconfiguration.json
-amplifyconfiguration.json
-amplifyconfiguration.dart
-amplify-build-config.json
-amplify-gradle-config.json
-amplifytools.xcconfig
-.secret-*
-**.sample
-#amplify-do-not-edit-end
+build/
+.next/
+out/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Temporary folders
+tmp/
+temp/
+
+# AWS Amplify
+amplify/\#current-cloud-backend/
+amplify/.config/local-*
+amplify/logs/
+amplify/mock-data/
+amplify/src/graphql/mutations.ts
+amplify/src/graphql/queries.ts
+amplify/src/graphql/subscriptions.ts
+
+# Sensitive files
+*.pem
+*.key
+*credentials*
+*secret*
+*private*
+amplify/backend/function/*/function-parameters.json
