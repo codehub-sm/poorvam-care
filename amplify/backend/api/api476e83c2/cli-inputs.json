@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/contact": {
+      "name": "/contact",
+      "lambdaFunction": "poorvamcare22677bcf",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/health": {
+      "name": "/health",
+      "lambdaFunction": "poorvamcare22677bcf",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

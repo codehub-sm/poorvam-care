@@ -1,0 +1,8 @@
+{
+  "lambdaLayers": [],
+  "permissions": {},
+  "environmentVariables": {
+    "GOOGLE_SHEET_ID": "",
+    "GOOGLE_SERVICE_ACCOUNT_CREDENTIALS": ""
+  }
+}

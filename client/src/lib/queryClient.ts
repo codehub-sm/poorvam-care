@@ -1,5 +1,14 @@
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
+// Get the API base URL based on environment
+const getApiBaseUrl = () => {
+  if (import.meta.env.DEV) {
+    return 'http://localhost:3001'; // Development
+  }
+  // Production - use Amplify API endpoint
+  return import.meta.env.VITE_API_URL || 'https://cy36o6bdgj.execute-api.ap-south-1.amazonaws.com/dev';
+};
+
 async function throwIfResNotOk(res: Response) {
   if (!res.ok) {
     const text = (await res.text()) || res.statusText;
@@ -23,8 +32,11 @@ export async function apiRequest(
     headers["Authorization"] = `Bearer ${token}`;
   }
 
+  // Construct full URL
+  const fullUrl = url.startsWith('http') ? url : `${getApiBaseUrl()}${url}`;
+
   try {
-    const res = await fetch(url, {
+    const res = await fetch(fullUrl, {
       method,
       headers,
       body: data ? JSON.stringify(data) : undefined,
@@ -43,7 +55,7 @@ export async function apiRequest(
     await throwIfResNotOk(res);
     return res;
   } catch (error) {
-    console.error(`API request failed: ${method} ${url}`, error);
+    console.error(`API request failed: ${method} ${fullUrl}`, error);
     throw error;
   }
 }
@@ -61,7 +73,11 @@ export const getQueryFn: <T>(options: {
       headers["Authorization"] = `Bearer ${token}`;
     }
 
-    const res = await fetch(queryKey.join("/") as string, {
+    // Construct full URL
+    const url = queryKey.join("/") as string;
+    const fullUrl = url.startsWith('http') ? url : `${getApiBaseUrl()}/${url}`;
+
+    const res = await fetch(fullUrl, {
       headers,
       credentials: "include",
     });

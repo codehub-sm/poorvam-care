@@ -39,12 +39,15 @@ export default function Contact() {
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
       const response = await apiRequest("POST", "/api/contact", data);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast({
         title: "Message Sent!",
-        description: "We'll get back to you within 24 hours.",
+        description: data.warning ? "Message saved locally. We'll get back to you soon." : "We'll get back to you within 24 hours.",
       });
       setFormData({
         firstName: "",
@@ -58,7 +61,8 @@ export default function Contact() {
         consent: false,
       });
     },
-    onError: () => {
+    onError: (error) => {
+      console.error("Contact form error:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
