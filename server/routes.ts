@@ -17,74 +17,88 @@ import {
 import nodemailer from "nodemailer";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { Request, Response, Application } from "express";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
-// Email notification function
-async function sendContactNotification(submission) {
+// Type for contact submission
+type ContactSubmission = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  childName?: string;
+  childAge?: string;
+  serviceType?: string;
+  message?: string;
+  consent: boolean;
+  createdAt: Date;
+};
+
+// Type for user object
+type User = {
+  id: number;
+  email: string;
+  password: string;
+  role: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  createdAt: Date;
+};
+
+// Extend Request type to include user
+interface AuthenticatedRequest extends Request {
+  user?: {
+    id: number;
+    role: string;
+    email: string;
+    firstName?: string;
+    lastName?: string;
+  };
+}
+
+// Google Sheets submission function (via Apps Script)
+async function submitToGoogleSheets(submission: ContactSubmission): Promise<boolean> {
   try {
-    // Create transporter (you'll need to configure this with your Gmail credentials)
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com', // Replace with your Gmail
-        pass: process.env.EMAIL_PASS || 'your-app-password'     // Replace with your app password
-      }
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbzlz71svz_5jZu8xw5_V6pHZlEPI53zPtg9Ye4UcDm8Eet8zKi4A62mlkxIxr7SgLilWg/exec';
+    
+    const response = await fetch(googleSheetsUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: submission.firstName,
+        lastName: submission.lastName,
+        email: submission.email,
+        phone: submission.phone,
+        childName: submission.childName || '',
+        childAge: submission.childAge || '',
+        serviceType: submission.serviceType || '',
+        message: submission.message || '',
+        timestamp: new Date().toISOString(),
+      }),
     });
 
-    // Email content
-    const mailOptions = {
-      from: process.env.EMAIL_USER || 'your-email@gmail.com',
-      to: 'poorvam.care@gmail.com', // Your business email
-      subject: '🆕 New Contact Form Submission - Poorvam Care',
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
-          
-          <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #1e293b; margin-top: 0;">👤 Contact Information</h3>
-            <p><strong>Name:</strong> ${submission.firstName} ${submission.lastName}</p>
-            <p><strong>Email:</strong> <a href="mailto:${submission.email}">${submission.email}</a></p>
-            <p><strong>Phone:</strong> <a href="tel:${submission.phone}">${submission.phone}</a></p>
-          </div>
+    if (response.ok) {
+      console.log("✅ Successfully submitted to Google Sheets");
+      return true;
+    } else {
+      console.error("❌ Failed to submit to Google Sheets:", response.status);
+      return false;
+    }
+  } catch (error) {
+    console.error("❌ Error submitting to Google Sheets:", error);
+    return false;
+  }
+}
 
-          ${submission.childName || submission.childAge ? `
-          <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #1e293b; margin-top: 0;">👶 Child Information</h3>
-            ${submission.childName ? `<p><strong>Child's Name:</strong> ${submission.childName}</p>` : ''}
-            ${submission.childAge ? `<p><strong>Child's Age:</strong> ${submission.childAge}</p>` : ''}
-          </div>
-          ` : ''}
-
-          <div style="background: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #1e293b; margin-top: 0;">🎯 Service Details</h3>
-            <p><strong>Service of Interest:</strong> ${submission.serviceType || 'Not specified'}</p>
-            ${submission.message ? `<p><strong>Message:</strong> ${submission.message}</p>` : ''}
-          </div>
-
-          <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 0; color: #92400e;">
-              <strong>📅 Submitted:</strong> ${new Date(submission.createdAt).toLocaleString()}
-            </p>
-          </div>
-
-          <div style="text-align: center; margin-top: 30px;">
-            <a href="http://localhost:3000/admin" 
-               style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
-              View in Admin Panel
-            </a>
-          </div>
-        </div>
-      `
-    };
-
-    // Send email
-    const info = await transporter.sendMail(mailOptions);
-    console.log("📧 Email sent successfully:", info.messageId);
-    
-    // Also log to console for debugging
+// Simple email notification function (fallback)
+async function sendContactNotification(submission: ContactSubmission): Promise<void> {
+  try {
+    // Log to console instead of sending email for now
     console.log("📧 NEW CONTACT SUBMISSION:");
     console.log("From:", `${submission.firstName} ${submission.lastName}`);
     console.log("Email:", submission.email);
@@ -96,31 +110,28 @@ async function sendContactNotification(submission) {
     console.log("Timestamp:", submission.createdAt);
     console.log("----------------------------------------");
     
+    // For now, just log the submission instead of sending email
+    console.log("📧 Email notification logged (email sending disabled)");
+    
   } catch (error) {
-    console.error("Failed to send email notification:", error);
-    // Still log to console even if email fails
-    console.log("📧 NEW CONTACT SUBMISSION (Email failed, but logged):");
-    console.log("From:", `${submission.firstName} ${submission.lastName}`);
-    console.log("Email:", submission.email);
-    console.log("Phone:", submission.phone);
-    console.log("Child:", submission.childName || "N/A");
-    console.log("Age:", submission.childAge || "N/A");
-    console.log("Service:", submission.serviceType || "N/A");
-    console.log("Message:", submission.message || "N/A");
-    console.log("Timestamp:", submission.createdAt);
-    console.log("----------------------------------------");
+    console.error("Failed to log contact notification:", error);
   }
 }
 
-async function registerRoutes(app) {
+async function registerRoutes(app: Application) {
   // Contact form submission
-  app.post("/api/contact", async (req, res) => {
+  app.post("/api/contact", async (req: Request, res: Response) => {
     try {
       const validatedData = insertContactSubmissionSchema.parse(req.body);
       const submission = await storage.createContactSubmission(validatedData);
       
-      // Send email notification
-      await sendContactNotification(submission);
+      // Try Google Sheets first, fallback to console logging
+      const googleSheetsSuccess = await submitToGoogleSheets(submission);
+      
+      if (!googleSheetsSuccess) {
+        console.log("⚠️ Google Sheets submission failed, falling back to console logging");
+        await sendContactNotification(submission);
+      }
       
       res.json({ success: true, submission });
     } catch (error) {
@@ -133,7 +144,7 @@ async function registerRoutes(app) {
   });
 
   // Newsletter subscription
-  app.post("/api/newsletter", async (req, res) => {
+  app.post("/api/newsletter", async (req: Request, res: Response) => {
     try {
       const validatedData = insertNewsletterSubscriptionSchema.parse(req.body);
       const subscription = await storage.createNewsletterSubscription(validatedData);
@@ -148,9 +159,9 @@ async function registerRoutes(app) {
   });
 
   // User authentication endpoints
-  app.post("/api/auth/login", async (req, res) => {
+  app.post("/api/auth/login", async (req: Request, res: Response) => {
     try {
-      const { email, password, role } = req.body;
+      const { email, password, role } = req.body as { email: string; password: string; role: string };
       console.log("Login attempt:", { email, role });
       
       // Validate input
@@ -161,7 +172,7 @@ async function registerRoutes(app) {
         });
       }
       
-      const user = await storage.getUserByEmail(email);
+      const user = await storage.getUserByEmail(email) as User | undefined;
       
       if (!user) {
         console.log("Login failed: User not found");
@@ -210,7 +221,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/auth/register", async (req, res) => {
+  app.post("/api/auth/register", async (req: Request, res: Response) => {
     try {
       const validatedData = insertUserSchema.parse(req.body);
       const existingUser = await storage.getUserByEmail(validatedData.email);
@@ -231,7 +242,7 @@ async function registerRoutes(app) {
   });
 
   // Get contact submissions (admin only)
-  app.get("/api/admin/contacts", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/admin/contacts", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const submissions = await storage.getContactSubmissions();
       res.json({ success: true, submissions });
@@ -242,7 +253,7 @@ async function registerRoutes(app) {
   });
 
   // User management (admin only)
-  app.get("/api/admin/users", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/admin/users", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const users = await storage.getUsers();
       res.json({ success: true, users: users.map(u => ({ ...u, password: undefined })) });
@@ -253,7 +264,7 @@ async function registerRoutes(app) {
   });
 
   // Service type management
-  app.get("/api/service-types", authenticateToken(), async (req, res) => {
+  app.get("/api/service-types", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const serviceTypes = await storage.getServiceTypes();
       res.json({ success: true, serviceTypes });
@@ -263,7 +274,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/service-types", authenticateToken('admin'), async (req, res) => {
+  app.post("/api/service-types", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const validatedData = insertServiceTypeSchema.parse(req.body);
       const serviceType = await storage.createServiceType(validatedData);
@@ -278,7 +289,7 @@ async function registerRoutes(app) {
   });
 
   // Patient management endpoints
-  app.get("/api/admin/patients", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/admin/patients", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const patients = await storage.getPatients();
       res.json({ success: true, patients });
@@ -289,7 +300,7 @@ async function registerRoutes(app) {
   });
 
   // Get all users (for admin)
-  app.get("/api/users", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/users", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const users = await storage.getUsers();
       res.json({ success: true, users });
@@ -300,7 +311,7 @@ async function registerRoutes(app) {
   });
 
   // Get all patients (for admin)
-  app.get("/api/patients", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/patients", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const patients = await storage.getPatients();
       res.json({ success: true, patients });
@@ -310,7 +321,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.get("/api/therapist/patients", authenticateToken('therapist'), async (req, res) => {
+  app.get("/api/therapist/patients", authenticateToken('therapist'), async (req: Request, res: Response) => {
     try {
       const therapistId = req.user.id;
       const patients = await storage.getPatientsByTherapist(therapistId);
@@ -321,7 +332,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/patients", authenticateToken('admin'), async (req, res) => {
+  app.post("/api/patients", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const validatedData = insertPatientSchema.parse(req.body);
       const patient = await storage.createPatient(validatedData);
@@ -335,7 +346,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.get("/api/patients/:id", authenticateToken(), async (req, res) => {
+  app.get("/api/patients/:id", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const patient = await storage.getPatient(Number(req.params.id));
       if (!patient) {
@@ -348,7 +359,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.put("/api/patients/:id", authenticateToken('admin'), async (req, res) => {
+  app.put("/api/patients/:id", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const patient = await storage.updatePatient(Number(req.params.id), req.body);
       if (!patient) {
@@ -362,7 +373,7 @@ async function registerRoutes(app) {
   });
 
   // Enhanced appointment management endpoints
-  app.get("/api/appointments", authenticateToken(), async (req, res) => {
+  app.get("/api/appointments", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const { date, therapistId, patientId, serviceTypeId } = req.query;
       
@@ -385,7 +396,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/appointments", authenticateToken('admin'), async (req, res) => {
+  app.post("/api/appointments", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const validatedData = insertAppointmentSchema.parse(req.body);
       
@@ -419,7 +430,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.put("/api/appointments/:id", authenticateToken('admin'), async (req, res) => {
+  app.put("/api/appointments/:id", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const appointment = await storage.updateAppointment(Number(req.params.id), req.body);
       if (!appointment) {
@@ -432,7 +443,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.delete("/api/appointments/:id", authenticateToken('admin'), async (req, res) => {
+  app.delete("/api/appointments/:id", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const deleted = await storage.deleteAppointment(Number(req.params.id));
       if (!deleted) {
@@ -446,7 +457,7 @@ async function registerRoutes(app) {
   });
 
   // Drag and drop appointment functionality
-  app.put("/api/appointments/:id/move", authenticateToken('admin'), async (req, res) => {
+  app.put("/api/appointments/:id/move", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const { newTherapistId, newScheduledAt } = req.body;
       const appointment = await storage.moveAppointment(
@@ -465,7 +476,7 @@ async function registerRoutes(app) {
   });
 
   // Appointment patients management
-  app.get("/api/appointments/:id/patients", authenticateToken(), async (req, res) => {
+  app.get("/api/appointments/:id/patients", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const appointmentPatients = await storage.getAppointmentPatients(Number(req.params.id));
       res.json({ success: true, appointmentPatients });
@@ -475,7 +486,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/appointments/:id/patients", authenticateToken('admin'), async (req, res) => {
+  app.post("/api/appointments/:id/patients", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const { patientId, isPrimary } = req.body;
       const appointmentPatient = await storage.addPatientToAppointment(
@@ -490,7 +501,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.delete("/api/appointments/:id/patients/:patientId", authenticateToken('admin'), async (req, res) => {
+  app.delete("/api/appointments/:id/patients/:patientId", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const deleted = await storage.removePatientFromAppointment(
         Number(req.params.id), 
@@ -507,7 +518,7 @@ async function registerRoutes(app) {
   });
 
   // Mark appointment as visited
-  app.put("/api/appointments/:id/visit", authenticateToken('admin'), async (req, res) => {
+  app.put("/api/appointments/:id/visit", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const appointmentId = Number(req.params.id);
       const { multiplePatients = false, patientIds = [] } = req.body;
@@ -562,7 +573,7 @@ async function registerRoutes(app) {
   });
 
   // Cancel appointment
-  app.put("/api/appointments/:id/cancel", authenticateToken('admin'), async (req, res) => {
+  app.put("/api/appointments/:id/cancel", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const appointmentId = Number(req.params.id);
       
@@ -595,7 +606,7 @@ async function registerRoutes(app) {
   });
 
   // Update appointment color
-  app.put("/api/appointments/:id/color", authenticateToken('admin'), async (req, res) => {
+  app.put("/api/appointments/:id/color", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const appointmentId = Number(req.params.id);
       const { color } = req.body;
@@ -619,7 +630,7 @@ async function registerRoutes(app) {
   });
 
   // Copy recurring appointments
-  app.post("/api/appointments/:id/copy-recurring", authenticateToken('admin'), async (req, res) => {
+  app.post("/api/appointments/:id/copy-recurring", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const { frequency, interval, endDate, maxOccurrences } = req.body;
       const originalAppointment = await storage.getAppointment(Number(req.params.id));
@@ -650,7 +661,7 @@ async function registerRoutes(app) {
   });
 
   // Session management endpoints
-  app.get("/api/sessions", authenticateToken(), async (req, res) => {
+  app.get("/api/sessions", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const { patientId, therapistId } = req.query;
       
@@ -671,7 +682,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/sessions", authenticateToken('therapist'), async (req, res) => {
+  app.post("/api/sessions", authenticateToken('therapist'), async (req: Request, res: Response) => {
     try {
       const validatedData = insertSessionSchema.parse(req.body);
       const session = await storage.createSession(validatedData);
@@ -685,7 +696,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.put("/api/sessions/:id", authenticateToken('therapist'), async (req, res) => {
+  app.put("/api/sessions/:id", authenticateToken('therapist'), async (req: Request, res: Response) => {
     try {
       const session = await storage.updateSession(Number(req.params.id), req.body);
       if (!session) {
@@ -699,7 +710,7 @@ async function registerRoutes(app) {
   });
 
   // Goal management endpoints
-  app.get("/api/goals", authenticateToken(), async (req, res) => {
+  app.get("/api/goals", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const { patientId } = req.query;
       if (!patientId) {
@@ -713,7 +724,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/goals", authenticateToken('therapist'), async (req, res) => {
+  app.post("/api/goals", authenticateToken('therapist'), async (req: Request, res: Response) => {
     try {
       const validatedData = insertGoalSchema.parse(req.body);
       const goal = await storage.createGoal(validatedData);
@@ -727,7 +738,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.put("/api/goals/:id", authenticateToken('therapist'), async (req, res) => {
+  app.put("/api/goals/:id", authenticateToken('therapist'), async (req: Request, res: Response) => {
     try {
       const goal = await storage.updateGoal(Number(req.params.id), req.body);
       if (!goal) {
@@ -741,7 +752,7 @@ async function registerRoutes(app) {
   });
 
   // Payment management endpoints
-  app.post("/api/payments", authenticateToken('admin'), async (req, res) => {
+  app.post("/api/payments", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const { appointmentId, amount, method, notes, paymentDate } = req.body;
       
@@ -779,7 +790,7 @@ async function registerRoutes(app) {
     }
   });
   
-  app.get("/api/payments", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/payments", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const { appointmentId, patientId } = req.query;
       
@@ -800,7 +811,7 @@ async function registerRoutes(app) {
   });
 
   // Task management endpoints
-  app.get("/api/tasks", authenticateToken(), async (req, res) => {
+  app.get("/api/tasks", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const { patientId, assignedTo } = req.query;
       
@@ -819,7 +830,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.post("/api/tasks", authenticateToken(), async (req, res) => {
+  app.post("/api/tasks", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const validatedData = insertTaskSchema.parse(req.body);
       const task = await storage.createTask(validatedData);
@@ -833,7 +844,7 @@ async function registerRoutes(app) {
     }
   });
 
-  app.put("/api/tasks/:id", authenticateToken(), async (req, res) => {
+  app.put("/api/tasks/:id", authenticateToken(), async (req: Request, res: Response) => {
     try {
       const task = await storage.updateTask(Number(req.params.id), req.body);
       if (!task) {
@@ -847,7 +858,7 @@ async function registerRoutes(app) {
   });
 
   // Admin dashboard summary
-  app.get("/api/admin/summary", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/admin/summary", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const patients = await storage.getPatients();
       const appointments = await storage.getAppointments();
@@ -919,7 +930,7 @@ async function registerRoutes(app) {
   });
 
   // Therapist schedule and workload
-  app.get("/api/admin/therapists/:id/schedule", authenticateToken('admin'), async (req, res) => {
+  app.get("/api/admin/therapists/:id/schedule", authenticateToken('admin'), async (req: Request, res: Response) => {
     try {
       const therapistId = Number(req.params.id);
       const { date } = req.query;
