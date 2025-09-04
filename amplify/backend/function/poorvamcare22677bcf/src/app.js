@@ -13,9 +13,25 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "*")
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+  // Allow specific domains
+  const allowedOrigins = [
+    'https://www.poorvamcare.in',
+    'https://poorvamcare.in',
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'http://localhost:4173'
+  ];
+  
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  } else {
+    res.header("Access-Control-Allow-Origin", "https://www.poorvamcare.in");
+  }
+  
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "false");
   next()
 });
 
