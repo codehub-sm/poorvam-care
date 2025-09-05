@@ -6,7 +6,7 @@ const getApiBaseUrl = () => {
     return 'http://localhost:3001'; // Development
   }
   // Production - use Amplify API endpoint
-  return import.meta.env.VITE_API_URL || 'https://cy36o6bdgj.execute-api.ap-south-1.amazonaws.com/dev';
+  return import.meta.env.VITE_API_URL || 'https://gnuk7074fb.execute-api.ap-south-1.amazonaws.com/dev';
 };
 
 async function throwIfResNotOk(res: Response) {
