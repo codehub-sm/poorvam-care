@@ -178,7 +178,7 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      content: "+91 98765 43210\n+91 87654 32109",
+      content: "+91 8861764343",
       color: "bg-green-600"
     },
     {
@@ -235,7 +235,7 @@ export default function Contact() {
               <div className="space-y-3">
                 <Button className="w-full justify-start" variant="outline">
                   <PhoneCall className="w-4 h-4 mr-2" />
-                  Call Now: +91 98765 43210
+                  Call Now: +91 8861764343
                 </Button>
                 <Button className="w-full justify-start" variant="outline">
                   <Calendar className="w-4 h-4 mr-2" />
@@ -302,7 +302,7 @@ export default function Contact() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateFormData("phone", e.target.value)}
                     required
                     className="mt-1"
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 8861764343"
                   />
                 </div>
               </div>
