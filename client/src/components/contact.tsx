@@ -35,8 +35,43 @@ export default function Contact() {
     consent: false,
   });
 
-  // Direct API call to Lambda endpoint
+  // Google Apps Script integration
   const submitContactForm = async (data: ContactFormData) => {
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzlz71svz_5jZu8xw5_V6pHZlEPI53zPtg9Ye4UcDm8Eet8zKi4A62mlkxIxr7SgLilWg/exec';
+    
+    console.log('🚀 Submitting to Google Sheets via Apps Script:', scriptUrl);
+    console.log('📝 Form data:', data);
+    
+    // Create JSON payload for Google Apps Script
+    const payload = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      childName: data.childName,
+      childAge: data.childAge,
+      serviceType: data.serviceType,
+      message: data.message,
+      consent: data.consent,
+      timestamp: new Date().toISOString()
+    };
+
+    console.log('📦 JSON payload:', payload);
+
+    const response = await fetch(scriptUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      mode: 'no-cors' // Required for Google Apps Script
+    });
+
+    console.log('✅ Form submitted to Google Sheets');
+    return { success: true };
+
+    // Commented out Lambda approach for reference
+    /*
     const apiUrl = 'https://gnuk7074fb.execute-api.ap-south-1.amazonaws.com/prod/contact';
     
     console.log('🚀 Submitting contact form to:', apiUrl);
@@ -63,6 +98,7 @@ export default function Contact() {
     const result = await response.json();
     console.log('✅ API Success:', result);
     return result;
+    */
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
