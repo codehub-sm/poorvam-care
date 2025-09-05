@@ -43,7 +43,7 @@ export default function TeamCarousel() {
         name: "Ananya",
         title: "Clinic Manager & Behavioural Therapist",
         description: "Passionate behavioral therapist dedicated to helping children overcome communication and behavioral challenges. Specializes in behavioral interventions and social communication skills.",
-        image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/sreeshma.jpg",
+        image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/ananya.jpeg ",
         specializations: ["Behavioral Interventions", "Social Communication", "Behavioral Therapy", "Social Skills"],
         experience: "3+",
         clients: "200+",
