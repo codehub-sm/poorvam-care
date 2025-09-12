@@ -39,6 +39,7 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
                 <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Home</button>
                 <button onClick={() => scrollToSection('onboarding')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">How It Works</button>
                 <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Services</button>
+                <Link href="/service-packages" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Book Online</Link>
                 <button onClick={() => scrollToSection('team')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Team</button>
                 <button onClick={() => scrollToSection('resources')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Resources</button>
                 <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Contact</button>
@@ -47,6 +48,7 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
               <>
                 <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Home</Link>
                 <Link href="/services" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Services</Link>
+                <Link href="/service-packages" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Book Online</Link>
                 <Link href="/#team" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Team</Link>
                 <Link href="/#resources" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Resources</Link>
                 <Link href="/#contact" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-serif">Contact</Link>
@@ -89,6 +91,7 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
                 <button onClick={() => scrollToSection('home')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Home</button>
                 <button onClick={() => scrollToSection('onboarding')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">How It Works</button>
                 <button onClick={() => scrollToSection('services')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Services</button>
+                <Link href="/service-packages" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Book Online</Link>
                 <button onClick={() => scrollToSection('team')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Team</button>
                 <button onClick={() => scrollToSection('resources')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Resources</button>
                 <button onClick={() => scrollToSection('contact')} className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Contact</button>
@@ -97,6 +100,7 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
               <>
                 <Link href="/" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Home</Link>
                 <Link href="/services" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Services</Link>
+                <Link href="/service-packages" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Book Online</Link>
                 <Link href="/#team" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Team</Link>
                 <Link href="/#resources" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Resources</Link>
                 <Link href="/#contact" className="block w-full text-left text-gray-700 hover:text-blue-600 py-2 font-serif">Contact</Link>

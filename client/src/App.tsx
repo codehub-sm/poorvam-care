@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ServiceProvider } from "@/contexts/ServiceContext";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
+import ServicePackagesPage from "@/pages/service-packages";
 import AdminPage from "@/pages/admin";
 import FloatingWhatsApp from "@/components/floating-whatsapp";
 
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/service-packages" component={ServicePackagesPage} />
       <Route path="/admin" component={AdminPage} />
     </Switch>
   );
