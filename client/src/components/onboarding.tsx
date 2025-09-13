@@ -3,6 +3,12 @@ import { useServiceContext } from "@/contexts/ServiceContext";
 
 export default function Onboarding() {
   const { activeService } = useServiceContext();
+  
+  // Don't render Onboarding section for Future Skills
+  if (activeService === 'future-skills') {
+    return null;
+  }
+  
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {

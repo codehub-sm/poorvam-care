@@ -45,10 +45,10 @@ export default function Footer() {
             <div className="flex items-center space-x-3 mb-6">
               <img 
                 src="https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg" 
-                alt="Poorvam Care & Hearing Solutions Logo" 
+                alt="Poorvam" 
                 className="w-12 h-12 rounded-full object-cover"
               />
-              <h3 className="text-3xl font-serif font-bold text-blue-400">Poorvam Care & Hearing Solutions</h3>
+              <h3 className="text-3xl font-serif font-bold text-blue-400">Poorvam</h3>
             </div>
             
             <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md font-serif">
@@ -108,7 +108,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0 font-serif">
-            © 2024 Poorvam Care & Hearing Solutions Child Development Center. All rights reserved.
+            © 2024 Poorvam. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             {legalLinks.map((link, index) => (

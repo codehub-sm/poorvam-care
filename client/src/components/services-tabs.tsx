@@ -428,10 +428,27 @@ export default function ServicesTabs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
-            Our <span className="text-blue-600">Specialized Services</span>
+            {activeService === 'future-skills' ? (
+              <>
+                <span className="text-green-600">Future Ready Skills</span> with uCUBE
+              </>
+            ) : activeService === 'hearing' ? (
+              <>
+                Comprehensive <span className="text-blue-600">Hearing Solutions</span>
+              </>
+            ) : (
+              <>
+                <span className="text-blue-600">Early Intervention</span> Services
+              </>
+            )}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
-            Comprehensive care for developmental disorders and hearing health across all age groups.
+            {activeService === 'future-skills' 
+              ? "Empowering children with essential skills for tomorrow's world through innovative learning experiences."
+              : activeService === 'hearing'
+              ? "Complete audiological services for all age groups with state-of-the-art equipment and expert care."
+              : "Comprehensive care for developmental disorders and hearing health across all age groups."
+            }
           </p>
         </div>
 
