@@ -10,7 +10,7 @@ interface TeamMember {
   specializations: string[];
   experience: string;
   clients: string;
-  role: 'early-intervention' | 'hearing' | 'both';
+  role: 'early-intervention' | 'hearing' | 'future-skills' | 'both';
 }
 
 export default function TeamCarousel() {
@@ -158,6 +158,57 @@ export default function TeamCarousel() {
       experience: "1+",
       clients: "100+",
       role: "early-intervention"
+    },
+    // Future Skills Team Members
+    {
+      name: "Sarah Johnson",
+      title: "Robotics & Coding Instructor",
+      description: "Passionate STEM educator specializing in robotics, coding, and technology education for children. Creates engaging hands-on learning experiences that make complex concepts accessible and fun.",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      specializations: ["Robotics Programming", "STEM Education", "Block Coding", "Technology Integration"],
+      experience: "5+",
+      clients: "150+",
+      role: "future-skills"
+    },
+    {
+      name: "Michael Chen",
+      title: "Public Speaking Coach",
+      description: "Experienced communication coach specializing in public speaking, podcast creation, and presentation skills. Helps children build confidence and develop effective communication abilities.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      specializations: ["Public Speaking", "Podcast Production", "Voice Training", "Presentation Skills"],
+      experience: "8+",
+      clients: "200+",
+      role: "future-skills"
+    },
+    {
+      name: "Priya Sharma",
+      title: "Art & Craft Specialist",
+      description: "Creative arts educator with expertise in various art forms, craft techniques, and therapeutic art practices. Inspires children to express themselves through creative mediums.",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      specializations: ["Fine Arts", "Craft Making", "Art Therapy", "Creative Expression"],
+      experience: "6+",
+      clients: "180+",
+      role: "future-skills"
+    },
+    {
+      name: "David Rodriguez",
+      title: "Yoga & Wellness Instructor",
+      description: "Certified yoga instructor specializing in children's yoga, mindfulness practices, and holistic wellness. Creates safe, fun, and engaging yoga experiences for all age groups.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      specializations: ["Children's Yoga", "Mindfulness", "Stress Management", "Holistic Wellness"],
+      experience: "4+",
+      clients: "120+",
+      role: "future-skills"
+    },
+    {
+      name: "Emma Thompson",
+      title: "Event Coordinator & Activity Specialist",
+      description: "Dynamic event coordinator specializing in educational birthday parties and creative activities. Designs memorable experiences that combine fun with learning opportunities.",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      specializations: ["Event Planning", "Educational Activities", "Group Management", "Creative Workshops"],
+      experience: "3+",
+      clients: "100+",
+      role: "future-skills"
     }
   ];
 
@@ -166,6 +217,10 @@ export default function TeamCarousel() {
     if (activeService === 'hearing') {
       return allTeamMembers.filter(member => 
         member.role === 'hearing' || member.role === 'both'
+      );
+    } else if (activeService === 'future-skills') {
+      return allTeamMembers.filter(member => 
+        member.role === 'future-skills' || member.role === 'both'
       );
     } else {
       return allTeamMembers.filter(member => 
@@ -201,9 +256,13 @@ export default function TeamCarousel() {
   }, [teamMembers.length]);
 
   const getServiceDescription = () => {
-    return activeService === 'hearing'
-      ? "Meet our certified audiologists and hearing care specialists dedicated to providing comprehensive hearing solutions for all age groups."
-      : "Our expert team of therapists and specialists work together to provide comprehensive early intervention services for children with developmental needs.";
+    if (activeService === 'hearing') {
+      return "Meet our certified audiologists and hearing care specialists dedicated to providing comprehensive hearing solutions for all age groups.";
+    } else if (activeService === 'future-skills') {
+      return "Our innovative team of instructors and specialists are passionate about preparing children for tomorrow's world through cutting-edge skills and creative learning experiences.";
+    } else {
+      return "Our expert team of therapists and specialists work together to provide comprehensive early intervention services for children with developmental needs.";
+    }
   };
 
   return (
@@ -211,7 +270,7 @@ export default function TeamCarousel() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
-            Meet Our <span className="text-blue-600">Team</span>
+            Meet Our <span className={activeService === 'future-skills' ? 'text-green-600' : 'text-blue-600'}>Team</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
             {getServiceDescription()}

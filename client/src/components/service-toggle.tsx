@@ -1,4 +1,4 @@
-import { Puzzle, Ear } from "lucide-react";
+import { Puzzle, Ear, Rocket } from "lucide-react";
 import { useServiceContext } from "@/contexts/ServiceContext";
 
 export default function ServiceToggle() {
@@ -29,6 +29,17 @@ export default function ServiceToggle() {
           >
             <Ear className="w-5 h-5" />
             <span>Hearing Services</span>
+          </button>
+          <button
+            onClick={() => setActiveService('future-skills')}
+            className={`px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center space-x-2 font-serif ${
+              activeService === 'future-skills'
+                ? 'bg-green-600 text-white shadow-lg'
+                : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'
+            }`}
+          >
+            <Rocket className="w-5 h-5" />
+            <span>Future Skills</span>
           </button>
         </div>
       </div>

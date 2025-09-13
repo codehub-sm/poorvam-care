@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type ServiceType = 'early-intervention' | 'hearing';
+type ServiceType = 'early-intervention' | 'hearing' | 'future-skills';
 
 interface ServiceContextType {
   activeService: ServiceType;

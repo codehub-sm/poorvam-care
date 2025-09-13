@@ -152,6 +152,11 @@ export default function Resources() {
       : "Access our comprehensive library of guides, activities, and educational materials to support your child's development at home.";
   };
 
+  // Don't render Resources section for Future Skills
+  if (activeService === 'future-skills') {
+    return null;
+  }
+
   return (
     <section id="resources" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

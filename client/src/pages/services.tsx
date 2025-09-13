@@ -26,6 +26,8 @@ export default function Services() {
       setActiveService('hearing');
     } else if (hash === 'early-intervention') {
       setActiveService('early-intervention');
+    } else if (hash === 'future-skills') {
+      setActiveService('future-skills');
     }
   }, [location, setActiveService]);
 

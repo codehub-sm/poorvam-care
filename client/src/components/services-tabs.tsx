@@ -1,6 +1,14 @@
 import { useState } from "react";
-import { Puzzle, TrendingUp, Activity, Heart, Hand, Zap, ChevronDown, Baby, User, Users, Check, Ear, Volume2, Headphones } from "lucide-react";
+import { Puzzle, TrendingUp, Activity, Heart, Hand, Zap, ChevronDown, Baby, User, Users, Check, Ear, Volume2, Headphones, Rocket, Code, Mic, Calendar, Atom, MessageCircle, Palette } from "lucide-react";
 import { useServiceContext } from "@/contexts/ServiceContext";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
 
 interface DisorderCard {
   id: string;
@@ -31,9 +39,48 @@ interface HearingService {
   features: string[];
 }
 
+interface FutureSkillsService {
+  title: string;
+  description: string;
+  icon: any;
+  color: string;
+  bgGradient: string;
+  image: string;
+  features: string[];
+  ageGroup: string;
+}
+
+interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  childName: string;
+  childAge: string;
+  serviceType: string;
+  message: string;
+  consent: boolean;
+}
+
 export default function ServicesTabs() {
   const { activeService } = useServiceContext();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string>("");
+  const { toast } = useToast();
+  
+  const [contactFormData, setContactFormData] = useState<ContactFormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    childName: "",
+    childAge: "",
+    serviceType: "",
+    message: "",
+    consent: false,
+  });
 
   const disorders: DisorderCard[] = [
     {
@@ -192,8 +239,188 @@ export default function ServicesTabs() {
     }
   ];
 
+  const futureSkillsServices: FutureSkillsService[] = [
+    {
+      title: "Robotics & Coding",
+      description: "Hands-on learning in robotics, programming, and STEM concepts to prepare children for the digital future.",
+      icon: Code,
+      color: "bg-green-600",
+      bgGradient: "from-green-50 to-emerald-50",
+      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Block-based Programming",
+        "Robotics Construction",
+        "STEM Project Building",
+        "Problem-solving Skills",
+        "Digital Literacy"
+      ],
+      ageGroup: "Ages 6-16"
+    },
+    {
+      title: "Public Speaking & Podcasting",
+      description: "Develop confidence and communication skills through public speaking training and podcast creation.",
+      icon: Mic,
+      color: "bg-green-600",
+      bgGradient: "from-green-50 to-emerald-50",
+      image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Speech Writing & Delivery",
+        "Podcast Production",
+        "Voice Modulation",
+        "Presentation Skills",
+        "Interview Techniques"
+      ],
+      ageGroup: "Ages 8-18"
+    },
+    {
+      title: "Holistic Well-being",
+      description: "Yoga, art therapy, and mindfulness practices for mental health and emotional well-being.",
+      icon: Heart,
+      color: "bg-green-600",
+      bgGradient: "from-green-50 to-emerald-50",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Therapeutic Yoga",
+        "Art & Creative Expression",
+        "Mindfulness & Meditation",
+        "Stress Management",
+        "Emotional Regulation"
+      ],
+      ageGroup: "All Ages"
+    },
+    {
+      title: "Art & Craft Services",
+      description: "Creative expression through various art forms, craft activities, and hands-on artistic learning experiences.",
+      icon: Palette,
+      color: "bg-green-600",
+      bgGradient: "from-green-50 to-emerald-50",
+      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Painting & Drawing",
+        "Craft Making",
+        "Sculpture & 3D Art",
+        "Digital Art Creation",
+        "Art Therapy Sessions"
+      ],
+      ageGroup: "Ages 4-16"
+    },
+    {
+      title: "Birthday Events & Activities",
+      description: "Special birthday celebrations with therapeutic activities, fun learning, and memorable experiences.",
+      icon: Calendar,
+      color: "bg-green-600",
+      bgGradient: "from-green-50 to-emerald-50",
+      image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Themed Birthday Parties",
+        "Educational Activities",
+        "Group Games & Fun",
+        "Creative Workshops",
+        "Memory Making"
+      ],
+      ageGroup: "Ages 3-16"
+    }
+  ];
+
   const toggleCard = (cardId: string) => {
     setExpandedCard(expandedCard === cardId ? null : cardId);
+  };
+
+  // Contact form submission function
+  const submitContactForm = async (data: ContactFormData) => {
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzlz71svz_5jZu8xw5_V6pHZlEPI53zPtg9Ye4UcDm8Eet8zKi4A62mlkxIxr7SgLilWg/exec';
+    
+    const payload = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      childName: data.childName,
+      childAge: data.childAge,
+      serviceType: data.serviceType,
+      message: data.message,
+      consent: data.consent,
+      timestamp: new Date().toISOString()
+    };
+
+    const response = await fetch(scriptUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      mode: 'no-cors'
+    });
+
+    return { success: true };
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!contactFormData.consent) {
+      toast({
+        title: "Consent Required",
+        description: "Please agree to the consent terms before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!contactFormData.firstName || !contactFormData.lastName || !contactFormData.email || !contactFormData.phone) {
+      toast({
+        title: "Required Fields Missing",
+        description: "Please fill in all required fields (First Name, Last Name, Email, Phone).",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      await submitContactForm(contactFormData);
+      
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setContactFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        childName: "",
+        childAge: "",
+        serviceType: "",
+        message: "",
+        consent: false,
+      });
+      
+      setIsContactModalOpen(false);
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error sending your message. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const updateContactFormData = (field: keyof ContactFormData, value: string | boolean) => {
+    setContactFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleBookSession = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+    setContactFormData(prev => ({ ...prev, serviceType: serviceTitle }));
+    setIsBookingModalOpen(true);
+  };
+
+  const handleContactUs = () => {
+    setContactFormData(prev => ({ ...prev, serviceType: "Future Skills - General Inquiry" }));
+    setIsContactModalOpen(true);
   };
 
   return (
@@ -402,7 +629,329 @@ export default function ServicesTabs() {
             </div>
           </div>
         )}
+
+        {/* Future Skills Tab Content */}
+        {activeService === 'future-skills' && (
+          <div className="space-y-8">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-serif font-bold text-gray-800 mb-4">
+                <span className="text-green-600">Future Ready Skills</span> with uCUBE
+              </h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-serif">
+                Empowering children with essential skills for tomorrow's world through innovative learning experiences.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {futureSkillsServices.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <div key={index} className={`bg-gradient-to-br ${service.bgGradient} rounded-2xl p-8 text-center`}>
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="w-full h-48 object-cover rounded-xl mb-6"
+                    />
+                    
+                    <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-6`}>
+                      <IconComponent className="text-white w-8 h-8" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-serif font-bold text-gray-800 mb-4">{service.title}</h3>
+                    <p className="text-gray-600 mb-4 font-serif">
+                      {service.description}
+                    </p>
+                    
+                    <div className="mb-4">
+                      <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                        {service.ageGroup}
+                      </span>
+                    </div>
+                    
+                    <div className="space-y-3 text-left mb-6">
+                      {service.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center">
+                          <Check className="text-green-600 w-5 h-5 mr-3" />
+                          <span className="text-gray-600 font-serif">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <button 
+                        onClick={() => handleBookSession(service.title)}
+                        className="bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-green-700 transition-all duration-300 font-serif"
+                      >
+                        Book Session
+                      </button>
+                      <button 
+                        onClick={() => handleContactUs()}
+                        className="border-2 border-green-600 text-green-600 px-6 py-3 rounded-full font-bold text-sm hover:bg-green-600 hover:text-white transition-all duration-300 font-serif"
+                      >
+                        Learn More
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Call to Action */}
+            <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-12 text-center text-white">
+              <h3 className="text-3xl font-serif font-bold mb-6">
+                Ready to Shape Your Child's Future?
+              </h3>
+              <p className="text-xl mb-8 opacity-90 font-serif">
+                Join uCUBE's innovative programs and give your child the skills they need to thrive in tomorrow's world.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => handleBookSession("Future Skills - General Booking")}
+                  className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 font-serif"
+                >
+                  Book Future Skills Session
+                </button>
+                <button 
+                  onClick={() => handleContactUs()}
+                  className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 font-serif"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
+
+      {/* Contact Modal */}
+      <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-gray-800">Contact Us - Future Skills</DialogTitle>
+          </DialogHeader>
+          
+          <form onSubmit={handleContactSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="firstName">First Name *</Label>
+                <Input
+                  id="firstName"
+                  value={contactFormData.firstName}
+                  onChange={(e) => updateContactFormData('firstName', e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="lastName">Last Name *</Label>
+                <Input
+                  id="lastName"
+                  value={contactFormData.lastName}
+                  onChange={(e) => updateContactFormData('lastName', e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="email">Email *</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={contactFormData.email}
+                  onChange={(e) => updateContactFormData('email', e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="phone">Phone *</Label>
+                <Input
+                  id="phone"
+                  value={contactFormData.phone}
+                  onChange={(e) => updateContactFormData('phone', e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="childName">Child's Name</Label>
+                <Input
+                  id="childName"
+                  value={contactFormData.childName}
+                  onChange={(e) => updateContactFormData('childName', e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="childAge">Child's Age</Label>
+                <Input
+                  id="childAge"
+                  value={contactFormData.childAge}
+                  onChange={(e) => updateContactFormData('childAge', e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="serviceType">Service Type</Label>
+              <Input
+                id="serviceType"
+                value={contactFormData.serviceType}
+                onChange={(e) => updateContactFormData('serviceType', e.target.value)}
+                readOnly
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="message">Message</Label>
+              <Textarea
+                id="message"
+                value={contactFormData.message}
+                onChange={(e) => updateContactFormData('message', e.target.value)}
+                rows={4}
+                placeholder="Tell us more about your requirements..."
+              />
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="consent"
+                checked={contactFormData.consent}
+                onCheckedChange={(checked) => updateContactFormData('consent', checked as boolean)}
+              />
+              <Label htmlFor="consent" className="text-sm">
+                I agree to the terms and conditions and consent to being contacted regarding this inquiry.
+              </Label>
+            </div>
+
+            <div className="flex justify-end space-x-4">
+              <Button type="button" variant="outline" onClick={() => setIsContactModalOpen(false)}>
+                Cancel
+              </Button>
+              <Button type="submit" className="bg-green-600 hover:bg-green-700">
+                Send Message
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
+
+      {/* Booking Modal */}
+      <Dialog open={isBookingModalOpen} onOpenChange={setIsBookingModalOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-gray-800">Book {selectedService} Session</DialogTitle>
+          </DialogHeader>
+          
+          <form onSubmit={handleContactSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="bookingFirstName">First Name *</Label>
+                <Input
+                  id="bookingFirstName"
+                  value={contactFormData.firstName}
+                  onChange={(e) => updateContactFormData('firstName', e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="bookingLastName">Last Name *</Label>
+                <Input
+                  id="bookingLastName"
+                  value={contactFormData.lastName}
+                  onChange={(e) => updateContactFormData('lastName', e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="bookingEmail">Email *</Label>
+                <Input
+                  id="bookingEmail"
+                  type="email"
+                  value={contactFormData.email}
+                  onChange={(e) => updateContactFormData('email', e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="bookingPhone">Phone *</Label>
+                <Input
+                  id="bookingPhone"
+                  value={contactFormData.phone}
+                  onChange={(e) => updateContactFormData('phone', e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="bookingChildName">Child's Name *</Label>
+                <Input
+                  id="bookingChildName"
+                  value={contactFormData.childName}
+                  onChange={(e) => updateContactFormData('childName', e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="bookingChildAge">Child's Age *</Label>
+                <Input
+                  id="bookingChildAge"
+                  value={contactFormData.childAge}
+                  onChange={(e) => updateContactFormData('childAge', e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="bookingServiceType">Service Type</Label>
+              <Input
+                id="bookingServiceType"
+                value={contactFormData.serviceType}
+                onChange={(e) => updateContactFormData('serviceType', e.target.value)}
+                readOnly
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="bookingMessage">Additional Requirements</Label>
+              <Textarea
+                id="bookingMessage"
+                value={contactFormData.message}
+                onChange={(e) => updateContactFormData('message', e.target.value)}
+                rows={4}
+                placeholder="Any specific requirements or preferences for the session..."
+              />
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="bookingConsent"
+                checked={contactFormData.consent}
+                onCheckedChange={(checked) => updateContactFormData('consent', checked as boolean)}
+              />
+              <Label htmlFor="bookingConsent" className="text-sm">
+                I agree to the terms and conditions and consent to being contacted regarding this booking.
+              </Label>
+            </div>
+
+            <div className="flex justify-end space-x-4">
+              <Button type="button" variant="outline" onClick={() => setIsBookingModalOpen(false)}>
+                Cancel
+              </Button>
+              <Button type="submit" className="bg-green-600 hover:bg-green-700">
+                Book Session
+              </Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 } 
