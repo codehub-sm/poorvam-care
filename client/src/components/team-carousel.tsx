@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Award, Users, Calendar } from "lucide-react";
 import { useServiceContext } from "@/contexts/ServiceContext";
 
 interface TeamMember {
@@ -11,12 +11,19 @@ interface TeamMember {
   experience: string;
   clients: string;
   role: 'early-intervention' | 'hearing' | 'future-skills' | 'both';
+  rating?: number;
+  achievements?: string[];
 }
 
 export default function TeamCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [expandedSpecializations, setExpandedSpecializations] = useState<number | null>(null);
-  const { activeService } = useServiceContext();
+  const [isVisible, setIsVisible] = useState(false);
+  const { activeBusinessLine } = useServiceContext();
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
   
   const allTeamMembers: TeamMember[] = [
     {
@@ -27,7 +34,9 @@ export default function TeamCarousel() {
       specializations: ["Clinical Operations", "Strategic Planning", "Team Leadership", "Quality Management"],
       experience: "18+",
       clients: "100+",
-      role: "both"
+      role: "both",
+      rating: 4.9,
+      achievements: ["MBA Healthcare Management", "Certified Quality Auditor"]
     },
     {
       name: "Apoorva",
@@ -37,7 +46,9 @@ export default function TeamCarousel() {
       specializations: ["Clinical Leadership", "Speech Therapy", "Audiological Services", "Team Management"],
       experience: "13+",
       clients: "700+",
-      role: "both"
+      role: "both",
+      rating: 4.8,
+      achievements: ["PhD Speech Pathology", "Certified Audiologist"]
     },
     {
         name: "Ananya",
@@ -47,7 +58,9 @@ export default function TeamCarousel() {
         specializations: ["Behavioral Interventions", "Social Communication", "Behavioral Therapy", "Social Skills"],
         experience: "3+",
         clients: "200+",
-        role: "early-intervention"
+        role: "early-intervention",
+        rating: 4.7,
+        achievements: ["BCBA Certified", "ABA Specialist"]
     },
     {
       name: "Mariapan",
@@ -57,7 +70,9 @@ export default function TeamCarousel() {
       specializations: ["Sensory Integration", "Fine Motor Skills", "ADL Training", "Sensory Processing"],
       experience: "15+",
       clients: "300+",
-      role: "early-intervention"
+      role: "early-intervention",
+      rating: 4.9,
+      achievements: ["MOT Degree", "SIPT Certified"]
     },
     {
       name: "Niranjana",
@@ -67,7 +82,9 @@ export default function TeamCarousel() {
       specializations: ["Communication Disorders", "Language Development", "Audiological Assessment", "AAC Devices"],
       experience: "8+",
       clients: "300+",
-      role: "both"
+      role: "both",
+      rating: 4.8,
+      achievements: ["MSLP", "CCC-SLP Certified"]
     },
     {
       name: "Pooja",
@@ -77,7 +94,9 @@ export default function TeamCarousel() {
       specializations: ["Individualized Education", "Learning Disabilities", "Academic Support", "Skill Development"],
       experience: "6+",
       clients: "100+",
-      role: "early-intervention"
+      role: "early-intervention",
+      rating: 4.6,
+      achievements: ["M.Ed Special Education", "IEP Specialist"]
     },
     {
       name: "Aftab",
@@ -87,7 +106,9 @@ export default function TeamCarousel() {
       specializations: ["Physical Therapy", "Play Therapy", "Motor Development", "Therapeutic Play"],
       experience: "2+",
       clients: "100+",
-      role: "early-intervention"
+      role: "early-intervention",
+      rating: 4.5,
+      achievements: ["DPT", "Play Therapy Certified"]
     },
     {
       name: "Sushmita",
@@ -97,7 +118,9 @@ export default function TeamCarousel() {
       specializations: ["Life Skills", "Sensory Processing", "Fine Motor Skills", "Daily Living Activities"],
       experience: "5+",
       clients: "100+",
-      role: "early-intervention"
+      role: "early-intervention",
+      rating: 4.7,
+      achievements: ["MOT", "Sensory Integration Certified"]
     },
     {
       name: "Sreeshma",
@@ -212,13 +235,13 @@ export default function TeamCarousel() {
     }
   ];
 
-  // Filter team members based on service
+  // Filter team members based on business line
   const getTeamMembers = () => {
-    if (activeService === 'hearing') {
+    if (activeBusinessLine === 'hearing-center') {
       return allTeamMembers.filter(member => 
         member.role === 'hearing' || member.role === 'both'
       );
-    } else if (activeService === 'future-skills') {
+    } else if (activeBusinessLine === 'ucube') {
       return allTeamMembers.filter(member => 
         member.role === 'future-skills' || member.role === 'both'
       );
@@ -256,9 +279,9 @@ export default function TeamCarousel() {
   }, [teamMembers.length]);
 
   const getServiceDescription = () => {
-    if (activeService === 'hearing') {
+    if (activeBusinessLine === 'hearing-center') {
       return "Meet our certified audiologists and hearing care specialists dedicated to providing comprehensive hearing solutions for all age groups.";
-    } else if (activeService === 'future-skills') {
+    } else if (activeBusinessLine === 'ucube') {
       return "Our innovative team of instructors and specialists are passionate about preparing children for tomorrow's world through cutting-edge skills and creative learning experiences.";
     } else {
       return "Our expert team of therapists and specialists work together to provide comprehensive early intervention services for children with developmental needs.";
@@ -266,130 +289,115 @@ export default function TeamCarousel() {
   };
 
   return (
-    <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
-            Meet Our <span className={activeService === 'future-skills' ? 'text-green-600' : 'text-blue-600'}>Team</span>
+    <section id="team" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50 relative overflow-hidden">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/5 via-transparent to-emerald-600/5"></div>
+        <div className="absolute top-20 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6 font-serif">
+            Meet Our <span className={activeBusinessLine === 'ucube' ? 'text-emerald-600' : 'text-blue-600'}>Expert Team</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-serif leading-relaxed">
             {getServiceDescription()}
           </p>
         </div>
         
-        <div className="relative">
-          <div className="carousel-container overflow-hidden">
-            <div 
-              className="carousel-track flex transition-transform duration-500"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        {/* Clean Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {getTeamMembers().map((member, index) => (
+            <div
+              key={index}
+              className={`group transition-all duration-700 hover:scale-105 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {teamMembers.map((member, index) => (
-                <div key={index} className="flex-shrink-0 w-full px-4">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden mx-auto max-w-5xl flex flex-col lg:flex-row h-[600px] lg:h-[500px]">
-                    <div className="lg:w-1/2 h-64 lg:h-full flex items-center justify-center p-8">
-                      <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-blue-100 shadow-lg">
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=256&background=3B82F6&color=fff&font-size=0.4`;
-                          }}
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="lg:w-1/2 p-8 flex flex-col justify-center h-full overflow-y-auto">
-                      <h3 className="text-2xl font-serif font-bold text-gray-800 mb-2">{member.name}</h3>
-                      <p className="text-lg text-blue-600 font-semibold mb-3 font-serif">{member.title}</p>
-                      
-                      <p className="text-gray-600 mb-4 leading-relaxed font-serif text-base">
-                        {member.description}
-                      </p>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-bold text-sm mb-2 text-gray-800 font-serif">Specializations:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {expandedSpecializations === index 
-                            ? member.specializations.map((spec, specIndex) => (
-                                <span key={specIndex} className="bg-blue-50 text-blue-600 px-2 py-1 rounded-full text-xs font-medium font-serif">
-                                  {spec}
-                                </span>
-                              ))
-                            : (
-                              <>
-                                {member.specializations.slice(0, 3).map((spec, specIndex) => (
-                                  <span key={specIndex} className="bg-blue-50 text-blue-600 px-2 py-1 rounded-full text-xs font-medium font-serif">
-                                    {spec}
-                                  </span>
-                                ))}
-                                {member.specializations.length > 3 && (
-                                  <button 
-                                    onClick={() => toggleSpecializations(index)}
-                                    className="bg-gray-50 text-gray-600 px-2 py-1 rounded-full text-xs font-medium font-serif hover:bg-gray-100 transition-colors cursor-pointer"
-                                  >
-                                    +{member.specializations.length - 3} more
-                                  </button>
-                                )}
-                              </>
-                            )
-                          }
-                          {expandedSpecializations === index && member.specializations.length > 3 && (
-                            <button 
-                              onClick={() => toggleSpecializations(index)}
-                              className="bg-gray-50 text-gray-600 px-2 py-1 rounded-full text-xs font-medium font-serif hover:bg-gray-100 transition-colors cursor-pointer"
-                            >
-                              Show less
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                      
-                      <div className="flex space-x-4">
-                        <div className="text-center">
-                          <p className="text-lg font-bold text-blue-600 font-serif">{member.clients}</p>
-                          <p className="text-xs text-gray-600 font-serif">Clients Helped</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-lg font-bold text-green-600 font-serif">{member.experience}</p>
-                          <p className="text-xs text-gray-600 font-serif">Years Experience</p>
-                        </div>
-                      </div>
-                    </div>
+              {/* Clean Profile Image */}
+              <div className="relative mb-4">
+                <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=400&background=3B82F6&color=fff&font-size=0.4`;
+                    }}
+                  />
+                </div>
+                {/* Premium Rating Badge */}
+                {member.rating && (
+                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-2 py-1 flex items-center space-x-1 shadow-lg">
+                    <Star className="w-3 h-3 text-white fill-current" />
+                    <span className="text-xs font-bold text-white">{member.rating}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Clean Text Box */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20">
+                <h3 className="text-lg font-bold text-slate-800 mb-2 font-serif group-hover:text-blue-600 transition-colors">
+                  {member.name}
+                </h3>
+                <p className="text-sm font-semibold text-slate-600 mb-3 font-serif leading-relaxed">
+                  {member.title}
+                </p>
+                
+                {/* Compact Stats */}
+                <div className="flex justify-between items-center text-xs text-slate-500 mb-3">
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>{member.experience} years</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Users className="w-3 h-3" />
+                    <span>{member.clients} clients</span>
                   </div>
                 </div>
-              ))}
+
+                {/* Specializations - Compact */}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-1">
+                    {member.specializations.slice(0, 2).map((spec, specIndex) => (
+                      <span 
+                        key={specIndex}
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          activeBusinessLine === 'ucube' 
+                            ? 'bg-emerald-100 text-emerald-700' 
+                            : 'bg-blue-100 text-blue-700'
+                        }`}
+                      >
+                        {spec}
+                      </span>
+                    ))}
+                    {member.specializations.length > 2 && (
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                        +{member.specializations.length - 2}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Achievements - Compact */}
+                {member.achievements && member.achievements.length > 0 && (
+                  <div className="mb-4">
+                    <div className="flex items-center space-x-1 text-xs text-slate-600">
+                      <Award className="w-3 h-3" />
+                      <span className="truncate">{member.achievements[0]}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-emerald-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              </div>
             </div>
-          </div>
-          
-          {/* Carousel Controls */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 z-10"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full w-12 h-12 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 z-10"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-          
-          {/* Carousel Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {teamMembers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

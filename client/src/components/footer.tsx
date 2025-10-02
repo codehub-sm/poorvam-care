@@ -17,13 +17,13 @@ export default function Footer() {
     { name: "Privacy Policy", action: () => {} }
   ];
 
-  const services = [
+  const businessLines = [
+    { name: "Child Development Center", action: () => scrollToSection('services') },
+    { name: "Hearing Center", action: () => scrollToSection('services') },
+    { name: "Ucube - Enrichment Skills", action: () => scrollToSection('services') },
     { name: "Speech Therapy", action: () => {} },
-    { name: "Occupational Therapy", action: () => {} },
-    { name: "Autism Support", action: () => {} },
-    { name: "Hearing Services", action: () => scrollToSection('hearing-center') },
-    { name: "Early Intervention", action: () => scrollToSection('onboarding') },
-    { name: "Family Support", action: () => {} }
+    { name: "Hearing Assessments", action: () => {} },
+    { name: "Dance & Yoga Programs", action: () => {} }
   ];
 
   const socialLinks = [
@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
             
             <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md font-serif">
-              Dedicated to unlocking every child's potential through compassionate, evidence-based therapy and early intervention services.
+              Poorvam provides comprehensive care across three specialized business lines: Child Development Center for therapies and counselling, Hearing Center for audiological care, and Ucube for enrichment and skill development.
             </p>
             
             <div className="flex space-x-4">
@@ -88,17 +88,17 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Services */}
+          {/* Business Lines */}
           <div>
-            <h4 className="text-xl font-serif font-semibold mb-6">Our Services</h4>
+            <h4 className="text-xl font-serif font-semibold mb-6">Our Business Lines</h4>
             <ul className="space-y-3">
-              {services.map((service, index) => (
+              {businessLines.map((businessLine, index) => (
                 <li key={index}>
                   <button 
-                    onClick={service.action}
+                    onClick={businessLine.action}
                     className="text-gray-300 hover:text-blue-400 transition-colors text-left font-serif"
                   >
-                    {service.name}
+                    {businessLine.name}
                   </button>
                 </li>
               ))}

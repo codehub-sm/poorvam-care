@@ -2,12 +2,7 @@ import { Phone, ClipboardCheck, Route, Rocket } from "lucide-react";
 import { useServiceContext } from "@/contexts/ServiceContext";
 
 export default function Onboarding() {
-  const { activeService } = useServiceContext();
-  
-  // Don't render Onboarding section for Future Skills
-  if (activeService === 'future-skills') {
-    return null;
-  }
+  const { activeBusinessLine } = useServiceContext();
   
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -17,7 +12,7 @@ export default function Onboarding() {
   };
 
   const getSteps = () => {
-    if (activeService === 'hearing') {
+    if (activeBusinessLine === 'hearing-center') {
       return [
         {
           icon: Phone,
@@ -44,12 +39,39 @@ export default function Onboarding() {
           color: "from-orange-600 to-orange-700"
         }
       ];
+    } else if (activeBusinessLine === 'ucube') {
+      return [
+        {
+          icon: Phone,
+          title: "1. Program Selection",
+          description: "Choose from our diverse enrichment programs including dance, yoga, music, art, public speaking, and soft skills development.",
+          color: "from-emerald-600 to-emerald-700"
+        },
+        {
+          icon: ClipboardCheck,
+          title: "2. Skill Assessment",
+          description: "We assess your child's interests and current skill levels to recommend the most suitable programs and classes.",
+          color: "from-green-600 to-green-700"
+        },
+        {
+          icon: Route,
+          title: "3. Personalized Learning",
+          description: "Create a customized learning path with age-appropriate activities and progressive skill development.",
+          color: "from-cyan-600 to-cyan-700"
+        },
+        {
+          icon: Rocket,
+          title: "4. Start Learning",
+          description: "Begin engaging classes with experienced instructors, regular progress tracking, and performance opportunities.",
+          color: "from-orange-600 to-orange-700"
+        }
+      ];
     } else {
       return [
         {
           icon: Phone,
           title: "1. Initial Contact",
-          description: "Reach out to us for a free consultation. We'll discuss your concerns and explain our approach.",
+          description: "Reach out to us for a free consultation. We'll discuss your concerns and explain our therapeutic approach.",
           color: "from-blue-600 to-blue-700"
         },
         {
@@ -81,12 +103,14 @@ export default function Onboarding() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
-            How Our <span className="text-blue-600">{activeService === 'hearing' ? 'Hearing Care' : 'Early Intervention'}</span> Works
+            How Poorvam <span className="text-blue-600">{activeBusinessLine === 'hearing-center' ? 'Hearing Center' : activeBusinessLine === 'ucube' ? 'Ucube' : 'Child Development Center'}</span> Works
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
-            {activeService === 'hearing' 
+            {activeBusinessLine === 'hearing-center' 
               ? "Our comprehensive hearing care process ensures you receive personalized, evidence-based solutions for optimal hearing health."
-              : "Our comprehensive onboarding process ensures your child receives personalized, evidence-based care from day one."
+              : activeBusinessLine === 'ucube'
+              ? "Our enrichment programs are designed to develop skills, creativity, and confidence through engaging, hands-on learning experiences."
+              : "Our comprehensive therapeutic process ensures your child receives personalized, evidence-based care from day one."
             }
           </p>
         </div>
@@ -113,7 +137,7 @@ export default function Onboarding() {
             onClick={scrollToContact}
             className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg font-serif"
           >
-            Start Your Journey Today
+            Get Started with Poorvam
           </button>
         </div>
       </div>

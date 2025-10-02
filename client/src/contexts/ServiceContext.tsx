@@ -1,10 +1,13 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type ServiceType = 'early-intervention' | 'hearing' | 'future-skills';
+type BusinessLine = 'child-development' | 'hearing-center' | 'ucube';
 
 interface ServiceContextType {
-  activeService: ServiceType;
-  setActiveService: (service: ServiceType) => void;
+  activeBusinessLine: BusinessLine;
+  setActiveBusinessLine: (businessLine: BusinessLine) => void;
+  // Legacy support for existing components
+  activeService: 'early-intervention' | 'hearing' | 'future-skills';
+  setActiveService: (service: 'early-intervention' | 'hearing' | 'future-skills') => void;
 }
 
 const ServiceContext = createContext<ServiceContextType | undefined>(undefined);
@@ -22,10 +25,31 @@ interface ServiceProviderProps {
 }
 
 export const ServiceProvider: React.FC<ServiceProviderProps> = ({ children }) => {
-  const [activeService, setActiveService] = useState<ServiceType>('early-intervention');
+  const [activeBusinessLine, setActiveBusinessLine] = useState<BusinessLine>('child-development');
+  
+  // Legacy mapping for backward compatibility
+  const businessLineToService = {
+    'child-development': 'early-intervention' as const,
+    'hearing-center': 'hearing' as const,
+    'ucube': 'future-skills' as const,
+  };
+
+  const setActiveService = (service: 'early-intervention' | 'hearing' | 'future-skills') => {
+    const businessLineMap = {
+      'early-intervention': 'child-development' as const,
+      'hearing': 'hearing-center' as const,
+      'future-skills': 'ucube' as const,
+    };
+    setActiveBusinessLine(businessLineMap[service]);
+  };
 
   return (
-    <ServiceContext.Provider value={{ activeService, setActiveService }}>
+    <ServiceContext.Provider value={{ 
+      activeBusinessLine, 
+      setActiveBusinessLine,
+      activeService: businessLineToService[activeBusinessLine],
+      setActiveService
+    }}>
       {children}
     </ServiceContext.Provider>
   );

@@ -63,7 +63,7 @@ interface ContactFormData {
 }
 
 export default function ServicesTabs() {
-  const { activeService } = useServiceContext();
+  const { activeBusinessLine } = useServiceContext();
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -90,7 +90,7 @@ export default function ServicesTabs() {
       icon: Puzzle,
       color: "text-blue-600",
       bgColor: "bg-blue-50",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
       details: {
         approach: [
           "Applied Behavior Analysis (ABA)",
@@ -109,7 +109,7 @@ export default function ServicesTabs() {
       icon: TrendingUp,
       color: "text-green-600",
       bgColor: "bg-green-50",
-      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
       details: {
         treatmentAreas: [
           "Gross & Fine Motor Development",
@@ -201,7 +201,7 @@ export default function ServicesTabs() {
       icon: Baby,
       color: "bg-blue-600",
       bgGradient: "from-blue-50 to-cyan-50",
-      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
       features: [
         "Newborn Hearing Screening",
         "Pediatric Audiometry", 
@@ -239,61 +239,61 @@ export default function ServicesTabs() {
     }
   ];
 
-  const futureSkillsServices: FutureSkillsService[] = [
+  const ucubeServices: FutureSkillsService[] = [
     {
-      title: "Robotics & Coding",
-      description: "Hands-on learning in robotics, programming, and STEM concepts to prepare children for the digital future.",
-      icon: Code,
-      color: "bg-green-600",
-      bgGradient: "from-green-50 to-emerald-50",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      features: [
-        "Block-based Programming",
-        "Robotics Construction",
-        "STEM Project Building",
-        "Problem-solving Skills",
-        "Digital Literacy"
-      ],
-      ageGroup: "Ages 6-16"
-    },
-    {
-      title: "Public Speaking & Podcasting",
-      description: "Develop confidence and communication skills through public speaking training and podcast creation.",
-      icon: Mic,
-      color: "bg-green-600",
-      bgGradient: "from-green-50 to-emerald-50",
-      image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      features: [
-        "Speech Writing & Delivery",
-        "Podcast Production",
-        "Voice Modulation",
-        "Presentation Skills",
-        "Interview Techniques"
-      ],
-      ageGroup: "Ages 8-18"
-    },
-    {
-      title: "Holistic Well-being",
-      description: "Yoga, art therapy, and mindfulness practices for mental health and emotional well-being.",
+      title: "Dance & Movement",
+      description: "Creative dance classes and movement therapy to enhance physical coordination, self-expression, and confidence.",
       icon: Heart,
-      color: "bg-green-600",
-      bgGradient: "from-green-50 to-emerald-50",
+      color: "bg-emerald-600",
+      bgGradient: "from-emerald-50 to-green-50",
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
       features: [
-        "Therapeutic Yoga",
-        "Art & Creative Expression",
-        "Mindfulness & Meditation",
+        "Contemporary Dance",
+        "Classical Dance Forms",
+        "Movement Therapy",
+        "Choreography",
+        "Performance Skills"
+      ],
+      ageGroup: "Ages 4-18"
+    },
+    {
+      title: "Yoga & Wellness",
+      description: "Mindfulness, yoga, and wellness practices for physical and mental well-being.",
+      icon: Heart,
+      color: "bg-emerald-600",
+      bgGradient: "from-emerald-50 to-green-50",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Children's Yoga",
+        "Mindfulness Practices",
+        "Breathing Techniques",
         "Stress Management",
         "Emotional Regulation"
       ],
       ageGroup: "All Ages"
     },
     {
-      title: "Art & Craft Services",
+      title: "Music & Instruments",
+      description: "Music education, instrument training, and vocal development for creative expression.",
+      icon: Mic,
+      color: "bg-emerald-600",
+      bgGradient: "from-emerald-50 to-green-50",
+      image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Piano & Keyboard",
+        "Guitar & Ukulele",
+        "Vocal Training",
+        "Music Theory",
+        "Performance Skills"
+      ],
+      ageGroup: "Ages 5-18"
+    },
+    {
+      title: "Art & Craft",
       description: "Creative expression through various art forms, craft activities, and hands-on artistic learning experiences.",
       icon: Palette,
-      color: "bg-green-600",
-      bgGradient: "from-green-50 to-emerald-50",
+      color: "bg-emerald-600",
+      bgGradient: "from-emerald-50 to-green-50",
       image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
       features: [
         "Painting & Drawing",
@@ -305,20 +305,36 @@ export default function ServicesTabs() {
       ageGroup: "Ages 4-16"
     },
     {
-      title: "Birthday Events & Activities",
-      description: "Special birthday celebrations with therapeutic activities, fun learning, and memorable experiences.",
+      title: "Public Speaking & Podcasting",
+      description: "Develop confidence and communication skills through public speaking training and podcast creation.",
+      icon: Mic,
+      color: "bg-emerald-600",
+      bgGradient: "from-emerald-50 to-green-50",
+      image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      features: [
+        "Speech Writing & Delivery",
+        "Podcast Production",
+        "Voice Modulation",
+        "Presentation Skills",
+        "Interview Techniques"
+      ],
+      ageGroup: "Ages 8-18"
+    },
+    {
+      title: "Soft Skills & Life Skills",
+      description: "Essential life skills, leadership, teamwork, and personal development programs.",
       icon: Calendar,
-      color: "bg-green-600",
-      bgGradient: "from-green-50 to-emerald-50",
+      color: "bg-emerald-600",
+      bgGradient: "from-emerald-50 to-green-50",
       image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
       features: [
-        "Themed Birthday Parties",
-        "Educational Activities",
-        "Group Games & Fun",
-        "Creative Workshops",
-        "Memory Making"
+        "Leadership Skills",
+        "Teamwork & Collaboration",
+        "Time Management",
+        "Problem Solving",
+        "Communication Skills"
       ],
-      ageGroup: "Ages 3-16"
+      ageGroup: "Ages 10-18"
     }
   ];
 
@@ -419,41 +435,48 @@ export default function ServicesTabs() {
   };
 
   const handleContactUs = () => {
-    setContactFormData(prev => ({ ...prev, serviceType: "Future Skills - General Inquiry" }));
+    setContactFormData(prev => ({ ...prev, serviceType: "Ucube - General Inquiry" }));
     setIsContactModalOpen(true);
   };
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50 relative overflow-hidden">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/5 via-transparent to-emerald-600/5"></div>
+        <div className="absolute top-20 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-800 mb-6">
-            {activeService === 'future-skills' ? (
+            {activeBusinessLine === 'ucube' ? (
               <>
-                <span className="text-green-600">Future Ready Skills</span> with uCUBE
+                <span className="text-emerald-600">Ucube</span> - Enrichment & Skills
               </>
-            ) : activeService === 'hearing' ? (
+            ) : activeBusinessLine === 'hearing-center' ? (
               <>
-                Comprehensive <span className="text-blue-600">Hearing Solutions</span>
+                <span className="text-cyan-600">Hearing Center</span> - Comprehensive Care
               </>
             ) : (
               <>
-                <span className="text-blue-600">Early Intervention</span> Services
+                <span className="text-blue-600">Child Development Center</span> - Therapies & Counselling
               </>
             )}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-serif">
-            {activeService === 'future-skills' 
-              ? "Empowering children with essential skills for tomorrow's world through innovative learning experiences."
-              : activeService === 'hearing'
+            {activeBusinessLine === 'ucube' 
+              ? "Comprehensive enrichment programs including dance, yoga, music, art & craft, podcasting, public speaking, and soft skills development."
+              : activeBusinessLine === 'hearing-center'
               ? "Complete audiological services for all age groups with state-of-the-art equipment and expert care."
-              : "Comprehensive care for developmental disorders and hearing health across all age groups."
+              : "Comprehensive therapeutic services for children with developmental disorders, autism, and special needs."
             }
           </p>
         </div>
 
-        {/* Early Intervention Tab Content */}
-        {activeService === 'early-intervention' && (
+        {/* Child Development Center Tab Content */}
+        {activeBusinessLine === 'child-development' && (
           <div className="space-y-8">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-serif font-bold text-gray-800 mb-4">
@@ -464,7 +487,7 @@ export default function ServicesTabs() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {disorders.map((disorder) => {
                 const IconComponent = disorder.icon;
                 const isExpanded = expandedCard === disorder.id;
@@ -582,8 +605,8 @@ export default function ServicesTabs() {
           </div>
         )}
 
-        {/* Hearing Services Tab Content */}
-        {activeService === 'hearing' && (
+        {/* Hearing Center Tab Content */}
+        {activeBusinessLine === 'hearing-center' && (
           <div className="space-y-8">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-serif font-bold text-gray-800 mb-4">
@@ -594,7 +617,7 @@ export default function ServicesTabs() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
               {hearingServices.map((service, index) => {
                 const IconComponent = service.icon;
                 return (
@@ -647,20 +670,20 @@ export default function ServicesTabs() {
           </div>
         )}
 
-        {/* Future Skills Tab Content */}
-        {activeService === 'future-skills' && (
+        {/* Ucube Tab Content */}
+        {activeBusinessLine === 'ucube' && (
           <div className="space-y-8">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-serif font-bold text-gray-800 mb-4">
-                <span className="text-green-600">Future Ready Skills</span> with uCUBE
+                <span className="text-emerald-600">Ucube</span> - Enrichment & Skills Development
               </h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto font-serif">
-                Empowering children with essential skills for tomorrow's world through innovative learning experiences.
+                Comprehensive enrichment programs including dance, yoga, music, art & craft, podcasting, public speaking, and soft skills development.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-              {futureSkillsServices.map((service, index) => {
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+              {ucubeServices.map((service, index) => {
                 const IconComponent = service.icon;
                 return (
                   <div key={index} className={`bg-gradient-to-br ${service.bgGradient} rounded-2xl p-8 text-center`}>
@@ -680,7 +703,7 @@ export default function ServicesTabs() {
                     </p>
                     
                     <div className="mb-4">
-                      <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                      <span className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-semibold">
                         {service.ageGroup}
                       </span>
                     </div>
@@ -688,7 +711,7 @@ export default function ServicesTabs() {
                     <div className="space-y-3 text-left mb-6">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center">
-                          <Check className="text-green-600 w-5 h-5 mr-3" />
+                          <Check className="text-emerald-600 w-5 h-5 mr-3" />
                           <span className="text-gray-600 font-serif">{feature}</span>
                         </div>
                       ))}
@@ -697,13 +720,13 @@ export default function ServicesTabs() {
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <button 
                         onClick={() => handleBookSession(service.title)}
-                        className="bg-green-600 text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-green-700 transition-all duration-300 font-serif"
+                        className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-emerald-700 transition-all duration-300 font-serif"
                       >
                         Book Session
                       </button>
                       <button 
                         onClick={() => handleContactUs()}
-                        className="border-2 border-green-600 text-green-600 px-6 py-3 rounded-full font-bold text-sm hover:bg-green-600 hover:text-white transition-all duration-300 font-serif"
+                        className="border-2 border-emerald-600 text-emerald-600 px-6 py-3 rounded-full font-bold text-sm hover:bg-emerald-600 hover:text-white transition-all duration-300 font-serif"
                       >
                         Learn More
                       </button>
@@ -714,23 +737,23 @@ export default function ServicesTabs() {
             </div>
             
             {/* Call to Action */}
-            <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-12 text-center text-white">
+            <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl p-12 text-center text-white">
               <h3 className="text-3xl font-serif font-bold mb-6">
-                Ready to Shape Your Child's Future?
+                Ready to Enrich Your Child's Skills?
               </h3>
               <p className="text-xl mb-8 opacity-90 font-serif">
-                Join uCUBE's innovative programs and give your child the skills they need to thrive in tomorrow's world.
+                Join Ucube's comprehensive enrichment programs and give your child the skills they need to thrive in all areas of life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-                  onClick={() => handleBookSession("Future Skills - General Booking")}
-                  className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 font-serif"
+                  onClick={() => handleBookSession("Ucube - General Booking")}
+                  className="bg-white text-emerald-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 font-serif"
                 >
-                  Book Future Skills Session
+                  Book Ucube Session
                 </button>
                 <button 
                   onClick={() => handleContactUs()}
-                  className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 font-serif"
+                  className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-emerald-600 transition-all duration-300 font-serif"
                 >
                   Contact Us
                 </button>
@@ -744,7 +767,7 @@ export default function ServicesTabs() {
       <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-gray-800">Contact Us - Future Skills</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-gray-800">Contact Us - Ucube</DialogTitle>
           </DialogHeader>
           
           <form onSubmit={handleContactSubmit} className="space-y-6">
@@ -846,7 +869,7 @@ export default function ServicesTabs() {
               <Button type="button" variant="outline" onClick={() => setIsContactModalOpen(false)}>
                 Cancel
               </Button>
-              <Button type="submit" className="bg-green-600 hover:bg-green-700">
+              <Button type="submit" className="bg-emerald-600 hover:bg-emerald-700">
                 Send Message
               </Button>
             </div>
@@ -962,7 +985,7 @@ export default function ServicesTabs() {
               <Button type="button" variant="outline" onClick={() => setIsBookingModalOpen(false)}>
                 Cancel
               </Button>
-              <Button type="submit" className="bg-green-600 hover:bg-green-700">
+              <Button type="submit" className="bg-emerald-600 hover:bg-emerald-700">
                 Book Session
               </Button>
             </div>
