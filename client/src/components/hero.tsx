@@ -33,7 +33,7 @@ export default function Hero() {
       color: 'blue',
       gradient: 'from-blue-500 to-blue-700',
       bgGradient: 'from-blue-50 to-blue-100',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
+      image: 'https://poorvam-staff.s3.us-east-1.amazonaws.com/developmental-image.png',
       features: ['Speech Therapy', 'Occupational Therapy', 'Behavioral Interventions', 'Family Support'],
       stats: { clients: '500+', success: '95%', years: '8+' }
     },
@@ -46,7 +46,7 @@ export default function Hero() {
       color: 'cyan',
       gradient: 'from-cyan-500 to-cyan-700',
       bgGradient: 'from-cyan-50 to-cyan-100',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
+      image: 'https://poorvam-staff.s3.us-east-1.amazonaws.com/poorvam-logo.jpeg',
       features: ['Hearing Assessments', 'Hearing Aids', 'Cochlear Implants', 'Tinnitus Management'],
       stats: { clients: '1200+', success: '98%', years: '12+' }
     },
@@ -59,7 +59,7 @@ export default function Hero() {
       color: 'green',
       gradient: 'from-emerald-500 to-emerald-700',
       bgGradient: 'from-emerald-50 to-emerald-100',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
+      image: 'https://poorvam-staff.s3.us-east-1.amazonaws.com/ucube-logo.jpeg',
       features: ['Dance & Yoga', 'Music & Art', 'Public Speaking', 'Soft Skills'],
       stats: { students: '800+', success: '92%', years: '5+' }
     }

@@ -90,7 +90,7 @@ export default function ServicesTabs() {
       icon: Puzzle,
       color: "text-blue-600",
       bgColor: "bg-blue-50",
-      image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/developmental-image.png",
       details: {
         approach: [
           "Applied Behavior Analysis (ABA)",
@@ -109,7 +109,7 @@ export default function ServicesTabs() {
       icon: TrendingUp,
       color: "text-green-600",
       bgColor: "bg-green-50",
-      image: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/developmental-image.png",
       details: {
         treatmentAreas: [
           "Gross & Fine Motor Development",
@@ -127,7 +127,7 @@ export default function ServicesTabs() {
       icon: Activity,
       color: "text-cyan-600",
       bgColor: "bg-cyan-50",
-      image: "https://images.unsplash.com/photo-1566004100631-35d015d6a491?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/celebral-palasy.png",
       details: {
         services: [
           "Physical Therapy",
@@ -145,7 +145,7 @@ export default function ServicesTabs() {
       icon: Heart,
       color: "text-orange-600",
       bgColor: "bg-orange-50",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/cp.png",
       details: {
         supportAreas: [
           "Speech & Language Development",
@@ -163,7 +163,7 @@ export default function ServicesTabs() {
       icon: Hand,
       color: "text-purple-600",
       bgColor: "bg-purple-50",
-      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/sensory.png",
       details: {
         methods: [
           "Sensory Integration Therapy",
@@ -181,7 +181,7 @@ export default function ServicesTabs() {
       icon: Zap,
       color: "text-pink-600",
       bgColor: "bg-pink-50",
-      image: "https://images.unsplash.com/photo-1566004100631-35d015d6a491?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/developmental-image.png",
       details: {
         interventionStrategies: [
           "Behavioral Interventions",
@@ -201,7 +201,7 @@ export default function ServicesTabs() {
       icon: Baby,
       color: "bg-blue-600",
       bgGradient: "from-blue-50 to-cyan-50",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/poorvam-logo.jpeg",
       features: [
         "Newborn Hearing Screening",
         "Pediatric Audiometry", 
@@ -215,7 +215,7 @@ export default function ServicesTabs() {
       icon: User,
       color: "bg-green-600",
       bgGradient: "from-green-50 to-emerald-50",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/poorvam-logo.jpeg",
       features: [
         "Diagnostic Audiometry",
         "Occupational Hearing Tests",
@@ -229,7 +229,7 @@ export default function ServicesTabs() {
       icon: Users,
       color: "bg-orange-600",
       bgGradient: "from-orange-50 to-yellow-50",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/poorvam-logo.jpeg",
       features: [
         "Age-Related Assessment",
         "Hearing Aid Adjustment",
@@ -246,7 +246,7 @@ export default function ServicesTabs() {
       icon: Heart,
       color: "bg-emerald-600",
       bgGradient: "from-emerald-50 to-green-50",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/ucube-logo.jpeg",
       features: [
         "Contemporary Dance",
         "Classical Dance Forms",
@@ -262,7 +262,7 @@ export default function ServicesTabs() {
       icon: Heart,
       color: "bg-emerald-600",
       bgGradient: "from-emerald-50 to-green-50",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/ucube-logo.jpeg",
       features: [
         "Children's Yoga",
         "Mindfulness Practices",
