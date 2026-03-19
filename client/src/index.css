@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
+  --background: hsl(40, 20%, 99%);
   --foreground: hsl(20, 14.3%, 4.1%);
   --muted: hsl(60, 4.8%, 95.9%);
   --muted-foreground: hsl(25, 5.3%, 44.7%);
@@ -13,25 +13,16 @@
   --card-foreground: hsl(20, 14.3%, 4.1%);
   --border: hsl(20, 5.9%, 90%);
   --input: hsl(20, 5.9%, 90%);
-  --primary: hsl(207, 90%, 54%);
-  --primary-foreground: hsl(211, 100%, 99%);
-  --secondary: hsl(134, 61%, 41%);
-  --secondary-foreground: hsl(60, 9.1%, 97.8%);
+  --primary: hsl(217, 91%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(160, 84%, 39%);
+  --secondary-foreground: hsl(0, 0%, 100%);
   --accent: hsl(43, 96%, 56%);
   --accent-foreground: hsl(24, 9.8%, 10%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(20, 14.3%, 4.1%);
+  --ring: hsl(217, 91%, 60%);
   --radius: 0.5rem;
-  
-  /* Custom colors for child-friendly theme */
-  --primary-blue: hsl(207, 90%, 54%);
-  --secondary-green: hsl(134, 61%, 41%);
-  --accent-yellow: hsl(43, 96%, 56%);
-  --info-cyan: hsl(188, 78%, 41%);
-  --warning-orange: hsl(25, 95%, 53%);
-  --purple: hsl(261, 52%, 59%);
-  --pink: hsl(329, 86%, 70%);
 }
 
 .dark {
@@ -45,8 +36,8 @@
   --card-foreground: hsl(0, 0%, 98%);
   --border: hsl(240, 3.7%, 15.9%);
   --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(207, 90%, 54%);
-  --primary-foreground: hsl(211, 100%, 99%);
+  --primary: hsl(217, 91%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(240, 3.7%, 15.9%);
   --secondary-foreground: hsl(0, 0%, 98%);
   --accent: hsl(240, 3.7%, 15.9%);
@@ -62,9 +53,38 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'Nunito', sans-serif;
+    @apply antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Organic blob shape */
+.blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Wave divider */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
 /* Custom animations */
@@ -85,16 +105,6 @@
   100% { transform: scale(1); }
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -107,45 +117,6 @@
   animation: pulse-slow 3s infinite;
 }
 
-.animate-wiggle {
-  animation: wiggle 1s ease-in-out infinite;
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* Font families */
-.font-baloo {
-  font-family: 'Baloo 2', cursive;
-}
-
-.font-nunito {
-  font-family: 'Nunito', sans-serif;
-}
-
-/* Custom component styles */
-.disorder-card {
-  transition: all 0.3s ease;
-}
-
-.disorder-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.carousel-container {
-  overflow: hidden;
-}
-
-.carousel-track {
-  transition: transform 0.5s ease-in-out;
-}
-
-.modal {
-  backdrop-filter: blur(10px);
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -156,10 +127,26 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(207, 90%, 54%);
+  background: hsl(217, 91%, 60%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(207, 90%, 44%);
+  background: hsl(217, 91%, 50%);
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 1rem;
+  background: white;
+  color: #1D4ED8;
+  font-weight: 700;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }

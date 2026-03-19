@@ -1,0 +1,240 @@
+import SeoHead from "@/components/seo-head";
+import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
+import { Link } from "wouter";
+import { Shield, Award, Heart, Users } from "lucide-react";
+
+const values = [
+  {
+    icon: Heart,
+    title: "Compassion First",
+    description: "We approach every family with empathy, understanding that seeking help takes courage. Your concerns are heard and valued.",
+  },
+  {
+    icon: Shield,
+    title: "Evidence-Based Care",
+    description: "Every intervention we provide is grounded in the latest research and clinical best practices, ensuring the best outcomes.",
+  },
+  {
+    icon: Users,
+    title: "Family-Centered",
+    description: "Parents are partners in care. We empower families with knowledge, strategies, and support to continue growth at home.",
+  },
+  {
+    icon: Award,
+    title: "Excellence in Service",
+    description: "Our team maintains the highest professional standards through continuous training and quality assurance.",
+  },
+];
+
+const leadership = [
+  {
+    name: "Shivam",
+    title: "Managing Director",
+    description: "Strategic leader overseeing clinical operations and ensuring excellence in service delivery. Focuses on evidence-based practices and team development.",
+    image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/shivam-photo.jpg",
+    credentials: ["MBA Healthcare Management", "Certified Quality Auditor"],
+    experience: "18+",
+  },
+  {
+    name: "Apoorva",
+    title: "Clinical Director",
+    description: "Dual role expert leading clinical operations while providing specialized speech therapy and audiological services. Combines administrative excellence with therapeutic expertise.",
+    image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/apoorva.jpg",
+    credentials: ["PhD Speech Pathology", "Certified Audiologist"],
+    experience: "13+",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      <SeoHead
+        title="About Poorvam Care - Our Story, Mission & Team | Bangalore"
+        description="Learn about Poorvam Care's 12+ year journey of providing therapy, hearing care, and enrichment programs in Bangalore. RCI registered, ISHA certified team."
+        canonical="https://poorvamcare.in/about"
+      />
+      <StructuredData data={createBreadcrumbSchema([
+        { name: "Home", url: "https://poorvamcare.in/" },
+        { name: "About", url: "https://poorvamcare.in/about" },
+      ])} />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-emerald-50 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-blue-600 font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
+              About Us
+            </p>
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
+              We Believe Every Person Deserves{" "}
+              <span className="text-blue-600">Quality Care</span>
+            </h1>
+            <p className="text-lg text-gray-600 font-body leading-relaxed">
+              For over 12 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy center has grown into a comprehensive care organization serving 2500+ families across three specialized areas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">Our Story</h2>
+              <div className="space-y-4 text-gray-600 font-body leading-relaxed">
+                <p>
+                  Poorvam Care was born from a simple yet powerful belief: that every child and individual deserves access to quality therapeutic and developmental care, regardless of their challenges.
+                </p>
+                <p>
+                  Starting in Electronic City, Bangalore, we began with a small team of passionate therapists dedicated to helping children with developmental needs. Over the years, we expanded to include a comprehensive hearing center and enrichment programs through Ucube.
+                </p>
+                <p>
+                  Today, we serve over 2500 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, audiology, and enrichment education. Our growth has been driven by one thing: the trust of the families we serve.
+                </p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-10">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-heading font-bold text-blue-600">12+</div>
+                  <div className="text-sm text-gray-600 font-body">Years of Service</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-heading font-bold text-emerald-600">2500+</div>
+                  <div className="text-sm text-gray-600 font-body">Families Served</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-heading font-bold text-cyan-600">15+</div>
+                  <div className="text-sm text-gray-600 font-body">Team Members</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-heading font-bold text-orange-600">3</div>
+                  <div className="text-sm text-gray-600 font-body">Specialized Centers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Values */}
+      <section className="py-20 bg-warm-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+              Our Values
+            </h2>
+            <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+              The principles that guide everything we do at Poorvam Care
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((v) => {
+              const Icon = v.icon;
+              return (
+                <div key={v.title} className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-base font-heading font-bold text-gray-900 mb-2">{v.title}</h3>
+                  <p className="text-sm text-gray-600 font-body leading-relaxed">{v.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+              Certifications & Registrations
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="bg-blue-50 rounded-2xl p-8 border border-blue-100 text-center">
+              <Shield className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-lg font-heading font-bold text-gray-900 mb-2">RCI Registered</h3>
+              <p className="text-sm text-gray-600 font-body">
+                Our professionals are registered with the Rehabilitation Council of India, ensuring they meet national standards for clinical practice.
+              </p>
+            </div>
+            <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 text-center">
+              <Award className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
+              <h3 className="text-lg font-heading font-bold text-gray-900 mb-2">ISHA Certified</h3>
+              <p className="text-sm text-gray-600 font-body">
+                Our audiologists hold certification from the Indian Speech and Hearing Association, the premier professional body for audiologists and speech-language pathologists.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="py-20 bg-warm-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+              Our Leadership
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {leadership.map((leader) => (
+              <div key={leader.name} className="bg-white rounded-2xl p-8 border border-gray-100">
+                <div className="flex items-start gap-5">
+                  <div className="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(leader.name)}&size=200&background=3B82F6&color=fff`;
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-heading font-bold text-gray-900">{leader.name}</h3>
+                    <p className="text-sm text-blue-600 font-body mb-1">{leader.title}</p>
+                    <p className="text-xs text-gray-500 font-body">{leader.experience} years experience</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 font-body text-sm leading-relaxed mt-4 mb-4">
+                  {leader.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {leader.credentials.map((c) => (
+                    <span key={c} className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 rounded-full font-body">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-emerald-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
+            Join the Poorvam Family
+          </h2>
+          <p className="text-lg text-white/90 font-body mb-8">
+            Discover how our team can support you and your family on your journey.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            Get in Touch
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
