@@ -26,7 +26,10 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    lines: ["Electronic City Phase 2, Ananth Nagar, Bangalore", "Electronic City Phase 1, Neeladiri Road, Bangalore"],
+    lines: [
+      "Loc 1: EC Phase 1, Hulimangla Road, Near Westside & Sai Baba Temple Road, Bangalore",
+      "Loc 2: EC Phase 2, Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Bangalore",
+    ],
   },
   {
     icon: Phone,

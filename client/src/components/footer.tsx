@@ -109,7 +109,17 @@ export default function Footer() {
             <ul className="space-y-3 text-sm font-body text-gray-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" />
-                <span>Electronic City Phase 2, Ananth Nagar, Bangalore</span>
+                <div>
+                  <span className="font-semibold text-gray-200 text-xs">Location 1:</span><br />
+                  Electronic City Phase 1, Hulimangla Road, Near Westside &amp; Sai Baba Temple Road, Bangalore
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 mt-0.5 text-gray-500 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-gray-200 text-xs">Location 2:</span><br />
+                  Electronic City Phase 2, Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Bangalore
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-gray-500 flex-shrink-0" />
