@@ -49,8 +49,8 @@ export default function AboutPage() {
   return (
     <>
       <SeoHead
-        title="About Poorvam Care - Our Story, Mission & Team | Bangalore"
-        description="Learn about Poorvam Care's 12+ year journey of providing therapy, hearing care, and enrichment programs in Bangalore. RCI registered, ISHA certified team."
+        title="About Poorvam Care - 13+ Years of Child Therapy in Electronic City, Bangalore"
+        description="Learn about Poorvam Care's 13+ year journey serving 2500+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Child therapy, hearing care & enrichment."
         canonical="https://poorvamcare.in/about"
       />
       <StructuredData data={createBreadcrumbSchema([

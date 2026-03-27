@@ -19,22 +19,6 @@ const pillars = [
     iconText: "text-coral",
     pillBg: "bg-coral/10",
     pillText: "text-coral",
-    span: true,
-  },
-  {
-    title: "Hearing Center",
-    subtitle: "Hearing Tests & Aids",
-    description:
-      "Comprehensive audiological care for all ages — from pediatric screening to senior hearing solutions with state-of-the-art equipment.",
-    services: ["Hearing Assessments", "Hearing Aids", "Cochlear Implant Support", "Tinnitus Management"],
-    icon: Ear,
-    href: "/hearing-center",
-    themeColor: "sky",
-    borderColor: "border-t-sky",
-    iconBg: "bg-sky/10",
-    iconText: "text-sky",
-    pillBg: "bg-sky/10",
-    pillText: "text-sky",
     span: false,
   },
   {
@@ -52,6 +36,22 @@ const pillars = [
     pillBg: "bg-sage/10",
     pillText: "text-sage",
     span: false,
+  },
+  {
+    title: "Hearing Center",
+    subtitle: "Hearing Tests & Aids",
+    description:
+      "Comprehensive audiological care for all ages — from pediatric screening to senior hearing solutions with state-of-the-art equipment.",
+    services: ["Hearing Assessments", "Hearing Aids", "Cochlear Implant Support", "Tinnitus Management"],
+    icon: Ear,
+    href: "/hearing-center",
+    themeColor: "sky",
+    borderColor: "border-t-sky",
+    iconBg: "bg-sky/10",
+    iconText: "text-sky",
+    pillBg: "bg-sky/10",
+    pillText: "text-sky",
+    span: true,
   },
 ];
 

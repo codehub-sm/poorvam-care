@@ -69,8 +69,8 @@ export default function HearingCenterPage() {
   return (
     <>
       <SeoHead
-        title="Hearing Center - Hearing Tests, Aids & Audiological Care | Poorvam Care Bangalore"
-        description="Comprehensive hearing center in Electronic City, Bangalore. Pediatric hearing screening, adult audiometry, hearing aids, cochlear implant support. ISHA certified audiologists."
+        title="Best Hearing Center in Electronic City, Bangalore | Hearing Tests & Aids | Poorvam Care"
+        description="Expert hearing center in Electronic City, Bangalore. Pediatric hearing screening, audiometry, hearing aids, cochlear implant support. ISHA certified audiologists. Book a free hearing test."
         canonical="https://poorvamcare.in/hearing-center"
       />
       <StructuredData

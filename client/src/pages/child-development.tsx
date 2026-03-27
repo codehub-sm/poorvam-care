@@ -103,8 +103,8 @@ export default function ChildDevelopmentPage() {
   return (
     <>
       <SeoHead
-        title="Child Development Center - Therapy for Autism, Speech Delays & More | Poorvam Care Bangalore"
-        description="Expert child development therapy in Electronic City, Bangalore. ABA therapy, speech therapy, occupational therapy for autism, developmental delays, ADHD & more. RCI registered therapists."
+        title="Best Child Development Center in Electronic City, Bangalore | Speech Therapy, OT, ABA | Poorvam Care"
+        description="Top-rated child development center in Electronic City, Bangalore. Expert speech therapy, occupational therapy, ABA therapy for autism, ADHD, developmental delays. RCI registered. Free assessment."
         canonical="https://poorvamcare.in/child-development"
       />
       <StructuredData

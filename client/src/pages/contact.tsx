@@ -122,8 +122,8 @@ export default function ContactPage() {
   return (
     <>
       <SeoHead
-        title="Contact Poorvam Care - Book a Free Consultation | Bangalore"
-        description="Get in touch with Poorvam Care in Electronic City, Bangalore. Book a free consultation for child therapy, hearing care, or enrichment programs. Call +91 886 176 4343."
+        title="Contact Poorvam Care - Book Free Consultation | Electronic City, Bangalore"
+        description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for child therapy, speech therapy, hearing care. Two locations: EC Phase 1 & Phase 2. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/contact"
       />
       <StructuredData data={createBreadcrumbSchema([

@@ -191,29 +191,44 @@ export default function Hero() {
             variants={fadeUp}
             className="relative flex items-center justify-center lg:justify-end"
           >
-            {/* Image frame */}
+            {/* Image collage */}
             <div className="relative">
-              <div className="w-[280px] h-[320px] sm:w-[340px] sm:h-[380px] md:w-[400px] md:h-[440px] rounded-3xl overflow-hidden rotate-2 shadow-2xl shadow-brown-deep/10 border-4 border-white/80">
-                <img
-                  src="https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg"
-                  alt="Poorvam Care - Child Development Center"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+              <div className="relative w-[300px] sm:w-[360px] md:w-[420px]">
+                {/* Main large image */}
+                <div className="rounded-3xl overflow-hidden shadow-2xl shadow-brown-deep/10 border-4 border-white/80 aspect-[4/5]">
+                  <img
+                    src="/assets/gallery/GC-2.jpg"
+                    alt="Speech therapy session at Poorvam Care, Electronic City Bangalore"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+                {/* Small overlay image - top right */}
+                <div className="absolute -top-4 -right-6 w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white rotate-3">
+                  <img
+                    src="/assets/gallery/GC1-300919156982204040.jpg"
+                    alt="Occupational therapy for children at Poorvam Care Bangalore"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+                {/* Small overlay image - bottom left */}
+                <div className="absolute -bottom-4 -left-6 w-32 h-24 sm:w-40 sm:h-28 rounded-2xl overflow-hidden shadow-xl border-4 border-white -rotate-2">
+                  <img
+                    src="/assets/gallery/GC1-300919156983978658.jpg"
+                    alt="Child development activities at Poorvam Care Electronic City"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
               </div>
-
-              {/* Decorative ring behind image */}
-              <div
-                className="absolute -top-4 -right-4 w-full h-full rounded-3xl border-2 border-dashed border-sage/30 rotate-2"
-                aria-hidden="true"
-              />
 
               {/* ── Floating card: Play-Based ── */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -left-6 sm:-left-10 top-8 sm:top-12 animate-gentle-float"
+                className="absolute -left-10 top-16 animate-gentle-float"
               >
                 <div className="flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg shadow-brown-deep/5 border border-warm-gray-200">
                   <div className="w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center flex-shrink-0">
@@ -237,7 +252,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -right-6 sm:-right-10 bottom-8 sm:bottom-12 animate-gentle-float"
+                className="absolute -right-8 bottom-16 animate-gentle-float"
                 style={{ animationDelay: "-3s" }}
               >
                 <div className="flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg shadow-brown-deep/5 border border-warm-gray-200">

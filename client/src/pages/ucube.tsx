@@ -95,8 +95,8 @@ export default function UcubePage() {
   return (
     <>
       <SeoHead
-        title="Ucube - Dance, Yoga, Music, Art & Enrichment Programs for Kids | Poorvam Care Bangalore"
-        description="Unlock your child's hidden talents with Ucube enrichment programs in Bangalore. Dance, yoga, music, art, public speaking & soft skills for ages 4-18."
+        title="Ucube - Best Kids Enrichment Programs in Electronic City, Bangalore | Dance, Music, Art | Poorvam Care"
+        description="Top enrichment programs for kids in Electronic City, Bangalore. Dance, yoga, music, art, public speaking & soft skills. Ages 4-18. Fun skill development at Poorvam Care."
         canonical="https://poorvamcare.in/ucube"
       />
       <StructuredData

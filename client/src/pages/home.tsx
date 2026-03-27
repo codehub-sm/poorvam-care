@@ -46,8 +46,8 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        title="Poorvam Care - Child Development, Hearing Center & Enrichment in Bangalore"
-        description="Expert child development therapy, hearing care, and enrichment programs in Electronic City, Bangalore. Trusted by 2500+ families. Book a free consultation."
+        title="Poorvam Care - Best Child Therapy, Hearing Center & Enrichment in Electronic City, Bangalore"
+        description="Expert speech therapy, occupational therapy, ABA therapy, hearing care & enrichment programs in Electronic City, Bangalore. RCI registered therapists. Trusted by 2500+ families. Free consultation."
         canonical="https://poorvamcare.in/"
       />
       <StructuredData data={organizationSchema} />
