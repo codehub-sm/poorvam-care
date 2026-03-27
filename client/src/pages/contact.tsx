@@ -22,15 +22,20 @@ interface ContactFormData {
   consent: boolean;
 }
 
-const contactInfo = [
+const locations = [
   {
-    icon: MapPin,
-    title: "Visit Us",
-    lines: [
-      "Loc 1: EC Phase 1, Hulimangla Road, Near Westside & Sai Baba Temple Road, Bangalore",
-      "Loc 2: EC Phase 2, Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Bangalore",
-    ],
+    label: "Location 1 — EC Phase 1",
+    address: "Hulimangla Road, Near Westside & Sai Baba Temple Road, Electronic City Phase 1, Bangalore",
+    mapUrl: "https://maps.app.goo.gl/gwKDYNhfzywxhvd5A",
   },
+  {
+    label: "Location 2 — EC Phase 2",
+    address: "Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Electronic City Phase 2, Bangalore",
+    mapUrl: "https://maps.app.goo.gl/gWCjwHqTvoRYs6Mj9",
+  },
+];
+
+const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
@@ -44,7 +49,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Working Hours",
-    lines: ["Mon-Fri: 9:00 AM - 6:00 PM", "Sat: 9:00 AM - 2:00 PM", "Sun: Closed"],
+    lines: ["Mon-Sat: 9:00 AM - 7:30 PM", "Sun: Closed"],
   },
 ];
 
@@ -149,6 +154,29 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-6">
+              {/* Location cards with map links */}
+              {locations.map((loc) => (
+                <a
+                  key={loc.label}
+                  href={loc.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-2xl border border-warm-gray-200 bg-warm-bg hover:border-coral/40 hover:shadow-md transition-all group"
+                >
+                  <div className="w-10 h-10 bg-coral/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-coral/20 transition-colors">
+                    <MapPin className="w-5 h-5 text-coral" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-brown-deep text-sm mb-0.5">{loc.label}</h3>
+                    <p className="text-sm text-brown-mid font-body leading-relaxed">{loc.address}</p>
+                    <span className="inline-flex items-center gap-1 text-xs text-coral font-heading font-semibold mt-1.5 group-hover:gap-1.5 transition-all">
+                      Open in Google Maps
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+
               {contactInfo.map((info) => {
                 const Icon = info.icon;
                 return (

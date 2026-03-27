@@ -111,14 +111,18 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 mt-0.5 text-coral/50 flex-shrink-0" />
                 <div>
                   <span className="font-semibold text-warm-gray text-xs">Location 1:</span><br />
-                  Electronic City Phase 1, Hulimangla Road, Near Westside &amp; Sai Baba Temple Road, Bangalore
+                  <a href="https://maps.app.goo.gl/gwKDYNhfzywxhvd5A" target="_blank" rel="noopener noreferrer" className="hover:text-coral transition-colors">
+                    Electronic City Phase 1, Hulimangla Road, Near Westside &amp; Sai Baba Temple Road, Bangalore
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 mt-0.5 text-coral/50 flex-shrink-0" />
                 <div>
                   <span className="font-semibold text-warm-gray text-xs">Location 2:</span><br />
-                  Electronic City Phase 2, Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Bangalore
+                  <a href="https://maps.app.goo.gl/gWCjwHqTvoRYs6Mj9" target="_blank" rel="noopener noreferrer" className="hover:text-coral transition-colors">
+                    Electronic City Phase 2, Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Bangalore
+                  </a>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">

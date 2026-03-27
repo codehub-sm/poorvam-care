@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { useRef, useEffect, useState } from "react";
+import { HeroIllustration } from "./illustrations";
 
 /* ── CountUp ── */
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -191,87 +192,7 @@ export default function Hero() {
             variants={fadeUp}
             className="relative flex items-center justify-center lg:justify-end"
           >
-            {/* Image collage */}
-            <div className="relative">
-              <div className="relative w-[300px] sm:w-[360px] md:w-[420px]">
-                {/* Main large image */}
-                <div className="rounded-3xl overflow-hidden shadow-2xl shadow-brown-deep/10 border-4 border-white/80 aspect-[4/5]">
-                  <img
-                    src="/assets/gallery/GC-2.jpg"
-                    alt="Speech therapy session at Poorvam Care, Electronic City Bangalore"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                </div>
-                {/* Small overlay image - top right */}
-                <div className="absolute -top-4 -right-6 w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white rotate-3">
-                  <img
-                    src="/assets/gallery/GC1-300919156982204040.jpg"
-                    alt="Occupational therapy for children at Poorvam Care Bangalore"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                </div>
-                {/* Small overlay image - bottom left */}
-                <div className="absolute -bottom-4 -left-6 w-32 h-24 sm:w-40 sm:h-28 rounded-2xl overflow-hidden shadow-xl border-4 border-white -rotate-2">
-                  <img
-                    src="/assets/gallery/GC1-300919156983978658.jpg"
-                    alt="Child development activities at Poorvam Care Electronic City"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                </div>
-              </div>
-
-              {/* ── Floating card: Play-Based ── */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -left-10 top-16 animate-gentle-float"
-              >
-                <div className="flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg shadow-brown-deep/5 border border-warm-gray-200">
-                  <div className="w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-coral" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-sm text-brown-deep leading-tight">
-                      Play-Based
-                    </p>
-                    <p className="font-body text-xs text-brown-light">
-                      Approach
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* ── Floating card: Evidence-Based ── */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -right-8 bottom-16 animate-gentle-float"
-                style={{ animationDelay: "-3s" }}
-              >
-                <div className="flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-lg shadow-brown-deep/5 border border-warm-gray-200">
-                  <div className="w-10 h-10 rounded-xl bg-sage/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-sm text-brown-deep leading-tight">
-                      Evidence-Based
-                    </p>
-                    <p className="font-body text-xs text-brown-light">
-                      Therapy
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+            <HeroIllustration className="w-[320px] sm:w-[380px] md:w-[420px] h-auto drop-shadow-sm" />
           </motion.div>
         </div>
       </motion.div>

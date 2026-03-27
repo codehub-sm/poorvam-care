@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import { ChildDevelopmentIllustration, UcubeIllustration, HearingCenterIllustration } from "./illustrations";
 
 const pillars = [
   {
@@ -18,8 +19,9 @@ const pillars = [
     iconText: "text-coral",
     pillBg: "bg-coral/10",
     pillText: "text-coral",
-    image: "/assets/gallery/GC1-300919156982204040.jpg",
-    row: "top",
+    Illustration: ChildDevelopmentIllustration,
+    illustrationBg: "bg-coral/5",
+    row: "top" as const,
   },
   {
     title: "Ucube",
@@ -34,8 +36,9 @@ const pillars = [
     iconText: "text-sage",
     pillBg: "bg-sage/10",
     pillText: "text-sage",
-    image: "/assets/gallery/GC1-300919156982238342.jpg",
-    row: "top",
+    Illustration: UcubeIllustration,
+    illustrationBg: "bg-sage/5",
+    row: "top" as const,
   },
   {
     title: "Hearing Center",
@@ -50,8 +53,9 @@ const pillars = [
     iconText: "text-gold",
     pillBg: "bg-gold/10",
     pillText: "text-gold-dark",
-    image: "/assets/gallery/GC-190919156887728817.jpg",
-    row: "bottom",
+    Illustration: HearingCenterIllustration,
+    illustrationBg: "bg-gold/5",
+    row: "bottom" as const,
   },
 ];
 
@@ -94,14 +98,9 @@ export default function ServicePillars() {
                   <div
                     className={`bg-[#FFFBF5] rounded-2xl overflow-hidden h-full border border-brown-light/30 border-t-4 ${pillar.borderColor} hover:shadow-xl hover:shadow-brown-light/20 hover:border-t-[6px] transition-all duration-300 hover:-translate-y-1`}
                   >
-                    {/* Card image */}
-                    <div className="h-44 overflow-hidden">
-                      <img
-                        src={pillar.image}
-                        alt={`${pillar.title} at Poorvam Care Electronic City Bangalore`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
+                    {/* Card illustration */}
+                    <div className={`h-44 overflow-hidden flex items-center justify-center ${pillar.illustrationBg}`}>
+                      <pillar.Illustration className="w-full h-full" />
                     </div>
                     <div className="p-8">
                       <div className="flex items-start gap-4">
@@ -158,13 +157,8 @@ export default function ServicePillars() {
                     className={`bg-[#FFFBF5] rounded-2xl overflow-hidden border border-brown-light/30 border-t-4 ${pillar.borderColor} hover:shadow-xl hover:shadow-brown-light/20 hover:border-t-[6px] transition-all duration-300 hover:-translate-y-1`}
                   >
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr]">
-                      <div className="h-52 md:h-auto overflow-hidden">
-                        <img
-                          src={pillar.image}
-                          alt={`${pillar.title} at Poorvam Care Electronic City Bangalore`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
+                      <div className={`h-52 md:h-auto overflow-hidden flex items-center justify-center ${pillar.illustrationBg}`}>
+                        <pillar.Illustration className="w-full h-full" />
                       </div>
                       <div className="p-8">
                         <div className="flex items-start gap-4">

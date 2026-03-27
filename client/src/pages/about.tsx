@@ -58,17 +58,11 @@ export default function AboutPage() {
         { name: "About", url: "https://poorvamcare.in/about" },
       ])} />
 
-      {/* Hero with background image */}
+      {/* Hero */}
       <section className="relative bg-brown-deep overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/assets/gallery/GC-2.jpg"
-            alt="Poorvam Care team providing therapy services in Electronic City Bangalore"
-            className="w-full h-full object-cover opacity-25"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brown-deep via-brown-deep/90 to-brown-deep/70" />
-        </div>
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #E8725A 1px, transparent 1px)", backgroundSize: "32px 32px" }} aria-hidden="true" />
+        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-coral/8 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-sage/8 rounded-full blur-3xl" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">

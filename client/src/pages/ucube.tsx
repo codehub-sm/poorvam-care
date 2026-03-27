@@ -1,6 +1,7 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
+import { UcubeIllustration } from "@/components/illustrations";
 import { Link } from "wouter";
 import { Heart, Mic, Palette, Calendar, Music, Sparkles, Check } from "lucide-react";
 
@@ -122,19 +123,14 @@ export default function UcubePage() {
         { name: "Ucube", url: "https://poorvamcare.in/ucube" },
       ])} />
 
-      {/* Hero with background image */}
+      {/* Hero */}
       <section className="relative bg-brown-deep overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/assets/gallery/GC1-300919156982238342.jpg"
-            alt="Children's enrichment activities at Ucube Electronic City Bangalore"
-            className="w-full h-full object-cover opacity-30"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brown-deep via-brown-deep/90 to-brown-deep/70" />
-        </div>
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #7BA87B 1px, transparent 1px)", backgroundSize: "32px 32px" }} aria-hidden="true" />
+        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-sage/8 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-gold/8 rounded-full blur-3xl" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+          <div>
             <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
               Ucube Enrichment Programs · Electronic City, Bangalore
             </p>
@@ -159,6 +155,10 @@ export default function UcubePage() {
                 Call: +91 886 176 4343
               </a>
             </div>
+          </div>
+          <div className="hidden lg:flex items-center justify-center">
+            <UcubeIllustration className="w-full max-w-md h-auto opacity-80" />
+          </div>
           </div>
         </div>
       </section>
