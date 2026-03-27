@@ -9,24 +9,24 @@ const services = [
     title: "Pediatric Hearing",
     description: "Specialized hearing services for infants, toddlers, and children including early screening and intervention.",
     icon: Baby,
-    color: "from-blue-500 to-blue-600",
-    bg: "bg-blue-50 border-blue-100",
+    color: "from-coral to-coral-dark",
+    bg: "bg-coral/10 border-coral/20",
     features: ["Newborn Hearing Screening", "Pediatric Audiometry", "Hearing Aid Fitting", "Cochlear Implant Support"],
   },
   {
     title: "Adult Hearing",
     description: "Comprehensive hearing evaluations and treatment options for working adults and professionals.",
     icon: User,
-    color: "from-emerald-500 to-emerald-600",
-    bg: "bg-emerald-50 border-emerald-100",
+    color: "from-sage to-sage-dark",
+    bg: "bg-sage/10 border-sage/20",
     features: ["Diagnostic Audiometry", "Occupational Hearing Tests", "Hearing Protection", "Tinnitus Management"],
   },
   {
     title: "Senior Hearing",
     description: "Specialized care for age-related hearing changes and communication needs of older adults.",
     icon: Users,
-    color: "from-orange-500 to-orange-600",
-    bg: "bg-orange-50 border-orange-100",
+    color: "from-gold to-gold-dark",
+    bg: "bg-gold/10 border-gold/20",
     features: ["Age-Related Assessment", "Hearing Aid Adjustment", "Assistive Listening Devices", "Family Communication Training"],
   },
 ];
@@ -96,29 +96,29 @@ export default function HearingCenterPage() {
       ])} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-cyan-50 via-white to-blue-50 py-20 md:py-28">
+      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-cyan-600 font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
+            <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
               Hearing Center
             </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-brown-deep mb-6 leading-tight">
               Hear the World{" "}
-              <span className="text-cyan-600">Clearly Again</span>
+              <span className="text-coral">Clearly Again</span>
             </h1>
-            <p className="text-lg text-gray-600 font-body mb-8 leading-relaxed">
+            <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
               Whether it's your child's first hearing test or finding the right hearing aid for a loved one, our certified audiologists provide compassionate, expert care for every age and every need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-cyan-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/25"
+                className="bg-brown-deep text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-brown-deep/90 transition-colors shadow-lg shadow-coral/25"
               >
                 Book Hearing Test
               </Link>
               <a
                 href="tel:+918861764343"
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-heading font-bold hover:border-cyan-600 hover:text-cyan-600 transition-colors"
+                className="border-2 border-warm-gray-200 text-brown-mid px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
                 Call: +91 886 176 4343
               </a>
@@ -131,10 +131,10 @@ export default function HearingCenterPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
               Hearing Care for Every Age
             </h2>
-            <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+            <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
               Comprehensive audiological services with state-of-the-art equipment
             </p>
           </div>
@@ -152,16 +152,16 @@ export default function HearingCenterPage() {
                   >
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-heading font-bold text-brown-deep mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 font-body text-sm mb-5 leading-relaxed">
+                  <p className="text-brown-mid font-body text-sm mb-5 leading-relaxed">
                     {service.description}
                   </p>
                   <ul className="space-y-2.5">
                     {service.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-gray-700 font-body">
-                        <Check className="w-4 h-4 text-cyan-600 flex-shrink-0" />
+                      <li key={f} className="flex items-center gap-2 text-sm text-brown-mid font-body">
+                        <Check className="w-4 h-4 text-coral flex-shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -177,30 +177,30 @@ export default function HearingCenterPage() {
       <section className="py-20 bg-warm-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
               Our Hearing Specialists
             </h2>
-            <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+            <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
               ISHA certified audiologists dedicated to your hearing health
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             {team.map((member) => (
               <div key={member.name} className="text-center">
-                <div className="w-full aspect-square rounded-2xl overflow-hidden mb-3 bg-gray-100">
+                <div className="w-full aspect-square rounded-2xl overflow-hidden mb-3 bg-warm-gray-100">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=200&background=06B6D4&color=fff`;
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=200&background=E8725A&color=fff`;
                     }}
                   />
                 </div>
-                <h3 className="font-heading font-semibold text-gray-900 text-sm">{member.name}</h3>
-                <p className="text-xs text-gray-500 font-body">{member.title}</p>
-                <p className="text-xs text-cyan-600 font-body">{member.exp} years</p>
+                <h3 className="font-heading font-semibold text-brown-deep text-sm">{member.name}</h3>
+                <p className="text-xs text-brown-light font-body">{member.title}</p>
+                <p className="text-xs text-coral font-body">{member.exp} years</p>
               </div>
             ))}
           </div>
@@ -215,17 +215,17 @@ export default function HearingCenterPage() {
       />
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-cyan-600 to-blue-600">
+      <section className="py-20 bg-brown-deep">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-warm-bg mb-4">
             Schedule Your Hearing Assessment Today
           </h2>
-          <p className="text-lg text-white/90 font-body mb-8">
+          <p className="text-lg text-warm-bg/90 font-body mb-8">
             Early detection can make all the difference. Our certified audiologists are here to help.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-cyan-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-block bg-white text-coral px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg transition-colors shadow-lg"
           >
             Book Hearing Test
           </Link>

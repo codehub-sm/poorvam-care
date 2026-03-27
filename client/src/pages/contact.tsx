@@ -132,12 +132,12 @@ export default function ContactPage() {
       ])} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-emerald-50 py-16 md:py-20">
+      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl lg:text-4xl font-heading font-extrabold text-gray-900 mb-4">
+          <h1 className="text-3xl lg:text-4xl font-heading font-extrabold text-brown-deep mb-4">
             Get in Touch
           </h1>
-          <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+          <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
             Ready to take the first step? Book a free consultation or reach out with any questions.
           </p>
         </div>
@@ -153,13 +153,13 @@ export default function ContactPage() {
                 const Icon = info.icon;
                 return (
                   <div key={info.title} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-10 h-10 bg-coral/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-coral" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-semibold text-gray-900 text-sm mb-1">{info.title}</h3>
+                      <h3 className="font-heading font-semibold text-brown-deep text-sm mb-1">{info.title}</h3>
                       {info.lines.map((line, j) => (
-                        <p key={j} className="text-sm text-gray-600 font-body">{line}</p>
+                        <p key={j} className="text-sm text-brown-mid font-body">{line}</p>
                       ))}
                     </div>
                   </div>
@@ -168,14 +168,14 @@ export default function ContactPage() {
 
               <div className="pt-4 space-y-3">
                 <Button
-                  className="w-full justify-start h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-heading font-semibold"
+                  className="w-full justify-start h-12 bg-coral hover:bg-coral-dark text-white rounded-xl font-heading font-semibold"
                   onClick={() => window.open('tel:+918861764343')}
                 >
                   <PhoneCall className="w-5 h-5 mr-3" />
                   Call Now: +91 886 176 4343
                 </Button>
                 <Button
-                  className="w-full justify-start h-12 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-heading font-semibold"
+                  className="w-full justify-start h-12 bg-sage hover:bg-sage-dark text-white rounded-xl font-heading font-semibold"
                   onClick={() => window.open('mailto:appointments@poorvamcare.in')}
                 >
                   <Calendar className="w-5 h-5 mr-3" />
@@ -186,9 +186,9 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <div className="bg-warm-bg rounded-2xl p-8 border border-gray-100">
-                <h2 className="text-2xl font-heading font-bold text-gray-900 mb-2">Send Us a Message</h2>
-                <p className="text-gray-600 font-body text-sm mb-6">We'll get back to you within 24 hours</p>
+              <div className="bg-warm-bg rounded-2xl p-8 border border-warm-gray-200">
+                <h2 className="text-2xl font-heading font-bold text-brown-deep mb-2">Send Us a Message</h2>
+                <p className="text-brown-mid font-body text-sm mb-6">We'll get back to you within 24 hours</p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -256,14 +256,14 @@ export default function ContactPage() {
 
                   <div className="flex items-start gap-3">
                     <Checkbox id="consent" checked={formData.consent} onCheckedChange={(checked) => update("consent", checked as boolean)} className="mt-0.5" />
-                    <Label htmlFor="consent" className="text-xs text-gray-600 font-body leading-relaxed">
+                    <Label htmlFor="consent" className="text-xs text-brown-mid font-body leading-relaxed">
                       I consent to being contacted by Poorvam Care regarding my inquiry and understand that my information will be handled according to the privacy policy. *
                     </Label>
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-heading font-bold text-base disabled:opacity-50"
+                    className="w-full h-12 bg-coral hover:bg-coral-dark text-white rounded-xl font-heading font-bold text-base disabled:opacity-50"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
