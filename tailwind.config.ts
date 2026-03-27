@@ -6,9 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
-        accent: ['"Playfair Display"', 'serif'],
+        heading: ['"Fraunces"', 'serif'],
+        body: ['"Outfit"', 'sans-serif'],
+        accent: ['"Fraunces"', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -18,13 +18,37 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "warm-bg": "#FAFAF8",
+        "warm-bg": "#FFF8F0",
         "warm-gray": {
-          50: "#FAFAF8",
-          100: "#F5F5F0",
-          200: "#E8E8E0",
-          300: "#D4D4CC",
+          50: "#FFF8F0",
+          100: "#FFF3E4",
+          200: "#FFE8D0",
+          300: "#D4CABC",
         },
+        coral: {
+          light: "#F4A698",
+          DEFAULT: "#E8725A",
+          dark: "#D4614C",
+        },
+        sage: {
+          light: "#B5D4B5",
+          DEFAULT: "#7BA87B",
+          dark: "#5A8A5A",
+        },
+        gold: {
+          light: "#F2D49B",
+          DEFAULT: "#E5A94E",
+          dark: "#C08930",
+        },
+        sky: {
+          DEFAULT: "#7EB8D8",
+        },
+        lavender: {
+          DEFAULT: "#B8A9D4",
+        },
+        "brown-deep": "#2D2319",
+        "brown-mid": "#5C4A3A",
+        "brown-light": "#8B7355",
         card: {
           DEFAULT: "var(--card)",
           foreground: "var(--card-foreground)",
@@ -95,6 +119,23 @@ export default {
           "0%": { opacity: "0", transform: "translateX(20px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        "blob-morph": {
+          "0%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+          "25%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" },
+          "50%": { borderRadius: "50% 60% 30% 60% / 30% 60% 70% 40%" },
+          "75%": { borderRadius: "60% 40% 60% 30% / 60% 40% 30% 70%" },
+          "100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+        },
+        "gentle-float": {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "gentle-sway": {
+          "0%": { transform: "rotate(-2deg)" },
+          "50%": { transform: "rotate(2deg)" },
+          "100%": { transform: "rotate(-2deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -102,6 +143,9 @@ export default {
         "fade-up": "fade-up 0.6s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "slide-in-right": "slide-in-right 0.5s ease-out forwards",
+        "blob-morph": "blob-morph 8s ease-in-out infinite",
+        "gentle-float": "gentle-float 6s ease-in-out infinite",
+        "gentle-sway": "gentle-sway 4s ease-in-out infinite",
       },
     },
   },

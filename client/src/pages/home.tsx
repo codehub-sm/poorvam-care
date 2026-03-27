@@ -67,24 +67,28 @@ export default function Home() {
       />
 
       {/* Final CTA Banner */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-emerald-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
+      <section className="py-20 bg-brown-deep relative overflow-hidden">
+        {/* Subtle radial gradient overlays */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-coral/10 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sage/10 rounded-full blur-3xl" aria-hidden="true" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-warm-bg mb-4">
             Ready to Take the First Step?
           </h2>
-          <p className="text-lg text-white/90 font-body mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-warm-bg/80 font-body mb-8 max-w-2xl mx-auto">
             Every journey begins with a conversation. Book a free consultation and discover how Poorvam Care can support your family.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
+              className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
               Book Free Consultation
             </Link>
             <a
               href="tel:+918861764343"
-              className="border-2 border-white text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
               Call: +91 886 176 4343
             </a>

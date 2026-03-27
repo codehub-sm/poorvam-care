@@ -59,10 +59,13 @@ export default function Testimonials() {
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+          <span className="inline-block text-gold font-body text-sm font-semibold tracking-wider uppercase mb-3 bg-gold/10 px-4 py-1.5 rounded-full">
+            Family Stories
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
             Stories from Our Families
           </h2>
-          <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+          <p className="text-lg text-brown-light font-body max-w-2xl mx-auto">
             Real experiences from parents and families who trust Poorvam Care
           </p>
         </div>
@@ -74,23 +77,23 @@ export default function Testimonials() {
                 key={i}
                 className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-2"
               >
-                <div className="bg-warm-bg rounded-2xl p-8 h-full border border-gray-100 flex flex-col">
+                <div className="bg-warm-bg rounded-2xl p-8 h-full border border-warm-gray-200 shadow-sm shadow-warm-gray-200/50 flex flex-col">
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.rating }).map((_, j) => (
                       <Star
                         key={j}
-                        className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                        className="w-4 h-4 text-gold fill-gold"
                       />
                     ))}
                   </div>
-                  <blockquote className="text-gray-700 font-body leading-relaxed mb-6 flex-1 italic">
+                  <blockquote className="text-brown-mid font-body leading-relaxed mb-6 flex-1 italic">
                     "{t.quote}"
                   </blockquote>
                   <div>
-                    <p className="font-heading font-semibold text-gray-900">
+                    <p className="font-heading font-semibold text-brown-deep">
                       {t.name}
                     </p>
-                    <p className="text-sm text-gray-500 font-body">
+                    <p className="text-sm text-brown-light font-body">
                       {t.condition}
                     </p>
                   </div>
@@ -106,7 +109,7 @@ export default function Testimonials() {
               key={i}
               onClick={() => emblaApi?.scrollTo(i)}
               className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                i === selectedIndex ? "bg-blue-600" : "bg-gray-300"
+                i === selectedIndex ? "bg-coral" : "bg-warm-gray-200"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />

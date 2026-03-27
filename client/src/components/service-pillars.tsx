@@ -13,9 +13,12 @@ const pillars = [
     services: ["Speech Therapy", "Occupational Therapy", "ABA Therapy", "Special Education"],
     icon: Heart,
     href: "/child-development",
-    color: "blue",
-    gradient: "from-blue-500 to-blue-700",
-    bg: "bg-blue-50",
+    themeColor: "coral",
+    borderColor: "border-t-coral",
+    iconBg: "bg-coral/10",
+    iconText: "text-coral",
+    pillBg: "bg-coral/10",
+    pillText: "text-coral",
     span: true,
   },
   {
@@ -26,9 +29,12 @@ const pillars = [
     services: ["Hearing Assessments", "Hearing Aids", "Cochlear Implant Support", "Tinnitus Management"],
     icon: Ear,
     href: "/hearing-center",
-    color: "cyan",
-    gradient: "from-cyan-500 to-cyan-700",
-    bg: "bg-cyan-50",
+    themeColor: "sky",
+    borderColor: "border-t-sky",
+    iconBg: "bg-sky/10",
+    iconText: "text-sky",
+    pillBg: "bg-sky/10",
+    pillText: "text-sky",
     span: false,
   },
   {
@@ -39,9 +45,12 @@ const pillars = [
     services: ["Dance & Yoga", "Music & Art", "Public Speaking", "Soft Skills"],
     icon: Sparkles,
     href: "/ucube",
-    color: "emerald",
-    gradient: "from-emerald-500 to-emerald-700",
-    bg: "bg-emerald-50",
+    themeColor: "sage",
+    borderColor: "border-t-sage",
+    iconBg: "bg-sage/10",
+    iconText: "text-sage",
+    pillBg: "bg-sage/10",
+    pillText: "text-sage",
     span: false,
   },
 ];
@@ -51,17 +60,26 @@ export default function ServicePillars() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="py-20 bg-white" ref={ref}>
+    <section id="services" className="py-20 bg-warm-bg" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-8 h-[2px] bg-coral" />
+            <span className="text-sm font-heading font-semibold text-coral uppercase tracking-widest">
+              What We Offer
+            </span>
+            <span className="w-8 h-[2px] bg-coral" />
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
             How We Can Help
           </h2>
-          <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+          <p className="text-lg text-warm-gray font-body max-w-2xl mx-auto">
             Three specialized areas of care, all under one roof
           </p>
         </div>
 
+        {/* Pillar Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pillars.map((pillar, i) => {
             const Icon = pillar.icon;
@@ -75,41 +93,42 @@ export default function ServicePillars() {
               >
                 <Link href={pillar.href} className="block group">
                   <div
-                    className={`${pillar.bg} rounded-2xl p-8 h-full border border-gray-100 hover:shadow-lg transition-all duration-300`}
+                    className={`bg-[#FFFBF5] rounded-2xl p-8 h-full border border-brown-light/30 border-t-4 ${pillar.borderColor} hover:shadow-xl hover:shadow-brown-light/20 hover:border-t-[6px] transition-all duration-300 hover:-translate-y-1`}
                   >
                     <div className="flex items-start gap-5">
+                      {/* Icon */}
                       <div
-                        className={`w-14 h-14 bg-gradient-to-br ${pillar.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-105 transition-transform`}
+                        className={`w-14 h-14 ${pillar.iconBg} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform`}
                       >
-                        <Icon className="w-7 h-7 text-white" />
+                        <Icon className={`w-7 h-7 ${pillar.iconText}`} />
                       </div>
+
+                      {/* Content */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-xl font-heading font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl font-heading font-bold text-brown-deep group-hover:text-coral transition-colors">
                           {pillar.title}
                         </h3>
-                        <p className="text-sm text-gray-500 font-body mb-3">
+                        <p className="text-sm text-warm-gray font-body mb-3">
                           {pillar.subtitle}
                         </p>
-                        <p className="text-gray-600 font-body mb-4 leading-relaxed">
+                        <p className="text-brown-mid font-body mb-4 leading-relaxed">
                           {pillar.description}
                         </p>
+
+                        {/* Service Pills */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {pillar.services.map((s) => (
                             <span
                               key={s}
-                              className={`px-3 py-1 rounded-full text-xs font-medium ${
-                                pillar.color === "blue"
-                                  ? "bg-blue-100 text-blue-700"
-                                  : pillar.color === "cyan"
-                                  ? "bg-cyan-100 text-cyan-700"
-                                  : "bg-emerald-100 text-emerald-700"
-                              }`}
+                              className={`px-3 py-1 rounded-full text-xs font-medium ${pillar.pillBg} ${pillar.pillText}`}
                             >
                               {s}
                             </span>
                           ))}
                         </div>
-                        <span className="inline-flex items-center gap-1 text-sm font-heading font-semibold text-blue-600 group-hover:gap-2 transition-all">
+
+                        {/* Learn More Link */}
+                        <span className="inline-flex items-center gap-1 text-sm font-heading font-semibold text-coral group-hover:gap-2 transition-all">
                           Learn More <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>

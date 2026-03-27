@@ -4,7 +4,7 @@ interface WaveDividerProps {
   className?: string;
 }
 
-export default function WaveDivider({ color = "#FAFAF8", flip = false, className = "" }: WaveDividerProps) {
+export default function WaveDivider({ color = "#FFF8F0", flip = false, className = "" }: WaveDividerProps) {
   return (
     <div
       className={`wave-divider ${flip ? "rotate-180" : ""} ${className}`}
