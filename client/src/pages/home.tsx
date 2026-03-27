@@ -49,6 +49,7 @@ export default function Home() {
         title="Poorvam Care - Best Child Therapy, Hearing Center & Enrichment in Electronic City, Bangalore"
         description="Expert speech therapy, occupational therapy, ABA therapy, hearing care & enrichment programs in Electronic City, Bangalore. RCI registered therapists. Trusted by 2500+ families. Free consultation."
         canonical="https://poorvamcare.in/"
+        keywords="speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, hearing center Electronic City, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, hearing test Bangalore, pediatric therapy Bangalore, Poorvam Care, child therapy near Electronic City Phase 1, child therapy near Electronic City Phase 2, therapy center Ananth Nagar, Hosa Road child therapy, Bommanahalli speech therapy"
       />
       <StructuredData data={organizationSchema} />
 

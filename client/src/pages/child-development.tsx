@@ -25,8 +25,8 @@ const conditions = [
     title: "Cerebral Palsy",
     description: "Specialized care focusing on mobility, communication, and independence through multidisciplinary therapy approaches.",
     icon: Activity,
-    color: "bg-sky/10 border-sky/20",
-    iconColor: "text-sky bg-sky/15",
+    color: "bg-sage/10 border-sage/20",
+    iconColor: "text-sage-dark bg-sage/15",
     approaches: ["Physical Therapy", "Occupational Therapy", "Speech Therapy", "Assistive Technology"],
   },
   {
@@ -41,16 +41,16 @@ const conditions = [
     title: "Sensory Processing",
     description: "Helping children who struggle with processing sensory information through specialized sensory integration therapy.",
     icon: Hand,
-    color: "bg-[#B8A9D4]/10 border-[#B8A9D4]/20",
-    iconColor: "text-[#B8A9D4] bg-[#B8A9D4]/15",
+    color: "bg-gold/10 border-gold/20",
+    iconColor: "text-gold-dark bg-gold/15",
     approaches: ["Sensory Integration Therapy", "Sensory Diet Development", "Environmental Modifications", "Self-Regulation Strategies"],
   },
   {
     title: "ADHD Support",
     description: "Comprehensive strategies to improve focus, organization, executive function, and social skills in children with ADHD.",
     icon: Zap,
-    color: "bg-coral-light/15 border-coral-light/20",
-    iconColor: "text-coral bg-coral-light/20",
+    color: "bg-coral/10 border-coral/20",
+    iconColor: "text-coral bg-coral/15",
     approaches: ["Behavioral Interventions", "Executive Function Training", "Social Skills Groups", "School Support Planning"],
   },
 ];
@@ -106,6 +106,7 @@ export default function ChildDevelopmentPage() {
         title="Best Child Development Center in Electronic City, Bangalore | Speech Therapy, OT, ABA | Poorvam Care"
         description="Top-rated child development center in Electronic City, Bangalore. Expert speech therapy, occupational therapy, ABA therapy for autism, ADHD, developmental delays. RCI registered. Free assessment."
         canonical="https://poorvamcare.in/child-development"
+        keywords="child development center Electronic City, speech therapy for kids Bangalore, occupational therapy Electronic City, ABA therapy autism Bangalore, ADHD therapy near me, developmental delay treatment Bangalore, cerebral palsy therapy Electronic City, Down syndrome therapy Bangalore, sensory processing therapy, best child therapist near Electronic City, RCI registered therapist Bangalore, early intervention therapy Bangalore, Poorvam Care child development"
       />
       <StructuredData
         data={{
@@ -130,30 +131,39 @@ export default function ChildDevelopmentPage() {
         { name: "Child Development", url: "https://poorvamcare.in/child-development" },
       ])} />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero with background image */}
+      <section className="relative bg-brown-deep overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/assets/gallery/GC1-300919156982204040.jpg"
+            alt="Child therapy session at Poorvam Care Electronic City"
+            className="w-full h-full object-cover opacity-30"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brown-deep via-brown-deep/90 to-brown-deep/70" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
-              Child Development Center
+              Child Development Center · Electronic City, Bangalore
             </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-brown-deep mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
               Helping Your Child Reach Their{" "}
               <span className="text-coral">Full Potential</span>
             </h1>
-            <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
-              We understand the concerns you have for your child. Our team of experienced therapists provides compassionate, evidence-based care tailored to your child's unique needs — helping them grow, communicate, and thrive.
+            <p className="text-lg text-warm-gray-200 font-body mb-8 leading-relaxed">
+              We understand the concerns you have for your child. Our team of experienced, RCI-registered therapists provides compassionate, evidence-based care tailored to your child's unique needs — helping them grow, communicate, and thrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-brown-deep text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-brown-deep/90 transition-colors shadow-lg shadow-coral/25"
+                className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
               >
                 Book Free Assessment
               </Link>
               <a
                 href="tel:+918861764343"
-                className="border-2 border-warm-gray-200 text-brown-mid px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
+                className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
                 Call: +91 886 176 4343
               </a>

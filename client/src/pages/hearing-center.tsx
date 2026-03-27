@@ -25,7 +25,7 @@ const services = [
     title: "Senior Hearing",
     description: "Specialized care for age-related hearing changes and communication needs of older adults.",
     icon: Users,
-    color: "from-gold to-gold-dark",
+    color: "from-brown-mid to-brown-deep",
     bg: "bg-gold/10 border-gold/20",
     features: ["Age-Related Assessment", "Hearing Aid Adjustment", "Assistive Listening Devices", "Family Communication Training"],
   },
@@ -72,6 +72,7 @@ export default function HearingCenterPage() {
         title="Best Hearing Center in Electronic City, Bangalore | Hearing Tests & Aids | Poorvam Care"
         description="Expert hearing center in Electronic City, Bangalore. Pediatric hearing screening, audiometry, hearing aids, cochlear implant support. ISHA certified audiologists. Book a free hearing test."
         canonical="https://poorvamcare.in/hearing-center"
+        keywords="hearing center Electronic City Bangalore, hearing test near me, best audiologist Bangalore, pediatric hearing screening Electronic City, hearing aids Bangalore, cochlear implant support, tinnitus treatment Bangalore, ISHA certified audiologist, newborn hearing test Electronic City, hearing loss treatment Bangalore, Poorvam hearing center, audiometry test near Electronic City"
       />
       <StructuredData
         data={{
@@ -95,30 +96,39 @@ export default function HearingCenterPage() {
         { name: "Hearing Center", url: "https://poorvamcare.in/hearing-center" },
       ])} />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero with background image */}
+      <section className="relative bg-brown-deep overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/assets/gallery/GC-190919156887728817.jpg"
+            alt="Hearing assessment at Poorvam Care Electronic City Bangalore"
+            className="w-full h-full object-cover opacity-30"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brown-deep via-brown-deep/90 to-brown-deep/70" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
-              Hearing Center
+              Hearing Center · Electronic City, Bangalore
             </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-brown-deep mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
               Hear the World{" "}
               <span className="text-coral">Clearly Again</span>
             </h1>
-            <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
-              Whether it's your child's first hearing test or finding the right hearing aid for a loved one, our certified audiologists provide compassionate, expert care for every age and every need.
+            <p className="text-lg text-warm-gray-200 font-body mb-8 leading-relaxed">
+              Whether it's your child's first hearing test or finding the right hearing aid for a loved one, our ISHA-certified audiologists provide compassionate, expert care for every age and every need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-brown-deep text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-brown-deep/90 transition-colors shadow-lg shadow-coral/25"
+                className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
               >
                 Book Hearing Test
               </Link>
               <a
                 href="tel:+918861764343"
-                className="border-2 border-warm-gray-200 text-brown-mid px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
+                className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
                 Call: +91 886 176 4343
               </a>

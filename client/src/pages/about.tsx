@@ -58,19 +58,28 @@ export default function AboutPage() {
         { name: "About", url: "https://poorvamcare.in/about" },
       ])} />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero with background image */}
+      <section className="relative bg-brown-deep overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/assets/gallery/GC-2.jpg"
+            alt="Poorvam Care team providing therapy services in Electronic City Bangalore"
+            className="w-full h-full object-cover opacity-25"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brown-deep via-brown-deep/90 to-brown-deep/70" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
-              About Us
+              About Poorvam Care · Electronic City, Bangalore
             </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-brown-deep mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
               We Believe Every Person Deserves{" "}
               <span className="text-coral">Quality Care</span>
             </h1>
-            <p className="text-lg text-brown-mid font-body leading-relaxed">
-              For over 12 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy center has grown into a comprehensive care organization serving 2500+ families across three specialized areas.
+            <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
+              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy center has grown into a comprehensive care organization serving 2500+ families across three specialized areas.
             </p>
           </div>
         </div>

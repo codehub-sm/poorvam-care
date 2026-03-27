@@ -38,8 +38,8 @@ const programs = [
     icon: Palette,
     ageGroup: "Ages 4-16",
     features: ["Painting & Drawing", "Craft Making", "Sculpture & 3D Art", "Digital Art Creation"],
-    color: "from-sky-400 to-sky-500",
-    bg: "bg-sky/10 border-sky/20",
+    color: "from-gold to-gold-dark",
+    bg: "bg-gold/10 border-gold/20",
   },
   {
     title: "Public Speaking",
@@ -98,6 +98,7 @@ export default function UcubePage() {
         title="Ucube - Best Kids Enrichment Programs in Electronic City, Bangalore | Dance, Music, Art | Poorvam Care"
         description="Top enrichment programs for kids in Electronic City, Bangalore. Dance, yoga, music, art, public speaking & soft skills. Ages 4-18. Fun skill development at Poorvam Care."
         canonical="https://poorvamcare.in/ucube"
+        keywords="kids enrichment programs Bangalore, dance classes for children Electronic City, yoga for kids Bangalore, music classes children Electronic City, art classes kids Bangalore, public speaking for children, soft skills training kids Bangalore, Ucube Poorvam Care, after school activities Electronic City, extracurricular programs Bangalore, child skill development Electronic City"
       />
       <StructuredData
         data={{
@@ -121,18 +122,27 @@ export default function UcubePage() {
         { name: "Ucube", url: "https://poorvamcare.in/ucube" },
       ])} />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero with background image */}
+      <section className="relative bg-brown-deep overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/assets/gallery/GC1-300919156982238342.jpg"
+            alt="Children's enrichment activities at Ucube Electronic City Bangalore"
+            className="w-full h-full object-cover opacity-30"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brown-deep via-brown-deep/90 to-brown-deep/70" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
             <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
-              Ucube Enrichment Programs
+              Ucube Enrichment Programs · Electronic City, Bangalore
             </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-brown-deep mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
               Unlock Your Child's{" "}
               <span className="text-coral">Hidden Talents</span>
             </h1>
-            <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
+            <p className="text-lg text-warm-gray-200 font-body mb-8 leading-relaxed">
               Every child has unique gifts waiting to be discovered. Our enrichment programs nurture creativity, confidence, and essential life skills through engaging, hands-on experiences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -144,7 +154,7 @@ export default function UcubePage() {
               </Link>
               <a
                 href="tel:+918861764343"
-                className="border-2 border-warm-gray-200 text-brown-mid px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
+                className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
                 Call: +91 886 176 4343
               </a>
