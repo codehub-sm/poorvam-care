@@ -102,11 +102,11 @@ const therapyTypes = ["Speech Therapy", "Occupational Therapy", "Behavioral Ther
 // ── Accent helpers ──────────────────────────────────────────────
 
 const accentMap: Record<string, { bg: string; light: string; border: string }> = {
-  blue: { bg: "bg-blue-600", light: "bg-blue-50", border: "border-blue-100" },
-  cyan: { bg: "bg-cyan-600", light: "bg-cyan-50", border: "border-cyan-100" },
-  purple: { bg: "bg-purple-600", light: "bg-purple-50", border: "border-purple-100" },
-  emerald: { bg: "bg-emerald-600", light: "bg-emerald-50", border: "border-emerald-100" },
-  orange: { bg: "bg-orange-600", light: "bg-orange-50", border: "border-orange-100" },
+  blue: { bg: "bg-coral", light: "bg-coral/10", border: "border-coral/20" },
+  cyan: { bg: "bg-sky", light: "bg-sky/10", border: "border-sky/20" },
+  purple: { bg: "bg-[#B8A9D4]", light: "bg-[#B8A9D4]/10", border: "border-[#B8A9D4]/20" },
+  emerald: { bg: "bg-sage", light: "bg-sage/10", border: "border-sage/20" },
+  orange: { bg: "bg-gold", light: "bg-gold/10", border: "border-gold/20" },
 };
 
 // ── Component ───────────────────────────────────────────────────
@@ -119,30 +119,30 @@ export default function ServicePackages() {
   return (
     <>
       <SeoHead
-        title="Pricing & Plans - Center, Online & Home Therapy | Poorvam Care Bangalore"
-        description="Transparent therapy pricing at Poorvam Care. Center sessions from ₹800, online from ₹600, home visits from ₹1,500. Speech therapy, OT, behavioral therapy in Bangalore."
+        title="Therapy Pricing - Affordable Speech Therapy & OT in Electronic City, Bangalore | Poorvam Care"
+        description="Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹600, home visits from ₹1,500. Speech therapy, OT, ABA. Free consultation."
         canonical="https://poorvamcare.in/service-packages"
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-emerald-50 py-16 md:py-20">
+      <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl lg:text-4xl font-heading font-extrabold text-gray-900 mb-4">
+          <h1 className="text-3xl lg:text-4xl font-heading font-extrabold text-brown-deep mb-4">
             Simple, Transparent Pricing
           </h1>
-          <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto mb-6">
             Therapy your way — at our center, online, or at your home. Same quality care, flexible delivery.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-body text-gray-500">
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-emerald-500" /> No hidden fees</span>
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-emerald-500" /> Free initial consultation</span>
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-emerald-500" /> Pay per session — no lock-in</span>
+          <div className="flex flex-wrap justify-center gap-4 text-sm font-body text-brown-light">
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> No hidden fees</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> Free initial consultation</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> Pay per session — no lock-in</span>
           </div>
         </div>
       </section>
 
       {/* ── Mode Selector ───────────────────────────────────── */}
-      <section className="py-8 bg-white border-b border-gray-100 sticky top-16 md:top-20 z-30 backdrop-blur-md bg-white/95">
+      <section className="py-8 bg-white border-b border-warm-gray-200 sticky top-16 md:top-20 z-30 backdrop-blur-md bg-white/95">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-3">
             {(Object.keys(modeConfig) as ServiceMode[]).map((key) => {
@@ -150,9 +150,9 @@ export default function ServicePackages() {
               const Icon = m.icon;
               const selected = mode === key;
               const colorStyles: Record<string, { bg: string; border: string; icon: string }> = {
-                blue: { bg: "#EFF6FF", border: "#93C5FD", icon: "text-blue-600" },
-                emerald: { bg: "#ECFDF5", border: "#6EE7B7", icon: "text-emerald-600" },
-                orange: { bg: "#FFF7ED", border: "#FDBA74", icon: "text-orange-600" },
+                blue: { bg: "#FFF3E4", border: "#E8725A", icon: "text-coral" },
+                emerald: { bg: "#F0F7F0", border: "#7BA87B", icon: "text-sage" },
+                orange: { bg: "#FFF8F0", border: "#E5A94E", icon: "text-gold" },
               };
               const cs = colorStyles[m.color];
               return (
@@ -160,12 +160,12 @@ export default function ServicePackages() {
                   key={key}
                   onClick={() => setMode(key)}
                   className={`rounded-xl p-3 md:p-4 text-center transition-all font-body text-sm border-2 ${
-                    selected ? "shadow-sm" : "bg-gray-50 border-transparent hover:border-gray-200"
+                    selected ? "shadow-sm" : "bg-warm-gray-50 border-transparent hover:border-warm-gray-200"
                   }`}
                   style={selected ? { backgroundColor: cs.bg, borderColor: cs.border } : undefined}
                 >
-                  <Icon className={`w-5 h-5 mx-auto mb-1 ${selected ? cs.icon : "text-gray-400"}`} />
-                  <div className={`font-heading font-semibold text-xs md:text-sm ${selected ? "text-gray-900" : "text-gray-600"}`}>
+                  <Icon className={`w-5 h-5 mx-auto mb-1 ${selected ? cs.icon : "text-brown-light"}`} />
+                  <div className={`font-heading font-semibold text-xs md:text-sm ${selected ? "text-brown-deep" : "text-brown-mid"}`}>
                     {m.label}
                   </div>
                 </button>
@@ -178,13 +178,13 @@ export default function ServicePackages() {
       {/* ── Mode Description ────────────────────────────────── */}
       <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-start gap-3 bg-warm-bg rounded-xl p-4 border border-gray-100">
+          <div className="flex items-start gap-3 bg-warm-bg rounded-xl p-4 border border-warm-gray-200">
             <ModeIcon
               className="w-5 h-5 mt-0.5 flex-shrink-0"
-              style={{ color: config.color === "blue" ? "#2563EB" : config.color === "emerald" ? "#059669" : "#EA580C" }}
+              style={{ color: config.color === "blue" ? "#E8725A" : config.color === "emerald" ? "#7BA87B" : "#E5A94E" }}
             />
             <div>
-              <p className="text-sm text-gray-700 font-body">{config.description}</p>
+              <p className="text-sm text-brown-mid font-body">{config.description}</p>
             </div>
           </div>
         </div>
@@ -196,8 +196,8 @@ export default function ServicePackages() {
 
           {/* Standard rates */}
           <div className="mb-8">
-            <h2 className="text-xl font-heading font-bold text-gray-900 mb-1">Per-Session Rates</h2>
-            <p className="text-sm text-gray-500 font-body mb-5">
+            <h2 className="text-xl font-heading font-bold text-brown-deep mb-1">Per-Session Rates</h2>
+            <p className="text-sm text-brown-light font-body mb-5">
               Pay as you go. No minimum commitment.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
@@ -205,47 +205,47 @@ export default function ServicePackages() {
                 const isOT = t === "Occupational Therapy";
                 const price = isOT ? config.perSession.ot : config.perSession.standard;
                 return (
-                  <div key={t} className="bg-warm-bg rounded-xl p-3 border border-gray-100 text-center">
-                    <div className="text-lg font-heading font-bold text-gray-900">{price}</div>
-                    <div className="text-xs text-gray-500 font-body leading-tight">{t}</div>
+                  <div key={t} className="bg-warm-bg rounded-xl p-3 border border-warm-gray-200 text-center">
+                    <div className="text-lg font-heading font-bold text-brown-deep">{price}</div>
+                    <div className="text-xs text-brown-light font-body leading-tight">{t}</div>
                   </div>
                 );
               })}
             </div>
-            <p className="text-xs text-gray-400 font-body mt-3">{config.note}</p>
+            <p className="text-xs text-brown-light font-body mt-3">{config.note}</p>
           </div>
 
           {/* Intensive rate callout — only center has a discount */}
           {mode === "center" ? (
-            <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl border border-emerald-100 p-6 md:p-8">
+            <div className="bg-sage/10 rounded-2xl border border-sage/20 p-6 md:p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-emerald-600 text-white text-xs font-heading font-bold px-3 py-1 rounded-full">
+                    <span className="bg-sage text-white text-xs font-heading font-bold px-3 py-1 rounded-full">
                       Best Value
                     </span>
-                    <span className="text-sm text-gray-500 font-body">Intensive Plan</span>
+                    <span className="text-sm text-brown-light font-body">Intensive Plan</span>
                   </div>
-                  <h3 className="text-lg font-heading font-bold text-gray-900 mb-1">
+                  <h3 className="text-lg font-heading font-bold text-brown-deep mb-1">
                     48 sessions/month
                   </h3>
-                  <p className="text-sm text-gray-600 font-body mb-2">
+                  <p className="text-sm text-brown-mid font-body mb-2">
                     2 sessions/day, 6 days/week — discounted rates for families who commit to a full intensive schedule.
                   </p>
                   <div className="flex items-center gap-4">
                     <div>
-                      <span className="text-2xl font-heading font-extrabold text-emerald-700">₹750</span>
-                      <span className="text-sm text-gray-500 font-body">/session</span>
+                      <span className="text-2xl font-heading font-extrabold text-sage-dark">₹750</span>
+                      <span className="text-sm text-brown-light font-body">/session</span>
                     </div>
-                    <div className="text-sm text-gray-500 font-body">
-                      OT: <span className="font-semibold text-gray-700">₹850</span>/session
+                    <div className="text-sm text-brown-light font-body">
+                      OT: <span className="font-semibold text-brown-mid">₹850</span>/session
                     </div>
                   </div>
                 </div>
                 <div className="flex-shrink-0">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-semibold rounded-xl px-6">
+                      <Button className="bg-sage hover:bg-sage-dark text-white font-heading font-semibold rounded-xl px-6">
                         Enquire About Intensive Plan
                       </Button>
                     </DialogTrigger>
@@ -261,31 +261,31 @@ export default function ServicePackages() {
                   </Dialog>
                 </div>
               </div>
-              <div className="mt-5 pt-5 border-t border-emerald-200/50">
-                <p className="text-xs font-heading font-semibold text-emerald-700 mb-2">Monthly comparison (48 sessions):</p>
+              <div className="mt-5 pt-5 border-t border-sage/20">
+                <p className="text-xs font-heading font-semibold text-sage-dark mb-2">Monthly comparison (48 sessions):</p>
                 <div className="grid grid-cols-2 gap-3 max-w-sm">
                   <div className="text-sm font-body">
-                    <span className="text-gray-500">Standard rate: </span>
-                    <span className="text-gray-400 line-through">₹38,400</span>
+                    <span className="text-brown-light">Standard rate: </span>
+                    <span className="text-brown-light line-through">₹38,400</span>
                   </div>
                   <div className="text-sm font-body">
-                    <span className="text-gray-500">Intensive rate: </span>
-                    <span className="font-semibold text-emerald-700">₹36,000</span>
+                    <span className="text-brown-light">Intensive rate: </span>
+                    <span className="font-semibold text-sage-dark">₹36,000</span>
                   </div>
                 </div>
-                <p className="text-xs text-emerald-600 font-heading font-semibold mt-1">
+                <p className="text-xs text-sage font-heading font-semibold mt-1">
                   You save ₹2,400/month on standard therapy sessions
                 </p>
               </div>
             </div>
           ) : (
-            <div className="bg-blue-50 rounded-2xl border border-blue-100 p-6 md:p-8">
+            <div className="bg-coral/10 rounded-2xl border border-coral/20 p-6 md:p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <h3 className="text-lg font-heading font-bold text-gray-900 mb-1">
+                  <h3 className="text-lg font-heading font-bold text-brown-deep mb-1">
                     Need an Intensive Schedule?
                   </h3>
-                  <p className="text-sm text-gray-600 font-body">
+                  <p className="text-sm text-brown-mid font-body">
                     {mode === "online"
                       ? "Online sessions are available at ₹600/session for any frequency. Book as many sessions as you need — same rate whether it's 4 or 48 per month."
                       : "Home visits are available at ₹1,500/session (₹1,600 for OT) for any frequency. Contact us for scheduling high-frequency home therapy."}
@@ -294,7 +294,7 @@ export default function ServicePackages() {
                 <div className="flex-shrink-0">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-heading font-semibold rounded-xl px-6">
+                      <Button className="bg-coral hover:bg-coral-dark text-white font-heading font-semibold rounded-xl px-6">
                         Enquire Now
                       </Button>
                     </DialogTrigger>
@@ -317,8 +317,8 @@ export default function ServicePackages() {
       <section className="py-16 bg-warm-bg">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-2xl font-heading font-bold text-gray-900 mb-2">Assessments</h2>
-            <p className="text-gray-600 font-body">
+            <h2 className="text-2xl font-heading font-bold text-brown-deep mb-2">Assessments</h2>
+            <p className="text-brown-mid font-body">
               One-time evaluations to understand your child's needs and create a clear path forward.
             </p>
           </div>
@@ -333,23 +333,23 @@ export default function ServicePackages() {
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-bold text-gray-900 text-base">{a.name}</h3>
-                      <span className="text-xs text-gray-500 font-body flex items-center gap-1">
+                      <h3 className="font-heading font-bold text-brown-deep text-base">{a.name}</h3>
+                      <span className="text-xs text-brown-light font-body flex items-center gap-1">
                         <Clock className="w-3 h-3" /> {a.duration}
                       </span>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 font-body leading-relaxed mb-4">{a.description}</p>
+                  <p className="text-sm text-brown-mid font-body leading-relaxed mb-4">{a.description}</p>
                   <ul className="space-y-1.5 mb-5 flex-1">
                     {a.includes.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-700 font-body">
-                        <Check className="w-3.5 h-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li key={item} className="flex items-start gap-2 text-sm text-brown-mid font-body">
+                        <Check className="w-3.5 h-3.5 text-sage mt-0.5 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-200/60">
-                    <div className="text-2xl font-heading font-bold text-gray-900">
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-warm-gray-200">
+                    <div className="text-2xl font-heading font-bold text-brown-deep">
                       ₹{a.price.toLocaleString("en-IN")}
                     </div>
                     <Dialog>
@@ -377,10 +377,10 @@ export default function ServicePackages() {
       {/* ── Which Mode Is Right ─────────────────────────────── */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-heading font-bold text-gray-900 text-center mb-3">
+          <h2 className="text-2xl font-heading font-bold text-brown-deep text-center mb-3">
             Which Mode Is Right for You?
           </h2>
-          <p className="text-gray-600 font-body text-center max-w-xl mx-auto mb-10">
+          <p className="text-brown-mid font-body text-center max-w-xl mx-auto mb-10">
             Compare our three service delivery options and pick what works best for your family.
           </p>
 
@@ -388,24 +388,24 @@ export default function ServicePackages() {
           <div className="overflow-x-auto -mx-4 px-4">
             <table className="w-full min-w-[600px] text-sm font-body">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 pr-4 font-heading font-semibold text-gray-500 text-xs uppercase tracking-wider w-[30%]"></th>
+                <tr className="border-b border-warm-gray-200">
+                  <th className="text-left py-3 pr-4 font-heading font-semibold text-brown-light text-xs uppercase tracking-wider w-[30%]"></th>
                   <th className="py-3 px-3 text-center">
                     <div className="flex flex-col items-center gap-1">
-                      <MapPin className="w-4 h-4 text-blue-600" />
-                      <span className="font-heading font-bold text-gray-900">Center</span>
+                      <MapPin className="w-4 h-4 text-coral" />
+                      <span className="font-heading font-bold text-brown-deep">Center</span>
                     </div>
                   </th>
                   <th className="py-3 px-3 text-center">
                     <div className="flex flex-col items-center gap-1">
-                      <Wifi className="w-4 h-4 text-emerald-600" />
-                      <span className="font-heading font-bold text-gray-900">Online</span>
+                      <Wifi className="w-4 h-4 text-sage" />
+                      <span className="font-heading font-bold text-brown-deep">Online</span>
                     </div>
                   </th>
                   <th className="py-3 px-3 text-center">
                     <div className="flex flex-col items-center gap-1">
-                      <Home className="w-4 h-4 text-orange-600" />
-                      <span className="font-heading font-bold text-gray-900">Home Visit</span>
+                      <Home className="w-4 h-4 text-gold" />
+                      <span className="font-heading font-bold text-brown-deep">Home Visit</span>
                     </div>
                   </th>
                 </tr>
@@ -424,11 +424,11 @@ export default function ServicePackages() {
                   { label: "Equipment access", center: "Full", online: "—", home: "Portable" },
                   { label: "Best for", center: "Full programs", online: "Convenience", home: "Young children" },
                 ].map((row, i) => (
-                  <tr key={i} className={`border-b border-gray-100 ${i < 4 ? "bg-gray-50/50" : ""}`}>
-                    <td className="py-2.5 pr-4 text-gray-700 font-medium">{row.label}</td>
-                    <td className="py-2.5 px-3 text-center text-gray-600">{row.center}</td>
-                    <td className="py-2.5 px-3 text-center text-gray-600">{row.online}</td>
-                    <td className="py-2.5 px-3 text-center text-gray-600">{row.home}</td>
+                  <tr key={i} className={`border-b border-warm-gray-200 ${i < 4 ? "bg-warm-gray-50/50" : ""}`}>
+                    <td className="py-2.5 pr-4 text-brown-mid font-medium">{row.label}</td>
+                    <td className="py-2.5 px-3 text-center text-brown-mid">{row.center}</td>
+                    <td className="py-2.5 px-3 text-center text-brown-mid">{row.online}</td>
+                    <td className="py-2.5 px-3 text-center text-brown-mid">{row.home}</td>
                   </tr>
                 ))}
               </tbody>
@@ -440,7 +440,7 @@ export default function ServicePackages() {
       {/* ── FAQ ─────────────────────────────────────────────── */}
       <section className="py-16 bg-warm-bg">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-heading font-bold text-gray-900 text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-brown-deep text-center mb-8">
             Common Questions
           </h2>
           <div className="space-y-3">
@@ -474,12 +474,12 @@ export default function ServicePackages() {
                 a: "We require 24 hours notice to reschedule at no charge. Sessions cancelled with less notice are billed at the standard rate. For the intensive plan, we offer flexible rescheduling within the same week.",
               },
             ].map((faq, i) => (
-              <details key={i} className="group bg-white rounded-xl border border-gray-100">
-                <summary className="flex items-center justify-between cursor-pointer p-5 text-sm font-heading font-semibold text-gray-900 hover:text-blue-600 transition-colors [&::-webkit-details-marker]:hidden">
+              <details key={i} className="group bg-white rounded-xl border border-warm-gray-200">
+                <summary className="flex items-center justify-between cursor-pointer p-5 text-sm font-heading font-semibold text-brown-deep hover:text-coral transition-colors [&::-webkit-details-marker]:hidden">
                   {faq.q}
-                  <ChevronDown className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-3" />
+                  <ChevronDown className="w-4 h-4 text-brown-light group-open:rotate-180 transition-transform flex-shrink-0 ml-3" />
                 </summary>
-                <div className="px-5 pb-5 text-sm text-gray-600 font-body leading-relaxed">
+                <div className="px-5 pb-5 text-sm text-brown-mid font-body leading-relaxed">
                   {faq.a}
                 </div>
               </details>
@@ -489,18 +489,18 @@ export default function ServicePackages() {
       </section>
 
       {/* ── Bottom CTA ──────────────────────────────────────── */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-emerald-600">
+      <section className="py-16 bg-brown-deep">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-3">
+          <h2 className="text-2xl lg:text-3xl font-heading font-bold text-warm-bg mb-3">
             Not Sure Where to Start?
           </h2>
-          <p className="text-white/90 font-body mb-8">
+          <p className="text-warm-bg/90 font-body mb-8">
             Book a free 15-minute consultation. We'll assess your child's needs and recommend the right therapy, frequency, and delivery mode — no commitment required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Dialog>
               <DialogTrigger asChild>
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-heading font-bold shadow-lg rounded-xl px-8">
+                <Button size="lg" className="bg-white text-coral hover:bg-gray-100 font-heading font-bold shadow-lg rounded-xl px-8">
                   Book Free Consultation
                 </Button>
               </DialogTrigger>
@@ -515,7 +515,7 @@ export default function ServicePackages() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-heading font-bold rounded-xl px-8 bg-transparent"
+              className="border-2 border-white text-white hover:bg-white hover:text-coral font-heading font-bold rounded-xl px-8 bg-transparent"
               onClick={() => window.open("tel:+918861764343")}
             >
               <Phone className="w-4 h-4 mr-2" />

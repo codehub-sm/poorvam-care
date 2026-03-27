@@ -6,8 +6,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Child Development", href: "/child-development" },
-  { label: "Hearing Center", href: "/hearing-center" },
   { label: "Ucube", href: "/ucube" },
+  { label: "Hearing Center", href: "/hearing-center" },
   { label: "Pricing", href: "/service-packages" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -18,7 +18,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+    <header className="bg-[#FFF8F0]/90 backdrop-blur-xl sticky top-0 z-50 border-b border-brown-light/30">
       <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
@@ -26,15 +26,16 @@ export default function Header() {
             <img
               src="https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg"
               alt="Poorvam Care"
-              className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md ring-2 ring-blue-50 group-hover:ring-blue-200 transition-all"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md ring-2 ring-warm-bg group-hover:ring-coral/40 transition-all"
               width={48}
               height={48}
             />
             <div>
-              <span className="text-xl md:text-2xl font-heading font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              <span className="text-xl md:text-2xl font-heading font-bold text-coral group-hover:text-coral/80 transition-colors">
                 Poorvam
+                <span className="text-sage ml-0.5">.</span>
               </span>
-              <span className="hidden sm:block text-xs text-gray-500 font-body -mt-0.5">
+              <span className="hidden sm:block text-xs text-brown-mid font-body -mt-0.5">
                 Comprehensive Care
               </span>
             </div>
@@ -46,13 +47,18 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 rounded-lg text-sm font-body font-medium transition-colors ${
+                className={`relative px-3 py-2 rounded-lg text-sm font-body font-medium transition-colors ${
                   location === link.href
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                    ? "text-coral bg-coral/10"
+                    : "text-brown-mid hover:text-coral hover:bg-warm-bg"
                 }`}
               >
                 {link.label}
+                <span
+                  className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-coral transition-transform origin-left ${
+                    location === link.href ? "scale-x-100" : "scale-x-0"
+                  } group-hover:scale-x-100`}
+                />
               </Link>
             ))}
           </div>
@@ -61,7 +67,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-heading font-semibold text-sm hover:bg-blue-700 transition-colors shadow-sm"
+              className="bg-coral text-white px-6 py-2.5 rounded-full font-heading font-semibold text-sm hover:bg-coral/90 transition-colors shadow-md shadow-coral/20"
             >
               Book Consultation
             </Link>
@@ -71,15 +77,15 @@ export default function Header() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
-                className="lg:hidden text-gray-700 hover:text-blue-600 p-2"
+                className="lg:hidden text-brown-mid hover:text-coral p-2"
                 aria-label="Open menu"
               >
                 {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] p-0">
+            <SheetContent side="right" className="w-[300px] p-0 bg-[#FFF8F0]">
               <div className="flex flex-col h-full">
-                <div className="p-6 border-b border-gray-100">
+                <div className="p-6 border-b border-brown-light/30">
                   <div className="flex items-center gap-3">
                     <img
                       src="https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg"
@@ -88,8 +94,8 @@ export default function Header() {
                       width={40}
                       height={40}
                     />
-                    <span className="text-lg font-heading font-bold text-gray-900">
-                      Poorvam Care
+                    <span className="text-lg font-heading font-bold text-coral">
+                      Poorvam<span className="text-sage">.</span> Care
                     </span>
                   </div>
                 </div>
@@ -102,8 +108,8 @@ export default function Header() {
                         onClick={() => setOpen(false)}
                         className={`block px-4 py-3 rounded-xl text-base font-body font-medium transition-colors ${
                           location === link.href
-                            ? "text-blue-600 bg-blue-50"
-                            : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                            ? "text-coral bg-coral/10"
+                            : "text-brown-mid hover:text-coral hover:bg-warm-bg"
                         }`}
                       >
                         {link.label}
@@ -111,17 +117,17 @@ export default function Header() {
                     ))}
                   </div>
                 </nav>
-                <div className="p-6 border-t border-gray-100">
+                <div className="p-6 border-t border-brown-light/30">
                   <Link
                     href="/contact"
                     onClick={() => setOpen(false)}
-                    className="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-heading font-semibold hover:bg-blue-700 transition-colors"
+                    className="block w-full bg-coral text-white text-center py-3 rounded-full font-heading font-semibold hover:bg-coral/90 transition-colors shadow-md shadow-coral/20"
                   >
                     Book Consultation
                   </Link>
                   <a
                     href="tel:+918861764343"
-                    className="block w-full text-center mt-3 text-gray-600 font-body text-sm hover:text-blue-600"
+                    className="block w-full text-center mt-3 text-brown-mid font-body text-sm hover:text-coral transition-colors"
                   >
                     Call: +91 886 176 4343
                   </a>

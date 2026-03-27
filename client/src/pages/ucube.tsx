@@ -1,6 +1,7 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
+import { UcubeIllustration } from "@/components/illustrations";
 import { Link } from "wouter";
 import { Heart, Mic, Palette, Calendar, Music, Sparkles, Check } from "lucide-react";
 
@@ -11,8 +12,8 @@ const programs = [
     icon: Heart,
     ageGroup: "Ages 4-18",
     features: ["Contemporary Dance", "Classical Dance Forms", "Movement Therapy", "Performance Skills"],
-    color: "from-emerald-500 to-emerald-600",
-    bg: "bg-emerald-50 border-emerald-100",
+    color: "from-coral to-coral-dark",
+    bg: "bg-coral/10 border-coral/20",
   },
   {
     title: "Yoga & Wellness",
@@ -20,8 +21,8 @@ const programs = [
     icon: Sparkles,
     ageGroup: "All Ages",
     features: ["Children's Yoga", "Mindfulness Practices", "Breathing Techniques", "Emotional Regulation"],
-    color: "from-teal-500 to-teal-600",
-    bg: "bg-teal-50 border-teal-100",
+    color: "from-sage to-sage-dark",
+    bg: "bg-sage/10 border-sage/20",
   },
   {
     title: "Music & Instruments",
@@ -29,8 +30,8 @@ const programs = [
     icon: Music,
     ageGroup: "Ages 5-18",
     features: ["Piano & Keyboard", "Guitar & Ukulele", "Vocal Training", "Music Theory"],
-    color: "from-purple-500 to-purple-600",
-    bg: "bg-purple-50 border-purple-100",
+    color: "from-gold to-gold-dark",
+    bg: "bg-gold/10 border-gold/20",
   },
   {
     title: "Art & Craft",
@@ -38,8 +39,8 @@ const programs = [
     icon: Palette,
     ageGroup: "Ages 4-16",
     features: ["Painting & Drawing", "Craft Making", "Sculpture & 3D Art", "Digital Art Creation"],
-    color: "from-pink-500 to-pink-600",
-    bg: "bg-pink-50 border-pink-100",
+    color: "from-gold to-gold-dark",
+    bg: "bg-gold/10 border-gold/20",
   },
   {
     title: "Public Speaking",
@@ -47,8 +48,8 @@ const programs = [
     icon: Mic,
     ageGroup: "Ages 8-18",
     features: ["Speech Writing & Delivery", "Podcast Production", "Voice Modulation", "Presentation Skills"],
-    color: "from-blue-500 to-blue-600",
-    bg: "bg-blue-50 border-blue-100",
+    color: "from-coral-dark to-coral",
+    bg: "bg-coral/10 border-coral/20",
   },
   {
     title: "Soft Skills & Life Skills",
@@ -56,8 +57,8 @@ const programs = [
     icon: Calendar,
     ageGroup: "Ages 10-18",
     features: ["Leadership Skills", "Teamwork & Collaboration", "Time Management", "Problem Solving"],
-    color: "from-orange-500 to-orange-600",
-    bg: "bg-orange-50 border-orange-100",
+    color: "from-sage-dark to-sage",
+    bg: "bg-sage/10 border-sage/20",
   },
 ];
 
@@ -95,9 +96,10 @@ export default function UcubePage() {
   return (
     <>
       <SeoHead
-        title="Ucube - Dance, Yoga, Music, Art & Enrichment Programs for Kids | Poorvam Care Bangalore"
-        description="Unlock your child's hidden talents with Ucube enrichment programs in Bangalore. Dance, yoga, music, art, public speaking & soft skills for ages 4-18."
+        title="Ucube - Best Kids Enrichment Programs in Electronic City, Bangalore | Dance, Music, Art | Poorvam Care"
+        description="Top enrichment programs for kids in Electronic City, Bangalore. Dance, yoga, music, art, public speaking & soft skills. Ages 4-18. Fun skill development at Poorvam Care."
         canonical="https://poorvamcare.in/ucube"
+        keywords="kids enrichment programs Bangalore, dance classes for children Electronic City, yoga for kids Bangalore, music classes children Electronic City, art classes kids Bangalore, public speaking for children, soft skills training kids Bangalore, Ucube Poorvam Care, after school activities Electronic City, extracurricular programs Bangalore, child skill development Electronic City"
       />
       <StructuredData
         data={{
@@ -122,33 +124,41 @@ export default function UcubePage() {
       ])} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-50 via-white to-green-50 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-emerald-600 font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
-              Ucube Enrichment Programs
+      <section className="relative bg-brown-deep overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #7BA87B 1px, transparent 1px)", backgroundSize: "32px 32px" }} aria-hidden="true" />
+        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-sage/8 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-gold/8 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+          <div>
+            <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
+              Ucube Enrichment Programs · Electronic City, Bangalore
             </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
               Unlock Your Child's{" "}
-              <span className="text-emerald-600">Hidden Talents</span>
+              <span className="text-coral">Hidden Talents</span>
             </h1>
-            <p className="text-lg text-gray-600 font-body mb-8 leading-relaxed">
+            <p className="text-lg text-warm-gray-200 font-body mb-8 leading-relaxed">
               Every child has unique gifts waiting to be discovered. Our enrichment programs nurture creativity, confidence, and essential life skills through engaging, hands-on experiences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-600/25"
+                className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
               >
                 Enroll Now
               </Link>
               <a
                 href="tel:+918861764343"
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-heading font-bold hover:border-emerald-600 hover:text-emerald-600 transition-colors"
+                className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
                 Call: +91 886 176 4343
               </a>
             </div>
+          </div>
+          <div className="hidden lg:flex items-center justify-center">
+            <UcubeIllustration className="w-full max-w-md h-auto opacity-80" />
+          </div>
           </div>
         </div>
       </section>
@@ -157,10 +167,10 @@ export default function UcubePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
               Our Programs
             </h2>
-            <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+            <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
               Six enrichment programs designed to develop the whole child
             </p>
           </div>
@@ -179,20 +189,20 @@ export default function UcubePage() {
                     >
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <span className="text-xs font-heading font-semibold px-3 py-1 bg-white rounded-full text-gray-600 border border-gray-200">
+                    <span className="text-xs font-heading font-semibold px-3 py-1 bg-white rounded-full text-brown-mid border border-warm-gray-200">
                       {program.ageGroup}
                     </span>
                   </div>
-                  <h3 className="text-lg font-heading font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-heading font-bold text-brown-deep mb-2">
                     {program.title}
                   </h3>
-                  <p className="text-gray-600 font-body text-sm mb-4 leading-relaxed">
+                  <p className="text-brown-mid font-body text-sm mb-4 leading-relaxed">
                     {program.description}
                   </p>
                   <ul className="space-y-2">
                     {program.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-gray-700 font-body">
-                        <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                      <li key={f} className="flex items-center gap-2 text-sm text-brown-mid font-body">
+                        <Check className="w-4 h-4 text-coral flex-shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -208,18 +218,18 @@ export default function UcubePage() {
       <section className="py-20 bg-warm-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
               Why Enrichment Matters
             </h2>
-            <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+            <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
               Beyond academics — skills that shape confident, well-rounded individuals
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((b) => (
-              <div key={b.title} className="bg-white rounded-2xl p-6 border border-gray-100">
-                <h3 className="text-base font-heading font-bold text-gray-900 mb-2">{b.title}</h3>
-                <p className="text-sm text-gray-600 font-body leading-relaxed">{b.desc}</p>
+              <div key={b.title} className="bg-white rounded-2xl p-6 border border-warm-gray-200">
+                <h3 className="text-base font-heading font-bold text-brown-deep mb-2">{b.title}</h3>
+                <p className="text-sm text-brown-mid font-body leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -234,17 +244,17 @@ export default function UcubePage() {
       />
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
+      <section className="py-20 bg-brown-deep">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-warm-bg mb-4">
             Ready to Enrich Your Child's Skills?
           </h2>
-          <p className="text-lg text-white/90 font-body mb-8">
+          <p className="text-lg text-warm-bg/90 font-body mb-8">
             Join Ucube and give your child the skills they need to thrive in all areas of life.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-emerald-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-block bg-white text-coral px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-gray-50 transition-colors shadow-lg"
           >
             Enroll Today
           </Link>

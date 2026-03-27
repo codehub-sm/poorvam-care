@@ -22,18 +22,18 @@ export default function StickyCtaBar() {
           animate={{ y: 0 }}
           exit={{ y: 100 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-lg px-4 py-3"
+          className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-warm-bg border-t border-brown-light/10 shadow-lg px-4 py-3"
         >
           <div className="flex gap-3">
             <Link
               href="/contact"
-              className="flex-1 bg-blue-600 text-white text-center font-heading font-semibold py-3 rounded-xl text-sm hover:bg-blue-700 transition-colors"
+              className="flex-1 bg-coral text-white text-center font-heading font-semibold py-3 rounded-xl text-sm hover:bg-coral-dark transition-colors shadow-md shadow-coral/20"
             >
               Book Free Consultation
             </Link>
             <a
               href="tel:+918861764343"
-              className="flex items-center justify-center bg-emerald-600 text-white px-4 rounded-xl hover:bg-emerald-700 transition-colors"
+              className="flex items-center justify-center bg-sage text-white px-4 rounded-xl hover:bg-sage-dark transition-colors"
               aria-label="Call us"
             >
               <Phone className="w-5 h-5" />

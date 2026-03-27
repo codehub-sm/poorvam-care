@@ -23,11 +23,11 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions",
       <StructuredData data={createFAQSchema(faqs)} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg text-gray-600 font-body">{subtitle}</p>
+            <p className="text-lg text-brown-light font-body">{subtitle}</p>
           )}
         </div>
 
@@ -36,12 +36,12 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions",
             <AccordionItem
               key={index}
               value={`faq-${index}`}
-              className="bg-white rounded-xl border border-gray-100 px-6 shadow-sm"
+              className="bg-white rounded-2xl border border-warm-gray-200 px-6 shadow-sm"
             >
-              <AccordionTrigger className="text-left font-heading font-semibold text-gray-900 hover:text-blue-600 py-5 text-base">
+              <AccordionTrigger className="text-left font-heading font-semibold text-brown-deep hover:text-coral py-5 text-base">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-600 font-body leading-relaxed pb-5">
+              <AccordionContent className="text-brown-mid font-body leading-relaxed pb-5">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

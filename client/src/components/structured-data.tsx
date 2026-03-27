@@ -15,19 +15,86 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "Poorvam Care",
-  "description": "Comprehensive child development therapy, hearing care, and enrichment programs in Bangalore",
+  "alternateName": ["Poorvam Therapy Center", "Poorvam Child Development Center", "Poorvam Hearing Center"],
+  "description": "Best child development therapy, speech therapy, occupational therapy, hearing care, and enrichment programs in Electronic City, Bangalore. RCI registered, ISHA certified. Serving 2500+ families.",
   "url": "https://poorvamcare.in",
   "logo": "https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg",
+  "image": "https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg",
   "telephone": "+918861764343",
   "email": "info@poorvamcare.in",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Electronic City Phase 2, Ananth Nagar",
-    "addressLocality": "Bangalore",
-    "addressRegion": "Karnataka",
-    "addressCountry": "IN"
+  "priceRange": "₹₹",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Hulimangla Road, Near Westside & Sai Baba Temple Road, Electronic City Phase 1",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "postalCode": "560100",
+      "addressCountry": "IN"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Electronic City Phase 2",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "postalCode": "560100",
+      "addressCountry": "IN"
+    }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "12.8311",
+    "longitude": "77.6483"
   },
-  "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61572411165781",
+    "https://www.instagram.com/poorvam_care/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Therapy & Enrichment Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Speech Therapy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Occupational Therapy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ABA Therapy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hearing Assessment" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hearing Aids" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enrichment Programs" } }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "61",
+    "bestRating": "5"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Bangalore" },
+    { "@type": "Place", "name": "Electronic City" },
+    { "@type": "Place", "name": "Electronic City Phase 1" },
+    { "@type": "Place", "name": "Electronic City Phase 2" },
+    { "@type": "Place", "name": "Ananth Nagar" },
+    { "@type": "Place", "name": "Neeladri Nagar" },
+    { "@type": "Place", "name": "Doddathogur" },
+    { "@type": "Place", "name": "Hulimangala" },
+    { "@type": "Place", "name": "Hosa Road" },
+    { "@type": "Place", "name": "Bommanahalli" }
+  ],
+  "medicalSpecialty": ["Pediatric Therapy", "Speech-Language Pathology", "Audiology", "Occupational Therapy"]
 };
 
 export function createFAQSchema(faqs: { question: string; answer: string }[]) {

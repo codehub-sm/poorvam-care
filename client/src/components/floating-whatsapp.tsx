@@ -24,9 +24,9 @@ export default function FloatingWhatsApp() {
       <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
       
       {/* Tooltip - Hidden on mobile */}
-      <div className="hidden md:block absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+      <div className="hidden md:block absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-brown-deep text-warm-bg text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none font-body">
         Chat with us on WhatsApp
-        <div className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-l-gray-800"></div>
+        <div className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-l-brown-deep"></div>
       </div>
       
       {/* Pulse animation */}
