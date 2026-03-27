@@ -53,6 +53,9 @@ amplify/src/graphql/mutations.ts
 amplify/src/graphql/queries.ts
 amplify/src/graphql/subscriptions.ts
 
+# Claude Code
+.claude/
+
 # Sensitive files
 *.pem
 *.key
