@@ -54,7 +54,7 @@ export default function AboutPage() {
     <>
       <SeoHead
         title="About Poorvam Care - 13+ Years of Child Therapy in Electronic City, Bangalore"
-        description="Learn about Poorvam Care's 13+ year journey serving 2500+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Child therapy, hearing care & enrichment."
+        description="Learn about Poorvam Care's 13+ year journey serving 500+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Child therapy, hearing care & enrichment."
         canonical="https://poorvamcare.in/about"
       />
       <StructuredData data={createBreadcrumbSchema([
@@ -78,7 +78,7 @@ export default function AboutPage() {
               <span className="text-coral">Quality Care</span>
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy center has grown into a comprehensive care organization serving 2500+ families across three specialized areas.
+              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy center has grown into a comprehensive care organization serving 500+ families across three specialized areas.
             </p>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                   <div className="text-sm text-brown-mid font-body">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-sage">2500+</div>
+                  <div className="text-4xl font-heading font-bold text-sage">500+</div>
                   <div className="text-sm text-brown-mid font-body">Families Served</div>
                 </div>
                 <div className="text-center">

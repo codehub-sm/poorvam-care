@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-brown-light font-body text-sm leading-relaxed mb-6">
-              Expert therapy, hearing care, and enrichment programs — trusted by 2500+ families in Bangalore.
+              Expert therapy, hearing care, and enrichment programs — trusted by 500+ families in Bangalore.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => {

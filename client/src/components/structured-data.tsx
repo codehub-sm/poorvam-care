@@ -16,7 +16,7 @@ export const organizationSchema = {
   "@type": "MedicalBusiness",
   "name": "Poorvam Care",
   "alternateName": ["Poorvam Therapy Center", "Poorvam Child Development Center", "Poorvam Hearing Center"],
-  "description": "Best child development therapy, speech therapy, occupational therapy, hearing care, and enrichment programs in Electronic City, Bangalore. RCI registered, ISHA certified. Serving 2500+ families.",
+  "description": "Best child development therapy, speech therapy, occupational therapy, hearing care, and enrichment programs in Electronic City, Bangalore. RCI registered, ISHA certified. Serving 500+ families.",
   "url": "https://poorvamcare.in",
   "logo": "https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg",
   "image": "https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg",
