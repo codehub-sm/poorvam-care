@@ -47,7 +47,7 @@ export default function Home() {
     <>
       <SeoHead
         title="Poorvam Care - Best Child Therapy & Hearing Center in Electronic City, Bangalore"
-        description="Poorvam Care offers early intervention therapy for children with ASD, speech delay, and developmental challenges. Led by Apoorva Rai, MASLP. Electronic City, Bangalore."
+        description="Poorvam Care offers speech therapy, occupational therapy, ABA therapy, and special education for children in Electronic City, Bangalore. Led by Apoorva Rai, MASLP, 13+ years experience. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/"
         ogImage="https://poorvamcare.in/og-image.jpg"
         keywords="speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, hearing center Electronic City, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, hearing test Bangalore, pediatric therapy Bangalore, Poorvam Care, speech therapy for autism Electronic City, early intervention therapy Bangalore"
