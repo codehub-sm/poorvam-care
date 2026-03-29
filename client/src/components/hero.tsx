@@ -162,7 +162,7 @@ export default function Hero() {
             >
               {[
                 { target: 13, suffix: "+", label: "Years" },
-                { target: 2500, suffix: "+", label: "Families" },
+                { target: 500, suffix: "+", label: "Families" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <CountUp target={stat.target} suffix={stat.suffix} />

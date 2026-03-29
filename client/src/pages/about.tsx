@@ -98,7 +98,7 @@ export default function AboutPage() {
                   Starting in Electronic City, Bangalore, we began with a small team of passionate therapists dedicated to helping children with developmental needs. Over the years, we expanded to include a comprehensive hearing center and enrichment programs through Ucube.
                 </p>
                 <p>
-                  Today, we serve over 2500 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, audiology, and enrichment education. Our growth has been driven by one thing: the trust of the families we serve.
+                  Today, we serve over 500 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, audiology, and enrichment education. Our growth has been driven by one thing: the trust of the families we serve.
                 </p>
               </div>
             </div>
