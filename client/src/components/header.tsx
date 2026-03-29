@@ -44,8 +44,7 @@ export default function Header() {
             />
             <div>
               <span className="text-xl md:text-2xl font-heading font-bold text-coral group-hover:text-coral/80 transition-colors">
-                Poorvam
-                <span className="text-sage ml-0.5">.</span>
+                Poorvam Care
               </span>
               <span className="hidden sm:block text-xs text-brown-mid font-body -mt-0.5">
                 Early Intervention Centre
@@ -139,7 +138,7 @@ export default function Header() {
                       height={40}
                     />
                     <span className="text-lg font-heading font-bold text-coral">
-                      Poorvam<span className="text-sage">.</span> Care
+                      Poorvam Care
                     </span>
                   </div>
                 </div>

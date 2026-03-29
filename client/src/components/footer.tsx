@@ -40,7 +40,7 @@ export default function Footer() {
                 height={40}
               />
               <span className="text-xl font-heading font-bold text-coral">
-                Poorvam<span className="text-sage">.</span> Care
+                Poorvam Care
               </span>
             </div>
             <p className="text-brown-light font-body text-sm leading-relaxed mb-6">
