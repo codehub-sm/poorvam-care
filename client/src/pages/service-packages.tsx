@@ -7,7 +7,7 @@ export default function ServicePackagesPage() {
     <>
       <SeoHead
         title="Therapy Packages & Pricing | Poorvam Care, Electronic City Bangalore"
-        description="View speech therapy, occupational therapy, and hearing care packages at Poorvam Care, Electronic City, Bangalore. Flexible plans for every family. Free consultation."
+        description="View speech therapy, occupational therapy, and early intervention therapy packages at Poorvam Care, Electronic City, Bangalore. Flexible plans for every family. Free consultation."
         canonical="https://poorvamcare.in/service-packages"
         keywords="speech therapy cost Bangalore, therapy packages Electronic City, occupational therapy pricing, child therapy plans Bangalore"
       />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Phone, ArrowRight, Brain, Ear, Sparkles, Clock, ChevronDown, MapPin, Wifi, Home } from "lucide-react";
+import { Check, Phone, ArrowRight, Brain, Sparkles, Clock, ChevronDown, MapPin, Wifi, Home } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Contact from "@/components/contact";
@@ -20,15 +20,6 @@ const assessments = [
     includes: ["Cognitive & behavioral evaluation", "Communication assessment", "Written report with recommendations", "Parent consultation", "Follow-up session"],
     icon: Brain,
     accent: "blue" as const,
-  },
-  {
-    name: "Hearing Evaluation",
-    price: 1500,
-    duration: "1-2 hrs",
-    description: "Thorough audiological assessment using state-of-the-art equipment. Includes audiogram and hearing aid consultation if needed.",
-    includes: ["Pure tone & speech audiometry", "Tympanometry & OAE testing", "Audiogram interpretation", "Hearing aid guidance if needed", "Follow-up scheduling"],
-    icon: Ear,
-    accent: "cyan" as const,
   },
   {
     name: "Autism Screening",

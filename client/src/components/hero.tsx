@@ -116,8 +116,8 @@ export default function Hero() {
               variants={fadeUp}
               className="mt-5 font-body text-lg md:text-xl text-brown-mid leading-relaxed max-w-lg"
             >
-              Expert speech therapy, occupational therapy, hearing care, and enrichment
-              programs — trusted by families across Bangalore for over a decade.
+              Expert speech therapy, occupational therapy, ABA therapy, special education,
+              and therapeutic enrichment — trusted by families across Bangalore for over a decade.
             </motion.p>
 
             {/* CTA Buttons */}

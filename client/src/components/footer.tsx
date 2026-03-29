@@ -3,12 +3,12 @@ import { Link } from "wouter";
 
 const serviceLinks = [
   { name: "Child Development Center", href: "/child-development" },
-  { name: "Hearing Center", href: "/hearing-center" },
-  { name: "Ucube - Enrichment", href: "/ucube" },
+  { name: "Therapeutic Enrichment", href: "/therapeutic-enrichment" },
   { name: "Speech Therapy for Autism", href: "/speech-therapy-for-autism-bangalore" },
   { name: "Occupational Therapy for Children", href: "/occupational-therapy-for-children-bangalore" },
   { name: "Speech Delay Therapy", href: "/speech-therapy-for-speech-delay-bangalore" },
-  { name: "Service Packages", href: "/service-packages" },
+  { name: "EC Phase 1 Centre", href: "/electronic-city-phase-1" },
+  { name: "EC Phase 2 Centre", href: "/electronic-city-phase-2" },
 ];
 
 const quickLinks = [
@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-brown-light font-body text-sm leading-relaxed mb-6">
-              Expert therapy, hearing care, and enrichment programs — trusted by 500+ families in Bangalore.
+              Multi-disciplinary early intervention centre — trusted by 500+ families in Electronic City, Bangalore.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => {
@@ -147,7 +147,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Hearing cross-referral */}
+        <div className="border-t border-white/10 mt-12 pt-6 text-center">
+          <p className="text-brown-light/60 text-sm font-body">
+            For hearing assessments and hearing aids, visit{" "}
+            <a href="https://poorvamhearing.com" target="_blank" rel="noopener noreferrer" className="text-coral hover:text-coral/80 transition-colors underline">
+              Poorvam Hearing &rarr; poorvamhearing.com
+            </a>
+          </p>
+        </div>
+
+        <div className="border-t border-white/10 mt-6 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-brown-light/60 text-sm font-body text-center md:text-left">
             <p>&copy; 2026 Poorvam Care. All rights reserved.</p>
             <p className="mt-1">

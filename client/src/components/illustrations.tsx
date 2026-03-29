@@ -42,8 +42,8 @@ export function ChildDevelopmentIllustration({ className = "" }: { className?: s
   );
 }
 
-/** Ucube Enrichment — music, dance, art motifs */
-export function UcubeIllustration({ className = "" }: { className?: string }) {
+/** Therapeutic Enrichment — music, movement, art motifs */
+export function TherapeuticEnrichmentIllustration({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
       {/* Background blob */}

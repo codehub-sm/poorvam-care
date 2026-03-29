@@ -27,8 +27,9 @@ export default defineConfig(async () => {
           routes: [
             "/",
             "/child-development",
-            "/hearing-center",
-            "/ucube",
+            "/therapeutic-enrichment",
+            "/electronic-city-phase-1",
+            "/electronic-city-phase-2",
             "/about",
             "/contact",
             "/service-packages",

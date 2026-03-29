@@ -54,7 +54,7 @@ export default function AboutPage() {
     <>
       <SeoHead
         title="About Poorvam Care - 13+ Years of Child Therapy in Electronic City, Bangalore"
-        description="Learn about Poorvam Care's 13+ year journey serving 500+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Child therapy, hearing care & enrichment."
+        description="Learn about Poorvam Care's 13+ year journey serving 500+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Multi-disciplinary early intervention for children aged 2–14."
         canonical="https://poorvamcare.in/about"
       />
       <StructuredData data={createBreadcrumbSchema([
@@ -78,7 +78,7 @@ export default function AboutPage() {
               <span className="text-coral">Quality Care</span>
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy center has grown into a comprehensive care organization serving 500+ families across three specialized areas.
+              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy practice has grown into a multi-disciplinary early intervention centre serving 500+ families across two locations in Electronic City.
             </p>
           </div>
         </div>
@@ -95,10 +95,10 @@ export default function AboutPage() {
                   Poorvam Care was born from a simple yet powerful belief: that every child and individual deserves access to quality therapeutic and developmental care, regardless of their challenges.
                 </p>
                 <p>
-                  Starting in Electronic City, Bangalore, we began with a small team of passionate therapists dedicated to helping children with developmental needs. Over the years, we expanded to include a comprehensive hearing center and enrichment programs through Ucube.
+                  Starting in Electronic City, Bangalore, we began with a small team of passionate therapists dedicated to helping children with developmental needs. Over the years, we expanded to two locations and added therapeutic enrichment programmes designed specifically for children who learn differently.
                 </p>
                 <p>
-                  Today, we serve over 500 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, audiology, and enrichment education. Our growth has been driven by one thing: the trust of the families we serve.
+                  Today, we serve over 500 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, special education, and therapeutic enrichment. Our growth has been driven by one thing: the trust of the families we serve.
                 </p>
               </div>
             </div>
@@ -117,8 +117,8 @@ export default function AboutPage() {
                   <div className="text-sm text-brown-mid font-body">Team Members</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-coral-dark">3</div>
-                  <div className="text-sm text-brown-mid font-body">Specialized Centers</div>
+                  <div className="text-4xl font-heading font-bold text-coral-dark">2</div>
+                  <div className="text-sm text-brown-mid font-body">Centre Locations</div>
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function AboutPage() {
               <Award className="w-12 h-12 text-sage mx-auto mb-4" />
               <h3 className="text-lg font-heading font-bold text-brown-deep mb-2">ISHA Certified</h3>
               <p className="text-sm text-brown-mid font-body">
-                Our audiologists hold certification from the Indian Speech and Hearing Association, the premier professional body for audiologists and speech-language pathologists.
+                Our speech-language pathologists hold certification from the Indian Speech and Hearing Association, the premier professional body for speech-language pathologists in India.
               </p>
             </div>
           </div>

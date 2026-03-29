@@ -15,8 +15,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "Poorvam Care",
-  "alternateName": ["Poorvam Therapy Center", "Poorvam Child Development Center", "Poorvam Hearing Center"],
-  "description": "Best child development therapy, speech therapy, occupational therapy, hearing care, and enrichment programs in Electronic City, Bangalore. RCI registered, ISHA certified. Serving 500+ families.",
+  "alternateName": ["Poorvam Therapy Center", "Poorvam Child Development Center", "Poorvam Early Intervention Centre"],
+  "description": "Multi-disciplinary early intervention centre offering speech therapy, occupational therapy, ABA, behavioural therapy, special education, and therapeutic enrichment for children aged 2–14 in Electronic City, Bangalore.",
   "url": "https://poorvamcare.in",
   "logo": "https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg",
   "image": "https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg",
@@ -92,9 +92,9 @@ export const organizationSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Speech Therapy" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Occupational Therapy" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ABA Therapy" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hearing Assessment" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hearing Aids" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enrichment Programs" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Special Education" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parent Counselling" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Therapeutic Enrichment" } }
     ]
   },
   "aggregateRating": {
@@ -115,7 +115,7 @@ export const organizationSchema = {
     { "@type": "Place", "name": "Hosa Road" },
     { "@type": "Place", "name": "Bommanahalli" }
   ],
-  "medicalSpecialty": ["Pediatric Therapy", "Speech-Language Pathology", "Audiology", "Occupational Therapy"]
+  "medicalSpecialty": ["Pediatric Therapy", "Speech-Language Pathology", "Occupational Therapy", "Behavioural Therapy"]
 };
 
 export function createFAQSchema(faqs: { question: string; answer: string }[]) {
@@ -150,12 +150,12 @@ export const personSchemaApoorva = {
   ],
   "knowsAbout": [
     "Autism Spectrum Disorder",
-    "Cochlear Implant Therapy",
     "ADHD",
     "Articulation Disorders",
     "Developmental Delays",
     "Speech Delay",
-    "Occupational Therapy for Children"
+    "Occupational Therapy for Children",
+    "ABA Therapy"
   ]
 };
 
