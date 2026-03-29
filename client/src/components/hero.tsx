@@ -100,11 +100,9 @@ export default function Hero() {
               variants={fadeUp}
               className="mt-6 font-heading font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl leading-[1.1] text-brown-deep"
             >
-              Every Child Deserves
-              <br />
-              to{" "}
+              Speech Therapy &amp; Occupational Therapy for Children in{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-coral">Thrive</span>
+                <span className="relative z-10 text-coral">Electronic City, Bangalore</span>
                 {/* Gold underline highlight */}
                 <span
                   className="absolute bottom-1 left-0 w-full h-[0.3em] bg-gold/30 -skew-y-1 rounded-sm z-0"

@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-export default defineConfig({
-  plugins: [
+export default defineConfig(async () => {
+  const plugins = [
     react(),
     runtimeErrorOverlay(),
     ...(process.env.NODE_ENV !== "production" &&
@@ -15,23 +15,66 @@ export default defineConfig({
           ),
         ]
       : []),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+  ];
+
+  // Add prerendering in production builds for SSG (static HTML for crawlers)
+  if (process.env.NODE_ENV === "production") {
+    try {
+      const { default: prerender } = await import("@prerenderer/rollup-plugin");
+      const { default: JSDOMRenderer } = await import("@prerenderer/renderer-jsdom");
+      plugins.push(
+        prerender({
+          routes: [
+            "/",
+            "/child-development",
+            "/hearing-center",
+            "/ucube",
+            "/about",
+            "/contact",
+            "/service-packages",
+            "/faq",
+            "/speech-therapy-for-autism-bangalore",
+            "/occupational-therapy-for-children-bangalore",
+            "/speech-therapy-for-speech-delay-bangalore",
+          ],
+          renderer: new JSDOMRenderer(),
+          rendererOptions: {
+            renderAfterTime: 2000,
+          },
+          postProcess(renderedRoute: { html: string }) {
+            // Ensure prerendered HTML has proper meta tags visible
+            renderedRoute.html = renderedRoute.html.replace(
+              /<div id="root"><\/div>/,
+              '<div id="root">' + '</div>'
+            );
+            return renderedRoute;
+          },
+        }) as any,
+      );
+    } catch {
+      console.warn("Prerender plugin not available, skipping SSG");
+    }
+  }
+
+  return {
+    plugins,
+    resolve: {
+      alias: {
+        "@": path.resolve(import.meta.dirname, "client", "src"),
+        "@shared": path.resolve(import.meta.dirname, "shared"),
+        "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      },
     },
-  },
-  root: path.resolve(import.meta.dirname, "client"),
-  build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
-    emptyOutDir: true,
-  },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
+    root: path.resolve(import.meta.dirname, "client"),
+    build: {
+      outDir: path.resolve(import.meta.dirname, "dist/public"),
+      emptyOutDir: true,
     },
-  },
+    server: {
+      fs: {
+        strict: true,
+        deny: ["**/.*"],
+      },
+    },
+  };
 });

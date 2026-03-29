@@ -48,7 +48,8 @@ export default function SeoHead({ title, description, canonical, ogImage, keywor
     setMeta("og:description", description, true);
     setMeta("og:type", "website", true);
     setMeta("og:site_name", "Poorvam Care", true);
-    if (ogImage) setMeta("og:image", ogImage, true);
+    setMeta("og:locale", "en_IN", true);
+    setMeta("og:image", ogImage || "https://poorvamcare.in/og-image.jpg", true);
     if (canonical) setMeta("og:url", canonical, true);
 
     setMeta("twitter:card", "summary_large_image");

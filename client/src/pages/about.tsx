@@ -1,5 +1,5 @@
 import SeoHead from "@/components/seo-head";
-import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
+import StructuredData, { createBreadcrumbSchema, personSchemaApoorva } from "@/components/structured-data";
 import { Link } from "wouter";
 import { Shield, Award, Heart, Users } from "lucide-react";
 
@@ -36,11 +36,15 @@ const leadership = [
     experience: "18+",
   },
   {
-    name: "Apoorva",
-    title: "Clinical Director",
-    description: "Dual role expert leading clinical operations while providing specialized speech therapy and audiological services. Combines administrative excellence with therapeutic expertise.",
+    name: "Apoorva Rai",
+    title: "Lead Speech-Language Pathologist & Clinical Director",
+    description: "Apoorva Rai holds a Master of Audiology and Speech-Language Pathology (MASLP) and brings over 13 years of clinical experience in paediatric speech therapy and audiology. She is licensed by the Rehabilitation Council of India (RCI) and is an active member of the Indian Speech and Hearing Association (ISHA). Apoorva specialises in Autism Spectrum Disorder, cochlear implant therapy, ADHD, articulation disorders, speech delay, and developmental delays. She has worked with hundreds of families across Bangalore and leads Poorvam Care's multi-disciplinary therapy team.",
     image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/apoorva.jpg",
-    credentials: ["PhD Speech Pathology", "Certified Audiologist"],
+    credentials: [
+      "MASLP (Master of Audiology & Speech-Language Pathology)",
+      "RCI Licensed (Rehabilitation Council of India)",
+      "ISHA Member (Indian Speech & Hearing Association)",
+    ],
     experience: "13+",
   },
 ];
@@ -57,6 +61,7 @@ export default function AboutPage() {
         { name: "Home", url: "https://poorvamcare.in/" },
         { name: "About", url: "https://poorvamcare.in/about" },
       ])} />
+      <StructuredData data={personSchemaApoorva} />
 
       {/* Hero */}
       <section className="relative bg-brown-deep overflow-hidden">

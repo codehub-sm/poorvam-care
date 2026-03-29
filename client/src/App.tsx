@@ -13,6 +13,10 @@ const Ucube = lazy(() => import("@/pages/ucube"));
 const About = lazy(() => import("@/pages/about"));
 const ContactPage = lazy(() => import("@/pages/contact"));
 const ServicePackagesPage = lazy(() => import("@/pages/service-packages"));
+const FAQPage = lazy(() => import("@/pages/faq"));
+const SpeechTherapyForAutism = lazy(() => import("@/pages/speech-therapy-for-autism-bangalore"));
+const OccupationalTherapyForChildren = lazy(() => import("@/pages/occupational-therapy-for-children-bangalore"));
+const SpeechTherapyForSpeechDelay = lazy(() => import("@/pages/speech-therapy-for-speech-delay-bangalore"));
 const AdminPage = lazy(() => import("@/pages/admin"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
@@ -35,6 +39,10 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/service-packages" component={ServicePackagesPage} />
+        <Route path="/faq" component={FAQPage} />
+        <Route path="/speech-therapy-for-autism-bangalore" component={SpeechTherapyForAutism} />
+        <Route path="/occupational-therapy-for-children-bangalore" component={OccupationalTherapyForChildren} />
+        <Route path="/speech-therapy-for-speech-delay-bangalore" component={SpeechTherapyForSpeechDelay} />
         <Route path="/admin" component={AdminPage} />
         <Route component={NotFound} />
       </Switch>
