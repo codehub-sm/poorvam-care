@@ -23,22 +23,42 @@ export const organizationSchema = {
   "telephone": "+918861764343",
   "email": "info@poorvamcare.in",
   "priceRange": "₹₹",
-  "address": [
+  "location": [
     {
-      "@type": "PostalAddress",
-      "streetAddress": "Hulimangla Road, Near Westside & Sai Baba Temple Road, Electronic City Phase 1",
-      "addressLocality": "Bangalore",
-      "addressRegion": "Karnataka",
-      "postalCode": "560100",
-      "addressCountry": "IN"
+      "@type": "Place",
+      "name": "Poorvam Care - Electronic City Phase 1",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hulimangla Road, Near Westside & Sai Baba Temple Road, Electronic City Phase 1",
+        "addressLocality": "Electronic City Phase 1",
+        "addressRegion": "Karnataka",
+        "postalCode": "560100",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.8456",
+        "longitude": "77.6603"
+      },
+      "hasMap": "https://maps.google.com/?q=Poorvam+Care+Electronic+City+Phase+1+Bangalore"
     },
     {
-      "@type": "PostalAddress",
-      "streetAddress": "Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Electronic City Phase 2",
-      "addressLocality": "Bangalore",
-      "addressRegion": "Karnataka",
-      "postalCode": "560100",
-      "addressCountry": "IN"
+      "@type": "Place",
+      "name": "Poorvam Care - Electronic City Phase 2",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Electronic City Phase 2",
+        "addressLocality": "Electronic City Phase 2",
+        "addressRegion": "Karnataka",
+        "postalCode": "560100",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.8511",
+        "longitude": "77.6690"
+      },
+      "hasMap": "https://maps.google.com/?q=Poorvam+Care+Electronic+City+Phase+2+Bangalore"
     }
   ],
   "geo": {

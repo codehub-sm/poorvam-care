@@ -31,14 +31,29 @@ const homeFAQs = [
       "Poorvam Care combines 12+ years of experience with a warm, family-centered approach. Our team includes RCI-registered and ISHA-certified professionals. We offer comprehensive care across therapy, hearing, and enrichment — all under one roof in Electronic City, Bangalore.",
   },
   {
-    question: "How do I book a consultation?",
+    question: "What is the difference between speech therapy and occupational therapy?",
     answer:
-      "You can book a free consultation by calling us at +91 886 176 4343, sending a WhatsApp message, filling out our online contact form, or visiting our center in Electronic City. We typically respond within 24 hours.",
+      "Speech therapy focuses on communication — helping children develop language, improve articulation, and build social communication skills. Occupational therapy focuses on functional skills — helping children with sensory processing, fine motor skills, and daily living activities. Many children at Poorvam Care receive both.",
   },
   {
-    question: "Do you offer online therapy sessions?",
+    question: "How many sessions does my child need?",
     answer:
-      "Yes, we offer teletherapy options for speech therapy, behavioral consultations, and parent training sessions. In-person sessions are available at our Electronic City locations in Bangalore.",
+      "The number of sessions depends on the child's condition, age at which therapy starts, and how consistently therapy is practiced at home. After an initial assessment, our therapists will recommend a therapy plan with a realistic timeline and frequency.",
+  },
+  {
+    question: "Do you work with children who have a cochlear implant?",
+    answer:
+      "Yes. We provide auditory verbal therapy and cochlear implant rehabilitation for children who have received a cochlear implant. Our lead therapist Apoorva Rai has specific paediatric experience working with cochlear implant cases.",
+  },
+  {
+    question: "How do I book an appointment at Poorvam Care?",
+    answer:
+      "Call us at +91 886 176 4343 or email info@poorvamcare.in. We offer a free initial consultation to understand your child's needs before recommending a therapy plan.",
+  },
+  {
+    question: "Do you provide home visits or online therapy?",
+    answer:
+      "Please contact us directly at +91 886 176 4343 to ask about home visit and online therapy availability for your area.",
   },
 ];
 
