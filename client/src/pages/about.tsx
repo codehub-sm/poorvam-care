@@ -32,7 +32,7 @@ const leadership = [
     title: "Managing Director",
     description: "Strategic leader overseeing clinical operations and ensuring excellence in service delivery. Focuses on evidence-based practices and team development.",
     image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/shivam-photo.jpg",
-    credentials: ["MBA Healthcare Management", "Certified Quality Auditor"],
+    credentials: ["Enterprenuer"],
     experience: "18+",
   },
   {
