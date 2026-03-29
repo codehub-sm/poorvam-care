@@ -261,7 +261,7 @@ export default function ElectronicCityPhase2() {
               About Us
             </Link>
             <Link href="/electronic-city-phase-1" className="px-6 py-3 rounded-xl border border-gold/20 text-gold-dark font-heading font-semibold hover:bg-gold/5 transition-colors">
-              EC Phase 1 Centre
+              Hulimanagla, ECity Phase 1 Centre
             </Link>
             <Link href="/contact" className="px-6 py-3 rounded-xl border border-coral/20 text-coral font-heading font-semibold hover:bg-coral/5 transition-colors">
               Contact Us

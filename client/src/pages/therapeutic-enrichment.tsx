@@ -232,10 +232,10 @@ export default function TherapeuticEnrichmentPage() {
               Core Therapies
             </Link>
             <Link href="/electronic-city-phase-1" className="px-6 py-3 rounded-xl border border-sage/20 text-sage-dark font-heading font-semibold hover:bg-sage/5 transition-colors">
-              EC Phase 1 Centre
+              Hulimanagla, ECity Phase 1 Centre
             </Link>
             <Link href="/electronic-city-phase-2" className="px-6 py-3 rounded-xl border border-sage/20 text-sage-dark font-heading font-semibold hover:bg-sage/5 transition-colors">
-              EC Phase 2 Centre
+              Ananth Nagar, ECity Phase 2 Centre
             </Link>
             <Link href="/about" className="px-6 py-3 rounded-xl border border-gold/20 text-gold-dark font-heading font-semibold hover:bg-gold/5 transition-colors">
               About Us

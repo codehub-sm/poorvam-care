@@ -17,8 +17,8 @@ const navLinks: NavLink[] = [
     label: "Our Centres",
     href: "/electronic-city-phase-1",
     children: [
-      { label: "EC Phase 1", href: "/electronic-city-phase-1" },
-      { label: "EC Phase 2", href: "/electronic-city-phase-2" },
+      { label: "Hulimangala, Ecity Phase 1", href: "/electronic-city-phase-1" },
+      { label: "AnanthNagar, Ecity Phase 2", href: "/electronic-city-phase-2" },
     ],
   },
   { label: "About", href: "/about" },

@@ -24,12 +24,12 @@ interface ContactFormData {
 
 const locations = [
   {
-    label: "Location 1 — EC Phase 1",
+    label: "Hulimanagla — ECity Phase 1",
     address: "Hulimangla Road, Near Westside & Sai Baba Temple Road, Electronic City Phase 1, Bangalore",
     mapUrl: "https://maps.app.goo.gl/gwKDYNhfzywxhvd5A",
   },
   {
-    label: "Location 2 — EC Phase 2",
+    label: "AnantNagar — ECity Phase 2",
     address: "Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant, Electronic City Phase 2, Bangalore",
     mapUrl: "https://maps.app.goo.gl/gWCjwHqTvoRYs6Mj9",
   },
@@ -128,7 +128,7 @@ export default function ContactPage() {
     <>
       <SeoHead
         title="Contact Poorvam Care - Book Free Consultation | Electronic City, Bangalore"
-        description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: EC Phase 1 & Phase 2. Call +91 886 176 4343."
+        description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/contact"
       />
       <StructuredData data={createBreadcrumbSchema([

@@ -7,8 +7,8 @@ const serviceLinks = [
   { name: "Speech Therapy for Autism", href: "/speech-therapy-for-autism-bangalore" },
   { name: "Occupational Therapy for Children", href: "/occupational-therapy-for-children-bangalore" },
   { name: "Speech Delay Therapy", href: "/speech-therapy-for-speech-delay-bangalore" },
-  { name: "EC Phase 1 Centre", href: "/electronic-city-phase-1" },
-  { name: "EC Phase 2 Centre", href: "/electronic-city-phase-2" },
+  { name: "Hulimangala, Ecity Phase 1", href: "/electronic-city-phase-1" },
+  { name: "Ananth Nagar, Ecity Phase 2", href: "/electronic-city-phase-2" },
 ];
 
 const quickLinks = [
