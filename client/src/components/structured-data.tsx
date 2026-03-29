@@ -43,9 +43,10 @@ export const organizationSchema = {
   ],
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "12.8311",
-    "longitude": "77.6483"
+    "latitude": "12.8456",
+    "longitude": "77.6603"
   },
+  "hasMap": "https://maps.google.com/?q=Poorvam+Care+Electronic+City+Bangalore",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",

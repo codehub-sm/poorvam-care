@@ -32,7 +32,7 @@ export default function SeoHead({ title, description, canonical, ogImage, keywor
     // Local SEO geo meta tags
     setMeta("geo.region", "IN-KA");
     setMeta("geo.placename", "Electronic City, Bangalore");
-    setMeta("geo.position", "12.8311;77.6483");
+    setMeta("geo.position", "12.8456;77.6603");
 
     if (canonical) {
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
