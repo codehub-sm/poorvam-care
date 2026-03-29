@@ -198,6 +198,8 @@ export default function AboutPage() {
                       src={leader.image}
                       alt={leader.name}
                       className="w-full h-full object-cover"
+                      width={80}
+                      height={80}
                       loading="lazy"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(leader.name)}&size=200&background=E8725A&color=fff`;
