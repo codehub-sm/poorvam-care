@@ -5,14 +5,16 @@ const serviceLinks = [
   { name: "Child Development Center", href: "/child-development" },
   { name: "Hearing Center", href: "/hearing-center" },
   { name: "Ucube - Enrichment", href: "/ucube" },
-  { name: "Speech Therapy", href: "/child-development" },
-  { name: "Hearing Assessments", href: "/hearing-center" },
+  { name: "Speech Therapy for Autism", href: "/speech-therapy-for-autism-bangalore" },
+  { name: "Occupational Therapy for Children", href: "/occupational-therapy-for-children-bangalore" },
+  { name: "Speech Delay Therapy", href: "/speech-therapy-for-speech-delay-bangalore" },
   { name: "Service Packages", href: "/service-packages" },
 ];
 
 const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "Pricing & Plans", href: "/service-packages" },
+  { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -146,9 +148,15 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-brown-light/60 text-sm font-body">
-            &copy; 2026 Poorvam Care. All rights reserved.
-          </p>
+          <div className="text-brown-light/60 text-sm font-body text-center md:text-left">
+            <p>&copy; 2026 Poorvam Care. All rights reserved.</p>
+            <p className="mt-1">
+              Centre management powered by{" "}
+              <a href="https://theraflow.in" target="_blank" rel="noopener noreferrer" className="hover:text-coral transition-colors underline">
+                TheraFlow
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6 text-sm text-brown-light/60 font-body">
             <span className="hover:text-coral cursor-pointer transition-colors">Privacy Policy</span>
             <span className="hover:text-coral cursor-pointer transition-colors">Terms of Service</span>

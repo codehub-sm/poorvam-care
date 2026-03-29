@@ -112,6 +112,56 @@ export function createFAQSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+export const personSchemaApoorva = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Apoorva Rai",
+  "jobTitle": "Lead Speech-Language Pathologist",
+  "worksFor": {
+    "@type": "MedicalBusiness",
+    "name": "Poorvam Care",
+    "url": "https://poorvamcare.in"
+  },
+  "hasCredential": [
+    "Master of Audiology and Speech-Language Pathology (MASLP)",
+    "Licensed by Rehabilitation Council of India",
+    "Member, Indian Speech and Hearing Association"
+  ],
+  "knowsAbout": [
+    "Autism Spectrum Disorder",
+    "Cochlear Implant Therapy",
+    "ADHD",
+    "Articulation Disorders",
+    "Developmental Delays",
+    "Speech Delay",
+    "Occupational Therapy for Children"
+  ]
+};
+
+export function createServiceSchema(service: {
+  name: string;
+  description: string;
+  url: string;
+  provider?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalTherapy",
+    "name": service.name,
+    "description": service.description,
+    "url": service.url,
+    "provider": {
+      "@type": "MedicalBusiness",
+      "name": service.provider || "Poorvam Care",
+      "url": "https://poorvamcare.in"
+    },
+    "availableService": {
+      "@type": "MedicalTherapy",
+      "name": service.name
+    }
+  };
+}
+
 export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
