@@ -13,7 +13,7 @@ const homeFAQs = [
   {
     question: "What services does Poorvam Care offer?",
     answer:
-      "Poorvam Care provides three specialized areas of care: Child Development Center (speech therapy, occupational therapy, ABA therapy, special education), Hearing Center (hearing assessments, hearing aids, cochlear implant support), and Ucube enrichment programs (dance, yoga, music, art, public speaking, soft skills).",
+      "Poorvam Care is a multi-disciplinary early intervention centre offering speech therapy, occupational therapy, ABA/behavioural therapy, special education, parent counselling, and therapeutic enrichment programmes (sensory art, movement therapy, therapeutic yoga, music & rhythm, social skills groups) for children aged 2–14.",
   },
   {
     question: "How do I know if my child needs therapy?",
@@ -21,14 +21,9 @@ const homeFAQs = [
       "If your child is not meeting developmental milestones, has difficulty communicating, shows behavioral concerns, or struggles with motor skills, a professional evaluation can help. We offer free initial consultations to assess whether therapy is right for your child.",
   },
   {
-    question: "What age should I get my child's hearing tested?",
-    answer:
-      "Newborn hearing screening is recommended within the first month of life. If your child passed the newborn screening but you notice signs of hearing difficulty later (not responding to sounds, speech delays), get tested immediately. Early detection is critical.",
-  },
-  {
     question: "What makes Poorvam different from other therapy centers?",
     answer:
-      "Poorvam Care combines 12+ years of experience with a warm, family-centered approach. Our team includes RCI-registered and ISHA-certified professionals. We offer comprehensive care across therapy, hearing, and enrichment — all under one roof in Electronic City, Bangalore.",
+      "Poorvam Care combines 13+ years of experience with a warm, family-centered approach. Our team includes RCI-registered and ISHA-certified professionals. We offer comprehensive early intervention across therapy and therapeutic enrichment — all under one roof across two locations in Electronic City, Bangalore.",
   },
   {
     question: "What is the difference between speech therapy and occupational therapy?",
@@ -36,14 +31,19 @@ const homeFAQs = [
       "Speech therapy focuses on communication — helping children develop language, improve articulation, and build social communication skills. Occupational therapy focuses on functional skills — helping children with sensory processing, fine motor skills, and daily living activities. Many children at Poorvam Care receive both.",
   },
   {
+    question: "What is Therapeutic Enrichment?",
+    answer:
+      "Our Therapeutic Enrichment programmes — sensory art, movement therapy, therapeutic yoga, music & rhythm, and social skills groups — are not general activity classes. They are designed specifically for children with developmental differences, run by our therapy team, and structured to build on each child's individual goals.",
+  },
+  {
     question: "How many sessions does my child need?",
     answer:
       "The number of sessions depends on the child's condition, age at which therapy starts, and how consistently therapy is practiced at home. After an initial assessment, our therapists will recommend a therapy plan with a realistic timeline and frequency.",
   },
   {
-    question: "Do you work with children who have a cochlear implant?",
+    question: "Where are your centres located?",
     answer:
-      "Yes. We provide auditory verbal therapy and cochlear implant rehabilitation for children who have received a cochlear implant. Our lead therapist Apoorva Rai has specific paediatric experience working with cochlear implant cases.",
+      "We have two centres in Electronic City, Bangalore. Phase 1: Hulimangala Road, Near Sai Mandir Temple, Above RxDx Multi Speciality Clinic. Phase 2: Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant.",
   },
   {
     question: "How do I book an appointment at Poorvam Care?",
@@ -61,11 +61,11 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        title="Poorvam Care - Best Child Therapy & Hearing Center in Electronic City, Bangalore"
-        description="Poorvam Care offers speech therapy, occupational therapy, ABA therapy, and special education for children in Electronic City, Bangalore. Led by Apoorva Rai, MASLP, 13+ years experience. Call +91 886 176 4343."
+        title="Early Intervention Centre in Electronic City Bangalore | Poorvam Care"
+        description="Poorvam Care is a multi-disciplinary early intervention centre in Electronic City, Bangalore. Speech therapy, OT, ABA, special education and therapeutic enrichment for children aged 2–14 with autism and developmental delays. RCI registered. ISHA certified."
         canonical="https://poorvamcare.in/"
         ogImage="https://poorvamcare.in/og-image.jpg"
-        keywords="speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, hearing center Electronic City, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, hearing test Bangalore, pediatric therapy Bangalore, Poorvam Care, speech therapy for autism Electronic City, early intervention therapy Bangalore"
+        keywords="early intervention centre Electronic City, speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, pediatric therapy Bangalore, Poorvam Care, speech therapy for autism Electronic City, early intervention therapy Bangalore, therapeutic enrichment children Bangalore"
       />
       <StructuredData data={organizationSchema} />
 

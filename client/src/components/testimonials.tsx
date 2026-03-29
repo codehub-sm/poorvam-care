@@ -16,9 +16,9 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "The hearing center team fitted my father with hearing aids that work perfectly. They took time to explain everything and followed up regularly. Highly recommend!",
+    quote: "The therapeutic enrichment sessions have been wonderful for my son. The sensory art and movement therapy activities complement his regular therapy beautifully. He looks forward to every session.",
     name: "Sneha R.",
-    condition: "Adult Hearing Loss",
+    condition: "Therapeutic Enrichment",
     rating: 5,
   },
   {
@@ -28,9 +28,9 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "My daughter loves the Ucube dance and art classes. Her confidence has soared, and she's performing on stage now! The instructors really know how to engage kids.",
+    quote: "The social skills groups have made a real difference for my daughter. She is learning turn-taking and conversation skills in a safe, supportive environment. The therapists are incredible.",
     name: "Kavitha D.",
-    condition: "Enrichment Programs",
+    condition: "Social Skills Group",
     rating: 5,
   },
 ];

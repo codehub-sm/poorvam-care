@@ -128,7 +128,7 @@ export default function ContactPage() {
     <>
       <SeoHead
         title="Contact Poorvam Care - Book Free Consultation | Electronic City, Bangalore"
-        description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for child therapy, speech therapy, hearing care. Two locations: EC Phase 1 & Phase 2. Call +91 886 176 4343."
+        description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: EC Phase 1 & Phase 2. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/contact"
       />
       <StructuredData data={createBreadcrumbSchema([
@@ -263,14 +263,12 @@ export default function ContactPage() {
                         <SelectItem value="occupational-therapy">Occupational Therapy</SelectItem>
                         <SelectItem value="behavioral-therapy">Behavioral Therapy</SelectItem>
                         <SelectItem value="developmental-assessment">Developmental Assessment</SelectItem>
-                        <SelectItem value="hearing-assessment">Hearing Assessment</SelectItem>
-                        <SelectItem value="hearing-aids">Hearing Aids</SelectItem>
-                        <SelectItem value="dance-classes">Dance Classes</SelectItem>
-                        <SelectItem value="yoga-classes">Yoga Classes</SelectItem>
-                        <SelectItem value="music-classes">Music Classes</SelectItem>
-                        <SelectItem value="art-craft">Art & Craft</SelectItem>
-                        <SelectItem value="public-speaking">Public Speaking</SelectItem>
-                        <SelectItem value="soft-skills">Soft Skills</SelectItem>
+                        <SelectItem value="sensory-art">Sensory Art</SelectItem>
+                        <SelectItem value="movement-therapy">Movement Therapy</SelectItem>
+                        <SelectItem value="therapeutic-yoga">Therapeutic Yoga</SelectItem>
+                        <SelectItem value="music-rhythm">Music & Rhythm</SelectItem>
+                        <SelectItem value="social-skills-group">Social Skills Group</SelectItem>
+                        <SelectItem value="parent-counselling">Parent Counselling</SelectItem>
                         <SelectItem value="consultation">General Consultation</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>

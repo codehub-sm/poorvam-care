@@ -35,9 +35,9 @@ const faqData = [
       "Speech therapy focuses on communication skills — helping children speak clearly, understand language, and express themselves. Occupational therapy addresses fine motor skills, sensory processing, coordination, and daily living activities. Many children benefit from both therapies working together, which is why Poorvam Care offers integrated multi-disciplinary care under one roof.",
   },
   {
-    question: "Do you work with children who have a cochlear implant?",
+    question: "What is Therapeutic Enrichment at Poorvam Care?",
     answer:
-      "Yes, we provide specialised cochlear implant rehabilitation including auditory verbal therapy (AVT) and speech-language therapy for children with cochlear implants. Our hearing centre offers comprehensive support from pre-implant assessment through post-implant therapy, helping children develop listening and spoken language skills effectively.",
+      "Our Therapeutic Enrichment programmes — sensory art, movement therapy, therapeutic yoga, music & rhythm, and social skills groups — are not general activity classes. They are designed specifically for children with developmental differences, run by our therapy team, and structured to build on each child's individual goals. Every session is purposeful and connects back to their development plan.",
   },
   {
     question: "How do I book an appointment at Poorvam Care?",

@@ -8,8 +8,9 @@ import Layout from "@/components/layout";
 import Home from "@/pages/home";
 
 const ChildDevelopment = lazy(() => import("@/pages/child-development"));
-const HearingCenter = lazy(() => import("@/pages/hearing-center"));
-const Ucube = lazy(() => import("@/pages/ucube"));
+const TherapeuticEnrichment = lazy(() => import("@/pages/therapeutic-enrichment"));
+const ElectronicCityPhase1 = lazy(() => import("@/pages/electronic-city-phase-1"));
+const ElectronicCityPhase2 = lazy(() => import("@/pages/electronic-city-phase-2"));
 const About = lazy(() => import("@/pages/about"));
 const ContactPage = lazy(() => import("@/pages/contact"));
 const ServicePackagesPage = lazy(() => import("@/pages/service-packages"));
@@ -34,8 +35,9 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/child-development" component={ChildDevelopment} />
-        <Route path="/hearing-center" component={HearingCenter} />
-        <Route path="/ucube" component={Ucube} />
+        <Route path="/therapeutic-enrichment" component={TherapeuticEnrichment} />
+        <Route path="/electronic-city-phase-1" component={ElectronicCityPhase1} />
+        <Route path="/electronic-city-phase-2" component={ElectronicCityPhase2} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/service-packages" component={ServicePackagesPage} />
