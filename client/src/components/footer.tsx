@@ -152,7 +152,7 @@ export default function Footer() {
             <p>&copy; 2026 Poorvam Care. All rights reserved.</p>
             <p className="mt-1">
               Centre management powered by{" "}
-              <a href="https://theraflow.in" target="_blank" rel="noopener noreferrer" className="hover:text-coral transition-colors underline">
+              <a href="https://theraflow.in" target="_blank" rel="dofollow" className="hover:text-coral transition-colors underline">
                 TheraFlow
               </a>
             </p>
