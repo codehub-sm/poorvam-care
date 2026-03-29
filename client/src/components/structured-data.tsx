@@ -14,6 +14,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
+  "@id": "https://poorvamcare.in/#organization",
   "name": "Poorvam Care",
   "alternateName": ["Poorvam Therapy Center", "Poorvam Child Development Center", "Poorvam Early Intervention Centre"],
   "description": "Multi-disciplinary early intervention centre offering speech therapy, occupational therapy, ABA, behavioural therapy, special education, and therapeutic enrichment for children aged 2–14 in Electronic City, Bangalore.",
@@ -23,6 +24,14 @@ export const organizationSchema = {
   "telephone": "+918861764343",
   "email": "info@poorvamcare.in",
   "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hulimangla Road, Near Westside & Sai Baba Temple Road, Electronic City Phase 1",
+    "addressLocality": "Electronic City",
+    "addressRegion": "Karnataka",
+    "postalCode": "560100",
+    "addressCountry": "IN"
+  },
   "location": [
     {
       "@type": "Place",
@@ -141,8 +150,7 @@ export const personSchemaApoorva = {
   "email": "poorvam.care@gmail.com",
   "worksFor": {
     "@type": "MedicalBusiness",
-    "name": "Poorvam Care",
-    "url": "https://poorvamcare.in"
+    "@id": "https://poorvamcare.in/#organization"
   },
   "hasCredential": [
     "Master of Audiology and Speech-Language Pathology (MASLP)",
@@ -174,8 +182,7 @@ export function createServiceSchema(service: {
     "url": service.url,
     "provider": {
       "@type": "MedicalBusiness",
-      "name": service.provider || "Poorvam Care",
-      "url": "https://poorvamcare.in"
+      "@id": "https://poorvamcare.in/#organization"
     },
     "availableService": {
       "@type": "MedicalTherapy",
