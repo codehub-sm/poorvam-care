@@ -277,6 +277,8 @@ export default function ChildDevelopmentPage() {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"
+                    width={200}
+                    height={200}
                     loading="lazy"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&size=200&background=E8725A&color=fff`;

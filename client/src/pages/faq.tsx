@@ -1,5 +1,5 @@
 import SeoHead from "@/components/seo-head";
-import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/components/structured-data";
+import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 
@@ -55,7 +55,6 @@ export default function FAQPage() {
         canonical="https://poorvamcare.in/faq"
         keywords="speech therapy FAQ, occupational therapy questions, autism therapy Bangalore, child development questions, speech therapy cost Bangalore, when to start speech therapy"
       />
-      <StructuredData data={createFAQSchema(faqData)} />
       <StructuredData data={createBreadcrumbSchema([
         { name: "Home", url: "https://poorvamcare.in/" },
         { name: "FAQ", url: "https://poorvamcare.in/faq" },

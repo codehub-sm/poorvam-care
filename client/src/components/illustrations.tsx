@@ -3,9 +3,10 @@
  * Warm, organic, hand-drawn-style vectors that match the brand palette.
  * No external images needed — pure inline SVG.
  */
+import { memo } from "react";
 
 /** Child Development — parent & child silhouette with playful shapes */
-export function ChildDevelopmentIllustration({ className = "" }: { className?: string }) {
+export const ChildDevelopmentIllustration = memo(function ChildDevelopmentIllustration({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
       {/* Background organic blob */}
@@ -40,10 +41,10 @@ export function ChildDevelopmentIllustration({ className = "" }: { className?: s
       <path d="M185 75 C185 68 195 62 200 70 C205 62 215 68 215 75 C215 85 200 95 200 95 C200 95 185 85 185 75Z" fill="#E8725A" opacity="0.15" />
     </svg>
   );
-}
+});
 
 /** Therapeutic Enrichment — music, movement, art motifs */
-export function TherapeuticEnrichmentIllustration({ className = "" }: { className?: string }) {
+export const TherapeuticEnrichmentIllustration = memo(function TherapeuticEnrichmentIllustration({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
       {/* Background blob */}
@@ -85,10 +86,10 @@ export function TherapeuticEnrichmentIllustration({ className = "" }: { classNam
       <path d="M40 245 Q120 238 200 243 Q280 248 360 240" stroke="#7BA87B" strokeWidth="2" strokeLinecap="round" opacity="0.2" />
     </svg>
   );
-}
+});
 
 /** Hearing Center — ear, sound waves, stethoscope motifs */
-export function HearingCenterIllustration({ className = "" }: { className?: string }) {
+export const HearingCenterIllustration = memo(function HearingCenterIllustration({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
       {/* Background blob */}
@@ -127,10 +128,10 @@ export function HearingCenterIllustration({ className = "" }: { className?: stri
       <path d="M510 130 L517 138 L532 122" stroke="#7BA87B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.2" />
     </svg>
   );
-}
+});
 
 /** Hero collage — abstract therapy-themed composition */
-export function HeroIllustration({ className = "" }: { className?: string }) {
+export const HeroIllustration = memo(function HeroIllustration({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
       {/* Large organic background shapes */}
@@ -177,4 +178,4 @@ export function HeroIllustration({ className = "" }: { className?: string }) {
       <path d="M380 160 L382 155 L384 160 L389 160 L385 163 L387 168 L382 165 L377 168 L379 163 L375 160 Z" fill="#E8725A" opacity="0.15" />
     </svg>
   );
-}
+});
