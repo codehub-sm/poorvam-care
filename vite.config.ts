@@ -40,13 +40,13 @@ export default defineConfig(async () => {
           ],
           renderer: new JSDOMRenderer(),
           rendererOptions: {
-            renderAfterTime: 2000,
+            renderAfterTime: 5000,
           },
           postProcess(renderedRoute: { html: string }) {
-            // Ensure prerendered HTML has proper meta tags visible
+            // Remove noscript block from prerendered pages since content is now in the DOM
             renderedRoute.html = renderedRoute.html.replace(
-              /<div id="root"><\/div>/,
-              '<div id="root">' + '</div>'
+              /<noscript>[\s\S]*?<\/noscript>/g,
+              ''
             );
             return renderedRoute;
           },

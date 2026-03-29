@@ -138,6 +138,7 @@ export const personSchemaApoorva = {
   "@type": "Person",
   "name": "Apoorva Rai",
   "jobTitle": "Lead Speech-Language Pathologist",
+  "email": "poorvam.care@gmail.com",
   "worksFor": {
     "@type": "MedicalBusiness",
     "name": "Poorvam Care",

@@ -37,7 +37,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://poorvam-staff.s3.us-east-1.amazonaws.com/Poorvam-Logo+(1).jpg" />
 
-    <!-- MedicalBusiness Schema (CRITICAL for Local SEO / GEO) -->
+    <!-- MedicalBusiness Schema (CRITICAL for Local SEO / GEO)
+         TODO: After claiming Google Business Profile, add GBP URL to "sameAs" array below:
+         e.g. "https://g.page/poorvam-care" or the full Google Maps URL -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -160,6 +162,7 @@
       "@type": "Person",
       "name": "Apoorva Rai",
       "jobTitle": "Lead Speech-Language Pathologist",
+      "email": "poorvam.care@gmail.com",
       "worksFor": {
         "@type": "MedicalBusiness",
         "name": "Poorvam Care",
@@ -175,6 +178,80 @@
         "@type": "EducationalOrganization",
         "name": "MASLP Program"
       }
+    }
+    </script>
+
+    <!-- FAQPage Schema (for Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What age should I start speech therapy for my child?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Early intervention is most effective when started before age 3. If your child is not babbling by 12 months, not using single words by 18 months, or not combining words by age 2, consult a speech-language pathologist. At Poorvam Care, we work with children as young as 12 months to support communication development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with children with autism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Autism therapy is one of our core specialties. We provide speech therapy, ABA (Applied Behaviour Analysis), occupational therapy, and special education tailored for children on the autism spectrum. Our team creates individualized therapy plans based on each child's unique needs and strengths."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cost of speech therapy in Bangalore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Session fees vary based on the type of therapy and frequency. We offer flexible packages to suit different family budgets. Contact us for a free initial consultation where we can discuss your child's needs and recommend an appropriate therapy plan with transparent pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many sessions does a child typically need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The number of sessions depends on the child's condition, severity, and therapy goals. Most children attend 2-3 sessions per week. Some see noticeable improvement within 3-6 months, while others benefit from longer-term support. We conduct regular assessments and adjust the therapy plan as your child progresses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between speech therapy and occupational therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Speech therapy focuses on communication skills — helping children speak clearly, understand language, and express themselves. Occupational therapy addresses fine motor skills, sensory processing, coordination, and daily living activities. Many children benefit from both therapies working together, which is why Poorvam Care offers integrated multi-disciplinary care under one roof."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Therapeutic Enrichment at Poorvam Care?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our Therapeutic Enrichment programmes — sensory art, movement therapy, therapeutic yoga, music & rhythm, and social skills groups — are designed specifically for children with developmental differences, run by our therapy team, and structured to build on each child's individual goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book an appointment at Poorvam Care?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can book a free consultation by calling us at +91 886 176 4343, sending a WhatsApp message to the same number, filling out our online contact form, or visiting our centres in Electronic City Phase 1 or Phase 2, Bangalore. We typically respond within 24 hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer online therapy or home visits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer teletherapy options for speech therapy, behavioural consultations, and parent training sessions. Online therapy is ideal for follow-up sessions and for working parents who need flexibility. In-person sessions are available at our Electronic City locations in Bangalore."
+          }
+        }
+      ]
     }
     </script>
   </head>
