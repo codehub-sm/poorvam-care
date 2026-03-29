@@ -70,6 +70,8 @@
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
+    "@prerenderer/renderer-jsdom": "^1.1.9",
+    "@prerenderer/rollup-plugin": "^0.3.12",
     "@replit/vite-plugin-cartographer": "^0.2.7",
     "@replit/vite-plugin-runtime-error-modal": "^0.0.3",
     "@tailwindcss/typography": "^0.5.15",
