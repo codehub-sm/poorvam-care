@@ -51,9 +51,14 @@ const homeFAQs = [
       "Call us at +91 886 176 4343 or email info@poorvamcare.in. We offer a free initial consultation to understand your child's needs before recommending a therapy plan.",
   },
   {
-    question: "Do you provide home visits or online therapy?",
+    question: "What is the cost of speech therapy at Poorvam Care?",
     answer:
-      "Please contact us directly at +91 886 176 4343 to ask about home visit and online therapy availability for your area.",
+      "Speech therapy session fees vary based on the type of therapy, frequency, and your child's specific needs. We offer flexible therapy packages to suit different family budgets. Contact us at +91 886 176 4343 for a free initial consultation where we discuss your child's needs and provide transparent pricing with no hidden charges.",
+  },
+  {
+    question: "Do you offer online therapy or teletherapy?",
+    answer:
+      "Yes, Poorvam Care offers teletherapy options for speech therapy, behavioural consultations, and parent training sessions. Online therapy is ideal for follow-up sessions and for families who find it difficult to travel to our Electronic City centres. In-person sessions are available at both our Phase 1 and Phase 2 locations.",
   },
 ];
 
@@ -65,7 +70,7 @@ export default function Home() {
         description="Poorvam Care is a multi-disciplinary early intervention centre in Electronic City, Bangalore. Speech therapy, OT, ABA, special education and therapeutic enrichment for children aged 2–14 with autism and developmental delays. RCI registered. ISHA certified."
         canonical="https://poorvamcare.in/"
         ogImage="https://poorvamcare.in/og-image.jpg"
-        keywords="early intervention centre Electronic City, speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, pediatric therapy Bangalore, Poorvam Care, speech therapy for autism Electronic City, early intervention therapy Bangalore, therapeutic enrichment children Bangalore"
+        keywords="early intervention centre Electronic City, speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, pediatric therapy Bangalore, Poorvam Care, speech therapy near me Bommanahalli, child therapy Hosa Road, speech therapy cost Bangalore, best child therapy center near me, occupational therapy near me Kudlu Gate, speech therapist HSR Layout, therapy for autism near Electronic City, speech therapy fees Bangalore, free consultation child therapy Bangalore, RCI registered therapist near me, teletherapy for children Bangalore"
       />
       <StructuredData data={organizationSchema} />
 

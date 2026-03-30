@@ -122,7 +122,13 @@ export const organizationSchema = {
     { "@type": "Place", "name": "Doddathogur" },
     { "@type": "Place", "name": "Hulimangala" },
     { "@type": "Place", "name": "Hosa Road" },
-    { "@type": "Place", "name": "Bommanahalli" }
+    { "@type": "Place", "name": "Bommanahalli" },
+    { "@type": "Place", "name": "Kudlu Gate" },
+    { "@type": "Place", "name": "HSR Layout" },
+    { "@type": "Place", "name": "Singasandra" },
+    { "@type": "Place", "name": "Hongasandra" },
+    { "@type": "Place", "name": "Chandapura" },
+    { "@type": "Place", "name": "Konanakunte" }
   ],
   "medicalSpecialty": ["Pediatric Therapy", "Speech-Language Pathology", "Occupational Therapy", "Behavioural Therapy"]
 };

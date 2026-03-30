@@ -53,7 +53,7 @@ export default function FAQPage() {
         title="FAQ — Speech Therapy & Child Development Questions | Poorvam Care, Electronic City Bangalore"
         description="Answers to common questions about speech therapy, occupational therapy, autism therapy, and child development services at Poorvam Care, Electronic City, Bangalore."
         canonical="https://poorvamcare.in/faq"
-        keywords="speech therapy FAQ, occupational therapy questions, autism therapy Bangalore, child development questions, speech therapy cost Bangalore, when to start speech therapy"
+        keywords="speech therapy FAQ, occupational therapy questions, autism therapy Bangalore, child development questions, speech therapy cost Bangalore, when to start speech therapy, speech therapy fees Bangalore, occupational therapy cost Electronic City, therapy pricing near me, how much does child therapy cost in Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={createBreadcrumbSchema([

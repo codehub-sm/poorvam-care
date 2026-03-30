@@ -131,7 +131,7 @@ export default function ContactPage() {
         description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/contact"
         ogImage="https://poorvamcare.in/og-image.jpg"
-        keywords="contact Poorvam Care, book therapy appointment Bangalore, free consultation speech therapy, child therapy Electronic City, phone number Poorvam Care, therapy center near me Electronic City"
+        keywords="contact Poorvam Care, book therapy appointment Bangalore, free consultation speech therapy, child therapy Electronic City, phone number Poorvam Care, therapy center near me Electronic City, book free consultation child therapy Bangalore, speech therapy appointment near me, therapy center Bommanahalli Hosa Road Kudlu Gate"
       />
       <StructuredData data={createBreadcrumbSchema([
         { name: "Home", url: "https://poorvamcare.in/" },

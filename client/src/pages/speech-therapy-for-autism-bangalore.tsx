@@ -30,7 +30,7 @@ export default function SpeechTherapyForAutism() {
         title="Speech Therapy for Autism in Bangalore | Poorvam Care, Electronic City"
         description="Specialized speech therapy for children with autism spectrum disorder in Electronic City, Bangalore. Led by Apoorva Rai, MASLP, 13+ years experience. ABA therapy, language development, and social communication support."
         canonical="https://poorvamcare.in/speech-therapy-for-autism-bangalore"
-        keywords="speech therapy for autism Bangalore, autism speech therapy Electronic City, ASD therapy Bangalore, autism treatment for children Bangalore, speech delay autism therapy, ABA therapy Electronic City"
+        keywords="speech therapy for autism Bangalore, autism speech therapy Electronic City, ASD therapy Bangalore, autism treatment for children Bangalore, speech delay autism therapy, ABA therapy Electronic City, best autism therapy near me Bommanahalli, autism speech therapy cost Bangalore, autism therapy Hosa Road, ABA therapy near me Kudlu Gate, autism therapy center HSR Layout, speech therapy for autism near me, autism treatment cost Bangalore, RCI registered autism therapist Bangalore, online speech therapy autism Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={createServiceSchema({
