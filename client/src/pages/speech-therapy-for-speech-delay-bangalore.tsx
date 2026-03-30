@@ -1,7 +1,27 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/components/structured-data";
+import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
+
+const speechDelayFAQs = [
+  {
+    question: "My toddler is not talking yet — is that normal?",
+    answer: "While all children develop at different rates, most toddlers say their first words by 12–18 months and combine words by age 2. If your child is not babbling by 12 months or not using words by 18 months, it's worth getting a professional evaluation. Early intervention for speech delay produces the best outcomes.",
+  },
+  {
+    question: "What causes speech delay in children?",
+    answer: "Speech delay can be caused by hearing problems, oral-motor issues, developmental conditions (like autism or ADHD), lack of stimulation, premature birth, or it can be idiopathic (no clear cause). A speech-language pathologist can help identify the underlying cause and create an appropriate therapy plan.",
+  },
+  {
+    question: "How long does speech therapy take for speech delay?",
+    answer: "The duration varies based on the severity of the delay and the child's age. Many children with mild speech delay show significant improvement within 3–6 months of consistent therapy (2–3 sessions per week). More complex cases may require longer-term support. We conduct regular assessments to track progress.",
+  },
+  {
+    question: "Do you offer speech therapy for toddlers under 2 years old?",
+    answer: "Yes. At Poorvam Care, we provide early intervention speech therapy for children as young as 12–18 months. For very young children, therapy is play-based and involves extensive parent coaching so you can support your child's communication development at home between sessions.",
+  },
+];
 
 export default function SpeechTherapyForSpeechDelay() {
   return (
@@ -10,7 +30,8 @@ export default function SpeechTherapyForSpeechDelay() {
         title="Speech Therapy for Speech Delay in Bangalore | Poorvam Care, Electronic City"
         description="Expert speech therapy for children with speech delay and late talkers in Electronic City, Bangalore. Early intervention by Apoorva Rai, MASLP, 13+ years experience. Free consultation available."
         canonical="https://poorvamcare.in/speech-therapy-for-speech-delay-bangalore"
-        keywords="speech therapy for speech delay Bangalore, late talker therapy Electronic City, speech delay treatment Bangalore, toddler not talking, child speech delay therapy near me, speech language pathologist Electronic City"
+        keywords="speech therapy for speech delay Bangalore, late talker therapy Electronic City, speech delay treatment Bangalore, toddler not talking, child speech delay therapy near me, speech language pathologist Electronic City, speech therapy near me Bommanahalli, speech delay treatment cost Bangalore, best speech therapist for toddlers near me, speech therapy Hosa Road, late talker therapy Kudlu Gate, speech therapy fees Bangalore, online speech therapy for toddlers Bangalore, early intervention speech therapy near me, RCI licensed speech therapist Bangalore"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={createServiceSchema({
         name: "Speech Therapy for Speech Delay",
@@ -112,6 +133,12 @@ export default function SpeechTherapyForSpeechDelay() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        faqs={speechDelayFAQs}
+        title="Speech Delay Therapy — FAQs"
+        subtitle="Common questions from parents about speech delay and late talkers"
+      />
 
       {/* CTA */}
       <section className="py-16 bg-brown-deep">

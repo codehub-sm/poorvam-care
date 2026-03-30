@@ -90,7 +90,8 @@ export default function TherapeuticEnrichmentPage() {
         title="Therapeutic Enrichment Programme for Children with Developmental Differences | Poorvam Care"
         description="Therapeutic enrichment programmes at Poorvam Care, Electronic City Bangalore. Sensory art, movement therapy, therapeutic yoga, music & rhythm, and social skills groups — designed for children who learn differently. Run by our therapy team."
         canonical="https://poorvamcare.in/therapeutic-enrichment"
-        keywords="therapeutic enrichment Bangalore, sensory art therapy Electronic City, movement therapy children Bangalore, therapeutic yoga autism, social skills group children Electronic City, enrichment for developmental delays, therapy-based activities children Bangalore, Poorvam Care enrichment"
+        keywords="therapeutic enrichment Bangalore, sensory art therapy Electronic City, movement therapy children Bangalore, therapeutic yoga autism, social skills group children Electronic City, enrichment for developmental delays, therapy-based activities children Bangalore, Poorvam Care enrichment, sensory activities for children near me, social skills group autism Bangalore, therapeutic activities Bommanahalli Hosa Road"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData
         data={{

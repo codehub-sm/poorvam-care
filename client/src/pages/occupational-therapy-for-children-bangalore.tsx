@@ -1,7 +1,27 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/components/structured-data";
+import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
+
+const otFAQs = [
+  {
+    question: "What is occupational therapy for children?",
+    answer: "Occupational therapy (OT) for children helps them develop the skills needed for daily activities — writing, dressing, eating, playing, and learning. It addresses fine motor skills, sensory processing, coordination, and self-care through play-based, child-friendly activities.",
+  },
+  {
+    question: "How do I know if my child needs occupational therapy?",
+    answer: "Signs your child may benefit from OT include: difficulty holding a pencil or writing, trouble with buttons/zippers, sensitivity to textures or sounds, poor balance or coordination, difficulty sitting still, challenges with self-care tasks (eating, dressing), or sensory-seeking behaviours.",
+  },
+  {
+    question: "What is sensory integration therapy?",
+    answer: "Sensory integration therapy helps children who have difficulty processing sensory input (touch, sound, movement, visual). Our OT team uses specialized equipment like swings, crash pads, and tactile walls to help children regulate their sensory responses, improving focus, behaviour, and daily functioning.",
+  },
+  {
+    question: "How often should my child attend occupational therapy?",
+    answer: "Most children benefit from 1–3 OT sessions per week, depending on their needs. We also provide a home exercise programme so parents can reinforce skills between sessions. Our team regularly reviews progress and adjusts the therapy frequency as your child improves.",
+  },
+];
 
 export default function OccupationalTherapyForChildren() {
   return (
@@ -10,7 +30,8 @@ export default function OccupationalTherapyForChildren() {
         title="Occupational Therapy for Children in Bangalore | Poorvam Care, Electronic City"
         description="Expert occupational therapy for children with sensory processing issues, motor skill delays, and developmental challenges in Electronic City, Bangalore. RCI registered therapists. Free consultation."
         canonical="https://poorvamcare.in/occupational-therapy-for-children-bangalore"
-        keywords="occupational therapy for children Bangalore, pediatric OT Electronic City, sensory processing therapy Bangalore, fine motor skills therapy, OT for autism Bangalore, occupational therapy near me Electronic City"
+        keywords="occupational therapy for children Bangalore, pediatric OT Electronic City, sensory processing therapy Bangalore, fine motor skills therapy, OT for autism Bangalore, occupational therapy near me Electronic City, OT near me Bommanahalli, occupational therapy cost Bangalore, sensory integration therapy near me, pediatric OT Hosa Road, occupational therapy Kudlu Gate, OT for ADHD Bangalore, occupational therapy fees Bangalore, best occupational therapist for children near me, sensory processing disorder therapy HSR Layout"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={createServiceSchema({
         name: "Occupational Therapy for Children",
@@ -112,6 +133,12 @@ export default function OccupationalTherapyForChildren() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        faqs={otFAQs}
+        title="Occupational Therapy — FAQs"
+        subtitle="Common questions about pediatric occupational therapy"
+      />
 
       {/* CTA */}
       <section className="py-16 bg-brown-deep">

@@ -13,6 +13,7 @@ import { Calendar, Mail, Phone, User, MessageSquare, Users, Clock, X, FileText, 
 import { CalendarView } from "@/components/calendar-view";
 import { AppointmentModal } from "@/components/appointment-modal";
 import { PatientDetails } from "@/components/patient-details";
+import SeoHead from "@/components/seo-head";
 
 interface ContactSubmission {
   id: number;
@@ -846,6 +847,11 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-4">
+      <SeoHead
+        title="Admin | Poorvam Care"
+        description="Admin panel for Poorvam Care."
+        robots="noindex, nofollow"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Poorvam Care Admin Dashboard</h1>

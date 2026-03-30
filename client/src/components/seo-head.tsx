@@ -6,9 +6,10 @@ interface SeoHeadProps {
   canonical?: string;
   ogImage?: string;
   keywords?: string;
+  robots?: string;
 }
 
-export default function SeoHead({ title, description, canonical, ogImage, keywords }: SeoHeadProps) {
+export default function SeoHead({ title, description, canonical, ogImage, keywords, robots }: SeoHeadProps) {
   useEffect(() => {
     document.title = title;
 
@@ -24,6 +25,7 @@ export default function SeoHead({ title, description, canonical, ogImage, keywor
     };
 
     setMeta("description", description);
+    setMeta("robots", robots || "index, follow");
 
     if (keywords) {
       setMeta("keywords", keywords);
@@ -55,8 +57,8 @@ export default function SeoHead({ title, description, canonical, ogImage, keywor
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
-    if (ogImage) setMeta("twitter:image", ogImage);
-  }, [title, description, canonical, ogImage, keywords]);
+    setMeta("twitter:image", ogImage || "https://poorvamcare.in/og-image.jpg");
+  }, [title, description, canonical, ogImage, keywords, robots]);
 
   return null;
 }

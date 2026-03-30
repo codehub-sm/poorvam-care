@@ -130,11 +130,30 @@ export default function ContactPage() {
         title="Contact Poorvam Care - Book Free Consultation | Electronic City, Bangalore"
         description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/contact"
+        ogImage="https://poorvamcare.in/og-image.jpg"
+        keywords="contact Poorvam Care, book therapy appointment Bangalore, free consultation speech therapy, child therapy Electronic City, phone number Poorvam Care, therapy center near me Electronic City, book free consultation child therapy Bangalore, speech therapy appointment near me, therapy center Bommanahalli Hosa Road Kudlu Gate"
       />
       <StructuredData data={createBreadcrumbSchema([
         { name: "Home", url: "https://poorvamcare.in/" },
         { name: "Contact", url: "https://poorvamcare.in/contact" },
       ])} />
+      <StructuredData data={{
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "@id": "https://poorvamcare.in/#organization",
+        "name": "Poorvam Care",
+        "telephone": "+918861764343",
+        "email": "info@poorvamcare.in",
+        "url": "https://poorvamcare.in",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+        ],
+        "address": [
+          { "@type": "PostalAddress", "streetAddress": "Hulimangla Road, Near Westside & Sai Baba Temple Road", "addressLocality": "Electronic City Phase 1, Bangalore", "addressRegion": "Karnataka", "postalCode": "560100", "addressCountry": "IN" },
+          { "@type": "PostalAddress", "streetAddress": "Ananth Nagar, Above Bata Showroom", "addressLocality": "Electronic City Phase 2, Bangalore", "addressRegion": "Karnataka", "postalCode": "560100", "addressCountry": "IN" }
+        ]
+      }} />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-warm-bg via-white to-warm-gray-50 py-16 md:py-20">
