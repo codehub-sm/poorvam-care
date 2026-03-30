@@ -7,6 +7,7 @@ import HowItWorks from "@/components/how-it-works";
 import Testimonials from "@/components/testimonials";
 import FAQSection from "@/components/faq-section";
 import WaveDivider from "@/components/wave-divider";
+import SummerCampBanner from "@/components/summer-camp-banner";
 import { Link } from "wouter";
 
 const homeFAQs = [
@@ -51,6 +52,11 @@ const homeFAQs = [
       "Call us at +91 886 176 4343 or email info@poorvamcare.in. We offer a free initial consultation to understand your child's needs before recommending a therapy plan.",
   },
   {
+    question: "Does Poorvam Care have a summer therapy camp for children?",
+    answer:
+      "Yes! Poorvam Care runs a Summer Therapy Camp every year during April–May. The camp includes sensory art, therapeutic yoga, movement therapy, music & rhythm, and social skills groups — all designed specifically for children with autism, ADHD, speech delay, and developmental differences. It's a fun, therapy-driven summer experience led by our qualified therapists. Call +91 886 176 4343 to enquire about the 2026 summer camp.",
+  },
+  {
     question: "What is the cost of speech therapy at Poorvam Care?",
     answer:
       "Speech therapy session fees vary based on the type of therapy, frequency, and your child's specific needs. We offer flexible therapy packages to suit different family budgets. Contact us at +91 886 176 4343 for a free initial consultation where we discuss your child's needs and provide transparent pricing with no hidden charges.",
@@ -74,6 +80,7 @@ export default function Home() {
       />
       <StructuredData data={organizationSchema} />
 
+      <SummerCampBanner />
       <Hero />
       <TrustBar />
       <ServicePillars />
