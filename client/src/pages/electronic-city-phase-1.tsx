@@ -74,6 +74,7 @@ export default function ElectronicCityPhase1() {
         description="Poorvam Care on Hulimangala Road offers speech therapy, occupational therapy, ABA, and special education for children with autism and developmental delays in Electronic City Phase 1, Bangalore."
         canonical="https://poorvamcare.in/electronic-city-phase-1"
         keywords="speech therapy Electronic City Phase 1, occupational therapy Hulimangala Road, early intervention centre Electronic City, child therapy near Sai Mandir, autism therapy Electronic City Phase 1 Bangalore, Poorvam Care Phase 1"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={localBusinessSchema} />
       <StructuredData data={createBreadcrumbSchema([

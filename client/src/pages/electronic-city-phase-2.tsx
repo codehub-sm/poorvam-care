@@ -75,6 +75,7 @@ export default function ElectronicCityPhase2() {
         description="Poorvam Care in Ananth Nagar offers speech therapy, occupational therapy, ABA, and special education for children with autism and developmental delays in Electronic City Phase 2, Bangalore."
         canonical="https://poorvamcare.in/electronic-city-phase-2"
         keywords="speech therapy Electronic City Phase 2, occupational therapy Ananth Nagar, early intervention centre EC Phase 2, child therapy Hosa Road, autism therapy Electronic City Phase 2 Bangalore, Poorvam Care Phase 2"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={localBusinessSchema} />
       <StructuredData data={createBreadcrumbSchema([

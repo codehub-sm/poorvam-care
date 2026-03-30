@@ -108,6 +108,7 @@ export default function ChildDevelopmentPage() {
         description="Top-rated child development center in Electronic City, Bangalore. Expert speech therapy, occupational therapy, ABA therapy for autism, ADHD, developmental delays. RCI registered. Free assessment."
         canonical="https://poorvamcare.in/child-development"
         keywords="child development center Electronic City, speech therapy for kids Bangalore, occupational therapy Electronic City, ABA therapy autism Bangalore, ADHD therapy near me, developmental delay treatment Bangalore, cerebral palsy therapy Electronic City, Down syndrome therapy Bangalore, sensory processing therapy, best child therapist near Electronic City, RCI registered therapist Bangalore, early intervention therapy Bangalore, Poorvam Care child development"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData
         data={{

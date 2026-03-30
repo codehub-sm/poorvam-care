@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /appointments
 
 Sitemap: https://poorvamcare.in/sitemap.xml

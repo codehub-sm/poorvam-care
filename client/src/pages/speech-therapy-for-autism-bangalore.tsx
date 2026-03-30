@@ -1,7 +1,27 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/components/structured-data";
+import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
+
+const autismFAQs = [
+  {
+    question: "At what age should I start speech therapy for my child with autism?",
+    answer: "Early intervention is most effective when started before age 3. Research shows that children with autism who receive speech therapy early have significantly better communication outcomes. At Poorvam Care, we work with children as young as 18 months.",
+  },
+  {
+    question: "How many speech therapy sessions per week does a child with autism need?",
+    answer: "Most children with autism benefit from 2–3 speech therapy sessions per week. The exact frequency depends on the severity of communication challenges, the child's age, and individual therapy goals. We create customized therapy plans based on each child's needs.",
+  },
+  {
+    question: "Do you combine ABA therapy with speech therapy for autism?",
+    answer: "Yes. At Poorvam Care, we offer integrated multi-disciplinary therapy. ABA (Applied Behaviour Analysis) can be combined with speech therapy to address both behavioural and communication goals simultaneously, leading to faster progress.",
+  },
+  {
+    question: "What signs indicate my child with autism needs speech therapy?",
+    answer: "Key signs include: not babbling by 12 months, no single words by 16 months, loss of previously acquired speech, difficulty understanding simple instructions, limited eye contact, repetitive language (echolalia), and difficulty with social communication or making friends.",
+  },
+];
 
 export default function SpeechTherapyForAutism() {
   return (
@@ -11,6 +31,7 @@ export default function SpeechTherapyForAutism() {
         description="Specialized speech therapy for children with autism spectrum disorder in Electronic City, Bangalore. Led by Apoorva Rai, MASLP, 13+ years experience. ABA therapy, language development, and social communication support."
         canonical="https://poorvamcare.in/speech-therapy-for-autism-bangalore"
         keywords="speech therapy for autism Bangalore, autism speech therapy Electronic City, ASD therapy Bangalore, autism treatment for children Bangalore, speech delay autism therapy, ABA therapy Electronic City"
+        ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={createServiceSchema({
         name: "Speech Therapy for Autism",
@@ -111,6 +132,12 @@ export default function SpeechTherapyForAutism() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        faqs={autismFAQs}
+        title="Speech Therapy for Autism — FAQs"
+        subtitle="Common questions from parents about autism therapy at Poorvam Care"
+      />
 
       {/* CTA */}
       <section className="py-16 bg-brown-deep">

@@ -1,8 +1,14 @@
 import { Link } from "wouter";
+import SeoHead from "@/components/seo-head";
 
 export default function NotFound() {
   return (
     <div className="min-h-[60vh] flex items-center justify-center">
+      <SeoHead
+        title="Page Not Found | Poorvam Care"
+        description="The page you're looking for doesn't exist. Visit Poorvam Care for speech therapy, occupational therapy, and child development services in Electronic City, Bangalore."
+        robots="noindex, nofollow"
+      />
       <div className="text-center px-4">
         <h1 className="text-6xl font-heading font-bold text-gray-300 mb-4">404</h1>
         <h2 className="text-2xl font-heading font-bold text-gray-900 mb-2">Page Not Found</h2>
