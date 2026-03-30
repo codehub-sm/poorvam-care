@@ -2,6 +2,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
 import { TherapeuticEnrichmentIllustration } from "@/components/illustrations";
+import SummerCampBanner from "@/components/summer-camp-banner";
 import { Link } from "wouter";
 import { Palette, Activity, Heart, Music, Users, Check } from "lucide-react";
 
@@ -111,6 +112,8 @@ export default function TherapeuticEnrichmentPage() {
         { name: "Home", url: "https://poorvamcare.in/" },
         { name: "Therapeutic Enrichment", url: "https://poorvamcare.in/therapeutic-enrichment" },
       ])} />
+
+      <SummerCampBanner />
 
       {/* Hero */}
       <section className="relative bg-brown-deep overflow-hidden">
