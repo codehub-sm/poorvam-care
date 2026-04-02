@@ -6,9 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Fraunces"', 'serif'],
-        body: ['"Outfit"', 'sans-serif'],
-        accent: ['"Fraunces"', 'serif'],
+        heading: ['"Fraunces Variable"', '"Fraunces"', 'serif'],
+        body: ['"Outfit Variable"', '"Outfit"', 'sans-serif'],
+        accent: ['"Fraunces Variable"', '"Fraunces"', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

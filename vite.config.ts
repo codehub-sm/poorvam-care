@@ -17,46 +17,6 @@ export default defineConfig(async () => {
       : []),
   ];
 
-  // Add prerendering in production builds for SSG (static HTML for crawlers)
-  if (process.env.NODE_ENV === "production") {
-    try {
-      const { default: prerender } = await import("@prerenderer/rollup-plugin");
-      const { default: JSDOMRenderer } = await import("@prerenderer/renderer-jsdom");
-      plugins.push(
-        prerender({
-          routes: [
-            "/",
-            "/child-development",
-            "/therapeutic-enrichment",
-            "/electronic-city-phase-1",
-            "/electronic-city-phase-2",
-            "/about",
-            "/contact",
-            "/service-packages",
-            "/faq",
-            "/speech-therapy-for-autism-bangalore",
-            "/occupational-therapy-for-children-bangalore",
-            "/speech-therapy-for-speech-delay-bangalore",
-          ],
-          renderer: new JSDOMRenderer(),
-          rendererOptions: {
-            renderAfterTime: 5000,
-          },
-          postProcess(renderedRoute: { html: string }) {
-            // Remove noscript block from prerendered pages since content is now in the DOM
-            renderedRoute.html = renderedRoute.html.replace(
-              /<noscript>[\s\S]*?<\/noscript>/g,
-              ''
-            );
-            return renderedRoute;
-          },
-        }) as any,
-      );
-    } catch {
-      console.warn("Prerender plugin not available, skipping SSG");
-    }
-  }
-
   return {
     plugins,
     resolve: {

@@ -54,11 +54,11 @@
 
   body {
     @apply antialiased bg-background text-foreground;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit Variable', 'Outfit', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Fraunces Variable', 'Fraunces', serif;
   }
 }
 
