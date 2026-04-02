@@ -18,6 +18,10 @@ const FAQPage = lazy(() => import("@/pages/faq"));
 const SpeechTherapyForAutism = lazy(() => import("@/pages/speech-therapy-for-autism-bangalore"));
 const OccupationalTherapyForChildren = lazy(() => import("@/pages/occupational-therapy-for-children-bangalore"));
 const SpeechTherapyForSpeechDelay = lazy(() => import("@/pages/speech-therapy-for-speech-delay-bangalore"));
+const ABATherapyForChildren = lazy(() => import("@/pages/aba-therapy-for-children-bangalore"));
+const SpecialEducationForChildren = lazy(() => import("@/pages/special-education-for-children-bangalore"));
+const SpeechTherapyElectronicCity = lazy(() => import("@/pages/speech-therapy-electronic-city"));
+const ChildTherapyHSRLayout = lazy(() => import("@/pages/child-therapy-hsr-layout-bangalore"));
 const AdminPage = lazy(() => import("@/pages/admin"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
@@ -45,6 +49,10 @@ function Router() {
         <Route path="/speech-therapy-for-autism-bangalore" component={SpeechTherapyForAutism} />
         <Route path="/occupational-therapy-for-children-bangalore" component={OccupationalTherapyForChildren} />
         <Route path="/speech-therapy-for-speech-delay-bangalore" component={SpeechTherapyForSpeechDelay} />
+        <Route path="/aba-therapy-for-children-bangalore" component={ABATherapyForChildren} />
+        <Route path="/special-education-for-children-bangalore" component={SpecialEducationForChildren} />
+        <Route path="/speech-therapy-electronic-city" component={SpeechTherapyElectronicCity} />
+        <Route path="/child-therapy-hsr-layout-bangalore" component={ChildTherapyHSRLayout} />
         <Route path="/admin" component={AdminPage} />
         <Route component={NotFound} />
       </Switch>

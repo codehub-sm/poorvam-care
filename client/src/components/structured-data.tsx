@@ -128,7 +128,11 @@ export const organizationSchema = {
     { "@type": "Place", "name": "Singasandra" },
     { "@type": "Place", "name": "Hongasandra" },
     { "@type": "Place", "name": "Chandapura" },
-    { "@type": "Place", "name": "Konanakunte" }
+    { "@type": "Place", "name": "Konanakunte" },
+    { "@type": "Place", "name": "Konappana Agrahara" },
+    { "@type": "Place", "name": "Kammasandra" },
+    { "@type": "Place", "name": "Koramangala" },
+    { "@type": "Place", "name": "BTM Layout" }
   ],
   "medicalSpecialty": ["Pediatric Therapy", "Speech-Language Pathology", "Occupational Therapy", "Behavioural Therapy"]
 };
@@ -193,6 +197,58 @@ export function createServiceSchema(service: {
     "availableService": {
       "@type": "MedicalTherapy",
       "name": service.name
+    }
+  };
+}
+
+export function createLocalBusinessSchema(location: {
+  name: string;
+  description: string;
+  url: string;
+  streetAddress: string;
+  locality: string;
+  latitude: string;
+  longitude: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": location.name,
+    "description": location.description,
+    "url": location.url,
+    "telephone": "+918861764343",
+    "email": "info@poorvamcare.in",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": location.streetAddress,
+      "addressLocality": location.locality,
+      "addressRegion": "Karnataka",
+      "postalCode": "560100",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": location.latitude,
+      "longitude": location.longitude
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "parentOrganization": {
+      "@type": "MedicalBusiness",
+      "@id": "https://poorvamcare.in/#organization"
     }
   };
 }
