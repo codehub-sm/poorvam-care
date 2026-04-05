@@ -1,21 +1,37 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const serviceLinks = [
+  { label: "Speech Therapy", href: "/speech-therapy" },
+  { label: "Occupational Therapy", href: "/occupational-therapy" },
+  { label: "ABA Therapy", href: "/aba-therapy" },
+  { label: "Special Education", href: "/special-education" },
+  { label: "Parent Counselling", href: "/parent-counselling" },
+  { label: "Therapeutic Enrichment", href: "/therapeutic-enrichment" },
+  { label: "Teletherapy", href: "/teletherapy" },
+];
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Child Development", href: "/child-development" },
   { label: "Hearing Center", href: "/hearing-center" },
   { label: "Ucube", href: "/ucube" },
+  { label: "Blog", href: "/blog" },
   { label: "Pricing", href: "/service-packages" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
+const mobileServiceLinks = serviceLinks;
+
 export default function Header() {
   const [location] = useLocation();
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  const isServiceRoute = serviceLinks.some((l) => location === l.href);
 
   return (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
@@ -42,7 +58,41 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {/* Services dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-body font-medium transition-colors ${
+                  isServiceRoute
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                }`}
+              >
+                Services <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+              {servicesOpen && (
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`block px-4 py-2.5 text-sm font-body transition-colors ${
+                        location === link.href
+                          ? "text-blue-600 bg-blue-50"
+                          : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -59,6 +109,12 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="tel:+918861764343"
+              className="text-sm font-body text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              +91 886 176 4343
+            </a>
             <Link
               href="/contact"
               className="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-heading font-semibold text-sm hover:bg-blue-700 transition-colors shadow-sm"
@@ -77,7 +133,7 @@ export default function Header() {
                 {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] p-0">
+            <SheetContent side="right" className="w-[300px] p-0 overflow-y-auto">
               <div className="flex flex-col h-full">
                 <div className="p-6 border-b border-gray-100">
                   <div className="flex items-center gap-3">
@@ -104,6 +160,25 @@ export default function Header() {
                           location === link.href
                             ? "text-blue-600 bg-blue-50"
                             : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                    <div className="pt-2 pb-1 px-4">
+                      <p className="text-xs font-body font-semibold text-gray-400 uppercase tracking-wider">
+                        Our Services
+                      </p>
+                    </div>
+                    {mobileServiceLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className={`block px-4 py-2.5 rounded-xl text-sm font-body font-medium transition-colors ml-2 ${
+                          location === link.href
+                            ? "text-blue-600 bg-blue-50"
+                            : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
                         }`}
                       >
                         {link.label}

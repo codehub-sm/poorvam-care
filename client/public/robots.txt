@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block admin
+Disallow: /admin
+
+Sitemap: https://poorvamcare.in/sitemap.xml
