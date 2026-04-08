@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Switch, Route } from "wouter";
+import { Switch, Route, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -64,6 +64,53 @@ function Router() {
         <Route path="/contact" component={ContactPage} />
         <Route path="/service-packages" component={ServicePackagesPage} />
         <Route path="/admin" component={AdminPage} />
+
+        {/* Legacy URL redirects (fixes GSC 404s) */}
+        <Route path="/occupational-therapy-for-children-bangalore">
+          <Redirect to="/occupational-therapy" />
+        </Route>
+        <Route path="/occupational-therapy-for-children-bangalore/">
+          <Redirect to="/occupational-therapy" />
+        </Route>
+        <Route path="/speech-therapy-for-speech-delay-bangalore">
+          <Redirect to="/speech-therapy" />
+        </Route>
+        <Route path="/speech-therapy-for-speech-delay-bangalore/">
+          <Redirect to="/speech-therapy" />
+        </Route>
+        <Route path="/speechAndLanguage.html">
+          <Redirect to="/speech-therapy" />
+        </Route>
+        <Route path="/occupationalTherapy.html">
+          <Redirect to="/occupational-therapy" />
+        </Route>
+        <Route path="/developmentalEducation.html">
+          <Redirect to="/special-education" />
+        </Route>
+        <Route path="/socialSkillsGroupTraining.html">
+          <Redirect to="/therapeutic-enrichment" />
+        </Route>
+        <Route path="/therapy.html">
+          <Redirect to="/child-development" />
+        </Route>
+        <Route path="/about.html">
+          <Redirect to="/about" />
+        </Route>
+        <Route path="/contact.html">
+          <Redirect to="/contact" />
+        </Route>
+        <Route path="/blog.html">
+          <Redirect to="/blog" />
+        </Route>
+        <Route path="/team.html">
+          <Redirect to="/about" />
+        </Route>
+        <Route path="/booking.html">
+          <Redirect to="/contact" />
+        </Route>
+        <Route path="/index-2.html">
+          <Redirect to="/" />
+        </Route>
 
         {/* Service pages */}
         <Route path="/speech-therapy" component={SpeechTherapy} />
