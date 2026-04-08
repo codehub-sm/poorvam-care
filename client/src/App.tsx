@@ -24,6 +24,13 @@ const SpeechTherapyElectronicCity = lazy(() => import("@/pages/speech-therapy-el
 const ChildTherapyHSRLayout = lazy(() => import("@/pages/child-therapy-hsr-layout-bangalore"));
 const AdminPage = lazy(() => import("@/pages/admin"));
 const NotFound = lazy(() => import("@/pages/not-found"));
+const ParentCounselling = lazy(() => import("@/pages/parent-counselling"));
+const BlogPage = lazy(() => import("@/pages/blog"));
+const BlogPostPage = lazy(() => import("@/pages/blog-post"));
+const SpeechTherapyBTMLayout = lazy(() => import("@/pages/speech-therapy-btm-layout"));
+const SpeechTherapyKoramangala = lazy(() => import("@/pages/speech-therapy-koramangala"));
+const SpeechTherapyWhitefield = lazy(() => import("@/pages/speech-therapy-whitefield"));
+const SpeechTherapyMarathahalli = lazy(() => import("@/pages/speech-therapy-marathahalli"));
 
 function Loading() {
   return (
@@ -54,6 +61,13 @@ function Router() {
         <Route path="/speech-therapy-electronic-city" component={SpeechTherapyElectronicCity} />
         <Route path="/child-therapy-hsr-layout-bangalore" component={ChildTherapyHSRLayout} />
         <Route path="/admin" component={AdminPage} />
+        <Route path="/parent-counselling" component={ParentCounselling} />
+        <Route path="/blog" component={BlogPage} />
+        <Route path="/blog/:slug" component={BlogPostPage} />
+        <Route path="/speech-therapy-btm-layout-bangalore" component={SpeechTherapyBTMLayout} />
+        <Route path="/speech-therapy-koramangala-bangalore" component={SpeechTherapyKoramangala} />
+        <Route path="/speech-therapy-whitefield-bangalore" component={SpeechTherapyWhitefield} />
+        <Route path="/speech-therapy-marathahalli-bangalore" component={SpeechTherapyMarathahalli} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
