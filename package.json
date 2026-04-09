@@ -8,8 +8,7 @@
     "build": "vite build",
     "build:frontend": "vite build",
     "preview": "vite preview",
-    "check": "tsc",
-    "start": "node server.js"
+    "check": "tsc"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.2.9",
