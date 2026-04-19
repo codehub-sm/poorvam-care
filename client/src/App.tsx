@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { Switch, Route } from "wouter";
+import { lazy, Suspense, useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -32,6 +32,36 @@ const SpeechTherapyKoramangala = lazy(() => import("@/pages/speech-therapy-koram
 const SpeechTherapyWhitefield = lazy(() => import("@/pages/speech-therapy-whitefield"));
 const SpeechTherapyMarathahalli = lazy(() => import("@/pages/speech-therapy-marathahalli"));
 
+// Legacy .html paths that need to redirect to the home page.
+// Keys must be lowercase — we normalize the incoming path before lookup.
+// Primary 301 redirects are handled by Amplify Hosting rules in
+// infra/amplify-redirects.json. This hook is a client-side fallback that
+// silently rewrites the URL bar during in-session SPA navigation.
+const LEGACY_REDIRECTS: Record<string, string> = {
+  "/occupationaltherapy.html": "/",
+  "/speechtherapy.html": "/",
+  "/aba.html": "/",
+  "/specialeducation.html": "/",
+};
+
+function useRedirects() {
+  const [location, setLocation] = useLocation();
+
+  useEffect(() => {
+    // Strip trailing slash (except root) to canonicalize URLs
+    if (location.length > 1 && location.endsWith("/")) {
+      setLocation(location.slice(0, -1), { replace: true });
+      return;
+    }
+
+    // Legacy path redirects — case-insensitive match
+    const lower = location.toLowerCase();
+    if (LEGACY_REDIRECTS[lower]) {
+      setLocation(LEGACY_REDIRECTS[lower], { replace: true });
+    }
+  }, [location, setLocation]);
+}
+
 function Loading() {
   return (
     <div className="flex items-center justify-center min-h-[50vh]">
@@ -41,6 +71,7 @@ function Loading() {
 }
 
 function Router() {
+  useRedirects();
   return (
     <Suspense fallback={<Loading />}>
       <Switch>
