@@ -404,6 +404,113 @@ export const blogPosts: BlogPost[] = [
 <p>Contact us today at <strong>+91 886 176 4343</strong> or visit us in Electronic City, Bangalore. Your child's journey starts now — and starting now makes all the difference.</p>
     `.trim(),
   },
+  {
+    slug: "speech-therapy-for-autism-guide",
+    title: "Speech Therapy for Autism: A Complete Guide for Parents",
+    metaDescription:
+      "What speech therapy for autism involves, at what age to start, what to expect in sessions, and how Poorvam Care approaches autism therapy in Electronic City, Bangalore.",
+    canonical: "https://poorvamcare.in/blog/speech-therapy-for-autism-guide",
+    category: "Speech Therapy",
+    publishDate: "2025-02-10",
+    readingTime: 7,
+    author: "Apoorva Rai, MASLP",
+    authorTitle: "Clinical Director & Speech-Language Pathologist",
+    excerpt:
+      "Most parents are told 'start speech therapy' without being told what that actually means. This guide explains what speech therapy for autism involves, what age to start, what to expect in sessions, and what realistic progress looks like.",
+    targetKeyword: "speech therapy for autism",
+    relatedSlugs: [
+      "occupational-therapy-sensory-processing",
+      "10-signs-child-needs-speech-therapy",
+    ],
+    content: `
+<p class="lead">When a child is diagnosed with autism spectrum disorder (ASD), speech therapy is one of the most frequently recommended early interventions. But most parents are told "start speech therapy" without being told what that actually means — what happens in a session, at what age to start, what to expect, and what realistic outcomes look like. This guide fills those gaps.</p>
+
+<h2>Why Speech Therapy Matters for Children with Autism</h2>
+<p>Autism affects communication in different ways for different children. Some children are non-verbal. Some have rich vocabulary but struggle with conversation. Some understand everything but can't produce speech. Some develop speech late, some lose speech they previously had, and many have difficulty with the social rules of communication — eye contact, taking turns in a conversation, reading tone, understanding jokes or figurative language.</p>
+<p>Speech therapy for autism addresses all of these — not just "learning to talk." A good speech therapist evaluates your child's specific communication profile and builds a therapy plan around the actual gaps, which vary enormously from child to child.</p>
+
+<h2>At What Age Should Speech Therapy Begin?</h2>
+<p>Early intervention works. Research consistently shows that children with autism who start speech therapy before age 3 have significantly better language, communication, and social outcomes than those who start later. That said, it's never too late — children and adolescents also make meaningful gains with speech therapy, especially when therapy addresses the specific communication challenges they face at their age.</p>
+<p>At Poorvam Care, we work with children as young as 18 months. If you notice your child isn't babbling by 12 months, isn't using single words by 16 months, has lost speech they previously had, avoids eye contact, or doesn't respond to their name — don't wait. Get an assessment. Even if there's no diagnosis yet, early support only helps.</p>
+
+<h2>What Happens in a Speech Therapy Session for Autism?</h2>
+<p>Sessions typically run 45–60 minutes and look very different for different children. For a minimally verbal toddler, the session may focus on play-based language stimulation — using toys, songs, and routines to encourage vocalizations, imitation, and early words. For a verbal school-age child, the session may focus on conversation skills, understanding figurative language, or social communication with peers.</p>
+<p>What's common across all sessions: individual attention, clear structured goals, and lots of visual support. Visual schedules help children know what's coming next, which reduces anxiety. Picture cards, augmentative communication devices, and visual language systems are used alongside speech practice.</p>
+
+<h2>How Many Sessions Does a Child Need?</h2>
+<p>Most children with autism benefit from 2–3 sessions per week. Some children — particularly younger children or those with significant communication challenges — may benefit from more intensive schedules. Others may do well with once-weekly sessions supplemented by strong parent implementation at home.</p>
+<p>What matters more than session count is consistency and parent involvement. A child receiving 2 sessions a week with strong home practice will almost always outperform a child receiving 3 sessions a week with no home reinforcement.</p>
+
+<h2>How Poorvam Care Approaches Autism Therapy</h2>
+<p>At Poorvam Care, speech therapy for autism is never delivered in isolation. Our multi-disciplinary team — speech-language pathologists, occupational therapists, ABA therapists, and special educators — work together. A child with autism may need language support (speech therapy), sensory regulation support (OT), and behaviour support (ABA) all at once. When these therapies happen in separate clinics with separate teams, progress is slower and goals can conflict.</p>
+<p>Our approach is also individualized. We don't use a one-size-fits-all curriculum. After a comprehensive initial assessment, each child gets a therapy plan built around their specific communication profile, interests, and family goals.</p>
+
+<h2>What Realistic Progress Looks Like</h2>
+<p>Speech therapy outcomes vary by child, age at start, severity, and home implementation. Some children make dramatic gains in the first 3–6 months. Others progress more gradually. What we tell every family: expect steady, measurable progress — not miracles. Celebrate the small wins. And trust that consistent therapy over years builds a foundation that affects the rest of your child's life.</p>
+
+<h2>Next Steps</h2>
+<p>If your child is showing signs of autism or has received a diagnosis, early action matters. <strong>Book a free initial consultation</strong> at Poorvam Care in Electronic City, Bangalore. Call <strong>+91 886 176 4343</strong> or visit our website to schedule.</p>
+    `.trim(),
+  },
+  {
+    slug: "occupational-therapy-sensory-processing",
+    title: "Occupational Therapy for Sensory Processing: What Parents Need to Know",
+    metaDescription:
+      "Understand sensory processing disorder, how occupational therapy helps, what OT sessions look like, and how Poorvam Care approaches sensory integration therapy in Electronic City, Bangalore.",
+    canonical: "https://poorvamcare.in/blog/occupational-therapy-sensory-processing",
+    category: "Occupational Therapy",
+    publishDate: "2025-02-20",
+    readingTime: 8,
+    author: "Poorvam Care OT Team",
+    authorTitle: "Occupational Therapy Team",
+    excerpt:
+      "Every parent has seen their child get overwhelmed by a noisy room or refuse to wear certain fabrics. For children with sensory processing issues, this is constant. Here's what sensory processing is, how OT helps, and what to expect.",
+    targetKeyword: "occupational therapy sensory processing",
+    relatedSlugs: [
+      "speech-therapy-for-autism-guide",
+      "occupational-therapy-autism-bangalore",
+    ],
+    content: `
+<p class="lead">Every parent has seen their child get overwhelmed by a noisy room, refuse to wear certain fabrics, or melt down over a small change. For most children, this is occasional. For children with sensory processing issues, this is constant — and it affects eating, sleeping, learning, and relationships. This guide explains what sensory processing is, how occupational therapy helps, and what to expect if you decide to start OT.</p>
+
+<h2>What Is Sensory Processing?</h2>
+<p>Sensory processing is how the nervous system receives information from the senses (sight, sound, touch, taste, smell, movement, and body position) and turns it into appropriate responses. Most people do this automatically — we tune out background noise, adjust to bright light, and feel comfortable in our clothes without thinking about it.</p>
+<p>For children with sensory processing issues, this system works differently. Some children are <em>over-responsive</em> — they find ordinary sensations overwhelming. A shirt tag feels like sandpaper. A noisy classroom is unbearable. Some children are <em>under-responsive</em> — they don't register sensations strongly enough and need intense input (crashing, spinning, tight hugs) to feel grounded. And many children have a mix of both across different senses.</p>
+
+<h2>Signs of Sensory Processing Difficulties</h2>
+<p>Sensory processing challenges show up differently at different ages. Common signs include:</p>
+<ul>
+<li>Extreme reactions to clothing textures, tags, or seams</li>
+<li>Avoidance of certain foods based on texture (not just taste)</li>
+<li>Covering ears in ordinary-volume environments</li>
+<li>Seeking constant movement — running, spinning, jumping</li>
+<li>Crashing into furniture, walking on toes, bumping into people</li>
+<li>Difficulty transitioning between activities</li>
+<li>Meltdowns in malls, restaurants, birthday parties</li>
+<li>Poor body awareness — frequent trips and falls</li>
+</ul>
+<p>Sensory processing issues can exist on their own or alongside autism, ADHD, and developmental delays. A child doesn't need a formal "SPD" diagnosis to benefit from occupational therapy for sensory processing.</p>
+
+<h2>How Occupational Therapy Helps</h2>
+<p>Occupational therapy for sensory processing uses a framework called <strong>sensory integration therapy</strong>. The therapist creates structured play experiences that challenge the child's sensory system in safe, graded ways — helping the nervous system learn to process sensations more effectively over time.</p>
+<p>This is not about "toughening up" a child or forcing them to endure discomfort. The goal is gradual, calibrated exposure that builds the nervous system's capacity to handle everyday sensory input without overwhelm.</p>
+
+<h2>What Does an OT Session Look Like?</h2>
+<p>A sensory-focused OT session at Poorvam Care usually happens in a specially equipped therapy room — swings, crash pads, climbing equipment, weighted blankets, textured surfaces, and sensory bins. It looks like play. In reality, every activity is carefully chosen to address specific sensory goals.</p>
+<p>A child might spend time in a linear swing to regulate the vestibular system. They might dig through a bin of rice and beads to desensitize tactile defensiveness. They might do proprioceptive work (heavy pushing and pulling) before transitioning to fine motor tasks. Sessions typically last 45–60 minutes.</p>
+
+<h2>What Parents Should Expect at Home</h2>
+<p>OT outcomes depend heavily on what happens between sessions. The therapist will give you a "sensory diet" — specific activities and supports to use at home — and will coach you on how to adjust the home environment to support your child's sensory needs.</p>
+<p>This might mean adding movement breaks, using fidgets during homework, adjusting clothing choices, building in calming routines before transitions, and giving your child agency to communicate when they're overwhelmed. Progress is usually gradual and cumulative — not dramatic from one week to the next.</p>
+
+<h2>How Poorvam Care Approaches Sensory OT</h2>
+<p>Our occupational therapy team works in close coordination with our speech therapists, ABA therapists, and special educators. Children with sensory processing issues often have co-occurring communication, behaviour, or learning needs. Addressing them in isolation is slower than addressing them together.</p>
+<p>We also place strong emphasis on parent involvement. Our therapists explain the "why" behind every activity — not just the "what" — so you understand how to apply the same principles at home.</p>
+
+<h2>Next Steps</h2>
+<p>If your child shows signs of sensory processing difficulties, an occupational therapy assessment can identify specific needs and build a personalized plan. <strong>Book a free consultation</strong> at Poorvam Care. Call <strong>+91 886 176 4343</strong> or visit our Electronic City, Bangalore centres.</p>
+    `.trim(),
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

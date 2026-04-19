@@ -41,6 +41,12 @@ export default defineConfig(async () => {
             "/special-education-for-children-bangalore",
             "/speech-therapy-electronic-city",
             "/child-therapy-hsr-layout-bangalore",
+            "/parent-counselling",
+            "/blog",
+            "/speech-therapy-btm-layout-bangalore",
+            "/speech-therapy-koramangala-bangalore",
+            "/speech-therapy-whitefield-bangalore",
+            "/speech-therapy-marathahalli-bangalore",
           ],
           renderer: new JSDOMRenderer(),
           rendererOptions: {
