@@ -1,0 +1,56 @@
+[
+  {
+    "source": "/occupationalTherapy.html",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/occupationaltherapy.html",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speechTherapy.html",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speechtherapy.html",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/aba.html",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/specialeducation.html",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/occupational-therapy-for-children-bangalore/",
+    "target": "/occupational-therapy-for-children-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "</^\\/(.+)\\/$/>",
+    "target": "/$1",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "</^[^.]+$|\\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|woff|woff2|ttf|map|json|webp|xml)$)([^.]+$)/>",
+    "target": "/index.html",
+    "status": "200",
+    "condition": null
+  }
+]
