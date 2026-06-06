@@ -1,7 +1,6 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
-import { TherapeuticEnrichmentIllustration } from "@/components/illustrations";
 import SummerCampBanner from "@/components/summer-camp-banner";
 import { Link } from "wouter";
 import { Palette, Activity, Heart, Music, Users, Check } from "lucide-react";
@@ -149,7 +148,15 @@ export default function TherapeuticEnrichmentPage() {
             </div>
           </div>
           <div className="hidden lg:flex items-center justify-center">
-            <TherapeuticEnrichmentIllustration className="w-full max-w-md h-auto opacity-80" />
+            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-brown-deep/20 ring-1 ring-warm-bg/10 rotate-1">
+              <img
+                src="/img/photo-remedial-cards.jpeg"
+                alt="A therapist using visual cards in an enrichment session with a child"
+                loading="lazy"
+                className="w-full h-full object-cover object-[center_25%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brown-deep/20 to-transparent pointer-events-none" />
+            </div>
           </div>
           </div>
         </div>

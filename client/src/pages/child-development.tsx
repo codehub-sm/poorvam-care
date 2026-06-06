@@ -1,7 +1,6 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
-import { ChildDevelopmentIllustration } from "@/components/illustrations";
 import { Link } from "wouter";
 import { Puzzle, TrendingUp, Activity, Heart, Hand, Zap, ArrowRight } from "lucide-react";
 
@@ -168,7 +167,15 @@ export default function ChildDevelopmentPage() {
             </div>
           </div>
           <div className="hidden lg:flex items-center justify-center">
-            <ChildDevelopmentIllustration className="w-full max-w-md h-auto opacity-80" />
+            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-brown-deep/20 ring-1 ring-warm-bg/10 rotate-1">
+              <img
+                src="/img/photo-speech-therapy.jpeg"
+                alt="A child engaging in a speech and language therapy activity"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brown-deep/20 to-transparent pointer-events-none" />
+            </div>
           </div>
           </div>
         </div>

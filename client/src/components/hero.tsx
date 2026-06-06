@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { useRef, useEffect, useState } from "react";
-import { HeroIllustration } from "./illustrations";
 
 /* ── CountUp ── */
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -190,7 +189,17 @@ export default function Hero() {
             variants={fadeUp}
             className="relative flex items-center justify-center lg:justify-end"
           >
-            <HeroIllustration className="w-[320px] sm:w-[380px] md:w-[420px] h-auto drop-shadow-sm" />
+            {/* Soft floating accents behind photo */}
+            <div className="absolute -top-4 -right-2 w-24 h-24 rounded-full bg-gold/30 blur-xl" aria-hidden="true" />
+            <div className="absolute -bottom-6 -left-4 w-28 h-28 rounded-full bg-sage/25 blur-xl" aria-hidden="true" />
+            <div className="relative w-[300px] sm:w-[360px] md:w-[400px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-brown-deep/15 ring-1 ring-brown-light/20 rotate-1">
+              <img
+                src="/img/photo-occupational-therapy.jpeg"
+                alt="Poorvam therapist guiding a child through a fine-motor play session"
+                loading="eager"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </motion.div>

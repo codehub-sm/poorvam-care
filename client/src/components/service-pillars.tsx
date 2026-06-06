@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import { ChildDevelopmentIllustration, TherapeuticEnrichmentIllustration } from "./illustrations";
 
 const pillars = [
   {
@@ -19,8 +18,9 @@ const pillars = [
     iconText: "text-coral",
     pillBg: "bg-coral/10",
     pillText: "text-coral",
-    Illustration: ChildDevelopmentIllustration,
-    illustrationBg: "bg-coral/5",
+    photo: "/img/photo-developmental-education.jpeg",
+    photoAlt: "Therapist working one-on-one with a child on a learning activity",
+    photoPosition: "object-[center_35%]",
   },
   {
     title: "Therapeutic Enrichment",
@@ -35,8 +35,9 @@ const pillars = [
     iconText: "text-sage",
     pillBg: "bg-sage/10",
     pillText: "text-sage",
-    Illustration: TherapeuticEnrichmentIllustration,
-    illustrationBg: "bg-sage/5",
+    photo: "/img/photo-social-skills-group.jpeg",
+    photoAlt: "Children laughing together in a group session",
+    photoPosition: "object-[center_70%]",
   },
 ];
 
@@ -79,9 +80,15 @@ export default function ServicePillars() {
                   <div
                     className={`bg-[#FFFBF5] rounded-2xl overflow-hidden h-full border border-brown-light/30 border-t-4 ${pillar.borderColor} hover:shadow-xl hover:shadow-brown-light/20 hover:border-t-[6px] transition-all duration-300 hover:-translate-y-1`}
                   >
-                    {/* Card illustration */}
-                    <div className={`h-44 overflow-hidden flex items-center justify-center ${pillar.illustrationBg}`}>
-                      <pillar.Illustration className="w-full h-full" />
+                    {/* Card photo */}
+                    <div className="h-52 overflow-hidden relative">
+                      <img
+                        src={pillar.photo}
+                        alt={pillar.photoAlt}
+                        loading="lazy"
+                        className={`w-full h-full object-cover ${pillar.photoPosition} group-hover:scale-105 transition-transform duration-500`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
                     </div>
                     <div className="p-8">
                       <div className="flex items-start gap-4">

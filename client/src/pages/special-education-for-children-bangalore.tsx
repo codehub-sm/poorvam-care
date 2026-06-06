@@ -53,17 +53,30 @@ export default function SpecialEducationForChildren() {
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #E8725A 1px, transparent 1px)", backgroundSize: "32px 32px" }} aria-hidden="true" />
         <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-coral/8 rounded-full blur-3xl" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
-              Individualized Learning · Electronic City, Bangalore
-            </p>
-            <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
-              Special Education for{" "}
-              <span className="text-coral">Children</span> in Bangalore
-            </h1>
-            <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              Empowering children with learning differences through individualized education plans, multisensory teaching, and evidence-based strategies — designed to build confidence and academic readiness.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
+            <div className="max-w-3xl">
+              <p className="text-coral font-heading font-semibold text-sm mb-3 uppercase tracking-wider">
+                Individualized Learning · Electronic City, Bangalore
+              </p>
+              <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
+                Special Education for{" "}
+                <span className="text-coral">Children</span> in Bangalore
+              </h1>
+              <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
+                Empowering children with learning differences through individualized education plans, multisensory teaching, and evidence-based strategies — designed to build confidence and academic readiness.
+              </p>
+            </div>
+            <div className="hidden lg:flex items-center justify-end">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-warm-bg/10 rotate-1">
+                <img
+                  src="/img/photo-preschool-letters.jpeg"
+                  alt="A child working with alphabet cards in an individualized learning session"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brown-deep/40 to-transparent pointer-events-none" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
