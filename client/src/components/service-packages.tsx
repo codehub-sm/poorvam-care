@@ -492,12 +492,12 @@ export default function ServicePackages() {
             <Dialog>
               <DialogTrigger asChild>
                 <Button size="lg" className="bg-white text-coral hover:bg-gray-100 font-heading font-bold shadow-lg rounded-xl px-8">
-                  Book Free Consultation
+                  Book a Consultation
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>Book Free Consultation</DialogTitle>
+                  <DialogTitle>Book a Consultation</DialogTitle>
                   <DialogDescription>Tell us about your needs and we'll recommend the right plan and mode.</DialogDescription>
                 </DialogHeader>
                 <Contact />

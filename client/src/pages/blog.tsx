@@ -209,7 +209,7 @@ export default function BlogPage() {
             Have Questions About Your Child?
           </h2>
           <p className="text-lg text-white/90 font-body mb-8">
-            Our expert therapists are here to help. Book a free consultation at
+            Our expert therapists are here to help. Book a consultation at
             Poorvam Care in Electronic City, Bangalore.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -217,7 +217,7 @@ export default function BlogPage() {
               href="/contact"
               className="bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

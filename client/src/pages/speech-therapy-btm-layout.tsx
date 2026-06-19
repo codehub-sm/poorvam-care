@@ -34,7 +34,7 @@ export default function SpeechTherapyBtmLayoutPage() {
     <>
       <SeoHead
         title="Speech Therapy in BTM Layout Bangalore | Poorvam Care Electronic City"
-        description="Speech therapy for children in BTM Layout, Bangalore. Poorvam Care in Electronic City is just 7km away. RCI-licensed therapists. Book a free consultation."
+        description="Speech therapy for children in BTM Layout, Bangalore. Poorvam Care in Electronic City is just 7km away. RCI-licensed therapists. Book a consultation."
         canonical="https://poorvamcare.in/speech-therapy-btm-layout"
       />
       <StructuredData
@@ -74,14 +74,14 @@ export default function SpeechTherapyBtmLayoutPage() {
               <span className="text-blue-600">BTM Layout</span>, Bangalore
             </h1>
             <p className="text-lg text-gray-600 font-body mb-8 leading-relaxed">
-              Poorvam Care in Electronic City is just 7 km from BTM Layout — approximately 15–20 minutes via Silk Board Junction. Our RCI-licensed speech-language pathologists provide expert therapy for children with speech delays, autism, language disorders, and more. Book a free consultation today.
+              Poorvam Care in Electronic City is just 7 km from BTM Layout — approximately 15–20 minutes via Silk Board Junction. Our RCI-licensed speech-language pathologists provide expert therapy for children with speech delays, autism, language disorders, and more. Book a consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25"
               >
-                Book Free Consultation
+                Book a Consultation
               </Link>
               <a
                 href="tel:+918861764343"
@@ -247,14 +247,14 @@ export default function SpeechTherapyBtmLayoutPage() {
             Start Your Child's Speech Therapy Journey Today
           </h2>
           <p className="text-lg text-white/90 font-body mb-8">
-            Families from BTM Layout trust Poorvam Care for expert, compassionate speech therapy. Book a free consultation and let us create a personalised plan for your child.
+            Families from BTM Layout trust Poorvam Care for expert, compassionate speech therapy. Book a consultation and let us create a personalised plan for your child.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

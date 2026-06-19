@@ -7,7 +7,6 @@ import HowItWorks from "@/components/how-it-works";
 import Testimonials from "@/components/testimonials";
 import FAQSection from "@/components/faq-section";
 import WaveDivider from "@/components/wave-divider";
-import SummerCampBanner from "@/components/summer-camp-banner";
 import { Link } from "wouter";
 
 const homeFAQs = [
@@ -19,7 +18,7 @@ const homeFAQs = [
   {
     question: "How do I know if my child needs therapy?",
     answer:
-      "If your child is not meeting developmental milestones, has difficulty communicating, shows behavioral concerns, or struggles with motor skills, a professional evaluation can help. We offer free initial consultations to assess whether therapy is right for your child.",
+      "If your child is not meeting developmental milestones, has difficulty communicating, shows behavioral concerns, or struggles with motor skills, a professional evaluation can help. We offer initial consultations to assess whether therapy is right for your child.",
   },
   {
     question: "What makes Poorvam different from other therapy centers?",
@@ -49,7 +48,7 @@ const homeFAQs = [
   {
     question: "How do I book an appointment at Poorvam Care?",
     answer:
-      "Call us at +91 886 176 4343 or email info@poorvamcare.in. We offer a free initial consultation to understand your child's needs before recommending a therapy plan.",
+      "Call us at +91 886 176 4343 or email info@poorvamcare.in. We offer an initial consultation to understand your child's needs before recommending a therapy plan.",
   },
   {
     question: "Does Poorvam Care have a summer therapy camp for children?",
@@ -59,7 +58,7 @@ const homeFAQs = [
   {
     question: "What is the cost of speech therapy at Poorvam Care?",
     answer:
-      "Speech therapy session fees vary based on the type of therapy, frequency, and your child's specific needs. We offer flexible therapy packages to suit different family budgets. Contact us at +91 886 176 4343 for a free initial consultation where we discuss your child's needs and provide transparent pricing with no hidden charges.",
+      "Speech therapy session fees vary based on the type of therapy, frequency, and your child's specific needs. We offer flexible therapy packages to suit different family budgets. Contact us at +91 886 176 4343 for an initial consultation where we discuss your child's needs and provide transparent pricing with no hidden charges.",
   },
   {
     question: "Do you offer online therapy or teletherapy?",
@@ -76,11 +75,10 @@ export default function Home() {
         description="Poorvam Care is a multi-disciplinary early intervention centre in Electronic City, Bangalore. Speech therapy, OT, ABA, special education and therapeutic enrichment for children aged 2–14 with autism and developmental delays. RCI registered. ISHA certified."
         canonical="https://poorvamcare.in/"
         ogImage="https://poorvamcare.in/og-image.jpg"
-        keywords="early intervention centre Electronic City, speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, pediatric therapy Bangalore, Poorvam Care, speech therapy near me Bommanahalli, child therapy Hosa Road, speech therapy cost Bangalore, best child therapy center near me, occupational therapy near me Kudlu Gate, speech therapist HSR Layout, therapy for autism near Electronic City, speech therapy fees Bangalore, free consultation child therapy Bangalore, RCI registered therapist near me, teletherapy for children Bangalore"
+        keywords="early intervention centre Electronic City, speech therapy Bangalore, occupational therapy Electronic City, child development center Bangalore, ABA therapy Bangalore, autism therapy near me, best speech therapist Electronic City, pediatric therapy Bangalore, Poorvam Care, speech therapy near me Bommanahalli, child therapy Hosa Road, speech therapy cost Bangalore, best child therapy center near me, occupational therapy near me Kudlu Gate, speech therapist HSR Layout, therapy for autism near Electronic City, speech therapy fees Bangalore, RCI registered therapist near me, teletherapy for children Bangalore"
       />
       <StructuredData data={organizationSchema} />
 
-      <SummerCampBanner />
       <Hero />
       <TrustBar />
       <ServicePillars />
@@ -106,14 +104,14 @@ export default function Home() {
             Ready to Take the First Step?
           </h2>
           <p className="text-lg text-warm-bg/80 font-body mb-8 max-w-2xl mx-auto">
-            Every journey begins with a conversation. Book a free consultation and discover how Poorvam Care can support your family.
+            Every journey begins with a conversation. Talk to our team to discover how Poorvam Care can support your family.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

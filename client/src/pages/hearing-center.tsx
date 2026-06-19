@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: "How much do hearing aids cost in Bangalore?",
-    answer: "Hearing aid costs vary widely based on technology level and features. We offer solutions across all price ranges and can discuss options during a free consultation. We also help with insurance claims where applicable.",
+    answer: "Hearing aid costs vary widely based on technology level and features. We offer solutions across all price ranges and can discuss options during a consultation. We also help with insurance claims where applicable.",
   },
 ];
 

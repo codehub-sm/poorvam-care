@@ -202,7 +202,7 @@ export default function BlogPostPage() {
               Need Expert Guidance?
             </h2>
             <p className="text-white/90 font-body mb-8 max-w-xl mx-auto">
-              Book a free consultation at Poorvam Care. Our expert therapists in
+              Book a consultation at Poorvam Care. Our expert therapists in
               Electronic City, Bangalore are here to support your child's
               development.
             </p>
@@ -211,7 +211,7 @@ export default function BlogPostPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
               >
-                Book Free Consultation
+                Book a Consultation
               </Link>
               <a
                 href="tel:+918861764343"

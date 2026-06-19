@@ -143,17 +143,17 @@ export default function SpeechTherapyForAutism() {
       <section className="py-16 bg-brown-deep">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-heading font-bold text-warm-bg mb-4">
-            Get Started with a Free Consultation
+            Get Started with a Consultation
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Every child's journey is different. Book a free consultation to discuss your child's needs and learn how our therapy team can help.
+            Every child's journey is different. Book a consultation to discuss your child's needs and learn how our therapy team can help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

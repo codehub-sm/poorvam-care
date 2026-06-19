@@ -23,7 +23,7 @@ const abaFAQs = [
   },
   {
     question: "How much does ABA therapy cost in Bangalore?",
-    answer: "ABA therapy costs at Poorvam Care vary based on the number of sessions and intensity of the program. We offer flexible session packages to suit different budgets. Contact us for a free consultation where we can discuss your child's needs and provide a detailed cost estimate.",
+    answer: "ABA therapy costs at Poorvam Care vary based on the number of sessions and intensity of the program. We offer flexible session packages to suit different budgets. Contact us for a consultation where we can discuss your child's needs and provide a detailed cost estimate.",
   },
 ];
 
@@ -213,14 +213,14 @@ export default function ABATherapyForChildren() {
             Start Your Child's ABA Therapy Journey
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Book a free consultation to discuss your child's needs and learn how ABA therapy can help them reach their full potential.
+            Book a consultation to discuss your child's needs and learn how ABA therapy can help them reach their full potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

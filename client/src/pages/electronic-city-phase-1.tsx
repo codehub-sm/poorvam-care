@@ -73,7 +73,7 @@ export default function ElectronicCityPhase1() {
         title="Early Intervention Centre in Electronic City Phase 1 | Poorvam Care"
         description="Poorvam Care on Hulimangala Road offers speech therapy, occupational therapy, ABA, and special education for children with autism and developmental delays in Electronic City Phase 1, Bangalore."
         canonical="https://poorvamcare.in/electronic-city-phase-1"
-        keywords="speech therapy Electronic City Phase 1, occupational therapy Hulimangala Road, early intervention centre Electronic City, child therapy near Sai Mandir, autism therapy Electronic City Phase 1 Bangalore, Poorvam Care Phase 1, speech therapy near me Doddathogur, child therapy Singasandra, best therapy center near Electronic City Phase 1, speech therapist Hongasandra, occupational therapy near Neeladri Nagar, free consultation child therapy Electronic City"
+        keywords="speech therapy Electronic City Phase 1, occupational therapy Hulimangala Road, early intervention centre Electronic City, child therapy near Sai Mandir, autism therapy Electronic City Phase 1 Bangalore, Poorvam Care Phase 1, speech therapy near me Doddathogur, child therapy Singasandra, best therapy center near Electronic City Phase 1, speech therapist Hongasandra, occupational therapy near Neeladri Nagar, consultation child therapy Electronic City"
         ogImage="https://poorvamcare.in/og-image.jpg"
       />
       <StructuredData data={localBusinessSchema} />
@@ -277,14 +277,14 @@ export default function ElectronicCityPhase1() {
             Ready to Visit Our Phase 1 Centre?
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Book a free consultation and discover how Poorvam Care can support your child's development.
+            Book a consultation and discover how Poorvam Care can support your child's development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

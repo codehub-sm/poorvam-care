@@ -147,14 +147,14 @@ export default function SpeechTherapyForSpeechDelay() {
             Concerned About Your Child's Speech?
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Don't wait. Book a free consultation and let our team assess your child's communication development.
+            Don't wait. Book a consultation and let our team assess your child's communication development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

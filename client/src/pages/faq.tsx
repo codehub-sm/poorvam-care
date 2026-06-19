@@ -22,7 +22,7 @@ const faqData = [
   {
     question: "What is the cost of speech therapy in Bangalore?",
     answer:
-      "Session fees vary based on the type of therapy and frequency of sessions. We offer flexible therapy packages to suit different family budgets, from individual sessions to comprehensive monthly plans. Contact us at +91 886 176 4343 for a free initial consultation where we can discuss your child's needs and recommend a therapy plan with transparent pricing.",
+      "Session fees vary based on the type of therapy and frequency of sessions. We offer flexible therapy packages to suit different family budgets, from individual sessions to comprehensive monthly plans. Contact us at +91 886 176 4343 for an initial consultation where we can discuss your child's needs and recommend a therapy plan with transparent pricing.",
   },
   {
     question: "How many sessions does a child typically need?",
@@ -42,7 +42,7 @@ const faqData = [
   {
     question: "How do I book an appointment at Poorvam Care?",
     answer:
-      "You can book a free consultation by calling us at +91 886 176 4343, sending a WhatsApp message to the same number, filling out our online contact form, or visiting our centres in Electronic City Phase 1 or Phase 2, Bangalore. We typically respond within 24 hours and will schedule a convenient time for your first visit.",
+      "You can book a consultation by calling us at +91 886 176 4343, sending a WhatsApp message to the same number, filling out our online contact form, or visiting our centres in Electronic City Phase 1 or Phase 2, Bangalore. We typically respond within 24 hours and will schedule a convenient time for your first visit.",
   },
 ];
 
@@ -82,7 +82,7 @@ export default function FAQPage() {
       <FAQSection
         faqs={faqData}
         title="Common Questions from Parents"
-        subtitle="Can't find your answer? Call us at +91 886 176 4343 or book a free consultation."
+        subtitle="Can't find your answer? Call us at +91 886 176 4343 or book a consultation."
       />
 
       {/* CTA */}
@@ -92,14 +92,14 @@ export default function FAQPage() {
             Still Have Questions?
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Book a free consultation and speak directly with our therapy team.
+            Book a consultation and speak directly with our therapy team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

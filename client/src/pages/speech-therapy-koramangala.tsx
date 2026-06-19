@@ -34,7 +34,7 @@ export default function SpeechTherapyKoramangalaPage() {
     <>
       <SeoHead
         title="Speech Therapy in Koramangala Bangalore | Poorvam Care Electronic City"
-        description="Looking for speech therapy near Koramangala, Bangalore? Poorvam Care in Electronic City is 9km away. RCI-licensed therapists. Book a free consultation."
+        description="Looking for speech therapy near Koramangala, Bangalore? Poorvam Care in Electronic City is 9km away. RCI-licensed therapists. Book a consultation."
         canonical="https://poorvamcare.in/speech-therapy-koramangala"
       />
       <StructuredData
@@ -74,14 +74,14 @@ export default function SpeechTherapyKoramangalaPage() {
               <span className="text-blue-600">Koramangala</span>, Bangalore
             </h1>
             <p className="text-lg text-gray-600 font-body mb-8 leading-relaxed">
-              Poorvam Care in Electronic City is just 9 km from Koramangala — a 20–25 minute drive via Silk Board or Agara Lake Road. Our RCI-licensed speech-language pathologists deliver evidence-based therapy for children with speech delays, autism, language disorders, and more. Book a free consultation today.
+              Poorvam Care in Electronic City is just 9 km from Koramangala — a 20–25 minute drive via Silk Board or Agara Lake Road. Our RCI-licensed speech-language pathologists deliver evidence-based therapy for children with speech delays, autism, language disorders, and more. Book a consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25"
               >
-                Book Free Consultation
+                Book a Consultation
               </Link>
               <a
                 href="tel:+918861764343"
@@ -247,14 +247,14 @@ export default function SpeechTherapyKoramangalaPage() {
             Start Your Child's Speech Therapy Journey Today
           </h2>
           <p className="text-lg text-white/90 font-body mb-8">
-            Families from Koramangala trust Poorvam Care for expert, compassionate speech therapy. Book a free consultation and let us create a personalised plan for your child.
+            Families from Koramangala trust Poorvam Care for expert, compassionate speech therapy. Book a consultation and let us create a personalised plan for your child.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

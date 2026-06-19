@@ -127,11 +127,11 @@ export default function ContactPage() {
   return (
     <>
       <SeoHead
-        title="Contact Poorvam Care - Book Free Consultation | Electronic City, Bangalore"
-        description="Contact Poorvam Care in Electronic City, Bangalore. Book a free consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 886 176 4343."
+        title="Contact Poorvam Care - Book a Consultation | Electronic City, Bangalore"
+        description="Contact Poorvam Care in Electronic City, Bangalore. Book a consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 886 176 4343."
         canonical="https://poorvamcare.in/contact"
         ogImage="https://poorvamcare.in/og-image.jpg"
-        keywords="contact Poorvam Care, book therapy appointment Bangalore, free consultation speech therapy, child therapy Electronic City, phone number Poorvam Care, therapy center near me Electronic City, book free consultation child therapy Bangalore, speech therapy appointment near me, therapy center Bommanahalli Hosa Road Kudlu Gate"
+        keywords="contact Poorvam Care, book therapy appointment Bangalore, consultation speech therapy, child therapy Electronic City, phone number Poorvam Care, therapy center near me Electronic City, book consultation child therapy Bangalore, speech therapy appointment near me, therapy center Bommanahalli Hosa Road Kudlu Gate"
       />
       <StructuredData data={createBreadcrumbSchema([
         { name: "Home", url: "https://poorvamcare.in/" },
@@ -162,7 +162,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
-            Ready to take the first step? Book a free consultation or reach out with any questions.
+            Ready to take the first step? Book a consultation or reach out with any questions.
           </p>
         </div>
       </section>

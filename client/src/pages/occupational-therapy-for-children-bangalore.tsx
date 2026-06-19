@@ -147,14 +147,14 @@ export default function OccupationalTherapyForChildren() {
             Book a Free OT Assessment
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Not sure if your child needs occupational therapy? Book a free consultation with our team for an initial evaluation.
+            Not sure if your child needs occupational therapy? Book a consultation with our team for an initial evaluation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

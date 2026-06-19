@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: "How do I know if my child needs speech therapy?",
-    answer: "Signs include: not babbling by 12 months, not using single words by 16 months, difficulty following simple instructions, unclear speech after age 3, or stuttering. If you have concerns, a professional evaluation can determine if therapy would help. We offer free initial consultations.",
+    answer: "Signs include: not babbling by 12 months, not using single words by 16 months, difficulty following simple instructions, unclear speech after age 3, or stuttering. If you have concerns, a professional evaluation can determine if therapy would help. We offer initial consultations.",
   },
   {
     question: "At what age should early intervention begin?",
@@ -86,7 +86,7 @@ const faqs = [
   },
   {
     question: "How much does child therapy cost in Bangalore?",
-    answer: "Therapy costs vary based on the type and frequency of sessions needed. We offer competitive rates and flexible packages. Contact us for a free consultation where we'll discuss your child's needs and recommend an appropriate plan with transparent pricing.",
+    answer: "Therapy costs vary based on the type and frequency of sessions needed. We offer competitive rates and flexible packages. Contact us for a consultation where we'll discuss your child's needs and recommend an appropriate plan with transparent pricing.",
   },
 ];
 
@@ -318,13 +318,13 @@ export default function ChildDevelopmentPage() {
             Your Child's Journey Starts Here
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Book a free consultation today and let our experts assess how we can help your child thrive.
+            Book a consultation today and let our experts assess how we can help your child thrive.
           </p>
           <Link
             href="/contact"
             className="inline-block bg-white text-coral px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg transition-colors shadow-lg"
           >
-            Book Free Consultation
+            Book a Consultation
           </Link>
         </div>
       </section>

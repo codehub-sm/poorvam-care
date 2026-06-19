@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "What is the cost of speech therapy at Poorvam Care?",
-    answer: "Therapy fees at Poorvam Care vary depending on the type of therapy, session frequency, and your child's individual care plan. We believe every child deserves expert care, so we offer competitive rates and flexible scheduling options. We recommend starting with a free initial consultation, during which our therapist will assess your child's needs and provide a clear explanation of recommended therapy and associated costs — with no obligation to book. Call us on +91 886 176 4343 or use our contact form to arrange your free consultation.",
+    answer: "Therapy fees at Poorvam Care vary depending on the type of therapy, session frequency, and your child's individual care plan. We believe every child deserves expert care, so we offer competitive rates and flexible scheduling options. We recommend starting with an initial consultation, during which our therapist will assess your child's needs and provide a clear explanation of recommended therapy and associated costs — with no obligation to book. Call us on +91 886 176 4343 or use our contact form to arrange your consultation.",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function SpeechTherapyMaratahalliPage() {
     <>
       <SeoHead
         title="Speech Therapy in Marathahalli Bangalore | Poorvam Care Electronic City"
-        description="Speech therapy for children near Marathahalli, Bangalore. Poorvam Care in Electronic City is 20km away. Teletherapy available. Book a free consultation."
+        description="Speech therapy for children near Marathahalli, Bangalore. Poorvam Care in Electronic City is 20km away. Teletherapy available. Book a consultation."
         canonical="https://poorvamcare.in/speech-therapy-marathahalli"
       />
       <StructuredData
@@ -81,7 +81,7 @@ export default function SpeechTherapyMaratahalliPage() {
                 href="/contact"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25"
               >
-                Book Free Consultation
+                Book a Consultation
               </Link>
               <a
                 href="tel:+918861764343"
@@ -266,14 +266,14 @@ export default function SpeechTherapyMaratahalliPage() {
             Start Your Child's Speech Therapy Journey Today
           </h2>
           <p className="text-lg text-white/90 font-body mb-8">
-            Families from Marathahalli, Bellandur, and Sarjapur Road trust Poorvam Care for expert speech therapy — in person and online. Book a free consultation today.
+            Families from Marathahalli, Bellandur, and Sarjapur Road trust Poorvam Care for expert speech therapy — in person and online. Book a consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

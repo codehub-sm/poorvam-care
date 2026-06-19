@@ -128,7 +128,7 @@ export default function Hero() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 bg-coral hover:bg-coral-dark text-white px-7 py-3.5 rounded-xl font-heading font-bold text-base transition-all shadow-lg shadow-coral/25 hover:shadow-xl hover:shadow-coral/30"
               >
-                Book a Free Consultation
+                Book a Consultation
                 <svg
                   className="w-4 h-4 transition-transform group-hover:translate-x-1"
                   fill="none"

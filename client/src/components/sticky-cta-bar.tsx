@@ -29,7 +29,7 @@ export default function StickyCtaBar() {
               href="/contact"
               className="flex-1 bg-coral text-white text-center font-heading font-semibold py-3 rounded-xl text-sm hover:bg-coral-dark transition-colors shadow-md shadow-coral/20"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

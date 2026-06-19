@@ -81,7 +81,7 @@ export default function SpeechTherapyWhitefieldPage() {
                 href="/contact"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25"
               >
-                Book Free Consultation
+                Book a Consultation
               </Link>
               <a
                 href="tel:+918861764343"
@@ -286,14 +286,14 @@ export default function SpeechTherapyWhitefieldPage() {
             Expert Speech Therapy — From Whitefield, Without the Drive
           </h2>
           <p className="text-lg text-white/90 font-body mb-8">
-            Book a free consultation today and discover how Poorvam Care's teletherapy programme can help your child achieve real communication progress — wherever you are in Whitefield.
+            Book a consultation today and discover how Poorvam Care's teletherapy programme can help your child achieve real communication progress — wherever you are in Whitefield.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

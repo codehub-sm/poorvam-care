@@ -8,7 +8,7 @@ const steps = [
     icon: Phone,
     title: "Reach Out",
     description:
-      "Contact us for a free consultation. We'll listen to your concerns and guide you to the right service.",
+      "Contact us for a consultation. We'll listen to your concerns and guide you to the right service.",
     gradient: "from-coral-light to-coral",
     shadow: "shadow-coral/25",
   },

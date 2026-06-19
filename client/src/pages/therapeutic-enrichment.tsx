@@ -1,7 +1,6 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
-import SummerCampBanner from "@/components/summer-camp-banner";
 import { Link } from "wouter";
 import { Palette, Activity, Heart, Music, Users, Check } from "lucide-react";
 
@@ -64,7 +63,7 @@ const faqs = [
   },
   {
     question: "Do I need a referral or assessment first?",
-    answer: "We recommend an initial consultation so our team can understand your child's needs and recommend the right programme. Contact us at +91 886 176 4343 to schedule a free consultation.",
+    answer: "We recommend an initial consultation so our team can understand your child's needs and recommend the right programme. Contact us at +91 886 176 4343 to schedule a consultation.",
   },
   {
     question: "Can Therapeutic Enrichment replace therapy?",
@@ -111,8 +110,6 @@ export default function TherapeuticEnrichmentPage() {
         { name: "Home", url: "https://poorvamcare.in/" },
         { name: "Therapeutic Enrichment", url: "https://poorvamcare.in/therapeutic-enrichment" },
       ])} />
-
-      <SummerCampBanner />
 
       {/* Hero */}
       <section className="relative bg-brown-deep overflow-hidden">
@@ -269,7 +266,7 @@ export default function TherapeuticEnrichmentPage() {
             Ready to Explore Therapeutic Enrichment?
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Book a free consultation and find out how our enrichment programmes can support your child's development.
+            Book a consultation and find out how our enrichment programmes can support your child's development.
           </p>
           <Link
             href="/contact"

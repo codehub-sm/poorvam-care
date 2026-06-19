@@ -18,12 +18,12 @@ const ecFAQs = [
     answer: "Our Electronic City Phase 1 centre is 5-10 minutes from Bommanahalli and Hosa Road, 15 minutes from HSR Layout and Kudlu Gate, and 10 minutes from Singasandra and Hongasandra. Our Phase 2 centre is easily accessible from Ananth Nagar, Neeladri Nagar, Doddathogur, and Chandapura.",
   },
   {
-    question: "Do you offer a free consultation for speech therapy in Electronic City?",
-    answer: "Yes. We offer a free initial consultation at both our Electronic City centres. During this session, our team will observe your child, discuss your concerns, and recommend an appropriate assessment and therapy plan. You can book a consultation by calling +91 886 176 4343 or through our website.",
+    question: "Do you offer a consultation for speech therapy in Electronic City?",
+    answer: "Yes. We offer an initial consultation at both our Electronic City centres. During this session, our team will observe your child, discuss your concerns, and recommend an appropriate assessment and therapy plan. You can book a consultation by calling +91 886 176 4343 or through our website.",
   },
   {
     question: "What are the fees for speech therapy in Electronic City, Bangalore?",
-    answer: "Speech therapy fees at Poorvam Care vary based on the type and frequency of sessions. We offer flexible session packages to accommodate different budgets. Contact us for a free consultation where we can discuss your child's specific needs and provide a detailed cost estimate.",
+    answer: "Speech therapy fees at Poorvam Care vary based on the type and frequency of sessions. We offer flexible session packages to accommodate different budgets. Contact us for a consultation where we can discuss your child's specific needs and provide a detailed cost estimate.",
   },
 ];
 
@@ -195,14 +195,14 @@ export default function SpeechTherapyElectronicCity() {
             Visit Our Electronic City Centre
           </h2>
           <p className="text-lg text-warm-bg/90 font-body mb-8">
-            Book a free consultation at either of our Electronic City locations. Walk-ins welcome during business hours.
+            Book a consultation at either of our Electronic City locations. Walk-ins welcome during business hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
-              Book Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"

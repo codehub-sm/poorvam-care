@@ -151,7 +151,7 @@ export default function ParentCounsellingPage() {
                 href="/contact"
                 className="bg-purple-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-purple-700 transition-colors shadow-lg shadow-purple-600/25"
               >
-                Book a Free Consultation
+                Book a Consultation
               </Link>
               <a
                 href="tel:+918861764343"
@@ -322,14 +322,14 @@ export default function ParentCounsellingPage() {
             Take Care of Yourself — So You Can Take Care of Your Child
           </h2>
           <p className="text-lg text-white/90 font-body mb-8">
-            Book a free consultation with our parent counselling team at Poorvam Care. Online and in-centre sessions available at Electronic City, Bangalore.
+            Book a consultation with our parent counselling team at Poorvam Care. Online and in-centre sessions available at Electronic City, Bangalore.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-block bg-white text-purple-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
-              Book a Free Consultation
+              Book a Consultation
             </Link>
             <a
               href="tel:+918861764343"
