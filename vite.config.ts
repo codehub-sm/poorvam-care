@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-export default defineConfig(async () => {
+export default defineConfig(async ({ command }) => {
   const plugins = [
     react(),
     runtimeErrorOverlay(),
@@ -17,11 +17,15 @@ export default defineConfig(async () => {
       : []),
   ];
 
-  // Add prerendering in production builds for SSG (static HTML for crawlers)
-  if (process.env.NODE_ENV === "production") {
+  // Add prerendering for SSG (static HTML for crawlers). Gate on the Vite
+  // `command` (reliable during `vite build`) rather than process.env.NODE_ENV,
+  // which is not guaranteed to be "production" when this config is evaluated.
+  if (command === "build") {
     try {
       const { default: prerender } = await import("@prerenderer/rollup-plugin");
-      const { default: JSDOMRenderer } = await import("@prerenderer/renderer-jsdom");
+      // Puppeteer (real headless Chromium) — JSDOM cannot execute the Vite
+      // ESM bundle, so it produced empty #root shells for every route.
+      const { default: PuppeteerRenderer } = await import("@prerenderer/renderer-puppeteer");
       plugins.push(
         prerender({
           routes: [
@@ -47,11 +51,24 @@ export default defineConfig(async () => {
             "/speech-therapy-koramangala-bangalore",
             "/speech-therapy-whitefield-bangalore",
             "/speech-therapy-marathahalli-bangalore",
+            "/blog/speech-therapy-for-autism-guide",
+            "/blog/10-signs-child-needs-speech-therapy",
+            "/blog/occupational-therapy-sensory-processing",
+            "/blog/what-is-aba-therapy-guide",
+            "/blog/why-early-intervention-matters",
+            "/blog/speech-therapy-2-year-olds-bangalore",
+            "/blog/occupational-therapy-autism-bangalore",
           ],
-          renderer: new JSDOMRenderer(),
-          rendererOptions: {
-            renderAfterTime: 5000,
-          },
+          renderer: new PuppeteerRenderer({
+            launchOptions: {
+              headless: true,
+              args: ["--no-sandbox", "--disable-setuid-sandbox"],
+            },
+            // Wait until React has mounted, rendered the route, and SeoHead has
+            // set the document title — signalled via window event in main.tsx.
+            renderAfterDocumentEvent: "prerender-ready",
+            timeout: 30000,
+          }),
           postProcess(renderedRoute: { html: string }) {
             // Remove noscript block from prerendered pages since content is now in the DOM
             renderedRoute.html = renderedRoute.html.replace(
@@ -62,8 +79,11 @@ export default defineConfig(async () => {
           },
         }) as any,
       );
-    } catch {
-      console.warn("Prerender plugin not available, skipping SSG");
+    } catch (err) {
+      // Fail loudly: a silent skip here ships an SPA shell that serves the
+      // homepage HTML for every route, which destroys per-page SEO/AEO.
+      console.error("Prerender plugin failed to load — SSG is required for SEO.", err);
+      throw err;
     }
   }
 

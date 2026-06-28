@@ -32,7 +32,7 @@ export default function ChildTherapyHSRLayout() {
     <>
       <SeoHead
         title="Child Therapy Near HSR Layout, Bangalore | Poorvam Care"
-        description="Best child therapy center near HSR Layout, Bangalore. Speech therapy, occupational therapy, ABA therapy, and special education. Just 15 min from HSR Layout. Led by Apoorva Rai, MASLP, 13+ years experience. Free consultation."
+        description="Best child therapy center near HSR Layout, Bangalore. Speech therapy, occupational therapy, ABA therapy, and special education. Just 15 min from HSR Layout. Led by Apoorva Rai, MASLP, 13+ years experience. Call +91 88617 64343 to book."
         canonical="https://poorvamcare.in/child-therapy-hsr-layout-bangalore"
         keywords="child therapy HSR Layout, speech therapy near HSR Layout, occupational therapy HSR Layout Bangalore, therapy center near HSR Layout, speech therapist HSR Layout, ABA therapy near HSR Layout, child development center HSR Layout, best therapy center near HSR Layout Bangalore, speech therapy Bommanahalli, child therapy Koramangala, therapy near BTM Layout, autism therapy HSR Layout, speech delay therapy near HSR Layout, pediatric therapy south Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -92,7 +92,7 @@ export default function ChildTherapyHSRLayout() {
                 <h3 className="font-heading font-bold text-brown-deep mb-1">Contact</h3>
                 <p className="text-brown-mid text-sm font-body">
                   <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 886 176 4343</a><br />
-                  Free consultation available
+                  Call to book a consultation
                 </p>
               </div>
             </div>

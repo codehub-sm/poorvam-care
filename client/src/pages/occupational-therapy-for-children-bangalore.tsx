@@ -28,7 +28,7 @@ export default function OccupationalTherapyForChildren() {
     <>
       <SeoHead
         title="Occupational Therapy for Children in Bangalore | Poorvam Care, Electronic City"
-        description="Expert occupational therapy for children with sensory processing issues, motor skill delays, and developmental challenges in Electronic City, Bangalore. RCI registered therapists. Free consultation."
+        description="Expert occupational therapy for children with sensory processing issues, motor skill delays, and developmental challenges in Electronic City, Bangalore. RCI registered therapists. Call +91 88617 64343 to book an assessment."
         canonical="https://poorvamcare.in/occupational-therapy-for-children-bangalore"
         keywords="occupational therapy for children Bangalore, pediatric OT Electronic City, sensory processing therapy Bangalore, fine motor skills therapy, OT for autism Bangalore, occupational therapy near me Electronic City, OT near me Bommanahalli, occupational therapy cost Bangalore, sensory integration therapy near me, pediatric OT Hosa Road, occupational therapy Kudlu Gate, OT for ADHD Bangalore, occupational therapy fees Bangalore, best occupational therapist for children near me, sensory processing disorder therapy HSR Layout"
         ogImage="https://poorvamcare.in/og-image.jpg"

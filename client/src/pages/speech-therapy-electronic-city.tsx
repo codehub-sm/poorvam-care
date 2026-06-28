@@ -2,7 +2,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, createServiceSchema, organizationSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
-import { CheckCircle, MapPin } from "lucide-react";
+import { CheckCircle, MapPin, Phone } from "lucide-react";
 
 const ecFAQs = [
   {
@@ -32,7 +32,7 @@ export default function SpeechTherapyElectronicCity() {
     <>
       <SeoHead
         title="Speech Therapy in Electronic City, Bangalore | Poorvam Care"
-        description="Best speech therapy center in Electronic City, Bangalore. Two locations in Phase 1 & Phase 2. Speech therapy for autism, speech delay, articulation disorders. Led by Apoorva Rai, MASLP, 13+ years experience. Free consultation available."
+        description="Speech therapy in Electronic City, Bangalore — two centres in Phase 1 & Phase 2 for autism, speech delay & articulation disorders. Led by Apoorva Rai, MASLP (13+ yrs). Call +91 88617 64343 to book."
         canonical="https://poorvamcare.in/speech-therapy-electronic-city"
         keywords="speech therapy Electronic City, speech therapist near Electronic City, best speech therapy center Electronic City Bangalore, speech therapy near me Electronic City Phase 1, speech therapy Electronic City Phase 2, speech therapy Bommanahalli, speech therapist Hosa Road, speech therapy cost Electronic City, child speech therapy Electronic City, speech delay treatment Electronic City, speech therapy near Ananth Nagar, speech therapy Neeladri Nagar, best speech therapist south Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -64,6 +64,21 @@ export default function SpeechTherapyElectronicCity() {
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
               Trusted by 500+ families across south Bangalore. Comprehensive speech and language therapy for children at two convenient locations in Electronic City.
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="tel:+918861764343"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-coral text-white font-heading font-semibold rounded-full hover:bg-coral/90 transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                Call +91 88617 64343
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-warm-bg font-heading font-semibold rounded-full border border-warm-bg/30 hover:bg-white/20 transition-colors"
+              >
+                Book a Consultation
+              </Link>
+            </div>
           </div>
         </div>
       </section>

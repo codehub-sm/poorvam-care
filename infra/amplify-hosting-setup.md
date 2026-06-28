@@ -32,14 +32,34 @@ The redirect rules are in `infra/amplify-redirects.json`.
 
 Amplify applies the rules immediately — no redeploy needed.
 
+### ⚠️ CRITICAL — why per-route rewrites exist (SEO)
+
+The site is **prerendered** (SSG via `@prerenderer/rollup-plugin` + Puppeteer).
+Each route is built to its own `dist/public/<route>/index.html` with the correct
+per-page `<title>`, meta description, H1, content and JSON-LD schema.
+
+A naive SPA catch-all (`extensionless path → /index.html`) **breaks this**: it
+rewrites every URL to the homepage shell *before* the per-route file can be
+served, so Google + AI engines saw the homepage HTML on **every** URL. That was
+the root cause of the high-impression / zero-click problem in Search Console.
+
+The fix: an **explicit `200` rewrite for each prerendered route** → its own
+`/<route>/index.html`, placed **before** the SPA catch-all. The catch-all now
+only handles genuinely dynamic / unknown routes (e.g. blog slugs not in the
+prerender list), which React renders client-side.
+
+> When you add a new prerendered route, add it in **three** places:
+> `vite.config.ts` (prerender `routes`), `infra/amplify-redirects.json`
+> (explicit rewrite), and `client/public/sitemap.xml`.
+
 ### What the rules do (evaluated top to bottom, first match wins)
 
 | # | Source | Target | Status | Purpose |
 |---|---|---|---|---|
 | 1–6 | `/*.html` (legacy paths) | `/` | 301 | Kill zombie indexed URLs (`occupationalTherapy.html`, etc.) |
-| 7 | `/occupational-therapy-for-children-bangalore/` | non-trailing version | 301 | Fix the specific GSC-flagged duplicate |
-| 8 | `</^\\/(.+)\\/$/>` | `/$1` | 301 | Strip any other trailing slash |
-| 9 | catch-all regex | `/index.html` | 200 | SPA fallback — React handles unknown routes |
+| 7 | `</^\\/(.+)\\/$/>` | `/$1` | 301 | Strip any trailing slash |
+| 8–35 | `/<route>` (28 prerendered routes) | `/<route>/index.html` | 200 | **Serve the correct per-page prerendered HTML** |
+| 36 | catch-all regex | `/index.html` | 200 | SPA fallback — React handles dynamic/unknown routes |
 
 ---
 

@@ -111,7 +111,7 @@ export default function ServicePackages() {
     <>
       <SeoHead
         title="Therapy Pricing - Affordable Speech Therapy & OT in Electronic City, Bangalore | Poorvam Care"
-        description="Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹600, home visits from ₹1,500. Speech therapy, OT, ABA. Free consultation."
+        description="Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹600, home visits from ₹1,500. Speech therapy, OT, ABA. Call +91 88617 64343."
         canonical="https://poorvamcare.in/service-packages"
       />
 
