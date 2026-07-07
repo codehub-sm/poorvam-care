@@ -44,7 +44,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    lines: ["info@poorvamcare.in", "appointments@poorvamcare.in"],
+    lines: ["poorvam.care@gmail.com"],
   },
   {
     icon: Clock,
@@ -143,7 +143,7 @@ export default function ContactPage() {
         "@id": "https://poorvamcare.in/#organization",
         "name": "Poorvam Care",
         "telephone": "+918861764343",
-        "email": "info@poorvamcare.in",
+        "email": "poorvam.care@gmail.com",
         "url": "https://poorvamcare.in",
         "openingHoursSpecification": [
           { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
@@ -223,7 +223,7 @@ export default function ContactPage() {
                 </Button>
                 <Button
                   className="w-full justify-start h-12 bg-sage hover:bg-sage-dark text-white rounded-xl font-heading font-semibold"
-                  onClick={() => window.open('mailto:appointments@poorvamcare.in')}
+                  onClick={() => window.open('mailto:poorvam.care@gmail.com')}
                 >
                   <Calendar className="w-5 h-5 mr-3" />
                   Email for Appointment

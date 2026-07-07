@@ -11,7 +11,7 @@ const localBusinessSchema = {
   "description": "Multi-disciplinary early intervention centre offering speech therapy, occupational therapy, ABA, behavioural therapy, special education, and therapeutic enrichment for children aged 2–14 in Electronic City Phase 2, Bangalore.",
   "url": "https://poorvamcare.in/electronic-city-phase-2",
   "telephone": "+918861764343",
-  "email": "info@poorvamcare.in",
+  "email": "poorvam.care@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Ananth Nagar, Above Bata Showroom, Opp. Udipi Aaradhya Restaurant",
@@ -146,7 +146,7 @@ export default function ElectronicCityPhase2() {
                   <Mail className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-brown-deep block mb-1">Email</span>
-                    <a href="mailto:info@poorvamcare.in" className="hover:text-coral transition-colors">info@poorvamcare.in</a>
+                    <a href="mailto:poorvam.care@gmail.com" className="hover:text-coral transition-colors">poorvam.care@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">

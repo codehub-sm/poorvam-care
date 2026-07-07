@@ -48,7 +48,7 @@ const homeFAQs = [
   {
     question: "How do I book an appointment at Poorvam Care?",
     answer:
-      "Call us at +91 886 176 4343 or email info@poorvamcare.in. We offer an initial consultation to understand your child's needs before recommending a therapy plan.",
+      "Call us at +91 886 176 4343 or email poorvam.care@gmail.com. We offer an initial consultation to understand your child's needs before recommending a therapy plan.",
   },
   {
     question: "Does Poorvam Care have a summer therapy camp for children?",
