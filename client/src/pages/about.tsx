@@ -111,7 +111,7 @@ export default function AboutPage() {
                   <div className="text-sm text-brown-mid font-body">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-sage">500+</div>
+                  <div className="text-4xl font-heading font-bold text-sage">900+</div>
                   <div className="text-sm text-brown-mid font-body">Families Served</div>
                 </div>
                 <div className="text-center">
