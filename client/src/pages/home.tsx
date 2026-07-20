@@ -6,6 +6,7 @@ import ServicePillars from "@/components/service-pillars";
 import HowItWorks from "@/components/how-it-works";
 import Testimonials from "@/components/testimonials";
 import FAQSection from "@/components/faq-section";
+import DigitalFirst from "@/components/digital-first";
 import WaveDivider from "@/components/wave-divider";
 import { Link } from "wouter";
 
@@ -84,6 +85,7 @@ export default function Home() {
       <ServicePillars />
       <WaveDivider color="#FAFAF8" />
       <HowItWorks />
+      <DigitalFirst compact />
       <WaveDivider color="#ffffff" flip />
       <Testimonials />
 

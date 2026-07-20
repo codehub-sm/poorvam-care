@@ -1,3 +1,10 @@
+import {
+  CONTACT,
+  SITE_URL,
+  OPENING_HOURS,
+  type Location,
+} from "@/config/site";
+
 interface StructuredDataProps {
   data: Record<string, unknown>;
 }
@@ -21,8 +28,8 @@ export const organizationSchema = {
   "url": "https://poorvamcare.in",
   "logo": "https://poorvamcare.in/img/poorvam-logo.png",
   "image": "https://poorvamcare.in/img/poorvam-logo.png",
-  "telephone": "+918861764343",
-  "email": "info@poorvamcare.in",
+  "telephone": CONTACT.phone,
+  "email": CONTACT.email,
   "priceRange": "₹₹",
   "address": {
     "@type": "PostalAddress",
@@ -106,12 +113,17 @@ export const organizationSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Therapeutic Enrichment" } }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.5",
-    "reviewCount": "61",
-    "bestRating": "5"
-  },
+  // NOTE: `aggregateRating` was removed here deliberately.
+  //
+  // It was hardcoded to 4.5/61 with zero accompanying `Review` nodes. Google
+  // does not award review rich results to self-serving markup a site asserts
+  // about itself, so it produced no benefit — while an unverifiable, manually
+  // maintained rating that drifts from the real Google Business Profile count
+  // is exactly the pattern the structured-data spam policy targets.
+  //
+  // Star ratings already surface through the Business Profile. If we want them
+  // in schema, they must come from a live reviews feed with real `Review`
+  // nodes attached, not a literal.
   "areaServed": [
     { "@type": "City", "name": "Bangalore" },
     { "@type": "Place", "name": "Electronic City" },
@@ -201,55 +213,129 @@ export function createServiceSchema(service: {
   };
 }
 
-export function createLocalBusinessSchema(location: {
-  name: string;
+/** PostalAddress node for a configured centre. The only place addresses are built. */
+export function postalAddressFor(location: Location) {
+  return {
+    "@type": "PostalAddress",
+    "streetAddress": location.streetAddress,
+    "addressLocality": location.addressLocality,
+    "addressRegion": location.addressRegion,
+    "postalCode": location.postalCode,
+    "addressCountry": location.addressCountry,
+  };
+}
+
+/** OpeningHoursSpecification nodes derived from the single hours definition. */
+export function openingHoursSchema() {
+  return OPENING_HOURS.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": h.dayOfWeek,
+    "opens": h.opens,
+    "closes": h.closes,
+  }));
+}
+
+/**
+ * LocalBusiness schema for a physical centre.
+ *
+ * Every page that describes a centre must go through here. Eleven pages
+ * previously hand-rolled this object, and the copies drifted into nine
+ * different spellings of the same two street addresses — inconsistent NAP is
+ * one of the strongest suppressors of local pack ranking, so the addresses
+ * now come from LOCATIONS in @/config/site and cannot diverge per page.
+ */
+export function createLocalBusinessSchema(opts: {
+  /** Which physical centre this page is about. */
+  location: Location;
+  /** Page-specific name override, e.g. "Poorvam Care — Speech Therapy, BTM Layout". */
+  name?: string;
   description: string;
+  /** Canonical URL of the page. Must match the route, or the page self-canonicalises to a 404. */
   url: string;
-  streetAddress: string;
-  locality: string;
-  latitude: string;
-  longitude: string;
+  /** Neighbourhoods this page targets. */
+  areaServed?: string[];
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "name": location.name,
-    "description": location.description,
-    "url": location.url,
-    "telephone": "+918861764343",
-    "email": "info@poorvamcare.in",
+    "name": opts.name ?? opts.location.name,
+    "description": opts.description,
+    "url": opts.url,
+    "telephone": CONTACT.phone,
+    "email": CONTACT.email,
     "priceRange": "₹₹",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": location.streetAddress,
-      "addressLocality": location.locality,
-      "addressRegion": "Karnataka",
-      "postalCode": "560100",
-      "addressCountry": "IN"
-    },
+    "address": postalAddressFor(opts.location),
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": location.latitude,
-      "longitude": location.longitude
+      "latitude": opts.location.latitude,
+      "longitude": opts.location.longitude,
     },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "14:00"
-      }
-    ],
+    "hasMap": opts.location.mapUrl,
+    "openingHoursSpecification": openingHoursSchema(),
+    ...(opts.areaServed?.length
+      ? { areaServed: opts.areaServed.map((name) => ({ "@type": "Place", name })) }
+      : {}),
     "parentOrganization": {
       "@type": "MedicalBusiness",
-      "@id": "https://poorvamcare.in/#organization"
-    }
+      "@id": `${SITE_URL}/#organization`,
+    },
+  };
+}
+
+/**
+ * Schema for the online/teletherapy offering.
+ *
+ * Deliberately NOT a MedicalBusiness and deliberately carrying no postal
+ * address. The local pages describe two physical centres in Electronic City;
+ * these pages describe a service delivered remotely to another country. Giving
+ * them a Bangalore address would tell Google they are local Bangalore results
+ * and blur the entity that currently ranks for Electronic City queries.
+ *
+ * Price is optional. Pricing is currently discussed on the consultation call
+ * rather than published, so the Offer node carries availability and a session
+ * description but no figure — asserting a price in schema that the site does
+ * not show would be both misleading and unmaintainable.
+ */
+export function createOnlineServiceSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  /** ISO country codes this service is offered in. */
+  areaServed: string[];
+  /** Omit unless the price is genuinely published on the page. */
+  price?: number;
+  priceCurrency?: string;
+  /** Session length in minutes, for the offer description. */
+  sessionMinutes?: number;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${opts.url}#service`,
+    "name": opts.name,
+    "description": opts.description,
+    "url": opts.url,
+    "serviceType": "Online speech and language therapy",
+    "provider": {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      "name": "Poorvam Care",
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": opts.url,
+      "availableLanguage": ["en", "hi", "ta", "te", "kn", "ml"],
+    },
+    "areaServed": opts.areaServed.map((c) => ({ "@type": "Country", name: c })),
+    "offers": {
+      "@type": "Offer",
+      ...(opts.price !== undefined && opts.priceCurrency
+        ? { price: opts.price, priceCurrency: opts.priceCurrency }
+        : {}),
+      "availability": "https://schema.org/InStock",
+      "description": `${opts.sessionMinutes ?? 45}-minute live online session`,
+      "url": opts.url,
+    },
   };
 }
 

@@ -124,7 +124,7 @@ export default function ChildTherapyHSRLayout() {
               "Sensory-friendly, child-centred therapy environments at both centres",
               "Regular parent training so you can reinforce progress at home",
               "Transparent progress reporting with quarterly reviews and video updates",
-              "Trusted by 500+ families across south Bangalore",
+              "Trusted by 900+ families across south Bangalore",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-sage mt-0.5 flex-shrink-0" />

@@ -21,6 +21,13 @@
 - [Parent Counselling](https://poorvamcare.in/parent-counselling): Parent training to reinforce therapy at home
 - [Therapeutic Enrichment](https://poorvamcare.in/therapeutic-enrichment): Sensory art, movement therapy, yoga, music & social-skills groups
 - [Child Development Centre](https://poorvamcare.in/child-development): Overview of the multi-disciplinary program
+- [Online / Teletherapy](https://poorvamcare.in/online): Live one-to-one online speech and language therapy, delivered by RCI-registered clinicians in Bengaluru. Available to families in India, Australia and the UAE. Sessions in English, Hindi, Tamil, Telugu, Kannada and Malayalam.
+
+## Online therapy (available outside Bangalore)
+- [Online therapy — India](https://poorvamcare.in/online/india): Live online sessions anywhere in India
+- [Online therapy — Australia](https://poorvamcare.in/online/australia): Suitable for self-managed and plan-managed NDIS participants
+- [Online therapy — UAE](https://poorvamcare.in/online/uae): Private-pay; not billable to UAE health insurance
+- Not available to residents of the United States or Canada: speech-language pathology is a licensed profession there and licensure follows the client's location, so an Indian (RCI) registration does not permit treatment of a child resident in those countries.
 
 ## Locations & service areas
 - [Electronic City Phase 1](https://poorvamcare.in/electronic-city-phase-1)
@@ -42,5 +49,7 @@
 ## Common questions
 - When should a child start speech therapy? Early intervention works best before age 3. Poorvam Care assesses children from 12 months.
 - Do you treat autism? Yes — speech therapy, ABA, OT, and special education tailored for children on the autism spectrum.
-- Do you offer teletherapy? Yes, for speech therapy, behavioural consultations, and parent training.
+- Do you offer teletherapy? Yes. Live online one-to-one sessions are available to families in India, Australia and the UAE, in English, Hindi, Tamil, Telugu, Kannada or Malayalam. Start with a free 15-minute consultation: https://poorvamcare.in/online. Not available in the US or Canada.
+- How do I get started? Book a free 15-minute consultation. You pick a time, we email a link showing the time in your local timezone, and you meet a specialist who tells you honestly whether we can help.
+- Do parents get visibility into therapy? Yes. Poorvam runs on its own digital platform: parents see the session schedule, the therapy goals, session reports, home practice activities and billing from their phone, can book or reschedule sessions themselves, and can message their therapist between sessions.
 - What does it cost? Flexible packages based on therapy type and frequency; transparent pricing after an initial consultation. Call +91 88617 64343.

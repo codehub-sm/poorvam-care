@@ -62,7 +62,7 @@ export default function SpeechTherapyElectronicCity() {
               <span className="text-coral">Electronic City</span>, Bangalore
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              Trusted by 500+ families across south Bangalore. Comprehensive speech and language therapy for children at two convenient locations in Electronic City.
+              Trusted by 900+ families across south Bangalore. Comprehensive speech and language therapy for children at two convenient locations in Electronic City.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a

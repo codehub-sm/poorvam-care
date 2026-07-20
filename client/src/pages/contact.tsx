@@ -9,6 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
+import { submitLead } from "@/lib/leads";
+import { trackWhatsAppClick, trackCallClick } from "@/lib/analytics";
+import { CONTACT, whatsappLink, telLink } from "@/config/site";
 
 interface ContactFormData {
   firstName: string;
@@ -56,6 +59,7 @@ const contactInfo = [
 export default function ContactPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
     lastName: "",
@@ -67,32 +71,6 @@ export default function ContactPage() {
     message: "",
     consent: false,
   });
-
-  const submitContactForm = async (data: ContactFormData) => {
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzlz71svz_5jZu8xw5_V6pHZlEPI53zPtg9Ye4UcDm8Eet8zKi4A62mlkxIxr7SgLilWg/exec';
-
-    const payload = {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      childName: data.childName,
-      childAge: data.childAge,
-      serviceType: data.serviceType,
-      message: data.message,
-      consent: data.consent,
-      timestamp: new Date().toISOString()
-    };
-
-    await fetch(scriptUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-      mode: 'no-cors'
-    });
-
-    return { success: true };
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -108,16 +86,23 @@ export default function ContactPage() {
     }
 
     setIsSubmitting(true);
+    const result = await submitLead({ ...formData }, "contact-page");
+    setIsSubmitting(false);
 
-    try {
-      await submitContactForm(formData);
-      toast({ title: "Message Sent!", description: "Thank you for contacting us. We'll get back to you within 24 hours." });
-      setFormData({ firstName: "", lastName: "", email: "", phone: "", childName: "", childAge: "", serviceType: "", message: "", consent: false });
-    } catch {
-      toast({ title: "Submission Failed", description: "There was an error. Please try again or call us directly.", variant: "destructive" });
-    } finally {
-      setIsSubmitting(false);
+    if (result.status === "failed") {
+      // Keep the form populated — these answers are the only copy of this lead.
+      setFailed(true);
+      toast({
+        title: "We couldn't send that",
+        description: "Please WhatsApp or call us — we don't want to miss you.",
+        variant: "destructive",
+      });
+      return;
     }
+
+    setFailed(false);
+    toast({ title: "Message Sent!", description: "Thank you for contacting us. We'll get back to you within 24 hours." });
+    setFormData({ firstName: "", lastName: "", email: "", phone: "", childName: "", childAge: "", serviceType: "", message: "", consent: false });
   };
 
   const update = (field: keyof ContactFormData, value: string | boolean) => {
@@ -313,6 +298,38 @@ export default function ContactPage() {
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+
+                  {failed && (
+                    <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-body">
+                      <p className="font-heading font-bold text-red-800">
+                        We couldn't send your message.
+                      </p>
+                      <p className="mt-1 text-red-700">
+                        Your details are still filled in above, so you can try again — or
+                        reach us directly and we'll pick it up from there.
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <a
+                          href={whatsappLink(
+                            `Hi Poorvam Care, I tried to send an enquiry through your website but it didn't go through. My name is ${formData.firstName} ${formData.lastName}.`,
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => trackWhatsAppClick("contact-page-fallback")}
+                          className="rounded-lg bg-green-600 px-4 py-2 font-heading font-semibold text-white hover:bg-green-700"
+                        >
+                          WhatsApp us
+                        </a>
+                        <a
+                          href={telLink}
+                          onClick={() => trackCallClick("contact-page-fallback")}
+                          className="rounded-lg border border-red-300 px-4 py-2 font-heading font-semibold text-red-800 hover:bg-red-100"
+                        >
+                          Call {CONTACT.phoneDisplay}
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

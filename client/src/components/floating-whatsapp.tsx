@@ -1,10 +1,11 @@
 import { MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+import { whatsappLink } from "@/config/site";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export default function FloatingWhatsApp() {
-  const whatsappLink = "https://wa.me/918861764343";
   const [isVisible, setIsVisible] = useState(false);
-  
+
   // Show the button after a short delay for better UX
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 1000);
@@ -13,9 +14,12 @@ export default function FloatingWhatsApp() {
   
   return (
     <a
-      href={whatsappLink}
+      href={whatsappLink(
+        "Hi Poorvam Care, I'd like to know more about therapy for my child.",
+      )}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsAppClick("floating-button")}
       className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 md:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}

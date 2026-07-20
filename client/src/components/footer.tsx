@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-brown-light font-body text-sm leading-relaxed mb-6">
-              Multi-disciplinary early intervention centre — trusted by 500+ families in Electronic City, Bangalore.
+              Multi-disciplinary early intervention centre — trusted by 900+ families in Electronic City, Bangalore.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => {

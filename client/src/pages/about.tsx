@@ -54,7 +54,7 @@ export default function AboutPage() {
     <>
       <SeoHead
         title="About Poorvam Care - 13+ Years of Child Therapy in Electronic City, Bangalore"
-        description="Learn about Poorvam Care's 13+ year journey serving 500+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Multi-disciplinary early intervention for children aged 2–14."
+        description="Learn about Poorvam Care's 13+ year journey serving 900+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Multi-disciplinary early intervention for children aged 2–14."
         canonical="https://poorvamcare.in/about"
         ogImage="https://poorvamcare.in/og-image.jpg"
         keywords="about Poorvam Care, child therapy center Electronic City, speech therapy Bangalore, occupational therapy Electronic City, Apoorva Rai MASLP, RCI registered therapist, ISHA certified, early intervention Bangalore, 13 years experience child therapy, best speech therapist Bangalore, RCI licensed therapist near me, trusted child therapy center Bommanahalli Hosa Road"
@@ -80,7 +80,7 @@ export default function AboutPage() {
               <span className="text-coral">Quality Care</span>
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy practice has grown into a multi-disciplinary early intervention centre serving 500+ families across two locations in Electronic City.
+              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy practice has grown into a multi-disciplinary early intervention centre serving 900+ families across two locations in Electronic City.
             </p>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
                   Starting in Electronic City, Bangalore, we began with a small team of passionate therapists dedicated to helping children with developmental needs. Over the years, we expanded to two locations and added therapeutic enrichment programmes designed specifically for children who learn differently.
                 </p>
                 <p>
-                  Today, we serve over 500 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, special education, and therapeutic enrichment. Our growth has been driven by one thing: the trust of the families we serve.
+                  Today, we serve over 900 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, special education, and therapeutic enrichment. Our growth has been driven by one thing: the trust of the families we serve.
                 </p>
               </div>
             </div>

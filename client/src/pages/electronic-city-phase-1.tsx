@@ -118,7 +118,7 @@ export default function ElectronicCityPhase1() {
                   Led by Apoorva Rai, MASLP, with 13+ years of paediatric experience, our team provides evidence-based speech therapy, occupational therapy, ABA therapy, special education, parent counselling, and therapeutic enrichment programmes.
                 </p>
                 <p>
-                  We serve over 500 families and take a compassionate, family-centred approach to early intervention — working closely with parents to support each child's growth at home and in the clinic.
+                  We serve over 900 families and take a compassionate, family-centred approach to early intervention — working closely with parents to support each child's growth at home and in the clinic.
                 </p>
               </div>
             </div>

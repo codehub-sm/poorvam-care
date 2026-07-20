@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, type ComponentType } from "react";
 import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/layout";
 import Home from "@/pages/home";
+import { trackPageView } from "@/lib/analytics";
+import { ROUTES } from "@/config/routes";
 
 const ChildDevelopment = lazy(() => import("@/pages/child-development"));
 const TherapeuticEnrichment = lazy(() => import("@/pages/therapeutic-enrichment"));
@@ -31,6 +33,11 @@ const SpeechTherapyBTMLayout = lazy(() => import("@/pages/speech-therapy-btm-lay
 const SpeechTherapyKoramangala = lazy(() => import("@/pages/speech-therapy-koramangala"));
 const SpeechTherapyWhitefield = lazy(() => import("@/pages/speech-therapy-whitefield"));
 const SpeechTherapyMarathahalli = lazy(() => import("@/pages/speech-therapy-marathahalli"));
+const OnlineHub = lazy(() => import("@/pages/online"));
+const OnlineIndia = lazy(() => import("@/pages/online-india"));
+const OnlineAustralia = lazy(() => import("@/pages/online-australia"));
+const OnlineUae = lazy(() => import("@/pages/online-uae"));
+const OnlineEnquiry = lazy(() => import("@/pages/online-enquiry"));
 
 // Legacy .html paths that need to redirect to the home page.
 // Keys must be lowercase — we normalize the incoming path before lookup.
@@ -70,35 +77,81 @@ function Loading() {
   );
 }
 
+/** Sends a GA4 pageview on every wouter navigation, including the first. */
+function usePageViews() {
+  const [location] = useLocation();
+  useEffect(() => {
+    trackPageView(location);
+  }, [location]);
+}
+
+/**
+ * Maps every registry path to its component.
+ *
+ * Keys must match ROUTES in @/config/routes exactly — the assertion below
+ * fails the dev build if they drift, so a page can never be registered for
+ * prerendering without also being routable (or vice versa).
+ */
+const PAGES: Record<string, ComponentType> = {
+  "/": Home,
+  "/child-development": ChildDevelopment,
+  "/therapeutic-enrichment": TherapeuticEnrichment,
+  "/electronic-city-phase-1": ElectronicCityPhase1,
+  "/electronic-city-phase-2": ElectronicCityPhase2,
+  "/about": About,
+  "/contact": ContactPage,
+  "/service-packages": ServicePackagesPage,
+  "/faq": FAQPage,
+  "/parent-counselling": ParentCounselling,
+  "/blog": BlogPage,
+  "/speech-therapy-for-autism-bangalore": SpeechTherapyForAutism,
+  "/occupational-therapy-for-children-bangalore": OccupationalTherapyForChildren,
+  "/speech-therapy-for-speech-delay-bangalore": SpeechTherapyForSpeechDelay,
+  "/aba-therapy-for-children-bangalore": ABATherapyForChildren,
+  "/special-education-for-children-bangalore": SpecialEducationForChildren,
+  "/speech-therapy-electronic-city": SpeechTherapyElectronicCity,
+  "/child-therapy-hsr-layout-bangalore": ChildTherapyHSRLayout,
+  "/speech-therapy-btm-layout-bangalore": SpeechTherapyBTMLayout,
+  "/speech-therapy-koramangala-bangalore": SpeechTherapyKoramangala,
+  "/speech-therapy-whitefield-bangalore": SpeechTherapyWhitefield,
+  "/speech-therapy-marathahalli-bangalore": SpeechTherapyMarathahalli,
+  "/online": OnlineHub,
+  "/online/india": OnlineIndia,
+  "/online/australia": OnlineAustralia,
+  "/online/uae": OnlineUae,
+  "/online/enquiry": OnlineEnquiry,
+  "/admin": AdminPage,
+};
+
+if (import.meta.env.DEV) {
+  const missing = ROUTES.filter((r) => !PAGES[r.path]).map((r) => r.path);
+  const extra = Object.keys(PAGES).filter(
+    (p) => !ROUTES.some((r) => r.path === p),
+  );
+  if (missing.length || extra.length) {
+    console.error(
+      "[routes] Registry and component map disagree.\n" +
+        (missing.length ? `  In ROUTES but no component: ${missing.join(", ")}\n` : "") +
+        (extra.length ? `  Has component but not in ROUTES: ${extra.join(", ")}\n` : "") +
+        "  A route missing from ROUTES is not prerendered and serves homepage HTML to crawlers.",
+    );
+  }
+}
+
 function Router() {
   useRedirects();
+  usePageViews();
   return (
     <Suspense fallback={<Loading />}>
       <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/child-development" component={ChildDevelopment} />
-        <Route path="/therapeutic-enrichment" component={TherapeuticEnrichment} />
-        <Route path="/electronic-city-phase-1" component={ElectronicCityPhase1} />
-        <Route path="/electronic-city-phase-2" component={ElectronicCityPhase2} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={ContactPage} />
-        <Route path="/service-packages" component={ServicePackagesPage} />
-        <Route path="/faq" component={FAQPage} />
-        <Route path="/speech-therapy-for-autism-bangalore" component={SpeechTherapyForAutism} />
-        <Route path="/occupational-therapy-for-children-bangalore" component={OccupationalTherapyForChildren} />
-        <Route path="/speech-therapy-for-speech-delay-bangalore" component={SpeechTherapyForSpeechDelay} />
-        <Route path="/aba-therapy-for-children-bangalore" component={ABATherapyForChildren} />
-        <Route path="/special-education-for-children-bangalore" component={SpecialEducationForChildren} />
-        <Route path="/speech-therapy-electronic-city" component={SpeechTherapyElectronicCity} />
-        <Route path="/child-therapy-hsr-layout-bangalore" component={ChildTherapyHSRLayout} />
-        <Route path="/admin" component={AdminPage} />
-        <Route path="/parent-counselling" component={ParentCounselling} />
-        <Route path="/blog" component={BlogPage} />
+        {ROUTES.map((r) => {
+          const Component = PAGES[r.path];
+          return Component ? (
+            <Route key={r.path} path={r.path} component={Component} />
+          ) : null;
+        })}
+        {/* Dynamic — expanded from blog-posts.ts at build time, not listed in ROUTES. */}
         <Route path="/blog/:slug" component={BlogPostPage} />
-        <Route path="/speech-therapy-btm-layout-bangalore" component={SpeechTherapyBTMLayout} />
-        <Route path="/speech-therapy-koramangala-bangalore" component={SpeechTherapyKoramangala} />
-        <Route path="/speech-therapy-whitefield-bangalore" component={SpeechTherapyWhitefield} />
-        <Route path="/speech-therapy-marathahalli-bangalore" component={SpeechTherapyMarathahalli} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

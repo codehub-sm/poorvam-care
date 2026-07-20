@@ -92,6 +92,7 @@ export default function BlogPostPage() {
         title={post.title + " | Poorvam Care Blog"}
         description={post.metaDescription}
         canonical={post.canonical}
+        ogType="article"
       />
       <StructuredData data={blogPostingSchema} />
       <StructuredData

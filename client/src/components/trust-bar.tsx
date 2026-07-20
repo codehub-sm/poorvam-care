@@ -34,7 +34,7 @@ function CountUp({ end, suffix = "" }: { end: number; suffix?: string }) {
 
 const stats = [
   { icon: Clock, value: 12, suffix: "+", label: "Years of Experience" },
-  { icon: Users, value: 500, suffix: "+", label: "Lives Touched" },
+  { icon: Users, value: 900, suffix: "+", label: "Lives Touched" },
   { icon: Shield, value: 0, suffix: "", label: "RCI Registered", display: "RCI" },
   { icon: Award, value: 0, suffix: "", label: "ISHA Certified", display: "ISHA" },
 ];

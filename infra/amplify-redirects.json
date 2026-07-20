@@ -90,6 +90,18 @@
     "condition": null
   },
   {
+    "source": "/parent-counselling",
+    "target": "/parent-counselling/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/blog",
+    "target": "/blog/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
     "source": "/speech-therapy-for-autism-bangalore",
     "target": "/speech-therapy-for-autism-bangalore/index.html",
     "status": "200",
@@ -132,18 +144,6 @@
     "condition": null
   },
   {
-    "source": "/parent-counselling",
-    "target": "/parent-counselling/index.html",
-    "status": "200",
-    "condition": null
-  },
-  {
-    "source": "/blog",
-    "target": "/blog/index.html",
-    "status": "200",
-    "condition": null
-  },
-  {
     "source": "/speech-therapy-btm-layout-bangalore",
     "target": "/speech-therapy-btm-layout-bangalore/index.html",
     "status": "200",
@@ -168,8 +168,32 @@
     "condition": null
   },
   {
-    "source": "/blog/speech-therapy-for-autism-guide",
-    "target": "/blog/speech-therapy-for-autism-guide/index.html",
+    "source": "/online",
+    "target": "/online/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/india",
+    "target": "/online/india/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/australia",
+    "target": "/online/australia/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/uae",
+    "target": "/online/uae/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/enquiry",
+    "target": "/online/enquiry/index.html",
     "status": "200",
     "condition": null
   },
@@ -180,8 +204,14 @@
     "condition": null
   },
   {
-    "source": "/blog/occupational-therapy-sensory-processing",
-    "target": "/blog/occupational-therapy-sensory-processing/index.html",
+    "source": "/blog/speech-therapy-2-year-olds-bangalore",
+    "target": "/blog/speech-therapy-2-year-olds-bangalore/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/blog/occupational-therapy-autism-bangalore",
+    "target": "/blog/occupational-therapy-autism-bangalore/index.html",
     "status": "200",
     "condition": null
   },
@@ -198,14 +228,14 @@
     "condition": null
   },
   {
-    "source": "/blog/speech-therapy-2-year-olds-bangalore",
-    "target": "/blog/speech-therapy-2-year-olds-bangalore/index.html",
+    "source": "/blog/speech-therapy-for-autism-guide",
+    "target": "/blog/speech-therapy-for-autism-guide/index.html",
     "status": "200",
     "condition": null
   },
   {
-    "source": "/blog/occupational-therapy-autism-bangalore",
-    "target": "/blog/occupational-therapy-autism-bangalore/index.html",
+    "source": "/blog/occupational-therapy-sensory-processing",
+    "target": "/blog/occupational-therapy-sensory-processing/index.html",
     "status": "200",
     "condition": null
   },

@@ -21,6 +21,16 @@ const navLinks: NavLink[] = [
       { label: "AnanthNagar, Ecity Phase 2", href: "/electronic-city-phase-2" },
     ],
   },
+  {
+    label: "Online Therapy",
+    href: "/online",
+    children: [
+      { label: "How it works", href: "/online" },
+      { label: "India", href: "/online/india" },
+      { label: "Australia", href: "/online/australia" },
+      { label: "UAE", href: "/online/uae" },
+    ],
+  },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

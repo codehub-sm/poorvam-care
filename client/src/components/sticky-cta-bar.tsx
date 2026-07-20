@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import { Link } from "wouter";
+import { telLink } from "@/config/site";
+import { trackCallClick } from "@/lib/analytics";
 
 export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false);
@@ -32,7 +34,8 @@ export default function StickyCtaBar() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
+              onClick={() => trackCallClick("sticky-cta-bar")}
               className="flex items-center justify-center bg-sage text-white px-4 rounded-xl hover:bg-sage-dark transition-colors"
               aria-label="Call us"
             >

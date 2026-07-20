@@ -2,6 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { allPublicRoutes, allIndexableRoutes } from "./client/src/config/routes";
+import { blogPosts } from "./client/src/data/blog-posts";
+import { writeBuildArtifacts } from "./scripts/build-artifacts";
 
 export default defineConfig(async ({ command }) => {
   const plugins = [
@@ -20,7 +23,24 @@ export default defineConfig(async ({ command }) => {
   // Add prerendering for SSG (static HTML for crawlers). Gate on the Vite
   // `command` (reliable during `vite build`) rather than process.env.NODE_ENV,
   // which is not guaranteed to be "production" when this config is evaluated.
+  // Every route comes from the registry, so the prerender list, the sitemap and
+  // the Amplify rewrites can never disagree with each other again.
+  const blogSlugs = blogPosts.map((p) => p.slug);
+  const routes = allPublicRoutes(blogSlugs);
+  const sitemapRoutes = allIndexableRoutes(blogSlugs);
+  const repoRoot = import.meta.dirname;
+  const distDir = path.resolve(repoRoot, "dist/public");
+
   if (command === "build") {
+    // Runs after the prerenderer has written its output, so the generated
+    // sitemap is not clobbered by the public/ directory copy.
+    plugins.push({
+      name: "poorvam-build-artifacts",
+      closeBundle() {
+        writeBuildArtifacts(routes, sitemapRoutes, repoRoot, distDir);
+      },
+    });
+
     try {
       const { default: prerender } = await import("@prerenderer/rollup-plugin");
       // Puppeteer (real headless Chromium) — JSDOM cannot execute the Vite
@@ -28,37 +48,7 @@ export default defineConfig(async ({ command }) => {
       const { default: PuppeteerRenderer } = await import("@prerenderer/renderer-puppeteer");
       plugins.push(
         prerender({
-          routes: [
-            "/",
-            "/child-development",
-            "/therapeutic-enrichment",
-            "/electronic-city-phase-1",
-            "/electronic-city-phase-2",
-            "/about",
-            "/contact",
-            "/service-packages",
-            "/faq",
-            "/speech-therapy-for-autism-bangalore",
-            "/occupational-therapy-for-children-bangalore",
-            "/speech-therapy-for-speech-delay-bangalore",
-            "/aba-therapy-for-children-bangalore",
-            "/special-education-for-children-bangalore",
-            "/speech-therapy-electronic-city",
-            "/child-therapy-hsr-layout-bangalore",
-            "/parent-counselling",
-            "/blog",
-            "/speech-therapy-btm-layout-bangalore",
-            "/speech-therapy-koramangala-bangalore",
-            "/speech-therapy-whitefield-bangalore",
-            "/speech-therapy-marathahalli-bangalore",
-            "/blog/speech-therapy-for-autism-guide",
-            "/blog/10-signs-child-needs-speech-therapy",
-            "/blog/occupational-therapy-sensory-processing",
-            "/blog/what-is-aba-therapy-guide",
-            "/blog/why-early-intervention-matters",
-            "/blog/speech-therapy-2-year-olds-bangalore",
-            "/blog/occupational-therapy-autism-bangalore",
-          ],
+          routes: routes.map((r) => r.path),
           renderer: new PuppeteerRenderer({
             launchOptions: {
               headless: true,

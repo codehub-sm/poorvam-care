@@ -6,6 +6,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { submitLead } from "@/lib/leads";
+import { trackWhatsAppClick, trackCallClick } from "@/lib/analytics";
+import { CONTACT, whatsappLink, telLink } from "@/config/site";
 
 interface ContactFormData {
   firstName: string;
@@ -19,24 +22,14 @@ interface ContactFormData {
   consent: boolean;
 }
 
-export default function Contact() {
+export default function Contact({ formName = "contact" }: { formName?: string }) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "", lastName: "", email: "", phone: "",
     childName: "", childAge: "", serviceType: "", message: "", consent: false,
   });
-
-  const submitContactForm = async (data: ContactFormData) => {
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzlz71svz_5jZu8xw5_V6pHZlEPI53zPtg9Ye4UcDm8Eet8zKi4A62mlkxIxr7SgLilWg/exec';
-    await fetch(scriptUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...data, timestamp: new Date().toISOString() }),
-      mode: 'no-cors',
-    });
-    return { success: true };
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,15 +42,24 @@ export default function Contact() {
       return;
     }
     setIsSubmitting(true);
-    try {
-      await submitContactForm(formData);
-      toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
-      setFormData({ firstName: "", lastName: "", email: "", phone: "", childName: "", childAge: "", serviceType: "", message: "", consent: false });
-    } catch {
-      toast({ title: "Submission Failed", description: "Please try again or contact us directly.", variant: "destructive" });
-    } finally {
-      setIsSubmitting(false);
+    const result = await submitLead({ ...formData }, formName);
+    setIsSubmitting(false);
+
+    if (result.status === "failed") {
+      // Never clear the form here — the parent's answers are the only copy of
+      // this lead, and a fallback channel is the last chance to keep it.
+      setFailed(true);
+      toast({
+        title: "We couldn't send that",
+        description: "Please WhatsApp or call us — we don't want to miss you.",
+        variant: "destructive",
+      });
+      return;
     }
+
+    setFailed(false);
+    toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
+    setFormData({ firstName: "", lastName: "", email: "", phone: "", childName: "", childAge: "", serviceType: "", message: "", consent: false });
   };
 
   const update = (field: keyof ContactFormData, value: string | boolean) => {
@@ -125,6 +127,36 @@ export default function Contact() {
       <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
+
+      {failed && (
+        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm">
+          <p className="font-semibold text-red-800">We couldn't send your message.</p>
+          <p className="mt-1 text-red-700">
+            Your details are still filled in above, so you can try again — or reach us
+            directly and we'll pick it up from there.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a
+              href={whatsappLink(
+                `Hi Poorvam Care, I tried to send an enquiry through your website but it didn't go through. My name is ${formData.firstName} ${formData.lastName}.`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("contact-form-fallback")}
+              className="rounded-md bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-700"
+            >
+              WhatsApp us
+            </a>
+            <a
+              href={telLink}
+              onClick={() => trackCallClick("contact-form-fallback")}
+              className="rounded-md border border-red-300 px-4 py-2 font-semibold text-red-800 hover:bg-red-100"
+            >
+              Call {CONTACT.phoneDisplay}
+            </a>
+          </div>
+        </div>
+      )}
     </form>
   );
 }

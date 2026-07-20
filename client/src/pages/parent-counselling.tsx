@@ -291,10 +291,22 @@ export default function ParentCounsellingPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { label: "Speech Therapy", href: "/speech-therapy" },
-              { label: "ABA Therapy", href: "/aba-therapy" },
-              { label: "Special Education", href: "/special-education" },
-              { label: "Occupational Therapy", href: "/occupational-therapy" },
+              // These four previously pointed at /speech-therapy, /aba-therapy,
+              // /special-education and /occupational-therapy — none of which are
+              // routes, so every link 404'd.
+              {
+                label: "Speech Therapy",
+                href: "/speech-therapy-for-speech-delay-bangalore",
+              },
+              { label: "ABA Therapy", href: "/aba-therapy-for-children-bangalore" },
+              {
+                label: "Special Education",
+                href: "/special-education-for-children-bangalore",
+              },
+              {
+                label: "Occupational Therapy",
+                href: "/occupational-therapy-for-children-bangalore",
+              },
             ].map((item) => (
               <Link
                 key={item.href}
