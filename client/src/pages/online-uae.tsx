@@ -24,8 +24,8 @@ export default function OnlineUaePage() {
   return (
     <OnlineMarketPage
       market={MARKETS.uae}
-      seoTitle="Online Speech Therapy for Children in UAE & Dubai | Poorvam Care"
-      seoDescription="Live online speech therapy for children in the UAE. RCI-registered therapists, sessions in Gulf Standard Time, therapy in English, Hindi, Tamil, Telugu and Malayalam. Book a free 15-minute consultation."
+      seoTitle="Online Child Therapy in UAE & Dubai | Speech, OT & Behaviour | Poorvam Care"
+      seoDescription="Live online speech therapy, occupational therapy, behavioural support and learning support for children in the UAE. RCI-registered therapists, sessions in Gulf Standard Time, in English, Hindi, Tamil, Telugu and Malayalam."
       heroBlurb="Paediatric therapy in the UAE typically runs AED 250–600 a session, and most clinics quote only by phone. We deliver the same weekly therapy live over video, in your family's language, at a published price."
       problemHeading="Why UAE families choose online therapy"
       problem={[
@@ -40,7 +40,7 @@ export default function OnlineUaePage() {
         "Sessions in Gulf Standard Time, including evenings after school",
         "Clinicians registered with the Rehabilitation Council of India",
         "This is a private-pay service; it is not billable to UAE health insurance",
-        "free 15-minute consultation before you commit",
+        "Free 15-minute consultation before you commit",
       ]}
       faqs={[
         {
@@ -66,7 +66,7 @@ export default function OnlineUaePage() {
         {
           question: "Is online therapy suitable for my child?",
           answer:
-            "For most speech and language goals — language delay, articulation, fluency, social communication — the evidence supports online delivery as comparable to in-person therapy. It is a poorer fit for feeding and swallowing difficulties, which really do need hands-on assessment. The introductory call exists so we can tell you which category your child falls into, including when the honest answer is that you should see someone locally in person.",
+            "It depends on the therapy and on your child. Speech and language therapy and caregiver-led behavioural work translate well to video, with evidence showing outcomes comparable to in-person sessions. Remedial teaching is close to format-neutral. Occupational therapy works well as parent coaching, but not for goals needing hands-on assessment or clinic equipment. Feeding and swallowing difficulties do genuinely need someone in the room. The free consultation exists so we can tell you which category your child falls into — including when the honest answer is that you should see someone locally in person.",
         },
       ]}
     />

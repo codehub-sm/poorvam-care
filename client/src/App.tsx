@@ -38,6 +38,10 @@ const OnlineIndia = lazy(() => import("@/pages/online-india"));
 const OnlineAustralia = lazy(() => import("@/pages/online-australia"));
 const OnlineUae = lazy(() => import("@/pages/online-uae"));
 const OnlineEnquiry = lazy(() => import("@/pages/online-enquiry"));
+const OnlineSpeechTherapy = lazy(() => import("@/pages/online-speech-therapy"));
+const OnlineOccupationalTherapy = lazy(() => import("@/pages/online-occupational-therapy"));
+const OnlineBehaviouralTherapy = lazy(() => import("@/pages/online-behavioural-therapy"));
+const OnlineSpecialEducation = lazy(() => import("@/pages/online-special-education"));
 
 // Legacy .html paths that need to redirect to the home page.
 // Keys must be lowercase — we normalize the incoming path before lookup.
@@ -119,6 +123,10 @@ const PAGES: Record<string, ComponentType> = {
   "/online/india": OnlineIndia,
   "/online/australia": OnlineAustralia,
   "/online/uae": OnlineUae,
+  "/online/speech-therapy": OnlineSpeechTherapy,
+  "/online/occupational-therapy": OnlineOccupationalTherapy,
+  "/online/behavioural-therapy": OnlineBehaviouralTherapy,
+  "/online/special-education": OnlineSpecialEducation,
   "/online/enquiry": OnlineEnquiry,
   "/admin": AdminPage,
 };

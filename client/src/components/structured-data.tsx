@@ -307,6 +307,13 @@ export function createOnlineServiceSchema(opts: {
   priceCurrency?: string;
   /** Session length in minutes, for the offer description. */
   sessionMinutes?: number;
+  /**
+   * Discipline-specific serviceType, e.g. "Online paediatric occupational
+   * therapy". Distinguishing these matters: without it the four discipline
+   * pages emit the same serviceType and read as one repeated entity rather
+   * than four distinct services.
+   */
+  serviceType?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -315,7 +322,7 @@ export function createOnlineServiceSchema(opts: {
     "name": opts.name,
     "description": opts.description,
     "url": opts.url,
-    "serviceType": "Online speech and language therapy",
+    "serviceType": opts.serviceType ?? "Online speech and language therapy",
     "provider": {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,

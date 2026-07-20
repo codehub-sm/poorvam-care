@@ -17,8 +17,8 @@ export default function OnlineAustraliaPage() {
   return (
     <OnlineMarketPage
       market={MARKETS.australia}
-      seoTitle="Online Speech Therapy for Kids in Australia | No Waitlist | Poorvam Care"
-      seoDescription="Live online speech therapy for Australian children. RCI-registered therapists, sessions in your timezone, no waitlist. Suitable for self-managed and plan-managed NDIS. Book a free 15-minute consultation."
+      seoTitle="Online Therapy for Kids in Australia | Speech, OT & Behaviour | No Waitlist"
+      seoDescription="Live online speech therapy, occupational therapy, behavioural support and learning support for Australian children. RCI-registered therapists, sessions in your timezone, no waitlist. Suitable for self-managed and plan-managed NDIS."
       heroBlurb="Public speech pathology waitlists in Australia routinely run 6–18 months, and private clinics are often full too. Our therapists work with your child live over video — usually starting within a week, at a fraction of local private rates."
       problemHeading="Why Australian families are looking offshore"
       problem={[
@@ -33,7 +33,7 @@ export default function OnlineAustraliaPage() {
         "Plan-managed participants may also use us; our rate sits well below the NDIS price limit",
         "Agency-managed NDIS plans cannot be used for unregistered providers — check your plan type first",
         "Sessions scheduled for Australian afternoons and evenings, not Indian business hours",
-        "free 15-minute consultation before you commit to anything",
+        "Free 15-minute consultation before you commit to anything",
       ]}
       faqs={[
         {

@@ -10,17 +10,18 @@ import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { SITE_URL } from "@/config/site";
 import { MARKET_LIST, sessionWindowLabel } from "@/config/markets";
+import { ONLINE_SERVICES } from "@/config/online-services";
 
 const faqs = [
   {
     question: "Where are your therapists based?",
     answer:
-      "In Bengaluru, India. We say this on the front page rather than burying it, because it is the reason we can charge a fraction of local private rates in Australia or the UAE — the clinical standards are the same, the cost base is not. Every therapist is registered with the Rehabilitation Council of India, the statutory registration body for speech-language pathologists in India, and our team has 13+ years of clinical experience.",
+      "In Bengaluru, India. We say so up front rather than burying it — it is also why our fees sit well below local private rates in Australia and the UAE, because the clinical standards are the same but the cost base is not. Every therapist is registered with the Rehabilitation Council of India, the statutory registration body for the profession in India, and our team has 13+ years of clinical experience.",
   },
   {
     question: "Which countries do you serve?",
     answer:
-      "We work with families across India, Australia, and the UAE. Availability in other countries depends on local regulations for speech-language pathology, which vary a great deal — tell us where you are on the enquiry form and we'll confirm straight away whether we can help.",
+      "We work with families across India, Australia, and the UAE, across all four of our online services. Availability in other countries depends on local regulations for allied health professions, which vary a great deal — tell us where you are on the enquiry form and we'll confirm straight away whether we can help.",
   },
   {
     question: "How much does it cost?",
@@ -30,7 +31,7 @@ const faqs = [
   {
     question: "Is online therapy actually effective?",
     answer:
-      "For most speech and language goals — language delay, articulation and phonology, fluency, social communication — research shows outcomes comparable to in-person therapy. It is a weaker fit for feeding and swallowing difficulties, which need hands-on assessment, and some very young children engage better in a physical room. The introductory call exists partly so we can tell you when the honest answer is that online is not right for your child.",
+      "It depends on the therapy. Speech and language therapy and caregiver-led behavioural work have strong telehealth evidence, with outcomes comparable to in-person sessions. Remedial teaching is close to format-neutral. Occupational therapy works well when delivered as parent coaching, but not for goals needing hands-on assessment or clinic equipment. Each of our service pages sets out plainly what that discipline does well online and what it doesn't — and the free consultation exists partly so we can tell you when the honest answer is that online is not right for your child.",
   },
   {
     question: "What languages do you work in?",
@@ -53,8 +54,8 @@ export default function OnlinePage() {
   return (
     <>
       <SeoHead
-        title="Online Speech Therapy for Children | India, Australia & UAE | Poorvam Care"
-        description="Live online speech and language therapy for children, delivered by RCI-registered clinicians in Bengaluru. Available in India, Australia and the UAE. Sessions in English, Hindi, Tamil, Telugu, Kannada and Malayalam."
+        title="Online Therapy for Children | Speech, OT, Behaviour & Learning | Poorvam Care"
+        description="Live online speech therapy, occupational therapy, behavioural support and special education for children. RCI-registered clinicians. Available in India, Australia and the UAE, in English, Hindi, Tamil, Telugu, Kannada and Malayalam."
         canonical={url}
         localGeo={false}
         alternates={[
@@ -67,9 +68,9 @@ export default function OnlinePage() {
       />
       <StructuredData
         data={createOnlineServiceSchema({
-          name: "Online Speech Therapy for Children",
+          name: "Online Child Therapy — Speech, Occupational, Behavioural & Special Education",
           description:
-            "Live online speech and language therapy for children, delivered by RCI-registered clinicians.",
+            "Live online speech therapy, occupational therapy, behavioural support and special education for children, delivered by RCI-registered clinicians.",
           url,
           areaServed: MARKET_LIST.map((m) => m.countryName),
           // Price deliberately omitted — discussed on the consultation call.
@@ -91,13 +92,14 @@ export default function OnlinePage() {
               Poorvam Online
             </p>
             <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-brown-deep mb-6 leading-tight">
-              Speech therapy for your child,{" "}
+              Therapy for your child,{" "}
               <span className="text-coral">wherever you are</span>
             </h1>
             <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
-              Live one-to-one sessions with RCI-registered clinicians in Bengaluru —
-              in English, Hindi, Tamil, Telugu, Kannada or Malayalam. No waitlist, a
-              published price, and an introductory call before you commit to anything.
+              Speech therapy, occupational therapy, behavioural support and learning
+              support — live one-to-one with RCI-registered clinicians in Bengaluru, in
+              English, Hindi, Tamil, Telugu, Kannada or Malayalam. No waitlist, and a
+              free consultation before you commit to anything.
             </p>
             <Link
               href="/online/enquiry"
@@ -135,6 +137,40 @@ export default function OnlinePage() {
                 </p>
                 <span className="text-coral font-heading font-semibold text-sm flex items-center gap-1">
                   See details <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services grid — the four disciplines available online. */}
+      <section className="py-20 bg-warm-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brown-deep mb-4">
+              What we offer online
+            </h2>
+            <p className="text-lg text-brown-mid font-body max-w-2xl mx-auto">
+              Not every therapy transfers to video the same way. Each page below is
+              honest about what works remotely and what really needs a room.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {ONLINE_SERVICES.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/online/${s.slug}`}
+                className="bg-white rounded-2xl p-8 border border-brown-light/10 hover:border-coral/30 hover:shadow-md transition-all group"
+              >
+                <h3 className="text-xl font-heading font-bold text-brown-deep mb-2 group-hover:text-coral transition-colors">
+                  {s.name}
+                </h3>
+                <p className="text-brown-mid font-body text-sm leading-relaxed mb-4">
+                  {s.summary}
+                </p>
+                <span className="text-coral font-heading font-semibold text-sm flex items-center gap-1">
+                  Learn more <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
             ))}

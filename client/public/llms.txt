@@ -21,9 +21,13 @@
 - [Parent Counselling](https://poorvamcare.in/parent-counselling): Parent training to reinforce therapy at home
 - [Therapeutic Enrichment](https://poorvamcare.in/therapeutic-enrichment): Sensory art, movement therapy, yoga, music & social-skills groups
 - [Child Development Centre](https://poorvamcare.in/child-development): Overview of the multi-disciplinary program
-- [Online / Teletherapy](https://poorvamcare.in/online): Live one-to-one online speech and language therapy, delivered by RCI-registered clinicians in Bengaluru. Available to families in India, Australia and the UAE. Sessions in English, Hindi, Tamil, Telugu, Kannada and Malayalam.
+- [Online / Teletherapy](https://poorvamcare.in/online): Live one-to-one online therapy delivered by RCI-registered clinicians in Bengaluru — speech therapy, occupational therapy, behavioural therapy and special education. Available to families in India, Australia and the UAE. Sessions in English, Hindi, Tamil, Telugu, Kannada and Malayalam.
 
 ## Online therapy (available outside Bangalore)
+- [Online speech therapy](https://poorvamcare.in/online/speech-therapy): Late talkers, unclear speech, language delay, stammering, autism-related communication. Strongest telehealth evidence base of the four.
+- [Online occupational therapy](https://poorvamcare.in/online/occupational-therapy): Sensory strategies, fine motor and handwriting, self-care routines, regulation. Delivered as parent coaching; not suitable for hands-on assessment or equipment-based therapy.
+- [Online behavioural therapy & parent training](https://poorvamcare.in/online/behavioural-therapy): ABA-informed support for meltdowns, transitions, sleep, toileting and routines. Caregiver-mediated, not intensive 20-40 hour direct ABA.
+- [Online special education](https://poorvamcare.in/online/special-education): One-to-one remedial teaching for reading, writing and maths, including dyslexia-informed instruction and ADHD study skills. Does not include formal diagnosis.
 - [Online therapy — India](https://poorvamcare.in/online/india): Live online sessions anywhere in India
 - [Online therapy — Australia](https://poorvamcare.in/online/australia): Suitable for self-managed and plan-managed NDIS participants
 - [Online therapy — UAE](https://poorvamcare.in/online/uae): Private-pay; not billable to UAE health insurance
@@ -51,5 +55,6 @@
 - Do you treat autism? Yes — speech therapy, ABA, OT, and special education tailored for children on the autism spectrum.
 - Do you offer teletherapy? Yes. Live online one-to-one sessions are available to families in India, Australia and the UAE, in English, Hindi, Tamil, Telugu, Kannada or Malayalam. Start with a free 15-minute consultation: https://poorvamcare.in/online. Not available in the US or Canada.
 - How do I get started? Book a free 15-minute consultation. You pick a time, we email a link showing the time in your local timezone, and you meet a specialist who tells you honestly whether we can help.
+- Which therapies work well online? Speech and language therapy and caregiver-led behavioural work have the strongest telehealth evidence, with outcomes comparable to in-person sessions. One-to-one remedial teaching is close to format-neutral. Occupational therapy works well when delivered as parent coaching, but not for goals requiring hands-on assessment or clinic equipment. Feeding and swallowing therapy, oral-motor assessment, hearing testing and formal psychometric diagnosis cannot be delivered online.
 - Do parents get visibility into therapy? Yes. Poorvam runs on its own digital platform: parents see the session schedule, the therapy goals, session reports, home practice activities and billing from their phone, can book or reschedule sessions themselves, and can message their therapist between sessions.
 - What does it cost? Flexible packages based on therapy type and frequency; transparent pricing after an initial consultation. Call +91 88617 64343.

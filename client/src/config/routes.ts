@@ -89,6 +89,14 @@ export const ROUTES: RouteDef[] = [
   { path: "/online/australia", file: `${P}/online-australia.tsx`, changefreq: "monthly", priority: 0.8 },
   { path: "/online/uae", file: `${P}/online-uae.tsx`, changefreq: "monthly", priority: 0.8 },
 
+  // Per-discipline online pages. These target "does this work for my child's
+  // difficulty?" while the country pages above target "can I get it where I
+  // live?" — deliberately distinct content so they do not compete.
+  { path: "/online/speech-therapy", file: `${P}/online-speech-therapy.tsx`, changefreq: "monthly", priority: 0.9 },
+  { path: "/online/occupational-therapy", file: `${P}/online-occupational-therapy.tsx`, changefreq: "monthly", priority: 0.9 },
+  { path: "/online/behavioural-therapy", file: `${P}/online-behavioural-therapy.tsx`, changefreq: "monthly", priority: 0.9 },
+  { path: "/online/special-education", file: `${P}/online-special-education.tsx`, changefreq: "monthly", priority: 0.8 },
+
   // Conversion endpoint — prerendered and routed, but noindex (set in the page)
   // so it does not compete with /online in search results.
   { path: "/online/enquiry", file: `${P}/online-enquiry.tsx`, changefreq: "monthly", priority: 0.5, noIndex: true },

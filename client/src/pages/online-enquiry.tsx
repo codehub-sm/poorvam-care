@@ -17,7 +17,7 @@ export default function OnlineEnquiryPage() {
   return (
     <>
       <SeoHead
-        title="Book an Introductory Call | Poorvam Online Therapy"
+        title="Book a Free Consultation | Poorvam Online Therapy"
         description="Tell us about your child and we'll arrange a free 15-minute consultation to discuss whether online therapy is the right fit."
         canonical={url}
         localGeo={false}

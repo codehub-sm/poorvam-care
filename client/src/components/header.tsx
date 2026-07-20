@@ -26,6 +26,10 @@ const navLinks: NavLink[] = [
     href: "/online",
     children: [
       { label: "How it works", href: "/online" },
+      { label: "Speech Therapy", href: "/online/speech-therapy" },
+      { label: "Occupational Therapy", href: "/online/occupational-therapy" },
+      { label: "Behavioural Therapy", href: "/online/behavioural-therapy" },
+      { label: "Special Education", href: "/online/special-education" },
       { label: "India", href: "/online/india" },
       { label: "Australia", href: "/online/australia" },
       { label: "UAE", href: "/online/uae" },

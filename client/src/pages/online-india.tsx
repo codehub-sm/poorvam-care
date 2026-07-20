@@ -16,8 +16,8 @@ export default function OnlineIndiaPage() {
   return (
     <OnlineMarketPage
       market={MARKETS.india}
-      seoTitle="Online Speech Therapy for Children in India | Poorvam Care"
-      seoDescription="Live online speech therapy for children anywhere in India. RCI-registered therapists, sessions in Hindi, Tamil, Telugu, Kannada, Malayalam and English. Book a free 15-minute consultation."
+      seoTitle="Online Therapy for Children in India | Speech, OT, Behaviour & Learning"
+      seoDescription="Live online speech therapy, occupational therapy, behavioural support and remedial teaching for children anywhere in India. RCI-registered therapists. Sessions in Hindi, Tamil, Telugu, Kannada, Malayalam and English."
       heroBlurb="Paediatric speech therapy is concentrated in a handful of metros. If you are not in one, weekly therapy can mean a long journey each way. Our therapists work with your child live over video, in your language, wherever you are."
       problemHeading="Good therapy shouldn't depend on your postcode"
       problem={[
@@ -32,11 +32,11 @@ export default function OnlineIndiaPage() {
         "Works on a phone, tablet, or laptop with a stable connection",
         "Home activity plan and written summary after every session",
         "No packages to buy into and no minimum commitment",
-        "free 15-minute consultation before you commit",
+        "Free 15-minute consultation before you commit",
       ]}
       faqs={[
         {
-          question: "How much does online speech therapy cost?",
+          question: "How much does online therapy cost?",
           answer:
             "Fees depend on the type of therapy and how often your child needs sessions, so we go through it properly on the free 15-minute consultation rather than quoting a figure that may not apply to you. What we can tell you up front: there is no package you have to buy into, no minimum number of sessions, and you will have a clear number before you are asked to commit to anything. If you are in Bengaluru and would prefer to come in person, in-centre pricing is published on our service packages page.",
         },

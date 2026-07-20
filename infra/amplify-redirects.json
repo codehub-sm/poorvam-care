@@ -192,6 +192,30 @@
     "condition": null
   },
   {
+    "source": "/online/speech-therapy",
+    "target": "/online/speech-therapy/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/occupational-therapy",
+    "target": "/online/occupational-therapy/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/behavioural-therapy",
+    "target": "/online/behavioural-therapy/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/online/special-education",
+    "target": "/online/special-education/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
     "source": "/online/enquiry",
     "target": "/online/enquiry/index.html",
     "status": "200",
