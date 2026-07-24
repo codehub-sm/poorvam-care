@@ -146,6 +146,27 @@ if (import.meta.env.DEV) {
   }
 }
 
+/**
+ * Signals the prerenderer (Puppeteer) that the routed page has rendered.
+ *
+ * Lives INSIDE the Suspense boundary so it cannot commit until the lazy page
+ * chunk has resolved — an effect in main.tsx fired after App mounted but
+ * before the chunk loaded, which snapshotted a page-less shell whenever the
+ * chunk lost that race (deterministic for one blog route on Amplify's build
+ * machines). Child effects run first, so SeoHead has set title/meta by the
+ * time this fires. Harmless no-op in a normal browser.
+ */
+function PrerenderReady() {
+  useEffect(() => {
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+        setTimeout(() => document.dispatchEvent(new Event("prerender-ready")), 0),
+      ),
+    );
+  }, []);
+  return null;
+}
+
 function Router() {
   useRedirects();
   usePageViews();
@@ -162,6 +183,8 @@ function Router() {
         <Route path="/blog/:slug" component={BlogPostPage} />
         <Route component={NotFound} />
       </Switch>
+      {/* After Switch so its effect fires after the page's own effects. */}
+      <PrerenderReady />
     </Suspense>
   );
 }
