@@ -36,8 +36,224 @@
     "condition": null
   },
   {
-    "source": "</^\\/(.+)\\/$/>",
-    "target": "/$1",
+    "source": "/child-development/",
+    "target": "/child-development",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/therapeutic-enrichment/",
+    "target": "/therapeutic-enrichment",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/electronic-city-phase-1/",
+    "target": "/electronic-city-phase-1",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/electronic-city-phase-2/",
+    "target": "/electronic-city-phase-2",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/about/",
+    "target": "/about",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/contact/",
+    "target": "/contact",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/service-packages/",
+    "target": "/service-packages",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/faq/",
+    "target": "/faq",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/parent-counselling/",
+    "target": "/parent-counselling",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/",
+    "target": "/blog",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-for-autism-bangalore/",
+    "target": "/speech-therapy-for-autism-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/occupational-therapy-for-children-bangalore/",
+    "target": "/occupational-therapy-for-children-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-for-speech-delay-bangalore/",
+    "target": "/speech-therapy-for-speech-delay-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/aba-therapy-for-children-bangalore/",
+    "target": "/aba-therapy-for-children-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/special-education-for-children-bangalore/",
+    "target": "/special-education-for-children-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-electronic-city/",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/child-therapy-hsr-layout-bangalore/",
+    "target": "/child-therapy-hsr-layout-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-btm-layout-bangalore/",
+    "target": "/speech-therapy-btm-layout-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-koramangala-bangalore/",
+    "target": "/speech-therapy-koramangala-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-whitefield-bangalore/",
+    "target": "/speech-therapy-whitefield-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/speech-therapy-marathahalli-bangalore/",
+    "target": "/speech-therapy-marathahalli-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/",
+    "target": "/online",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/india/",
+    "target": "/online/india",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/australia/",
+    "target": "/online/australia",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/uae/",
+    "target": "/online/uae",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/speech-therapy/",
+    "target": "/online/speech-therapy",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/occupational-therapy/",
+    "target": "/online/occupational-therapy",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/behavioural-therapy/",
+    "target": "/online/behavioural-therapy",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/special-education/",
+    "target": "/online/special-education",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/online/enquiry/",
+    "target": "/online/enquiry",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/10-signs-child-needs-speech-therapy/",
+    "target": "/blog/10-signs-child-needs-speech-therapy",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/speech-therapy-2-year-olds-bangalore/",
+    "target": "/blog/speech-therapy-2-year-olds-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/occupational-therapy-autism-bangalore/",
+    "target": "/blog/occupational-therapy-autism-bangalore",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/what-is-aba-therapy-guide/",
+    "target": "/blog/what-is-aba-therapy-guide",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/why-early-intervention-matters/",
+    "target": "/blog/why-early-intervention-matters",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/speech-therapy-for-autism-guide/",
+    "target": "/blog/speech-therapy-for-autism-guide",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/blog/occupational-therapy-sensory-processing/",
+    "target": "/blog/occupational-therapy-sensory-processing",
     "status": "301",
     "condition": null
   },

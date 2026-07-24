@@ -92,9 +92,20 @@ export function buildAmplifyRedirects(routes: RouteDef[]): AmplifyRule[] {
     { source: "/speechtherapy.html", target: "/", status: "301", condition: null },
     { source: "/aba.html", target: "/", status: "301", condition: null },
     { source: "/specialeducation.html", target: "/", status: "301", condition: null },
-    // Strip trailing slashes so each page has one canonical URL.
-    { source: "</^\\/(.+)\\/$/>", target: "/$1", status: "301", condition: null },
   ];
+
+  // Strip trailing slashes so each page has one canonical URL. Emitted
+  // per-route because Amplify does not substitute regex capture groups in
+  // targets: a `</^\/(.+)\/$/>` → `/$1` rule redirects to the literal URL
+  // `/$1` in production.
+  const trailingSlash: AmplifyRule[] = routes
+    .filter((r) => r.path !== "/")
+    .map((r) => ({
+      source: `${r.path}/`,
+      target: r.path,
+      status: "301",
+      condition: null,
+    }));
 
   const perRoute: AmplifyRule[] = routes
     .filter((r) => r.path !== "/")
@@ -112,7 +123,7 @@ export function buildAmplifyRedirects(routes: RouteDef[]): AmplifyRule[] {
     condition: null,
   };
 
-  return [...legacy, ...perRoute, catchAll];
+  return [...legacy, ...trailingSlash, ...perRoute, catchAll];
 }
 
 /** Writes both artifacts. `distDir` receives the sitemap; redirects go to infra/. */
@@ -142,8 +153,9 @@ export function writeBuildArtifacts(
     `[build-artifacts] amplify-redirects.json: ${routes.length} routes → ${redirectsPath}`,
   );
   console.log(
-    "[build-artifacts] REMINDER: Amplify does not read this file. Paste it into\n" +
-      "                  Amplify Console → Rewrites and redirects → JSON view,\n" +
+    "[build-artifacts] REMINDER: Amplify does not read this file. Sync it with\n" +
+      "                  aws amplify update-app --app-id dchw0t2q9sis8 \\\n" +
+      "                    --custom-rules file://infra/amplify-redirects.json\n" +
       "                  or new routes will serve homepage HTML to crawlers.\n",
   );
 }
