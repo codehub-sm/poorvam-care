@@ -11,6 +11,7 @@ import { ROUTES } from "@/config/routes";
 
 const ChildDevelopment = lazy(() => import("@/pages/child-development"));
 const TherapeuticEnrichment = lazy(() => import("@/pages/therapeutic-enrichment"));
+const HearingCenter = lazy(() => import("@/pages/hearing-center"));
 const ElectronicCityPhase1 = lazy(() => import("@/pages/electronic-city-phase-1"));
 const ElectronicCityPhase2 = lazy(() => import("@/pages/electronic-city-phase-2"));
 const About = lazy(() => import("@/pages/about"));
@@ -100,6 +101,7 @@ const PAGES: Record<string, ComponentType> = {
   "/": Home,
   "/child-development": ChildDevelopment,
   "/therapeutic-enrichment": TherapeuticEnrichment,
+  "/hearing-center": HearingCenter,
   "/electronic-city-phase-1": ElectronicCityPhase1,
   "/electronic-city-phase-2": ElectronicCityPhase2,
   "/about": About,

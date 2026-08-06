@@ -201,7 +201,7 @@ export default function Header() {
                     href="tel:+918861764343"
                     className="block w-full text-center mt-3 text-brown-mid font-body text-sm hover:text-coral transition-colors"
                   >
-                    Call: +91 886 176 4343
+                    Call: +91 88617 64343
                   </a>
                 </div>
               </div>

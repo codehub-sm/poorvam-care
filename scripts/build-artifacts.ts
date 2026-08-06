@@ -92,6 +92,11 @@ export function buildAmplifyRedirects(routes: RouteDef[]): AmplifyRule[] {
     { source: "/speechtherapy.html", target: "/", status: "301", condition: null },
     { source: "/aba.html", target: "/", status: "301", condition: null },
     { source: "/specialeducation.html", target: "/", status: "301", condition: null },
+    // A long-dead regex rule once redirected to the literal URL "/$1" (Amplify
+    // does not substitute capture groups in targets) and Google indexed it.
+    // 301 both encodings home until it drops out of the index.
+    { source: "/$1", target: "/", status: "301", condition: null },
+    { source: "/%241", target: "/", status: "301", condition: null },
   ];
 
   // Strip trailing slashes so each page has one canonical URL. Emitted

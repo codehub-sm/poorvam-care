@@ -138,7 +138,7 @@ export default function ElectronicCityPhase1() {
                   <Phone className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-brown-deep block mb-1">Phone</span>
-                    <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 886 176 4343</a>
+                    <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 88617 64343</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -290,7 +290,7 @@ export default function ElectronicCityPhase1() {
               href="tel:+918861764343"
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

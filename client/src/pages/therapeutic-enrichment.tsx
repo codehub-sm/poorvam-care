@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     question: "Do I need a referral or assessment first?",
-    answer: "We recommend an initial consultation so our team can understand your child's needs and recommend the right programme. Contact us at +91 886 176 4343 to schedule a consultation.",
+    answer: "We recommend an initial consultation so our team can understand your child's needs and recommend the right programme. Contact us at +91 88617 64343 to schedule a consultation.",
   },
   {
     question: "Can Therapeutic Enrichment replace therapy?",
@@ -140,7 +140,7 @@ export default function TherapeuticEnrichmentPage() {
                 href="tel:+918861764343"
                 className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
-                Call: +91 886 176 4343
+                Call: +91 88617 64343
               </a>
             </div>
           </div>

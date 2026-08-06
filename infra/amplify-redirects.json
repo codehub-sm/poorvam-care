@@ -36,6 +36,18 @@
     "condition": null
   },
   {
+    "source": "/$1",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/%241",
+    "target": "/",
+    "status": "301",
+    "condition": null
+  },
+  {
     "source": "/child-development/",
     "target": "/child-development",
     "status": "301",
@@ -44,6 +56,12 @@
   {
     "source": "/therapeutic-enrichment/",
     "target": "/therapeutic-enrichment",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/hearing-center/",
+    "target": "/hearing-center",
     "status": "301",
     "condition": null
   },
@@ -266,6 +284,12 @@
   {
     "source": "/therapeutic-enrichment",
     "target": "/therapeutic-enrichment/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/hearing-center",
+    "target": "/hearing-center/index.html",
     "status": "200",
     "condition": null
   },

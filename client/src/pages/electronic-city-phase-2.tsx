@@ -1,7 +1,8 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
+import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
-import { MapPin, Phone, Mail, Clock, Check, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Check, ArrowRight, Star } from "lucide-react";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -71,8 +72,8 @@ export default function ElectronicCityPhase2() {
   return (
     <>
       <SeoHead
-        title="Early Intervention Centre in Electronic City Phase 2 | Poorvam Care"
-        description="Poorvam Care in Ananth Nagar offers speech therapy, occupational therapy, ABA, and special education for children with autism and developmental delays in Electronic City Phase 2, Bangalore."
+        title="Speech Therapy & Child Development Centre in Electronic City Phase 2 | Poorvam Care"
+        description="Speech therapy, occupational therapy, ABA & special education for children in Electronic City Phase 2, Bangalore. Ananth Nagar centre, trusted by 900+ families. Call +91 88617 64343 — directions & timings inside."
         canonical="https://poorvamcare.in/electronic-city-phase-2"
         keywords="speech therapy Electronic City Phase 2, occupational therapy Ananth Nagar, early intervention centre EC Phase 2, child therapy Hosa Road, autism therapy Electronic City Phase 2 Bangalore, Poorvam Care Phase 2, speech therapy near me Chandapura, child therapy Bommanahalli, best therapy center near Electronic City Phase 2, occupational therapy Hosa Road, speech therapist Kudlu Gate, consultation child therapy EC Phase 2"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -95,11 +96,40 @@ export default function ElectronicCityPhase2() {
               Our Centres · Electronic City Phase 2
             </p>
             <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
-              Early Intervention Centre —{" "}
+              Speech Therapy &amp; Child Development Centre —{" "}
               <span className="text-coral">Electronic City Phase 2, Bangalore</span>
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              Our Electronic City Phase 2 centre in Ananth Nagar provides multi-disciplinary early intervention for children aged 2–14 with autism, developmental delays, ADHD, and learning differences. RCI registered. ISHA certified.
+              Our Electronic City Phase 2 centre in Ananth Nagar provides speech therapy, occupational therapy, ABA, and special education for children aged 2–14 with autism, developmental delays, ADHD, and learning differences. RCI registered. ISHA certified.
+            </p>
+            <div className="mt-5 flex items-center gap-2 text-warm-gray-200 font-body text-sm">
+              <span className="flex gap-0.5" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+                ))}
+              </span>
+              Trusted by 900+ families across south Bangalore
+            </div>
+            <div className="mt-6 flex flex-col sm:flex-row gap-4">
+              <a
+                href="tel:+918861764343"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-coral text-white font-heading font-semibold rounded-full hover:bg-coral-dark transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                Call +91 88617 64343
+              </a>
+              <a
+                href="https://maps.app.goo.gl/gWCjwHqTvoRYs6Mj9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-warm-bg font-heading font-semibold rounded-full border border-warm-bg/30 hover:bg-white/20 transition-colors"
+              >
+                <MapPin className="w-5 h-5" />
+                Get Directions
+              </a>
+            </div>
+            <p className="mt-5 text-sm text-warm-gray-200/90 font-body">
+              Ananth Nagar, Above Bata Showroom, Electronic City Phase 2, Bengaluru 560100 · Mon–Fri 9 AM–6 PM · Sat 9 AM–2 PM
             </p>
           </div>
         </div>
@@ -139,7 +169,7 @@ export default function ElectronicCityPhase2() {
                   <Phone className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-brown-deep block mb-1">Phone</span>
-                    <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 886 176 4343</a>
+                    <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 88617 64343</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -231,6 +261,10 @@ export default function ElectronicCityPhase2() {
         </div>
       </section>
 
+      <CentreMaps locationIds={["phase-2"]} heading="Our Location on the Map" />
+
+      <ReviewSnippets />
+
       {/* Nearby Areas We Serve */}
       <section className="py-20 bg-warm-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -291,7 +325,7 @@ export default function ElectronicCityPhase2() {
               href="tel:+918861764343"
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

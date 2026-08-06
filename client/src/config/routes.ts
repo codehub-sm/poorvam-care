@@ -55,6 +55,12 @@ export const ROUTES: RouteDef[] = [
   { path: "/child-development", file: `${P}/child-development.tsx`, changefreq: "monthly", priority: 0.9 },
   { path: "/therapeutic-enrichment", file: `${P}/therapeutic-enrichment.tsx`, changefreq: "monthly", priority: 0.9 },
 
+  // Audiology bridge page. Hearing is its own brand (poorvamhearing.com), but
+  // the GBP name is "Poorvam Care & Hearing Solutions" and GSC shows steady
+  // "hearing test / audiologist near me" queries this site should capture and
+  // route — leaving it unrouted served 404s to that demand.
+  { path: "/hearing-center", file: `${P}/hearing-center.tsx`, changefreq: "monthly", priority: 0.8 },
+
   // Centre locations
   { path: "/electronic-city-phase-1", file: `${P}/electronic-city-phase-1.tsx`, changefreq: "monthly", priority: 0.9 },
   { path: "/electronic-city-phase-2", file: `${P}/electronic-city-phase-2.tsx`, changefreq: "monthly", priority: 0.9 },

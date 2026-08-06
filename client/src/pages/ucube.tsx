@@ -77,7 +77,7 @@ const faqs = [
   },
   {
     question: "How do I enroll my child in a Ucube program?",
-    answer: "You can enroll by contacting us at +91 886 176 4343, filling out our contact form, or visiting our center in Electronic City. We'll help you choose the right program based on your child's interests and age.",
+    answer: "You can enroll by contacting us at +91 88617 64343, filling out our contact form, or visiting our center in Electronic City. We'll help you choose the right program based on your child's interests and age.",
   },
   {
     question: "Can my child try a class before committing?",
@@ -152,7 +152,7 @@ export default function UcubePage() {
                 href="tel:+918861764343"
                 className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
-                Call: +91 886 176 4343
+                Call: +91 88617 64343
               </a>
             </div>
           </div>

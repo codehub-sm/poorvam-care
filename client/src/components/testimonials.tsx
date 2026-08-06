@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 
-const testimonials = [
+export const testimonials = [
   {
     quote: "Poorvam completely changed our lives. My son started speaking his first words after just 3 months of speech therapy. The therapists are incredibly patient and caring.",
     name: "Priya M.",

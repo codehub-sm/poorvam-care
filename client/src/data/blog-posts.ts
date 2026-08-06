@@ -401,7 +401,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>At Poorvam Care, we offer <strong>initial consultations</strong> so that families can get expert guidance and understand their options with no pressure and no commitment. Our goal is simple: to give every child the best possible start, during the period when it matters most.</p>
 
-<p>Contact us today at <strong>+91 886 176 4343</strong> or visit us in Electronic City, Bangalore. Your child's journey starts now — and starting now makes all the difference.</p>
+<p>Contact us today at <strong>+91 88617 64343</strong> or visit us in Electronic City, Bangalore. Your child's journey starts now — and starting now makes all the difference.</p>
     `.trim(),
   },
   {
@@ -449,7 +449,7 @@ export const blogPosts: BlogPost[] = [
 <p>Speech therapy outcomes vary by child, age at start, severity, and home implementation. Some children make dramatic gains in the first 3–6 months. Others progress more gradually. What we tell every family: expect steady, measurable progress — not miracles. Celebrate the small wins. And trust that consistent therapy over years builds a foundation that affects the rest of your child's life.</p>
 
 <h2>Next Steps</h2>
-<p>If your child is showing signs of autism or has received a diagnosis, early action matters. <strong>Book an initial consultation</strong> at Poorvam Care in Electronic City, Bangalore. Call <strong>+91 886 176 4343</strong> or visit our website to schedule.</p>
+<p>If your child is showing signs of autism or has received a diagnosis, early action matters. <strong>Book an initial consultation</strong> at Poorvam Care in Electronic City, Bangalore. Call <strong>+91 88617 64343</strong> or visit our website to schedule.</p>
     `.trim(),
   },
   {
@@ -508,7 +508,7 @@ export const blogPosts: BlogPost[] = [
 <p>We also place strong emphasis on parent involvement. Our therapists explain the "why" behind every activity — not just the "what" — so you understand how to apply the same principles at home.</p>
 
 <h2>Next Steps</h2>
-<p>If your child shows signs of sensory processing difficulties, an occupational therapy assessment can identify specific needs and build a personalized plan. <strong>Book a consultation</strong> at Poorvam Care. Call <strong>+91 886 176 4343</strong> or visit our Electronic City, Bangalore centres.</p>
+<p>If your child shows signs of sensory processing difficulties, an occupational therapy assessment can identify specific needs and build a personalized plan. <strong>Book a consultation</strong> at Poorvam Care. Call <strong>+91 88617 64343</strong> or visit our Electronic City, Bangalore centres.</p>
     `.trim(),
   },
 ];

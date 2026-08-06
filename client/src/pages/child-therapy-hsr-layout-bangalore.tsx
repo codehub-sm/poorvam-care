@@ -91,7 +91,7 @@ export default function ChildTherapyHSRLayout() {
               <div>
                 <h3 className="font-heading font-bold text-brown-deep mb-1">Contact</h3>
                 <p className="text-brown-mid text-sm font-body">
-                  <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 886 176 4343</a><br />
+                  <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 88617 64343</a><br />
                   Call to book a consultation
                 </p>
               </div>
@@ -233,7 +233,7 @@ export default function ChildTherapyHSRLayout() {
               href="tel:+918861764343"
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, createServiceSchema, organizationSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
+import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
 import { CheckCircle, MapPin, Phone } from "lucide-react";
 
@@ -19,7 +20,7 @@ const ecFAQs = [
   },
   {
     question: "Do you offer a consultation for speech therapy in Electronic City?",
-    answer: "Yes. We offer an initial consultation at both our Electronic City centres. During this session, our team will observe your child, discuss your concerns, and recommend an appropriate assessment and therapy plan. You can book a consultation by calling +91 886 176 4343 or through our website.",
+    answer: "Yes. We offer an initial consultation at both our Electronic City centres. During this session, our team will observe your child, discuss your concerns, and recommend an appropriate assessment and therapy plan. You can book a consultation by calling +91 88617 64343 or through our website.",
   },
   {
     question: "What are the fees for speech therapy in Electronic City, Bangalore?",
@@ -110,6 +111,8 @@ export default function SpeechTherapyElectronicCity() {
         </div>
       </section>
 
+      <CentreMaps heading="Find Our Electronic City Centres" />
+
       {/* Services */}
       <section className="py-16 bg-warm-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -197,6 +200,8 @@ export default function SpeechTherapyElectronicCity() {
         </div>
       </section>
 
+      <ReviewSnippets />
+
       <FAQSection
         faqs={ecFAQs}
         title="Speech Therapy in Electronic City — FAQs"
@@ -223,7 +228,7 @@ export default function SpeechTherapyElectronicCity() {
               href="tel:+918861764343"
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

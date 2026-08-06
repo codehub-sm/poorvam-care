@@ -49,17 +49,17 @@ const homeFAQs = [
   {
     question: "How do I book an appointment at Poorvam Care?",
     answer:
-      "Call us at +91 886 176 4343 or email poorvam.care@gmail.com. We offer an initial consultation to understand your child's needs before recommending a therapy plan.",
+      "Call us at +91 88617 64343 or email poorvam.care@gmail.com. We offer an initial consultation to understand your child's needs before recommending a therapy plan.",
   },
   {
     question: "Does Poorvam Care have a summer therapy camp for children?",
     answer:
-      "Yes! Poorvam Care runs a Summer Therapy Camp every year during April–May. The camp includes sensory art, therapeutic yoga, movement therapy, music & rhythm, and social skills groups — all designed specifically for children with autism, ADHD, speech delay, and developmental differences. It's a fun, therapy-driven summer experience led by our qualified therapists. Call +91 886 176 4343 to enquire about the 2026 summer camp.",
+      "Yes! Poorvam Care runs a Summer Therapy Camp every year during April–May. The camp includes sensory art, therapeutic yoga, movement therapy, music & rhythm, and social skills groups — all designed specifically for children with autism, ADHD, speech delay, and developmental differences. It's a fun, therapy-driven summer experience led by our qualified therapists. Call +91 88617 64343 to enquire about the 2026 summer camp.",
   },
   {
     question: "What is the cost of speech therapy at Poorvam Care?",
     answer:
-      "Speech therapy session fees vary based on the type of therapy, frequency, and your child's specific needs. We offer flexible therapy packages to suit different family budgets. Contact us at +91 886 176 4343 for an initial consultation where we discuss your child's needs and provide transparent pricing with no hidden charges.",
+      "Speech therapy session fees vary based on the type of therapy, frequency, and your child's specific needs. We offer flexible therapy packages to suit different family budgets. Contact us at +91 88617 64343 for an initial consultation where we discuss your child's needs and provide transparent pricing with no hidden charges.",
   },
   {
     question: "Do you offer online therapy or teletherapy?",
@@ -119,7 +119,7 @@ export default function Home() {
               href="tel:+918861764343"
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

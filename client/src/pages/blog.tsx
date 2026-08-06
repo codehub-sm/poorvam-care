@@ -223,7 +223,7 @@ export default function BlogPage() {
               href="tel:+918861764343"
               className="border-2 border-white text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-white/10 transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

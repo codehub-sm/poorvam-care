@@ -2,8 +2,10 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
 import { HearingCenterIllustration } from "@/components/illustrations";
+import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
+import { LOCATIONS } from "@/config/site";
 import { Link } from "wouter";
-import { Baby, User, Users, Check } from "lucide-react";
+import { Baby, User, Users, Check, ExternalLink } from "lucide-react";
 
 const services = [
   {
@@ -79,16 +81,23 @@ export default function HearingCenterPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "Poorvam Care - Hearing Center",
-          "description": "Comprehensive audiological services for all ages",
+          "name": "Poorvam Care & Hearing Solutions — Hearing Center",
+          "description": "Hearing tests, audiometry, paediatric hearing screening, and hearing aid consultations in Electronic City, Bangalore.",
           "url": "https://poorvamcare.in/hearing-center",
           "telephone": "+918861764343",
+          "sameAs": ["https://poorvamhearing.com"],
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Electronic City Phase 2, Ananth Nagar",
-            "addressLocality": "Bangalore",
-            "addressRegion": "Karnataka",
-            "addressCountry": "IN",
+            "streetAddress": LOCATIONS[1].streetAddress,
+            "addressLocality": LOCATIONS[1].addressLocality,
+            "addressRegion": LOCATIONS[1].addressRegion,
+            "postalCode": LOCATIONS[1].postalCode,
+            "addressCountry": LOCATIONS[1].addressCountry,
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": LOCATIONS[1].latitude,
+            "longitude": LOCATIONS[1].longitude,
           },
         }}
       />
@@ -113,7 +122,7 @@ export default function HearingCenterPage() {
               <span className="text-coral">Clearly Again</span>
             </h1>
             <p className="text-lg text-warm-gray-200 font-body mb-8 leading-relaxed">
-              Whether it's your child's first hearing test or finding the right hearing aid for a loved one, our ISHA-certified audiologists provide compassionate, expert care for every age and every need.
+              Whether it's your child's first hearing test or finding the right hearing aid for a loved one, our ISHA-certified audiologists provide compassionate, expert care for every age and every need — at our Electronic City centres in Ananth Nagar and Hulimangla Road.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -126,7 +135,7 @@ export default function HearingCenterPage() {
                 href="tel:+918861764343"
                 className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
-                Call: +91 886 176 4343
+                Call: +91 88617 64343
               </a>
             </div>
           </div>
@@ -218,6 +227,33 @@ export default function HearingCenterPage() {
           </div>
         </div>
       </section>
+
+      {/* Dedicated hearing brand */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-warm-bg rounded-2xl p-8 border border-warm-gray-200 text-center">
+            <h2 className="text-2xl font-heading font-bold text-brown-deep mb-3">
+              Poorvam Hearing — Our Dedicated Audiology Practice
+            </h2>
+            <p className="text-brown-mid font-body leading-relaxed mb-6 max-w-2xl mx-auto">
+              For the full range of hearing services — diagnostic audiometry, hearing aid trials across all major brands, cochlear implant support, and tinnitus management — visit our dedicated hearing practice.
+            </p>
+            <a
+              href="https://poorvamhearing.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
+            >
+              Visit poorvamhearing.com
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <CentreMaps heading="Hearing Tests at Our Electronic City Centres" />
+
+      <ReviewSnippets />
 
       {/* FAQ */}
       <FAQSection

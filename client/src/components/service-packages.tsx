@@ -510,7 +510,7 @@ export default function ServicePackages() {
               onClick={() => window.open("tel:+918861764343")}
             >
               <Phone className="w-4 h-4 mr-2" />
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </Button>
           </div>
         </div>

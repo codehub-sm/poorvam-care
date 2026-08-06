@@ -1,8 +1,9 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
+import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Phone, Star } from "lucide-react";
 
 const otFAQs = [
   {
@@ -27,8 +28,8 @@ export default function OccupationalTherapyForChildren() {
   return (
     <>
       <SeoHead
-        title="Occupational Therapy for Children in Bangalore | Poorvam Care, Electronic City"
-        description="Expert occupational therapy for children with sensory processing issues, motor skill delays, and developmental challenges in Electronic City, Bangalore. RCI registered therapists. Call +91 88617 64343 to book an assessment."
+        title="Occupational Therapy for Children in Electronic City, Bangalore | Poorvam Care"
+        description="Paediatric occupational therapy & sensory integration in Electronic City, Bangalore — two centres, RCI registered therapists, trusted by 900+ families. Call +91 88617 64343 to book an assessment."
         canonical="https://poorvamcare.in/occupational-therapy-for-children-bangalore"
         keywords="occupational therapy for children Bangalore, pediatric OT Electronic City, sensory processing therapy Bangalore, fine motor skills therapy, OT for autism Bangalore, occupational therapy near me Electronic City, OT near me Bommanahalli, occupational therapy cost Bangalore, sensory integration therapy near me, pediatric OT Hosa Road, occupational therapy Kudlu Gate, OT for ADHD Bangalore, occupational therapy fees Bangalore, best occupational therapist for children near me, sensory processing disorder therapy HSR Layout"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -55,11 +56,34 @@ export default function OccupationalTherapyForChildren() {
             </p>
             <h1 className="text-4xl lg:text-5xl font-heading font-extrabold text-warm-bg mb-6 leading-tight">
               Occupational Therapy for{" "}
-              <span className="text-sage">Children</span> in Bangalore
+              <span className="text-sage">Children</span> in Electronic City, Bangalore
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              Helping children develop the motor skills, sensory processing abilities, and daily living skills they need to thrive at home, school, and play.
+              Helping children develop the motor skills, sensory processing abilities, and daily living skills they need to thrive at home, school, and play. Two centres in Electronic City Phase 1 &amp; Phase 2.
             </p>
+            <div className="mt-5 flex items-center gap-2 text-warm-gray-200 font-body text-sm">
+              <span className="flex gap-0.5" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+                ))}
+              </span>
+              Trusted by 900+ families across south Bangalore
+            </div>
+            <div className="mt-6 flex flex-col sm:flex-row gap-4">
+              <a
+                href="tel:+918861764343"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-coral text-white font-heading font-semibold rounded-full hover:bg-coral-dark transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                Call +91 88617 64343
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-warm-bg font-heading font-semibold rounded-full border border-warm-bg/30 hover:bg-white/20 transition-colors"
+              >
+                Book a Free OT Assessment
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -134,6 +158,10 @@ export default function OccupationalTherapyForChildren() {
         </div>
       </section>
 
+      <ReviewSnippets heading="What Parents Say About Our Therapy" />
+
+      <CentreMaps heading="Our Electronic City Centres on the Map" />
+
       <FAQSection
         faqs={otFAQs}
         title="Occupational Therapy — FAQs"
@@ -160,7 +188,7 @@ export default function OccupationalTherapyForChildren() {
               href="tel:+918861764343"
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>

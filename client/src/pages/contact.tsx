@@ -42,7 +42,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    lines: ["+91 886 176 4343"],
+    lines: ["+91 88617 64343"],
   },
   {
     icon: Mail,
@@ -113,7 +113,7 @@ export default function ContactPage() {
     <>
       <SeoHead
         title="Contact Poorvam Care - Book a Consultation | Electronic City, Bangalore"
-        description="Contact Poorvam Care in Electronic City, Bangalore. Book a consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 886 176 4343."
+        description="Contact Poorvam Care in Electronic City, Bangalore. Book a consultation for speech therapy, occupational therapy, ABA, and special education. Two locations: Electronic City Phase 1 & Phase 2. Call +91 88617 64343."
         canonical="https://poorvamcare.in/contact"
         ogImage="https://poorvamcare.in/og-image.jpg"
         keywords="contact Poorvam Care, book therapy appointment Bangalore, consultation speech therapy, child therapy Electronic City, phone number Poorvam Care, therapy center near me Electronic City, book consultation child therapy Bangalore, speech therapy appointment near me, therapy center Bommanahalli Hosa Road Kudlu Gate"
@@ -204,7 +204,7 @@ export default function ContactPage() {
                   onClick={() => window.open('tel:+918861764343')}
                 >
                   <PhoneCall className="w-5 h-5 mr-3" />
-                  Call Now: +91 886 176 4343
+                  Call Now: +91 88617 64343
                 </Button>
                 <Button
                   className="w-full justify-start h-12 bg-sage hover:bg-sage-dark text-white rounded-xl font-heading font-semibold"

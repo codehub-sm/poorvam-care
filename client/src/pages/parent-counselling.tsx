@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     question: "What is the cost of parent counselling at Poorvam Care?",
-    answer: "In-centre parent counselling sessions at Poorvam Care are ₹800 per 45-minute session. Online sessions are available at ₹600 per session. We offer package plans for families who commit to a block of sessions. Contact us via phone (+91 886 176 4343) or the contact form on our website to enquire about current packages and to book your first session.",
+    answer: "In-centre parent counselling sessions at Poorvam Care are ₹800 per 45-minute session. Online sessions are available at ₹600 per session. We offer package plans for families who commit to a block of sessions. Contact us via phone (+91 88617 64343) or the contact form on our website to enquire about current packages and to book your first session.",
   },
 ];
 
@@ -157,7 +157,7 @@ export default function ParentCounsellingPage() {
                 href="tel:+918861764343"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-heading font-bold hover:border-purple-600 hover:text-purple-600 transition-colors"
               >
-                Call: +91 886 176 4343
+                Call: +91 88617 64343
               </a>
             </div>
           </div>
@@ -347,7 +347,7 @@ export default function ParentCounsellingPage() {
               href="tel:+918861764343"
               className="inline-block border-2 border-white text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-white hover:text-purple-600 transition-colors"
             >
-              Call: +91 886 176 4343
+              Call: +91 88617 64343
             </a>
           </div>
         </div>
