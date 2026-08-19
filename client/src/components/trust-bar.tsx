@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Users, Award, Shield, Clock } from "lucide-react";
+import { STATS } from "@/config/site";
 
+/** See hero.tsx — renders `end` until the scroll-triggered count-up runs, so
+ *  the prerendered markup carries the real number rather than 0. */
 function CountUp({ end, suffix = "" }: { end: number; suffix?: string }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!isInView) return;
     let start = 0;
+    setCount(0);
     const duration = 2000;
     const step = end / (duration / 16);
     const timer = setInterval(() => {
@@ -26,15 +30,15 @@ function CountUp({ end, suffix = "" }: { end: number; suffix?: string }) {
 
   return (
     <span ref={ref}>
-      {count}
+      {count ?? end}
       {suffix}
     </span>
   );
 }
 
 const stats = [
-  { icon: Clock, value: 12, suffix: "+", label: "Years of Experience" },
-  { icon: Users, value: 900, suffix: "+", label: "Lives Touched" },
+  { icon: Clock, value: STATS.years, suffix: "+", label: "Years of Experience" },
+  { icon: Users, value: STATS.families, suffix: "+", label: "Lives Touched" },
   { icon: Shield, value: 0, suffix: "", label: "RCI Registered", display: "RCI" },
   { icon: Award, value: 0, suffix: "", label: "ISHA Certified", display: "ISHA" },
 ];

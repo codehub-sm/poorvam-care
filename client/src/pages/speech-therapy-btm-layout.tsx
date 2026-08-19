@@ -1,4 +1,5 @@
 import NeighbourhoodPage from "@/components/neighbourhood-page";
+import { STATS } from "@/config/site";
 
 /**
  * BTM Layout neighbourhood landing page.
@@ -26,7 +27,7 @@ export default function SpeechTherapyBtmLayoutPage() {
         "Getting to our Electronic City centre from BTM Layout is quick and straightforward. The most popular route for BTM families is via 6th Main Road to Silk Board Junction, then south along Hosur Road. Families from the northern parts of BTM often find the Jayadeva flyover a convenient shortcut to Hosur Road. Our centre on Hulimangla Road in EC Phase 1 is well-signposted from the main Hosur Road corridor.",
         "Speech therapy for young children delivers the best outcomes when started early. If you have noticed that your toddler is not meeting speech milestones — or if your school-age child is struggling with articulation, comprehension, or social communication — a professional assessment at Poorvam Care is the right first step. Our speech-language pathologists carry RCI registration and have helped hundreds of children from BTM Layout and surrounding areas achieve meaningful communication progress.",
         "At Poorvam Care, no two therapy plans are alike. After a thorough initial assessment, our therapist creates goals specific to your child's strengths and areas of difficulty. Therapy sessions are play-based and engaging for younger children, while older children benefit from structured language and literacy activities. Parent coaching is built into every programme so that the progress made in the clinic continues at home in BTM Layout.",
-        "We also serve families from Madiwala and the surrounding areas. Whether your child needs intensive weekly sessions or a lighter fortnightly schedule with teletherapy top-ups, we will work with you to design a plan that fits your family's routine. With over 900 families helped across Bangalore and 13 years of experience, Poorvam Care is the speech therapy centre that BTM Layout parents recommend to each other.",
+        `We also serve families from Madiwala and the surrounding areas. Whether your child needs intensive weekly sessions or a lighter fortnightly schedule with teletherapy top-ups, we will work with you to design a plan that fits your family's routine. With over ${STATS.families} families helped across Bangalore and ${STATS.years} years of experience, Poorvam Care is the speech therapy centre that BTM Layout parents recommend to each other.`,
       ]}
       faqTitle="Speech Therapy for BTM Layout — Common Questions"
       faqs={[

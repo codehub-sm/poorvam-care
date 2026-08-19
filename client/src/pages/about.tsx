@@ -2,6 +2,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema, personSchemaApoorva } from "@/components/structured-data";
 import { Link } from "wouter";
 import { Shield, Award, Heart, Users } from "lucide-react";
+import { STATS } from "@/config/site";
 
 const values = [
   {
@@ -53,8 +54,8 @@ export default function AboutPage() {
   return (
     <>
       <SeoHead
-        title="About Poorvam Care - 13+ Years of Child Therapy in Electronic City, Bangalore"
-        description="Learn about Poorvam Care's 13+ year journey serving 900+ families in Electronic City, Bangalore. RCI registered, ISHA certified team. Multi-disciplinary early intervention for children aged 2–14."
+        title={`About Poorvam Care - ${STATS.yearsLabel} Years of Child Therapy in Electronic City, Bangalore`}
+        description={`Learn about Poorvam Care's ${STATS.yearsLabel} year journey serving ${STATS.familiesLabel} families in Electronic City, Bangalore. RCI registered, ISHA certified team. Multi-disciplinary early intervention for children aged 2–14.`}
         canonical="https://poorvamcare.in/about"
         ogImage="https://poorvamcare.in/og-image.jpg"
         keywords="about Poorvam Care, child therapy center Electronic City, speech therapy Bangalore, occupational therapy Electronic City, Apoorva Rai MASLP, RCI registered therapist, ISHA certified, early intervention Bangalore, 13 years experience child therapy, best speech therapist Bangalore, RCI licensed therapist near me, trusted child therapy center Bommanahalli Hosa Road"
@@ -80,7 +81,7 @@ export default function AboutPage() {
               <span className="text-coral">Quality Care</span>
             </h1>
             <p className="text-lg text-warm-gray-200 font-body leading-relaxed">
-              For over 13 years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy practice has grown into a multi-disciplinary early intervention centre serving 900+ families across two locations in Electronic City.
+              For over {STATS.years} years, Poorvam Care has been a trusted partner for families in Bangalore. What started as a small therapy practice has grown into a multi-disciplinary early intervention centre serving {STATS.familiesLabel} families across two locations in Electronic City.
             </p>
           </div>
         </div>
@@ -100,18 +101,18 @@ export default function AboutPage() {
                   Starting in Electronic City, Bangalore, we began with a small team of passionate therapists dedicated to helping children with developmental needs. Over the years, we expanded to two locations and added therapeutic enrichment programmes designed specifically for children who learn differently.
                 </p>
                 <p>
-                  Today, we serve over 900 families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, special education, and therapeutic enrichment. Our growth has been driven by one thing: the trust of the families we serve.
+                  Today, we serve over {STATS.families} families with a team of certified professionals spanning speech therapy, occupational therapy, behavioral therapy, special education, and therapeutic enrichment. Our growth has been driven by one thing: the trust of the families we serve.
                 </p>
               </div>
             </div>
             <div className="bg-gradient-to-br from-warm-bg to-warm-gray-50 rounded-2xl p-10">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-coral">12+</div>
+                  <div className="text-4xl font-heading font-bold text-coral">{STATS.yearsLabel}</div>
                   <div className="text-sm text-brown-mid font-body">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-sage">900+</div>
+                  <div className="text-4xl font-heading font-bold text-sage">{STATS.familiesLabel}</div>
                   <div className="text-sm text-brown-mid font-body">Families Served</div>
                 </div>
                 <div className="text-center">

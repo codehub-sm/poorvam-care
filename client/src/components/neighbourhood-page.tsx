@@ -6,7 +6,7 @@ import StructuredData, {
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { MapPin, Clock, Phone, Video, ArrowRight, CheckCircle } from "lucide-react";
-import { SITE_URL, PRIMARY_LOCATION, CONTACT, telLink } from "@/config/site";
+import { SITE_URL, PRIMARY_LOCATION, CONTACT, telLink, STATS } from "@/config/site";
 import { trackCallClick } from "@/lib/analytics";
 
 /**
@@ -81,8 +81,8 @@ const DEFAULT_MAP_EMBED =
 /** Identical across all four pages, so it lives here rather than in each. */
 const DEFAULT_WHY_CHOOSE_US = [
   "RCI-licensed, ISHA-certified therapists",
-  "13+ years of clinical experience",
-  "900+ families served across Bangalore",
+  `${STATS.yearsLabel} years of clinical experience`,
+  `${STATS.familiesLabel} families served across Bangalore`,
   "Play-based, child-friendly therapy rooms",
   "Multidisciplinary team under one roof",
   "Parent training and home programme support",

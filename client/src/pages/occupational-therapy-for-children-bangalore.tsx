@@ -4,6 +4,7 @@ import FAQSection from "@/components/faq-section";
 import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
 import { CheckCircle, Phone, Star } from "lucide-react";
+import { STATS } from "@/config/site";
 
 const otFAQs = [
   {
@@ -29,7 +30,7 @@ export default function OccupationalTherapyForChildren() {
     <>
       <SeoHead
         title="Occupational Therapy for Children in Electronic City, Bangalore | Poorvam Care"
-        description="Paediatric occupational therapy & sensory integration in Electronic City, Bangalore — two centres, RCI registered therapists, trusted by 900+ families. Call +91 88617 64343 to book an assessment."
+        description={`Paediatric occupational therapy & sensory integration in Electronic City, Bangalore — two centres, RCI registered therapists, trusted by ${STATS.familiesLabel} families. Call +91 88617 64343 to book an assessment.`}
         canonical="https://poorvamcare.in/occupational-therapy-for-children-bangalore"
         keywords="occupational therapy for children Bangalore, pediatric OT Electronic City, sensory processing therapy Bangalore, fine motor skills therapy, OT for autism Bangalore, occupational therapy near me Electronic City, OT near me Bommanahalli, occupational therapy cost Bangalore, sensory integration therapy near me, pediatric OT Hosa Road, occupational therapy Kudlu Gate, OT for ADHD Bangalore, occupational therapy fees Bangalore, best occupational therapist for children near me, sensory processing disorder therapy HSR Layout"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -67,7 +68,7 @@ export default function OccupationalTherapyForChildren() {
                   <Star key={i} className="w-4 h-4 text-gold fill-gold" />
                 ))}
               </span>
-              Trusted by 900+ families across south Bangalore
+              Trusted by {STATS.familiesLabel} families across south Bangalore
             </div>
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <a

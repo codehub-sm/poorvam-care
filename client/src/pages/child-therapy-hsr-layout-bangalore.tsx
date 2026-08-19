@@ -3,6 +3,7 @@ import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/c
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle, MapPin, Clock, Phone } from "lucide-react";
+import { STATS } from "@/config/site";
 
 const hsrFAQs = [
   {
@@ -119,12 +120,12 @@ export default function ChildTherapyHSRLayout() {
           <ul className="space-y-3">
             {[
               "Multi-disciplinary team: speech therapy, OT, ABA, and special education working together",
-              "Led by Apoorva Rai (MASLP, RCI Licensed) with 13+ years of clinical experience",
+              `Led by Apoorva Rai (MASLP, RCI Licensed) with ${STATS.yearsLabel} years of clinical experience`,
               "Individualized therapy plans with clear, measurable goals reviewed monthly",
               "Sensory-friendly, child-centred therapy environments at both centres",
               "Regular parent training so you can reinforce progress at home",
               "Transparent progress reporting with quarterly reviews and video updates",
-              "Trusted by 900+ families across south Bangalore",
+              `Trusted by ${STATS.familiesLabel} families across south Bangalore`,
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-sage mt-0.5 flex-shrink-0" />

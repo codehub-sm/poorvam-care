@@ -100,3 +100,22 @@ export function whatsappLink(message?: string): string {
 
 export const telLink = `tel:${CONTACT.phone}`;
 export const mailtoLink = `mailto:${CONTACT.email}`;
+
+/**
+ * Headline trust numbers.
+ *
+ * These render in the hero stats, the trust bar, the About page, footer copy,
+ * and a dozen SEO descriptions. Typed by hand they had already drifted — the
+ * hero said 13+ years while the trust bar directly beneath it said 12+, and
+ * "over a decade" sat next to a hard "13+". A parent comparing two landing
+ * pages sees the mismatch, so the numbers live here and nowhere else.
+ *
+ * `years`/`families` are the raw values for the count-up animations;
+ * `yearsLabel`/`familiesLabel` are the rendered strings for copy and metadata.
+ */
+export const STATS = {
+  years: 13,
+  yearsLabel: "13+",
+  families: 1000,
+  familiesLabel: "1000+",
+} as const;

@@ -1,4 +1,5 @@
 import NeighbourhoodPage from "@/components/neighbourhood-page";
+import { STATS } from "@/config/site";
 
 /** Koramangala neighbourhood landing page — content only. */
 export default function SpeechTherapyKoramangalaPage() {
@@ -25,12 +26,12 @@ export default function SpeechTherapyKoramangalaPage() {
         "The drive from Koramangala to our Electronic City centre is manageable even with a young child. Most families take the Inner Ring Road or 80 Feet Road to Silk Board Junction, then head south on Hosur Road. An alternative that many from the 4th and 5th Block prefer is the Agara Lake Road route — quieter in the mornings and often faster during school rush hours.",
         "Koramangala is a hub for Bangalore's technology and startup community, and many parents we serve are professionals working in the area's numerous tech parks and co-working spaces. These families appreciate our flexible scheduling, comprehensive progress reports, and the option to combine in-person therapy with online sessions. Our teletherapy programme is particularly valued by parents who travel frequently or work irregular hours.",
         "Our speech therapists work with children across a broad age range — from toddlers showing early signs of a language delay to school-age children dealing with articulation difficulties, comprehension challenges, or autism-related communication differences. Every child who comes to Poorvam Care from Koramangala receives a thorough initial assessment and a personalised therapy plan with clear, measurable goals.",
-        "With RCI registration, ISHA certification, and over 13 years of clinical experience, Poorvam Care has built a strong reputation among Koramangala families. Parents in the 3rd Block, 7th Block, and 8th Block communities regularly refer each other to our centre. We are proud to have supported more than 900 families across Bangalore on their therapy journey.",
+        `With RCI registration, ISHA certification, and over ${STATS.years} years of clinical experience, Poorvam Care has built a strong reputation among Koramangala families. Parents in the 3rd Block, 7th Block, and 8th Block communities regularly refer each other to our centre. We are proud to have supported more than ${STATS.families} families across Bangalore on their therapy journey.`,
       ]}
       whyChooseUs={[
         "RCI-licensed, ISHA-certified therapists",
-        "13+ years of clinical experience",
-        "900+ families served across Bangalore",
+        `${STATS.yearsLabel} years of clinical experience`,
+        `${STATS.familiesLabel} families served across Bangalore`,
         "Flexible scheduling for working parents",
         "Multidisciplinary team under one roof",
         "Detailed progress reports every session",

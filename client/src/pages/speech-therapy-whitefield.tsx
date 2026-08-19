@@ -1,4 +1,5 @@
 import NeighbourhoodPage from "@/components/neighbourhood-page";
+import { STATS } from "@/config/site";
 
 /**
  * Whitefield neighbourhood landing page — content only.
@@ -36,8 +37,8 @@ export default function SpeechTherapyWhitefieldPage() {
       whyChooseUs={[
         "Online teletherapy — no commute needed",
         "RCI-licensed, ISHA-certified therapists",
-        "13+ years of clinical experience",
-        "900+ families served across Bangalore",
+        `${STATS.yearsLabel} years of clinical experience`,
+        `${STATS.familiesLabel} families served across Bangalore`,
         "Flexible scheduling around work and school",
         "In-person assessments available at EC centre",
         "Parent coaching and home activity plans",

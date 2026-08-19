@@ -1,16 +1,23 @@
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { useRef, useEffect, useState } from "react";
+import { STATS } from "@/config/site";
 
 /* ── CountUp ── */
+/**
+ * Counts up to `target` once scrolled into view, but renders `target` until
+ * that happens. Seeded at 0, the prerendered snapshot Google indexes shipped
+ * "0+ Families" — the crawler never scrolls, so the animation never ran.
+ */
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
     if (!inView) return;
     let start = 0;
+    setCount(0);
     const duration = 2000;
     const step = Math.ceil(target / (duration / 16));
     const id = setInterval(() => {
@@ -26,7 +33,7 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 
   return (
     <span ref={ref} className="font-heading font-bold text-2xl md:text-3xl text-brown-deep">
-      {count}
+      {count ?? target}
       {suffix}
     </span>
   );
@@ -116,7 +123,7 @@ export default function Hero() {
               className="mt-5 font-body text-lg md:text-xl text-brown-mid leading-relaxed max-w-lg"
             >
               Expert speech therapy, occupational therapy, ABA therapy, special education,
-              and therapeutic enrichment — trusted by families across Bangalore for over a decade.
+              and therapeutic enrichment — trusted by families across Bangalore for over {STATS.years} years.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -160,8 +167,8 @@ export default function Hero() {
               className="mt-10 flex flex-wrap gap-8 md:gap-10"
             >
               {[
-                { target: 13, suffix: "+", label: "Years" },
-                { target: 900, suffix: "+", label: "Families" },
+                { target: STATS.years, suffix: "+", label: "Years" },
+                { target: STATS.families, suffix: "+", label: "Families" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <CountUp target={stat.target} suffix={stat.suffix} />

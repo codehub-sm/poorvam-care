@@ -3,6 +3,7 @@ import StructuredData, { createBreadcrumbSchema } from "@/components/structured-
 import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock, Check, ArrowRight, Star } from "lucide-react";
+import { STATS } from "@/config/site";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -73,7 +74,7 @@ export default function ElectronicCityPhase2() {
     <>
       <SeoHead
         title="Speech Therapy & Child Development Centre in Electronic City Phase 2 | Poorvam Care"
-        description="Speech therapy, occupational therapy, ABA & special education for children in Electronic City Phase 2, Bangalore. Ananth Nagar centre, trusted by 900+ families. Call +91 88617 64343 — directions & timings inside."
+        description={`Speech therapy, occupational therapy, ABA & special education for children in Electronic City Phase 2, Bangalore. Ananth Nagar centre, trusted by ${STATS.familiesLabel} families. Call +91 88617 64343 — directions & timings inside.`}
         canonical="https://poorvamcare.in/electronic-city-phase-2"
         keywords="speech therapy Electronic City Phase 2, occupational therapy Ananth Nagar, early intervention centre EC Phase 2, child therapy Hosa Road, autism therapy Electronic City Phase 2 Bangalore, Poorvam Care Phase 2, speech therapy near me Chandapura, child therapy Bommanahalli, best therapy center near Electronic City Phase 2, occupational therapy Hosa Road, speech therapist Kudlu Gate, consultation child therapy EC Phase 2"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -108,7 +109,7 @@ export default function ElectronicCityPhase2() {
                   <Star key={i} className="w-4 h-4 text-gold fill-gold" />
                 ))}
               </span>
-              Trusted by 900+ families across south Bangalore
+              Trusted by {STATS.familiesLabel} families across south Bangalore
             </div>
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <a
@@ -149,7 +150,7 @@ export default function ElectronicCityPhase2() {
                   Led by Apoorva Rai, MASLP, with 13+ years of paediatric experience, our team provides evidence-based speech therapy, occupational therapy, ABA therapy, special education, parent counselling, and therapeutic enrichment programmes.
                 </p>
                 <p>
-                  We serve over 900 families and take a compassionate, family-centred approach to early intervention — working closely with parents to support each child's growth at home and in the clinic.
+                  We serve over {STATS.families} families and take a compassionate, family-centred approach to early intervention — working closely with parents to support each child's growth at home and in the clinic.
                 </p>
               </div>
             </div>

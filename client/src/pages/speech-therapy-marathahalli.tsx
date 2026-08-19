@@ -1,4 +1,5 @@
 import NeighbourhoodPage from "@/components/neighbourhood-page";
+import { STATS } from "@/config/site";
 
 /**
  * Marathahalli neighbourhood landing page — content only.
@@ -26,12 +27,12 @@ export default function SpeechTherapyMaratahalliPage() {
         "Families from Marathahalli Bridge and the Bellandur Lake area typically drive to our Electronic City centre via the Outer Ring Road. From Marathahalli, head south on ORR past the Bellandur flyover and continue towards Sarjapur Road Junction. From there, Hosur Road leads directly into Electronic City — our Hulimangla Road centre in EC Phase 1 is well-signposted. An alternative for families from the HAL area is to take Sarjapur Road south directly into Electronic City.",
         "Poorvam Care's teletherapy programme has become especially popular with families along the Sarjapur Road and Outer Ring Road corridor, where peak-hour traffic can make a 20 km journey take considerably longer than expected. Our online sessions are conducted live via secure video call and are just as effective as in-person therapy for many speech and language goals. Parent coaching and detailed home activity guides are provided after every session, so your child's progress continues between appointments.",
         "Our speech therapists work with children across a wide range of conditions, including early language delays, articulation and phonological disorders, autism-related communication challenges, fluency difficulties such as stuttering, and social communication disorders. We also provide assessment and therapy for children with cerebral palsy, Down syndrome, ADHD, and sensory processing difficulties. The initial assessment gives us a detailed picture of your child's strengths and areas to work on, and from there we build an individualised care plan with clear, achievable goals.",
-        "With RCI licensing, ISHA certification, 13 years of clinical experience, and more than 900 families helped across Bangalore, Poorvam Care has earned the trust of parents throughout South and East Bangalore. Whether you are in Marathahalli, Bellandur, Varthur, or along the Sarjapur Road corridor, we are here to support your child's communication journey — in person or online.",
+        `With RCI licensing, ISHA certification, ${STATS.years} years of clinical experience, and more than ${STATS.families} families helped across Bangalore, Poorvam Care has earned the trust of parents throughout South and East Bangalore. Whether you are in Marathahalli, Bellandur, Varthur, or along the Sarjapur Road corridor, we are here to support your child's communication journey — in person or online.`,
       ]}
       whyChooseUs={[
         "RCI-licensed, ISHA-certified therapists",
-        "13+ years of clinical experience",
-        "900+ families served across Bangalore",
+        `${STATS.yearsLabel} years of clinical experience`,
+        `${STATS.familiesLabel} families served across Bangalore`,
         "Teletherapy — avoid the ORR commute",
         "Multidisciplinary team under one roof",
         "Parent training and home programme support",

@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Link } from "wouter";
+import { STATS } from "@/config/site";
 
 const serviceLinks = [
   { name: "Child Development Center", href: "/child-development" },
@@ -44,7 +45,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-brown-light font-body text-sm leading-relaxed mb-6">
-              Multi-disciplinary early intervention centre — trusted by 900+ families in Electronic City, Bangalore.
+              Multi-disciplinary early intervention centre — trusted by {STATS.familiesLabel} families in Electronic City, Bangalore.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => {
