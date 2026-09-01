@@ -29,14 +29,6 @@ const values = [
 
 const leadership = [
   {
-    name: "Shivam",
-    title: "Managing Director",
-    description: "Strategic leader overseeing clinical operations and ensuring excellence in service delivery. Focuses on evidence-based practices and team development.",
-    image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/shivam-photo.jpg",
-    credentials: ["Enterprenuer"],
-    experience: "18+",
-  },
-  {
     name: "Apoorva Rai",
     title: "Lead Speech-Language Pathologist & Clinical Director",
     description: "Apoorva Rai holds a Master of Audiology and Speech-Language Pathology (MASLP) and brings over 13 years of clinical experience in paediatric speech therapy and audiology. She is licensed by the Rehabilitation Council of India (RCI) and is an active member of the Indian Speech and Hearing Association (ISHA). Apoorva specialises in Autism Spectrum Disorder, cochlear implant therapy, ADHD, articulation disorders, speech delay, and developmental delays. She has worked with hundreds of families across Bangalore and leads Poorvam Care's multi-disciplinary therapy team.",
@@ -192,7 +184,7 @@ export default function AboutPage() {
               Our Leadership
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className={`grid grid-cols-1 gap-8 mx-auto ${leadership.length > 1 ? "md:grid-cols-2 max-w-4xl" : "max-w-xl"}`}>
             {leadership.map((leader) => (
               <div key={leader.name} className="bg-white rounded-2xl p-8 border border-warm-gray-200">
                 <div className="flex items-start gap-5">
