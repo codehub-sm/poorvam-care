@@ -42,8 +42,8 @@ const assessments = [
     → ₹750/session (₹850 for OT)
 
   ONLINE PRICING:
-  - ₹600/session flat (all therapy types)
-  - No further discount — ₹600 is the minimum for any online service
+  - ₹800/session flat (all therapy types)
+  - No further discount — ₹800 is the minimum for any online service
 
   HOME VISIT PRICING:
   - ₹1,500/session (₹1,600 for OT) — includes travel within Electronic City
@@ -73,8 +73,8 @@ const modeConfig: Record<ServiceMode, {
     icon: Wifi,
     description: "Convenient teletherapy from home. Ideal for speech therapy, behavioral consultations, and parent training.",
     color: "emerald",
-    perSession: { standard: "₹600", ot: "₹600" },
-    intensive: { sessions: 48, label: "2 sessions/day, 6 days/week", standard: "₹600", ot: "₹600" },
+    perSession: { standard: "₹800", ot: "₹800" },
+    intensive: { sessions: 48, label: "2 sessions/day, 6 days/week", standard: "₹800", ot: "₹800" },
     note: "45-min sessions via secure video call. All therapy types same rate.",
   },
   home: {
@@ -111,7 +111,7 @@ export default function ServicePackages() {
     <>
       <SeoHead
         title="Therapy Pricing - Affordable Speech Therapy & OT in Electronic City, Bangalore | Poorvam Care"
-        description="Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹600, home visits from ₹1,500. Speech therapy, OT, ABA. Call +91 88617 64343."
+        description="Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹800, home visits from ₹1,500. Speech therapy, OT, ABA. Call +91 88617 64343."
         canonical="https://poorvamcare.in/service-packages"
       />
 
@@ -278,7 +278,7 @@ export default function ServicePackages() {
                   </h3>
                   <p className="text-sm text-brown-mid font-body">
                     {mode === "online"
-                      ? "Online sessions are available at ₹600/session for any frequency. Book as many sessions as you need — same rate whether it's 4 or 48 per month."
+                      ? "Online sessions are available at ₹800/session for any frequency. Book as many sessions as you need — same rate whether it's 4 or 48 per month."
                       : "Home visits are available at ₹1,500/session (₹1,600 for OT) for any frequency. Contact us for scheduling high-frequency home therapy."}
                   </p>
                 </div>
@@ -403,10 +403,10 @@ export default function ServicePackages() {
               </thead>
               <tbody>
                 {[
-                  { label: "Standard rate", center: "₹800", online: "₹600", home: "₹1,500" },
-                  { label: "OT rate", center: "₹900", online: "₹600", home: "₹1,600" },
-                  { label: "Intensive rate (48/mo)", center: "₹750", online: "₹600", home: "₹1,500" },
-                  { label: "Intensive OT rate", center: "₹850", online: "₹600", home: "₹1,600" },
+                  { label: "Standard rate", center: "₹800", online: "₹800", home: "₹1,500" },
+                  { label: "OT rate", center: "₹900", online: "₹800", home: "₹1,600" },
+                  { label: "Intensive rate (48/mo)", center: "₹750", online: "₹800", home: "₹1,500" },
+                  { label: "Intensive OT rate", center: "₹850", online: "₹800", home: "₹1,600" },
                   { label: "Speech Therapy", center: "✓", online: "✓", home: "✓" },
                   { label: "Occupational Therapy", center: "✓", online: "Limited", home: "✓" },
                   { label: "Behavioral Therapy", center: "✓", online: "✓", home: "✓" },

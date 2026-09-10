@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     question: "Can parent counselling happen online?",
-    answer: "Yes. Parent counselling is well-suited to online delivery, and we offer teletherapy sessions at ₹600 per 45-minute session. Online sessions are particularly convenient for working parents, families managing complex logistics, or parents who find it easier to talk from the privacy of their own home. In-centre sessions are also available at our Electronic City, Bangalore locations for families who prefer face-to-face support.",
+    answer: "Yes. Parent counselling is well-suited to online delivery, and we offer teletherapy sessions at ₹800 per 45-minute session. Online sessions are particularly convenient for working parents, families managing complex logistics, or parents who find it easier to talk from the privacy of their own home. In-centre sessions are also available at our Electronic City, Bangalore locations for families who prefer face-to-face support.",
   },
   {
     question: "How often should parents attend counselling?",
@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     question: "What is the cost of parent counselling at Poorvam Care?",
-    answer: "In-centre parent counselling sessions at Poorvam Care are ₹800 per 45-minute session. Online sessions are available at ₹600 per session. We offer package plans for families who commit to a block of sessions. Contact us via phone (+91 88617 64343) or the contact form on our website to enquire about current packages and to book your first session.",
+    answer: "In-centre parent counselling sessions at Poorvam Care are ₹800 per 45-minute session. Online sessions are available at ₹800 per session. We offer package plans for families who commit to a block of sessions. Contact us via phone (+91 88617 64343) or the contact form on our website to enquire about current packages and to book your first session.",
   },
 ];
 
@@ -249,7 +249,7 @@ export default function ParentCounsellingPage() {
                   <h3 className="text-xl font-heading font-bold text-gray-900">Online Counselling Available</h3>
                 </div>
                 <p className="text-gray-600 font-body leading-relaxed mb-4">
-                  We understand that attending in-person sessions adds another commitment to an already demanding schedule. Parent counselling is fully available online via video call at ₹600 per 45-minute session — just as effective as in-person, and far more convenient.
+                  We understand that attending in-person sessions adds another commitment to an already demanding schedule. Parent counselling is fully available online via video call at ₹800 per 45-minute session — just as effective as in-person, and far more convenient.
                 </p>
                 <p className="text-gray-600 font-body leading-relaxed mb-4">
                   Online counselling is available from anywhere in India, making it accessible to families who are not in Bangalore but wish to access Poorvam Care's expertise.

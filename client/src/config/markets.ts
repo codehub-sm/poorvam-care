@@ -74,7 +74,7 @@ export const MARKETS: Record<MarketId, Market> = {
     currency: "INR",
     currencySymbol: "₹",
     // Matches the existing online tier in service-packages.tsx.
-    sessionPrice: 600,
+    sessionPrice: 800,
     localPriceFrom: 800,
     localPriceTo: 1500,
     timezone: "Asia/Kolkata",
