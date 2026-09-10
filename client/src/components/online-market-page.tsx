@@ -1,3 +1,5 @@
+import { CONSULTATION_FEE_DISPLAY, CONSULTATION_STEPS_SUBHEADING } from "@/config/payments";
+import ConsultationCta from "@/components/consultation-cta";
 import SeoHead from "@/components/seo-head";
 import StructuredData, {
   createBreadcrumbSchema,
@@ -108,13 +110,8 @@ export default function OnlineMarketPage({
               {heroBlurb}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/online/enquiry"
-                className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25 text-center"
-              >
-                Book a free 15-min consultation
-              </Link>
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+              <ConsultationCta />
               {market.ctaChannel === "whatsapp" && (
                 <a
                   href={whatsappLink(
@@ -211,7 +208,7 @@ export default function OnlineMarketPage({
                 href="/online/enquiry"
                 className="mt-6 inline-flex items-center gap-1 text-coral font-heading font-semibold text-sm hover:underline"
               >
-                Book a free consultation <ArrowRight className="w-4 h-4" />
+                Book a consultation <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -256,9 +253,7 @@ export default function OnlineMarketPage({
 
       <DigitalFirst compact />
 
-      <ConsultationSteps
-        subheading={`Three steps, no cost, and no obligation to book therapy afterwards.`}
-      />
+      <ConsultationSteps subheading={CONSULTATION_STEPS_SUBHEADING} />
 
       <FAQSection
         faqs={faqs}
@@ -270,18 +265,15 @@ export default function OnlineMarketPage({
       <section className="py-20 bg-brown-deep">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-warm-bg mb-4">
-            Start with a free 15-minute consultation
+            Start with a 15-minute consultation
           </h2>
           <p className="text-lg text-warm-bg/80 font-body mb-8">
-            Tell us about your child. We'll tell you honestly whether online therapy is
-            the right fit — and if it isn't, we'll say so.
+            Tell us about your child, then reserve a priority slot for{" "}
+            {CONSULTATION_FEE_DISPLAY} — it comes off your first session. We'll tell you
+            honestly whether online therapy is the right fit — and if it isn't, we'll
+            say so.
           </p>
-          <Link
-            href="/online/enquiry"
-            className="inline-block bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg"
-          >
-            Book your consultation
-          </Link>
+          <ConsultationCta tone="dark" align="center" />
         </div>
       </section>
     </>

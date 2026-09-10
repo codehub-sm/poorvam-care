@@ -6,12 +6,15 @@
  *  2. Static file serving from dist/public
  *  3. SPA fallback — any unknown path returns index.html (200) so
  *     React/Wouter can handle client-side routing
+ *  4. Razorpay payments API (/api/create-order, /api/verify-payment) via
+ *     server/payments-node.js — see server/payments.js for the contract
  */
 
 import http from "http";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { servePayments } from "./server/payments-node.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, "dist", "public");
@@ -82,8 +85,14 @@ const MIME = {
 // ---------------------------------------------------------------------------
 // Server
 // ---------------------------------------------------------------------------
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   const urlPath = req.url.split("?")[0]; // strip query string for routing
+
+  // 0. Payments API (Razorpay order + signature verification). Checked first
+  //    so /api/* can never fall through to the SPA shell as a 200 HTML page.
+  //    Needs RAZORPAY_KEY_ID / RAZORPAY_KEY_SECRET in the environment
+  //    (Replit Secrets, or `node --env-file=.env server.js` locally).
+  if (await servePayments(req, res)) return;
 
   // 1. 301 redirects
   if (REDIRECTS[urlPath]) {

@@ -18,7 +18,7 @@ export default function OnlineSpeechTherapyPage() {
     <OnlineServicePage
       service={service}
       seoTitle="Online Speech Therapy for Children | Late Talkers, Unclear Speech, Stammering | Poorvam Care"
-      seoDescription="Live one-to-one online speech and language therapy for children — late talking, unclear speech, language delay, stammering and autism-related communication. RCI-registered therapists. Free consultation."
+      seoDescription="Live one-to-one online speech and language therapy for children — late talking, unclear speech, language delay, stammering and autism-related communication. RCI-registered therapists. 15-minute consultation, ₹100 to reserve your slot."
       heroBlurb="Live one-to-one sessions with a speech-language pathologist, in the language your family speaks at home. For late talkers, children who are hard to understand, stammering, and autism-related communication."
       intro={[
         "Speech and language therapy has the longest track record of any therapy delivered over video, and the research consistently finds outcomes comparable to in-person sessions across most goals — articulation, language delay, fluency and social communication among them.",

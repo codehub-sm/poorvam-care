@@ -1,38 +1,41 @@
-import { CalendarCheck, Mail, Video } from "lucide-react";
+import { ClipboardList, BadgeCheck, Video } from "lucide-react";
+import { CONSULTATION_FEE_DISPLAY } from "@/config/payments";
 
 /**
- * The three-step "book a free consultation" explainer.
+ * The three-step "book a consultation" explainer.
  *
  * Replaces the published per-session pricing that previously anchored these
  * pages. Pricing is now discussed on the consultation call instead — so this
  * block has to carry the job the price tag used to do: making the next step
  * feel small, concrete, and low-risk for a parent who has never heard of us.
  *
- * The middle step deliberately promises the invite "in your local time". For an
- * overseas parent, timezone confusion is a real booking objection, and saying
- * so up front removes it.
+ * The middle step names the booking fee up front. A parent who meets a fee
+ * for the first time on the payment screen feels ambushed; one who read
+ * about it here, with the reason, reads it as a clinic that takes its slots
+ * seriously. The last step promises the time "in your local timezone" — for
+ * an overseas parent, timezone confusion is a real booking objection.
  */
 
 const STEPS = [
   {
-    icon: CalendarCheck,
-    title: "Schedule a time that works for you",
-    body: "Pick a slot in your own timezone — evenings and after-school times included.",
+    icon: ClipboardList,
+    title: "Tell us about your child",
+    body: "A two-minute form: your child's age, what you're seeing, and where you live.",
   },
   {
-    icon: Mail,
-    title: "We email you a link",
-    body: "Your confirmation arrives with the session time shown in your local time, so there's nothing to convert.",
+    icon: BadgeCheck,
+    title: `Reserve your slot for ${CONSULTATION_FEE_DISPLAY}`,
+    body: "A small booking fee holds a priority slot and confirms you're a real family. It comes off your first session.",
   },
   {
     icon: Video,
     title: "Meet your specialist",
-    body: "A 15-minute call with a therapist — no cost, no obligation. We'll tell you honestly whether we can help.",
+    body: "We email a confirmed time in your local timezone. A 15-minute call with a therapist who'll tell you honestly whether we can help.",
   },
 ];
 
 export default function ConsultationSteps({
-  heading = "Book your free online consultation",
+  heading = "Book your online consultation",
   subheading,
 }: {
   heading?: string;

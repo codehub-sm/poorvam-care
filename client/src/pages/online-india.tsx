@@ -1,3 +1,4 @@
+import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import OnlineMarketPage from "@/components/online-market-page";
 import { MARKETS } from "@/config/markets";
 
@@ -32,13 +33,13 @@ export default function OnlineIndiaPage() {
         "Works on a phone, tablet, or laptop with a stable connection",
         "Home activity plan and written summary after every session",
         "No packages to buy into and no minimum commitment",
-        "Free 15-minute consultation before you commit",
+        CONSULTATION_FEE_COPY.bullet,
       ]}
       faqs={[
         {
           question: "How much does online therapy cost?",
           answer:
-            "Fees depend on the type of therapy and how often your child needs sessions, so we go through it properly on the free 15-minute consultation rather than quoting a figure that may not apply to you. What we can tell you up front: there is no package you have to buy into, no minimum number of sessions, and you will have a clear number before you are asked to commit to anything. If you are in Bengaluru and would prefer to come in person, in-centre pricing is published on our service packages page.",
+            "Fees depend on the type of therapy and how often your child needs sessions, so we go through it properly on the 15-minute consultation rather than quoting a figure that may not apply to you. What we can tell you up front: the ₹100 booking fee comes off your first session, there is no package you have to buy into, no minimum number of sessions, and you will have a clear number before you are asked to commit to anything. If you are in Bengaluru and would prefer to come in person, in-centre pricing is published on our service packages page.",
         },
         {
           question: "Which languages do you offer therapy in?",
@@ -58,7 +59,7 @@ export default function OnlineIndiaPage() {
         {
           question: "Is online therapy as good as coming to the centre?",
           answer:
-            "For most speech and language goals the evidence puts online delivery on par with in-person therapy. It is less suitable for feeding and swallowing difficulties, which need hands-on assessment, and some children under three engage better in a room with a therapist. If we think your child would do better in person, we will say so on the free consultation — and if you are not near Bengaluru, we would rather refer you locally than take a booking we do not think will help.",
+            "For most speech and language goals the evidence puts online delivery on par with in-person therapy. It is less suitable for feeding and swallowing difficulties, which need hands-on assessment, and some children under three engage better in a room with a therapist. If we think your child would do better in person, we will say so on the consultation — and if you are not near Bengaluru, we would rather refer you locally than take a booking we do not think will help.",
         },
       ]}
     />

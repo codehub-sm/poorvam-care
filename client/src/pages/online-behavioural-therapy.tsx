@@ -19,7 +19,7 @@ export default function OnlineBehaviouralTherapyPage() {
     <OnlineServicePage
       service={service}
       seoTitle="Online Behavioural Therapy & Parent Training for Children | Poorvam Care"
-      seoDescription="Live online behavioural support for meltdowns, transitions, sleep, toileting and daily routines. ABA-informed parent training with RCI-registered therapists. Free 15-minute consultation."
+      seoDescription="Live online behavioural support for meltdowns, transitions, sleep, toileting and daily routines. ABA-informed parent training with RCI-registered therapists. 15-minute consultation, ₹100 to reserve your slot."
       heroBlurb="Most behaviour changes at home, not in a clinic. We work with you — the person who is there for the tantrum, the bedtime, the school run — to build strategies that hold up in real life."
       intro={[
         "Behavioural difficulties rarely happen on schedule in a therapy room. They happen at 7am when the shoes go on, at bedtime, in the supermarket, when a routine changes without warning. That is precisely why caregiver-mediated behavioural support translates so well to video: the work was always going to happen at home, so we may as well train the person who is there.",

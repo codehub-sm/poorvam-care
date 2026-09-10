@@ -18,7 +18,7 @@ export default function OnlineOccupationalTherapyPage() {
     <OnlineServicePage
       service={service}
       seoTitle="Online Occupational Therapy for Children | Sensory & Motor Support | Poorvam Care"
-      seoDescription="Live online paediatric occupational therapy — sensory strategies, fine motor and handwriting, self-care routines and regulation, coached through you at home. RCI-registered therapists. Free consultation."
+      seoDescription="Live online paediatric occupational therapy — sensory strategies, fine motor and handwriting, self-care routines and regulation, coached through you at home. RCI-registered therapists. 15-minute consultation, ₹100 to reserve your slot."
       heroBlurb="Occupational therapy delivered by coaching you, in the room where your child actually struggles. Sensory strategies, handwriting, dressing, mealtimes, and regulation — worked on at home, where the difficulty really happens."
       intro={[
         "Yes, occupational therapy can be delivered online — but it works differently from in-person OT, and it is worth understanding how before you book. Rather than the therapist working hands-on with your child, they observe and coach you through the strategies, using the toys, furniture and routines you already have at home.",

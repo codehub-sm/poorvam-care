@@ -1,3 +1,4 @@
+import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import OnlineMarketPage from "@/components/online-market-page";
 import { MARKETS } from "@/config/markets";
 
@@ -40,7 +41,7 @@ export default function OnlineUaePage() {
         "Sessions in Gulf Standard Time, including evenings after school",
         "Clinicians registered with the Rehabilitation Council of India",
         "This is a private-pay service; it is not billable to UAE health insurance",
-        "Free 15-minute consultation before you commit",
+        CONSULTATION_FEE_COPY.bullet,
       ]}
       faqs={[
         {
@@ -66,7 +67,7 @@ export default function OnlineUaePage() {
         {
           question: "Is online therapy suitable for my child?",
           answer:
-            "It depends on the therapy and on your child. Speech and language therapy and caregiver-led behavioural work translate well to video, with evidence showing outcomes comparable to in-person sessions. Remedial teaching is close to format-neutral. Occupational therapy works well as parent coaching, but not for goals needing hands-on assessment or clinic equipment. Feeding and swallowing difficulties do genuinely need someone in the room. The free consultation exists so we can tell you which category your child falls into — including when the honest answer is that you should see someone locally in person.",
+            "It depends on the therapy and on your child. Speech and language therapy and caregiver-led behavioural work translate well to video, with evidence showing outcomes comparable to in-person sessions. Remedial teaching is close to format-neutral. Occupational therapy works well as parent coaching, but not for goals needing hands-on assessment or clinic equipment. Feeding and swallowing difficulties do genuinely need someone in the room. The consultation exists so we can tell you which category your child falls into — including when the honest answer is that you should see someone locally in person.",
         },
       ]}
     />

@@ -1,12 +1,13 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { allPublicRoutes, allIndexableRoutes } from "./client/src/config/routes";
 import { blogPosts } from "./client/src/data/blog-posts";
 import { writeBuildArtifacts } from "./scripts/build-artifacts";
+import { servePayments } from "./server/payments-node.js";
 
-export default defineConfig(async ({ command }) => {
+export default defineConfig(async ({ command, mode }) => {
   const plugins = [
     react(),
     runtimeErrorOverlay(),
@@ -30,6 +31,25 @@ export default defineConfig(async ({ command }) => {
   const sitemapRoutes = allIndexableRoutes(blogSlugs);
   const repoRoot = import.meta.dirname;
   const distDir = path.resolve(repoRoot, "dist/public");
+
+  if (command === "serve") {
+    // Serve the Razorpay payments API from the dev server itself, on the same
+    // origin as the site. One process for `npm run dev`, no proxy, and the
+    // exact handler server.js and the Lambda use — so dev cannot drift from
+    // prod. The secret is read from the repo-root .env here and never
+    // reaches the client bundle (only VITE_* keys do).
+    Object.assign(process.env, loadEnv(mode, repoRoot, ["RAZORPAY_", "PAYMENTS_"]));
+    plugins.push({
+      name: "poorvam-payments-dev-api",
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          servePayments(req, res).then((handled) => {
+            if (!handled) next();
+          }, next);
+        });
+      },
+    });
+  }
 
   if (command === "build") {
     // Runs after the prerenderer has written its output, so the generated
@@ -87,6 +107,9 @@ export default defineConfig(async ({ command }) => {
       },
     },
     root: path.resolve(import.meta.dirname, "client"),
+    // .env lives at the repo root (where .gitignore expects it), not in
+    // client/, which is Vite's default envDir because `root` is client/.
+    envDir: repoRoot,
     build: {
       outDir: path.resolve(import.meta.dirname, "dist/public"),
       emptyOutDir: true,

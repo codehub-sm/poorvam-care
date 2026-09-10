@@ -2,6 +2,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import OnlineEnquiryForm from "@/components/online-enquiry-form";
 import { SITE_URL } from "@/config/site";
+import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import { ShieldCheck, Clock, MessageSquare } from "lucide-react";
 
 /**
@@ -17,8 +18,8 @@ export default function OnlineEnquiryPage() {
   return (
     <>
       <SeoHead
-        title="Book a Free Consultation | Poorvam Online Therapy"
-        description="Tell us about your child and we'll arrange a free 15-minute consultation to discuss whether online therapy is the right fit."
+        title="Book an Online Consultation | Poorvam Online Therapy"
+        description="Tell us about your child and reserve a 15-minute consultation with an RCI-registered therapist to discuss whether online therapy is the right fit."
         canonical={url}
         localGeo={false}
         robots="noindex, follow"
@@ -36,20 +37,24 @@ export default function OnlineEnquiryPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <h1 className="text-3xl lg:text-4xl font-heading font-extrabold text-brown-deep mb-4">
-                Book a free 15-min consultation
+                Book your online consultation
               </h1>
+              <p className="text-brown-mid font-body leading-relaxed mb-4">
+                A 15-minute call with an RCI-registered therapist. We'll talk through
+                what you're seeing, explain how we'd approach it, and tell you honestly
+                whether online therapy is right for your child — including when the
+                answer is no.
+              </p>
               <p className="text-brown-mid font-body leading-relaxed mb-8">
-                No cost, no commitment. We'll talk through what you're seeing, explain
-                how we'd approach it, and tell you honestly whether online therapy is
-                right for your child — including when the answer is no.
+                {CONSULTATION_FEE_COPY.why} {CONSULTATION_FEE_COPY.terms}
               </p>
 
               <div className="space-y-5">
                 {[
                   {
                     icon: Clock,
-                    title: "We reply within one working day",
-                    body: "You'll hear from a member of the clinical team, not an automated sequence.",
+                    title: "Paid bookings are confirmed first",
+                    body: "You'll hear from a member of the clinical team within one working day — a confirmed time, not an automated sequence.",
                   },
                   {
                     icon: ShieldCheck,

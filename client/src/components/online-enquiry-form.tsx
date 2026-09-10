@@ -10,7 +10,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
+import ConsultationBooking from "@/components/consultation-booking";
 import { submitLead } from "@/lib/leads";
 import { trackWhatsAppClick, trackCallClick, trackEvent } from "@/lib/analytics";
 import { CONTACT, whatsappLink, telLink } from "@/config/site";
@@ -161,43 +162,9 @@ export default function OnlineEnquiryForm() {
   }
 
   if (step === 3) {
-    return (
-      <div className="rounded-2xl border border-sage/30 bg-sage/10 p-8 text-center">
-        <CheckCircle className="w-10 h-10 text-sage-dark mx-auto mb-4" />
-        <h3 className="text-xl font-heading font-bold text-brown-deep mb-2">
-          Thank you — we have your details
-        </h3>
-        <p className="text-brown-mid font-body text-sm leading-relaxed max-w-md mx-auto">
-          One of our team will be in touch within one working day to arrange your
-          free 15-minute consultation. If you'd rather not wait, message us directly.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a
-            href={whatsappLink(
-              `Hi Poorvam Care, I just submitted an online therapy enquiry (ref ${leadId}).`,
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick("enquiry-confirmation")}
-            className="rounded-xl bg-green-600 px-6 py-3 font-heading font-semibold text-white hover:bg-green-700"
-          >
-            WhatsApp us
-          </a>
-          <a
-            href={telLink}
-            onClick={() => trackCallClick("enquiry-confirmation")}
-            className="rounded-xl border-2 border-sage px-6 py-3 font-heading font-semibold text-sage-dark hover:bg-sage/10"
-          >
-            Call {CONTACT.phoneDisplay}
-          </a>
-        </div>
-        {leadId && (
-          <p className="mt-4 text-xs text-brown-light font-body">
-            Your reference: {leadId}
-          </p>
-        )}
-      </div>
-    );
+    // The lead is captured and the country gate has passed; only now do we
+    // ask for the booking fee. See ConsultationBooking for why that order.
+    return <ConsultationBooking leadId={leadId} parentName={s1.parentName} />;
   }
 
   if (step === 2) {

@@ -1,3 +1,5 @@
+import { CONSULTATION_STEPS_SUBHEADING } from "@/config/payments";
+import ConsultationCta from "@/components/consultation-cta";
 import SeoHead from "@/components/seo-head";
 import StructuredData, {
   createBreadcrumbSchema,
@@ -112,13 +114,8 @@ export default function OnlineServicePage({
             <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
               {heroBlurb}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/online/enquiry"
-                className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25 text-center"
-              >
-                Book a free 15-min consultation
-              </Link>
+            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+              <ConsultationCta />
               <a
                 href={whatsappLink(
                   `Hi Poorvam Care, I'd like to know about online ${service.shortName.toLowerCase()} for my child.`,
@@ -215,7 +212,7 @@ export default function OnlineServicePage({
 
       <DigitalFirst compact />
 
-      <ConsultationSteps subheading="No cost, no obligation. Fifteen minutes to work out whether we can actually help your child." />
+      <ConsultationSteps subheading={CONSULTATION_STEPS_SUBHEADING} />
 
       <FAQSection
         faqs={faqs}

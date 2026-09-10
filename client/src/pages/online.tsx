@@ -1,3 +1,5 @@
+import { CONSULTATION_STEPS_SUBHEADING } from "@/config/payments";
+import ConsultationCta from "@/components/consultation-cta";
 import SeoHead from "@/components/seo-head";
 import StructuredData, {
   createBreadcrumbSchema,
@@ -26,12 +28,12 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "Fees depend on your country, the type of therapy, and how often your child needs sessions — so we go through it properly on the free consultation rather than quoting a number that may not apply to you. You will have a clear figure before you are asked to commit to anything, and there are no packages you have to buy into up front.",
+      "Fees depend on your country, the type of therapy, and how often your child needs sessions — so we go through it properly on the consultation rather than quoting a number that may not apply to you. You will have a clear figure before you are asked to commit to anything, and there are no packages you have to buy into up front.",
   },
   {
     question: "Is online therapy actually effective?",
     answer:
-      "It depends on the therapy. Speech and language therapy and caregiver-led behavioural work have strong telehealth evidence, with outcomes comparable to in-person sessions. Remedial teaching is close to format-neutral. Occupational therapy works well when delivered as parent coaching, but not for goals needing hands-on assessment or clinic equipment. Each of our service pages sets out plainly what that discipline does well online and what it doesn't — and the free consultation exists partly so we can tell you when the honest answer is that online is not right for your child.",
+      "It depends on the therapy. Speech and language therapy and caregiver-led behavioural work have strong telehealth evidence, with outcomes comparable to in-person sessions. Remedial teaching is close to format-neutral. Occupational therapy works well when delivered as parent coaching, but not for goals needing hands-on assessment or clinic equipment. Each of our service pages sets out plainly what that discipline does well online and what it doesn't — and the consultation exists partly so we can tell you when the honest answer is that online is not right for your child.",
   },
   {
     question: "What languages do you work in?",
@@ -99,14 +101,9 @@ export default function OnlinePage() {
               Speech therapy, occupational therapy, behavioural support and learning
               support — live one-to-one with RCI-registered clinicians in Bengaluru, in
               English, Hindi, Tamil, Telugu, Kannada or Malayalam. No waitlist, and a
-              free consultation before you commit to anything.
+              15-minute consultation before you commit to anything.
             </p>
-            <Link
-              href="/online/enquiry"
-              className="inline-block bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
-            >
-              Book a free 15-min consultation
-            </Link>
+            <ConsultationCta />
           </div>
         </div>
       </section>
@@ -178,7 +175,7 @@ export default function OnlinePage() {
         </div>
       </section>
 
-      <ConsultationSteps subheading="No cost, no obligation. Fifteen minutes to work out whether we can actually help your child." />
+      <ConsultationSteps subheading={CONSULTATION_STEPS_SUBHEADING} />
 
       <DigitalFirst />
 

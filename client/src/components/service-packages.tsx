@@ -4,6 +4,8 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from "@/components/ui/button";
 import Contact from "@/components/contact";
 import SeoHead from "@/components/seo-head";
+import RazorpayPaymentButton from "@/components/razorpay-payment-button";
+import { PAYMENT_BUTTONS } from "@/config/payments";
 
 // ── Types ───────────────────────────────────────────────────────
 
@@ -20,6 +22,7 @@ const assessments = [
     includes: ["Cognitive & behavioral evaluation", "Communication assessment", "Written report with recommendations", "Parent consultation", "Follow-up session"],
     icon: Brain,
     accent: "blue" as const,
+    paymentButtonId: PAYMENT_BUTTONS.developmentalAssessment,
   },
   {
     name: "Autism Screening",
@@ -29,6 +32,7 @@ const assessments = [
     includes: ["ADOS-2 & ADI-R assessment", "Clinical observation", "Sensory profile assessment", "Diagnostic report", "Treatment recommendations"],
     icon: Sparkles,
     accent: "purple" as const,
+    paymentButtonId: PAYMENT_BUTTONS.autismScreening,
   },
 ];
 
@@ -126,7 +130,7 @@ export default function ServicePackages() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm font-body text-brown-light">
             <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> No hidden fees</span>
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> Free initial consultation</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> Consultation before you commit</span>
             <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-sage" /> Pay per session — no lock-in</span>
           </div>
         </div>
@@ -358,6 +362,20 @@ export default function ServicePackages() {
                       </DialogContent>
                     </Dialog>
                   </div>
+                  {/* Razorpay-hosted Payment Button; renders only when its id
+                      is configured. Payments show up in the Razorpay dashboard
+                      and its email alert — there is no callback to the page. */}
+                  {a.paymentButtonId && (
+                    <div className="mt-3">
+                      <p className="text-xs text-brown-light font-body mb-2">
+                        Or pay now to lock in your assessment date:
+                      </p>
+                      <RazorpayPaymentButton
+                        buttonId={a.paymentButtonId}
+                        trackAs={a.name}
+                      />
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -486,7 +504,7 @@ export default function ServicePackages() {
             Not Sure Where to Start?
           </h2>
           <p className="text-warm-bg/90 font-body mb-8">
-            Book a free 15-minute consultation. We'll assess your child's needs and recommend the right therapy, frequency, and delivery mode — no commitment required.
+            Book a 15-minute consultation. We'll assess your child's needs and recommend the right therapy, frequency, and delivery mode — no commitment required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Dialog>

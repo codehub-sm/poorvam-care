@@ -20,7 +20,7 @@ export default function OnlineSpecialEducationPage() {
     <OnlineServicePage
       service={service}
       seoTitle="Online Special Education & Remedial Teaching for Children | Poorvam Care"
-      seoDescription="One-to-one online remedial teaching for reading, writing and maths difficulties, including dyslexia and ADHD support. Individualised plans from RCI-registered special educators. Free consultation."
+      seoDescription="One-to-one online remedial teaching for reading, writing and maths difficulties, including dyslexia and ADHD support. Individualised plans from RCI-registered special educators. 15-minute consultation, ₹100 to reserve your slot."
       heroBlurb="One-to-one remedial teaching for children who are falling behind in reading, writing or maths — taught at the pace they actually need, not the pace the classroom moves at."
       intro={[
         "Of everything we deliver online, remedial teaching is the one that loses least in translation. One-to-one instruction over video is close to identical to one-to-one instruction across a table — and for a child who struggles with reading, a screen-shared text you can enlarge, recolour, highlight and reveal line by line is often easier to work with than a printed page.",

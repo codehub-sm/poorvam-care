@@ -90,6 +90,9 @@ const faqs = [
   },
 ];
 
+/** Team grid is hidden while the roster is being updated. */
+const SHOW_TEAM = false;
+
 const team = [
   { name: "Apoorva", title: "Clinical Director & Speech Therapist", image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/apoorva.jpg", exp: "13+" },
   { name: "Mariapan", title: "Sr. Occupational Therapist", image: "https://poorvam-staff.s3.us-east-1.amazonaws.com/mariapan.png", exp: "15+" },
@@ -266,7 +269,9 @@ export default function ChildDevelopmentPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team — hidden for now (Sep 2026). Flip SHOW_TEAM to bring it back;
+          the data and markup are kept so nothing has to be rebuilt. */}
+      {SHOW_TEAM && (
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -303,6 +308,7 @@ export default function ChildDevelopmentPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* FAQ */}
       <FAQSection

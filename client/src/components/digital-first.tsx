@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import ConsultationCta from "@/components/consultation-cta";
 import {
   CalendarDays,
   Target,
@@ -101,12 +101,7 @@ export default function DigitalFirst({
 
         {!compact && (
           <div className="mt-12 text-center">
-            <Link
-              href="/online/enquiry"
-              className="inline-block bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
-            >
-              Book a free consultation
-            </Link>
+            <ConsultationCta align="center" />
           </div>
         )}
       </div>
