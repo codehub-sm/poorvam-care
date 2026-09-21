@@ -161,22 +161,19 @@ interface SinkResult {
  * Builds the notification subject.
  *
  * This is the line the team reads in an inbox at a glance, so it leads with
- * who the lead is and what they want. A step-1 enquiry has no name yet — the
- * email address is the identity — and a step-2 submission enriches a lead that
- * already sent an email, so it is labelled an update rather than arriving as a
- * second, apparently duplicate, lead.
+ * who the lead is and what they want. A lead that stopped after the enquiry
+ * form's step 1 has no concern yet — the name alone identifies it.
  */
 function subjectFor(row: Record<string, unknown>): string {
   const str = (k: string) => (typeof row[k] === "string" ? (row[k] as string) : "");
   const who = str("name") || str("email") || str("phone") || "Unknown";
   const what = str("service") || str("concern");
-  const isUpdate = str("stage") === "enquiry-step-2";
 
   const parts = [who];
   if (what) parts.push(what);
   parts.push(str("form") || "website");
 
-  return `${isUpdate ? "Lead updated" : "New lead"} — ${parts.join(" · ")}`;
+  return `New lead — ${parts.join(" · ")}`;
 }
 
 /**
@@ -251,18 +248,22 @@ async function postToSheet(body: string): Promise<SinkResult> {
  * The access key is public by design (Web3Forms documents it as safe in client
  * code); it authorises delivery to one fixed inbox, not access to any data.
  */
+/** The Web3Forms body: the canonical row plus Web3Forms' reserved keys. */
+function web3FormsFields(row: Record<string, unknown>): Record<string, string> {
+  const email = typeof row.email === "string" ? row.email : "";
+  const fields: Record<string, string> = {};
+  for (const [key, value] of Object.entries(row)) fields[key] = String(value);
+  fields.access_key = WEB3FORMS_ACCESS_KEY;
+  fields.subject = subjectFor(row);
+  fields.from_name = "Poorvam Care Website";
+  if (email) fields.replyto = email;
+  return fields;
+}
+
 async function postToWeb3Forms(
   row: Record<string, unknown>,
 ): Promise<SinkResult> {
-  const email = typeof row.email === "string" ? row.email : "";
-
-  const body = JSON.stringify({
-    ...row,
-    access_key: WEB3FORMS_ACCESS_KEY,
-    subject: subjectFor(row),
-    from_name: "Poorvam Care Website",
-    ...(email ? { replyto: email } : {}),
-  });
+  const body = JSON.stringify(web3FormsFields(row));
 
   try {
     const res = await fetch(WEB3FORMS_ENDPOINT, {
@@ -313,14 +314,26 @@ function combine(sinks: SinkResult[]): SubmitResult {
  * fires its own analytics event, because a half-working pipeline that reports
  * success is the same failure mode this file was written to end.
  *
+ * `alert: false` writes the Sheet only. A multi-step form records every step
+ * but must email the team once per lead, not once per step — it sends the
+ * alert itself via `submitLead` on its last step, `sendLeadAlert`, or
+ * `beaconLeadAlert`.
+ *
  * @param payload  The form's own fields; mapped onto the lead schema here.
  * @param formName Identifies the converting surface (e.g. "contact-page").
  */
 export async function submitLead(
   payload: Record<string, unknown>,
   formName: string,
+  { alert = true }: { alert?: boolean } = {},
 ): Promise<SubmitResult> {
   const row = toLeadRow(payload, formName);
+
+  if (!alert) {
+    const sheet = await postToSheet(JSON.stringify(row));
+    trackFormSubmit(formName, sheet.status);
+    return sheet;
+  }
 
   const [sheet, mail] = await Promise.all([
     postToSheet(JSON.stringify(row)),
@@ -337,4 +350,33 @@ export async function submitLead(
 
   trackFormSubmit(formName, result.status);
   return result;
+}
+
+/** Emails the lead to the team without writing the Sheet. */
+export function sendLeadAlert(
+  payload: Record<string, unknown>,
+  formName: string,
+): Promise<SubmitResult> {
+  return postToWeb3Forms(toLeadRow(payload, formName));
+}
+
+/**
+ * Emails the lead while the page is being torn down (tab closed, navigated
+ * away). Fire-and-forget: nothing survives to read a reply.
+ *
+ * `keepalive` lets the request outlive the page. It is sent as FormData — a
+ * CORS-safelisted type — because a JSON body needs a preflight, and a
+ * preflight is not reliably completed for a page that is already unloading.
+ * Mobile browsers can kill a page without firing `pagehide` at all, so this is
+ * best effort; the Sheet already holds the lead either way.
+ */
+export function beaconLeadAlert(
+  payload: Record<string, unknown>,
+  formName: string,
+): void {
+  const form = new FormData();
+  for (const [key, value] of Object.entries(web3FormsFields(toLeadRow(payload, formName)))) {
+    form.append(key, value);
+  }
+  fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: form, keepalive: true }).catch(() => {});
 }

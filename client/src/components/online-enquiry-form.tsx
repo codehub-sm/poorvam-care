@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 import { AlertCircle } from "lucide-react";
 import ConsultationBooking from "@/components/consultation-booking";
-import { submitLead } from "@/lib/leads";
+import { beaconLeadAlert, sendLeadAlert, submitLead } from "@/lib/leads";
 import { trackWhatsAppClick, trackCallClick, trackEvent } from "@/lib/analytics";
 import { CONTACT, whatsappLink, telLink } from "@/config/site";
 import { MARKET_LIST } from "@/config/markets";
@@ -24,6 +24,11 @@ import { MARKET_LIST } from "@/config/markets";
  * in their name and email and then abandons at step 2 is still a captured lead
  * — under a single long form, that same parent is lost entirely. Later steps
  * enrich the same record via a shared `leadId` rather than replacing it.
+ *
+ * Every step writes the Sheet, but the team gets ONE email per lead: sent on
+ * step 2 (submit or skip) so it carries everything the parent told us, or —
+ * if the parent leaves during step 2 — as the page closes, with step 1 alone.
+ * `alerted` guards the three paths so exactly one of them fires.
  *
  * The country field is a real eligibility gate, not a disclaimer. Speech-language
  * pathology is a licensed profession in the US and Canada and licensure follows
@@ -86,6 +91,28 @@ export default function OnlineEnquiryForm() {
   const step1Valid =
     s1.parentName.trim() && s1.email.trim() && s1.country && !blocked;
 
+  // Set once the team has been emailed about this lead; see header comment.
+  const alerted = useRef(false);
+
+  // Latest step-1 payload for the unload alert, read at teardown time.
+  const step1Payload = useRef<Record<string, unknown>>({});
+  step1Payload.current = { leadId, stage: "enquiry-step-1", ...s1 };
+
+  useEffect(() => {
+    if (step !== 2) return;
+    const alertOnLeave = () => {
+      if (alerted.current) return;
+      alerted.current = true;
+      beaconLeadAlert(step1Payload.current, "online-enquiry");
+    };
+    window.addEventListener("pagehide", alertOnLeave);
+    return () => {
+      window.removeEventListener("pagehide", alertOnLeave);
+      // Unmounting on step 2 means an in-app navigation away from the form.
+      if (!alerted.current) alertOnLeave();
+    };
+  }, [step]);
+
   const submitStep1 = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!step1Valid) return;
@@ -93,10 +120,15 @@ export default function OnlineEnquiryForm() {
 
     const id = newLeadId();
     setLeadId(id);
-    const result = await submitLead(
-      { leadId: id, stage: "enquiry-step-1", ...s1 },
-      "online-enquiry",
-    );
+    const payload = { leadId: id, stage: "enquiry-step-1", ...s1 };
+    let result = await submitLead(payload, "online-enquiry", { alert: false });
+
+    // The Sheet is step 1's only sink, so if it failed the email is the lead's
+    // one chance to survive — send it now rather than waiting for step 2.
+    if (result.status === "failed") {
+      result = await sendLeadAlert(payload, "online-enquiry");
+      if (result.status !== "failed") alerted.current = true;
+    }
     setBusy(false);
 
     if (result.status === "failed") {
@@ -110,11 +142,14 @@ export default function OnlineEnquiryForm() {
   const submitStep2 = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
+    const alert = !alerted.current;
+    alerted.current = true;
     // Fire-and-continue: step 1 already captured the lead, so a failure here
     // must not block the parent or lose what we already have.
     await submitLead(
       { leadId, stage: "enquiry-step-2", ...s1, concern, language, notes },
       "online-enquiry",
+      { alert },
     );
     setBusy(false);
     setStep(3);
@@ -122,6 +157,10 @@ export default function OnlineEnquiryForm() {
 
   const skipToEnd = () => {
     trackEvent("enquiry_step2_skipped", { lead_id: leadId });
+    if (!alerted.current) {
+      alerted.current = true;
+      void sendLeadAlert(step1Payload.current, "online-enquiry");
+    }
     setStep(3);
   };
 
