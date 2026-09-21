@@ -14,11 +14,11 @@ export const SITE_URL = "https://poorvamcare.in";
 
 export const CONTACT = {
   /** E.164, for tel: links and schema. */
-  phone: "+918861764343",
+  phone: "+918884864343",
   /** Human-readable, for display. */
-  phoneDisplay: "+91 88617 64343",
+  phoneDisplay: "+91 88848 64343",
   /** Digits only, for wa.me links. */
-  whatsapp: "918861764343",
+  whatsapp: "918884864343",
   email: "poorvam.care@gmail.com",
 } as const;
 

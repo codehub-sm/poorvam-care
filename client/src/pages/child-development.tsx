@@ -3,6 +3,7 @@ import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/compo
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { Puzzle, TrendingUp, Activity, Heart, Hand, Zap, ArrowRight } from "lucide-react";
+import { CONTACT, telLink } from "@/config/site";
 
 const conditions = [
   {
@@ -119,7 +120,7 @@ export default function ChildDevelopmentPage() {
           "name": "Poorvam Care - Child Development Center",
           "description": "Expert child development therapy for autism, developmental delays, cerebral palsy, and more",
           "url": "https://poorvamcare.in/child-development",
-          "telephone": "+918861764343",
+          "telephone": CONTACT.phone,
           "medicalSpecialty": "Pediatric Therapy",
           "address": {
             "@type": "PostalAddress",
@@ -162,10 +163,10 @@ export default function ChildDevelopmentPage() {
                 Book Free Assessment
               </Link>
               <a
-                href="tel:+918861764343"
+                href={telLink}
                 className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
-                Call: +91 88617 64343
+                Call: {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>

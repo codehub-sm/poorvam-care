@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Link } from "wouter";
-import { STATS } from "@/config/site";
+import { STATS, CONTACT, telLink } from "@/config/site";
 
 const serviceLinks = [
   { name: "Child Development Center", href: "/child-development" },
@@ -130,8 +130,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-coral/50 flex-shrink-0" />
-                <a href="tel:+918861764343" className="hover:text-coral transition-colors">
-                  +91 88617 64343
+                <a href={telLink} className="hover:text-coral transition-colors">
+                  {CONTACT.phoneDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">

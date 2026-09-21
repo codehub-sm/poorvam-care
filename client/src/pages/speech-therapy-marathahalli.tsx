@@ -1,5 +1,5 @@
 import NeighbourhoodPage from "@/components/neighbourhood-page";
-import { STATS } from "@/config/site";
+import { STATS, CONTACT } from "@/config/site";
 
 /**
  * Marathahalli neighbourhood landing page — content only.
@@ -68,7 +68,7 @@ export default function SpeechTherapyMaratahalliPage() {
         {
           question: "What is the cost of speech therapy at Poorvam Care?",
           answer:
-            "Therapy fees at Poorvam Care vary depending on the type of therapy, session frequency, and your child's individual care plan. We believe every child deserves expert care, so we offer competitive rates and flexible scheduling options. We recommend starting with an initial consultation, during which our therapist will assess your child's needs and provide a clear explanation of recommended therapy and associated costs — with no obligation to book. Call us on +91 88617 64343 or use our contact form to arrange your consultation.",
+            `Therapy fees at Poorvam Care vary depending on the type of therapy, session frequency, and your child's individual care plan. We believe every child deserves expert care, so we offer competitive rates and flexible scheduling options. We recommend starting with an initial consultation, during which our therapist will assess your child's needs and provide a clear explanation of recommended therapy and associated costs — with no obligation to book. Call us on ${CONTACT.phoneDisplay} or use our contact form to arrange your consultation.`,
         },
       ]}
       ctaBody="Families from Marathahalli, Bellandur, and Sarjapur Road trust Poorvam Care for expert speech therapy — in person and online. Book a consultation today."

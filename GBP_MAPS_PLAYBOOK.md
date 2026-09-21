@@ -14,7 +14,7 @@ Google trusts you more when your business details are *identical* everywhere onl
 - "Poorvam Therapy & Hearing Center"
 - "Poorvam Care & Hearing Solutions"
 
-**Action:** Pick ONE exact legal/brand name and use it byte-for-byte everywhere. Recommended: **Poorvam Care**. Then audit and correct it on: Google Business Profile (both locations), Justdial, Sulekha, Practo, Facebook, Instagram, PRASHAST, and the website footer. Use the exact same phone (+91 88617 64343) and address format on all of them. Inconsistent NAP is the single most common cause of a stuck local ranking.
+**Action:** Pick ONE exact legal/brand name and use it byte-for-byte everywhere. Recommended: **Poorvam Care**. Then audit and correct it on: Google Business Profile (both locations), Justdial, Sulekha, Practo, Facebook, Instagram, PRASHAST, and the website footer. Use the exact same phone (+91 88848 64343) and address format on all of them. Inconsistent NAP is the single most common cause of a stuck local ranking.
 
 ### 2. Confirm both locations are separate, verified GBP listings
 You operate Phase 1 and Phase 2. Each physical location should be its own **verified** GBP listing (not one listing, not duplicates). Verify both (video verification is now standard in India). Two verified, optimized listings = two chances to appear in the local pack.

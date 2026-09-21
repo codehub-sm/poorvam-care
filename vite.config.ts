@@ -1,10 +1,12 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { readFileSync, writeFileSync } from "fs";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { allPublicRoutes, allIndexableRoutes } from "./client/src/config/routes";
 import { blogPosts } from "./client/src/data/blog-posts";
 import { writeBuildArtifacts } from "./scripts/build-artifacts";
+import { fillContactTokens, assertNoHardcodedContact } from "./scripts/contact-tokens";
 import { servePayments } from "./server/payments-node.js";
 
 export default defineConfig(async ({ command, mode }) => {
@@ -32,6 +34,29 @@ export default defineConfig(async ({ command, mode }) => {
   const repoRoot = import.meta.dirname;
   const distDir = path.resolve(repoRoot, "dist/public");
 
+  // Contact details come from client/src/config/site.ts only. index.html and
+  // llms.txt can't import it, so they carry %CONTACT_*% tokens filled here —
+  // identically in dev and build, so neither can drift.
+  const llmsSource = path.resolve(repoRoot, "client/public/llms.txt");
+  plugins.push({
+    name: "poorvam-contact-tokens",
+    transformIndexHtml: {
+      order: "pre",
+      handler: (html, ctx) => fillContactTokens(html, ctx.filename),
+    },
+    configureServer(server) {
+      server.middlewares.use("/llms.txt", (_req, res) => {
+        res.setHeader("Content-Type", "text/plain; charset=utf-8");
+        res.end(fillContactTokens(readFileSync(llmsSource, "utf8"), llmsSource));
+      });
+    },
+    closeBundle() {
+      if (command !== "build") return;
+      const llmsOut = path.resolve(distDir, "llms.txt");
+      writeFileSync(llmsOut, fillContactTokens(readFileSync(llmsOut, "utf8"), llmsOut), "utf8");
+    },
+  });
+
   if (command === "serve") {
     // Serve the Razorpay payments API from the dev server itself, on the same
     // origin as the site. One process for `npm run dev`, no proxy, and the
@@ -52,6 +77,9 @@ export default defineConfig(async ({ command, mode }) => {
   }
 
   if (command === "build") {
+    // Fail before bundling if a number was pasted in by hand again.
+    assertNoHardcodedContact(repoRoot);
+
     // Runs after the prerenderer has written its output, so the generated
     // sitemap is not clobbered by the public/ directory copy.
     plugins.push({

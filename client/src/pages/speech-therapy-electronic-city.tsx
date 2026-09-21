@@ -4,7 +4,7 @@ import FAQSection from "@/components/faq-section";
 import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
 import { CheckCircle, MapPin, Phone } from "lucide-react";
-import { STATS } from "@/config/site";
+import { STATS, CONTACT, telLink } from "@/config/site";
 
 const ecFAQs = [
   {
@@ -21,7 +21,7 @@ const ecFAQs = [
   },
   {
     question: "Do you offer a consultation for speech therapy in Electronic City?",
-    answer: "Yes. We offer an initial consultation at both our Electronic City centres. During this session, our team will observe your child, discuss your concerns, and recommend an appropriate assessment and therapy plan. You can book a consultation by calling +91 88617 64343 or through our website.",
+    answer: `Yes. We offer an initial consultation at both our Electronic City centres. During this session, our team will observe your child, discuss your concerns, and recommend an appropriate assessment and therapy plan. You can book a consultation by calling ${CONTACT.phoneDisplay} or through our website.`,
   },
   {
     question: "What are the fees for speech therapy in Electronic City, Bangalore?",
@@ -34,7 +34,7 @@ export default function SpeechTherapyElectronicCity() {
     <>
       <SeoHead
         title="Speech Therapy in Electronic City, Bangalore | Poorvam Care"
-        description="Speech therapy in Electronic City, Bangalore — two centres in Phase 1 & Phase 2 for autism, speech delay & articulation disorders. Led by Apoorva Rai, MASLP (13+ yrs). Call +91 88617 64343 to book."
+        description={`Speech therapy in Electronic City, Bangalore — two centres in Phase 1 & Phase 2 for autism, speech delay & articulation disorders. Led by Apoorva Rai, MASLP (13+ yrs). Call ${CONTACT.phoneDisplay} to book.`}
         canonical="https://poorvamcare.in/speech-therapy-electronic-city"
         keywords="speech therapy Electronic City, speech therapist near Electronic City, best speech therapy center Electronic City Bangalore, speech therapy near me Electronic City Phase 1, speech therapy Electronic City Phase 2, speech therapy Bommanahalli, speech therapist Hosa Road, speech therapy cost Electronic City, child speech therapy Electronic City, speech delay treatment Electronic City, speech therapy near Ananth Nagar, speech therapy Neeladri Nagar, best speech therapist south Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -68,11 +68,11 @@ export default function SpeechTherapyElectronicCity() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+918861764343"
+                href={telLink}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-coral text-white font-heading font-semibold rounded-full hover:bg-coral/90 transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                Call +91 88617 64343
+                Call {CONTACT.phoneDisplay}
               </a>
               <Link
                 href="/contact"
@@ -226,10 +226,10 @@ export default function SpeechTherapyElectronicCity() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

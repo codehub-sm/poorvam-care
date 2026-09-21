@@ -6,7 +6,7 @@
 - Name: Poorvam Care (also known as Poorvam Care & Hearing Solutions)
 - Category: Early intervention centre / child development centre / pediatric speech & occupational therapy
 - Locations: Electronic City Phase 1 (Hulimangla Road, near Westside & Sai Baba Temple Road) and Electronic City Phase 2 (Ananth Nagar, above Bata showroom, opp. Udipi Aaradhya Restaurant), Bangalore 560100, Karnataka, India
-- Phone / WhatsApp: +91 88617 64343
+- Phone / WhatsApp: %CONTACT_PHONE_DISPLAY%
 - Email: poorvam.care@gmail.com
 - Hours: Monday–Friday 9:00–18:00, Saturday 9:00–14:00
 - Lead clinician: Apoorva Rai, Master of Audiology and Speech-Language Pathology (MASLP), Rehabilitation Council of India (RCI) licensed, member Indian Speech and Hearing Association (ISHA)
@@ -57,4 +57,4 @@
 - How do I get started? Book a free 15-minute consultation. You pick a time, we email a link showing the time in your local timezone, and you meet a specialist who tells you honestly whether we can help.
 - Which therapies work well online? Speech and language therapy and caregiver-led behavioural work have the strongest telehealth evidence, with outcomes comparable to in-person sessions. One-to-one remedial teaching is close to format-neutral. Occupational therapy works well when delivered as parent coaching, but not for goals requiring hands-on assessment or clinic equipment. Feeding and swallowing therapy, oral-motor assessment, hearing testing and formal psychometric diagnosis cannot be delivered online.
 - Do parents get visibility into therapy? Yes. Poorvam runs on its own digital platform: parents see the session schedule, the therapy goals, session reports, home practice activities and billing from their phone, can book or reschedule sessions themselves, and can message their therapist between sessions.
-- What does it cost? Flexible packages based on therapy type and frequency; transparent pricing after an initial consultation. Call +91 88617 64343.
+- What does it cost? Flexible packages based on therapy type and frequency; transparent pricing after an initial consultation. Call %CONTACT_PHONE_DISPLAY%.

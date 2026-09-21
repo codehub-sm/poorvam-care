@@ -2,7 +2,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock, Check, ArrowRight } from "lucide-react";
-import { STATS } from "@/config/site";
+import { STATS, CONTACT, telLink } from "@/config/site";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -11,7 +11,7 @@ const localBusinessSchema = {
   "name": "Poorvam Care — Electronic City Phase 1",
   "description": "Multi-disciplinary early intervention centre offering speech therapy, occupational therapy, ABA, behavioural therapy, special education, and therapeutic enrichment for children aged 2–14 in Electronic City Phase 1, Bangalore.",
   "url": "https://poorvamcare.in/electronic-city-phase-1",
-  "telephone": "+918861764343",
+  "telephone": CONTACT.phone,
   "email": "poorvam.care@gmail.com",
   "address": {
     "@type": "PostalAddress",
@@ -139,7 +139,7 @@ export default function ElectronicCityPhase1() {
                   <Phone className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-brown-deep block mb-1">Phone</span>
-                    <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 88617 64343</a>
+                    <a href={telLink} className="hover:text-coral transition-colors">{CONTACT.phoneDisplay}</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -288,10 +288,10 @@ export default function ElectronicCityPhase1() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

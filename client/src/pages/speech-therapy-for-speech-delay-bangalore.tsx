@@ -3,6 +3,7 @@ import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/c
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
+import { CONTACT, telLink } from "@/config/site";
 
 const speechDelayFAQs = [
   {
@@ -28,7 +29,7 @@ export default function SpeechTherapyForSpeechDelay() {
     <>
       <SeoHead
         title="Speech Therapy for Speech Delay in Bangalore | Poorvam Care, Electronic City"
-        description="Expert speech therapy for children with speech delay and late talkers in Electronic City, Bangalore. Early intervention by Apoorva Rai, MASLP, 13+ years experience. Call +91 88617 64343 to book."
+        description={`Expert speech therapy for children with speech delay and late talkers in Electronic City, Bangalore. Early intervention by Apoorva Rai, MASLP, 13+ years experience. Call ${CONTACT.phoneDisplay} to book.`}
         canonical="https://poorvamcare.in/speech-therapy-for-speech-delay-bangalore"
         keywords="speech therapy for speech delay Bangalore, late talker therapy Electronic City, speech delay treatment Bangalore, toddler not talking, child speech delay therapy near me, speech language pathologist Electronic City, speech therapy near me Bommanahalli, speech delay treatment cost Bangalore, best speech therapist for toddlers near me, speech therapy Hosa Road, late talker therapy Kudlu Gate, speech therapy fees Bangalore, online speech therapy for toddlers Bangalore, early intervention speech therapy near me, RCI licensed speech therapist Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -157,10 +158,10 @@ export default function SpeechTherapyForSpeechDelay() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

@@ -3,6 +3,7 @@ import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/c
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
+import { CONTACT, telLink } from "@/config/site";
 
 const abaFAQs = [
   {
@@ -223,10 +224,10 @@ export default function ABATherapyForChildren() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

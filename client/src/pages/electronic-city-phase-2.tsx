@@ -3,7 +3,7 @@ import StructuredData, { createBreadcrumbSchema } from "@/components/structured-
 import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock, Check, ArrowRight, Star } from "lucide-react";
-import { STATS } from "@/config/site";
+import { STATS, CONTACT, telLink } from "@/config/site";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -12,7 +12,7 @@ const localBusinessSchema = {
   "name": "Poorvam Care — Electronic City Phase 2",
   "description": "Multi-disciplinary early intervention centre offering speech therapy, occupational therapy, ABA, behavioural therapy, special education, and therapeutic enrichment for children aged 2–14 in Electronic City Phase 2, Bangalore.",
   "url": "https://poorvamcare.in/electronic-city-phase-2",
-  "telephone": "+918861764343",
+  "telephone": CONTACT.phone,
   "email": "poorvam.care@gmail.com",
   "address": {
     "@type": "PostalAddress",
@@ -74,7 +74,7 @@ export default function ElectronicCityPhase2() {
     <>
       <SeoHead
         title="Speech Therapy & Child Development Centre in Electronic City Phase 2 | Poorvam Care"
-        description={`Speech therapy, occupational therapy, ABA & special education for children in Electronic City Phase 2, Bangalore. Ananth Nagar centre, trusted by ${STATS.familiesLabel} families. Call +91 88617 64343 — directions & timings inside.`}
+        description={`Speech therapy, occupational therapy, ABA & special education for children in Electronic City Phase 2, Bangalore. Ananth Nagar centre, trusted by ${STATS.familiesLabel} families. Call ${CONTACT.phoneDisplay} — directions & timings inside.`}
         canonical="https://poorvamcare.in/electronic-city-phase-2"
         keywords="speech therapy Electronic City Phase 2, occupational therapy Ananth Nagar, early intervention centre EC Phase 2, child therapy Hosa Road, autism therapy Electronic City Phase 2 Bangalore, Poorvam Care Phase 2, speech therapy near me Chandapura, child therapy Bommanahalli, best therapy center near Electronic City Phase 2, occupational therapy Hosa Road, speech therapist Kudlu Gate, consultation child therapy EC Phase 2"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -113,11 +113,11 @@ export default function ElectronicCityPhase2() {
             </div>
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+918861764343"
+                href={telLink}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-coral text-white font-heading font-semibold rounded-full hover:bg-coral-dark transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                Call +91 88617 64343
+                Call {CONTACT.phoneDisplay}
               </a>
               <a
                 href="https://maps.app.goo.gl/gWCjwHqTvoRYs6Mj9"
@@ -170,7 +170,7 @@ export default function ElectronicCityPhase2() {
                   <Phone className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-brown-deep block mb-1">Phone</span>
-                    <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 88617 64343</a>
+                    <a href={telLink} className="hover:text-coral transition-colors">{CONTACT.phoneDisplay}</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -323,10 +323,10 @@ export default function ElectronicCityPhase2() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

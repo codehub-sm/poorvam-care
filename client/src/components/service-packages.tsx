@@ -6,6 +6,7 @@ import Contact from "@/components/contact";
 import SeoHead from "@/components/seo-head";
 import RazorpayPaymentButton from "@/components/razorpay-payment-button";
 import { PAYMENT_BUTTONS } from "@/config/payments";
+import { CONTACT, telLink } from "@/config/site";
 
 // ── Types ───────────────────────────────────────────────────────
 
@@ -115,7 +116,7 @@ export default function ServicePackages() {
     <>
       <SeoHead
         title="Therapy Pricing - Affordable Speech Therapy & OT in Electronic City, Bangalore | Poorvam Care"
-        description="Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹800, home visits from ₹1,500. Speech therapy, OT, ABA. Call +91 88617 64343."
+        description={`Transparent therapy pricing at Poorvam Care, Electronic City Bangalore. Center sessions from ₹800, online from ₹800, home visits from ₹1,500. Speech therapy, OT, ABA. Call ${CONTACT.phoneDisplay}.`}
         canonical="https://poorvamcare.in/service-packages"
       />
 
@@ -525,10 +526,10 @@ export default function ServicePackages() {
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-coral font-heading font-bold rounded-xl px-8 bg-transparent"
-              onClick={() => window.open("tel:+918861764343")}
+              onClick={() => window.open(telLink)}
             >
               <Phone className="w-4 h-4 mr-2" />
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </Button>
           </div>
         </div>

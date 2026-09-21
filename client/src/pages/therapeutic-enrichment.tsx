@@ -3,6 +3,7 @@ import StructuredData, { createBreadcrumbSchema } from "@/components/structured-
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { Palette, Activity, Heart, Music, Users, Check } from "lucide-react";
+import { CONTACT, telLink } from "@/config/site";
 
 const programmes = [
   {
@@ -63,7 +64,7 @@ const faqs = [
   },
   {
     question: "Do I need a referral or assessment first?",
-    answer: "We recommend an initial consultation so our team can understand your child's needs and recommend the right programme. Contact us at +91 88617 64343 to schedule a consultation.",
+    answer: `We recommend an initial consultation so our team can understand your child's needs and recommend the right programme. Contact us at ${CONTACT.phoneDisplay} to schedule a consultation.`,
   },
   {
     question: "Can Therapeutic Enrichment replace therapy?",
@@ -137,10 +138,10 @@ export default function TherapeuticEnrichmentPage() {
                 Book a Consultation
               </Link>
               <a
-                href="tel:+918861764343"
+                href={telLink}
                 className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
-                Call: +91 88617 64343
+                Call: {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>

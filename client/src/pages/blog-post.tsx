@@ -3,6 +3,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import { getBlogPost, getRelatedPosts } from "@/data/blog-posts";
 import { Calendar, Clock, User, ArrowRight, ChevronRight, Phone } from "lucide-react";
+import { CONTACT, telLink } from "@/config/site";
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
@@ -215,11 +216,11 @@ export default function BlogPostPage() {
                 Book a Consultation
               </Link>
               <a
-                href="tel:+918861764343"
+                href={telLink}
                 className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-white/10 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                +91 88617 64343
+                {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>

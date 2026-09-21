@@ -3,7 +3,7 @@ import StructuredData, { createFAQSchema, createBreadcrumbSchema } from "@/compo
 import FAQSection from "@/components/faq-section";
 import { HearingCenterIllustration } from "@/components/illustrations";
 import { CentreMaps, ReviewSnippets } from "@/components/local-proof";
-import { LOCATIONS } from "@/config/site";
+import { LOCATIONS, CONTACT, telLink } from "@/config/site";
 import { Link } from "wouter";
 import { Baby, User, Users, Check, ExternalLink } from "lucide-react";
 
@@ -84,7 +84,7 @@ export default function HearingCenterPage() {
           "name": "Poorvam Care & Hearing Solutions — Hearing Center",
           "description": "Hearing tests, audiometry, paediatric hearing screening, and hearing aid consultations in Electronic City, Bangalore.",
           "url": "https://poorvamcare.in/hearing-center",
-          "telephone": "+918861764343",
+          "telephone": CONTACT.phone,
           "sameAs": ["https://poorvamhearing.com"],
           "address": {
             "@type": "PostalAddress",
@@ -132,10 +132,10 @@ export default function HearingCenterPage() {
                 Book Hearing Test
               </Link>
               <a
-                href="tel:+918861764343"
+                href={telLink}
                 className="border-2 border-warm-bg/30 text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:border-coral hover:text-coral transition-colors"
               >
-                Call: +91 88617 64343
+                Call: {CONTACT.phoneDisplay}
               </a>
             </div>
           </div>

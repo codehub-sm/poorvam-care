@@ -3,7 +3,7 @@ import StructuredData, { createBreadcrumbSchema, createServiceSchema } from "@/c
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
 import { CheckCircle, MapPin, Clock, Phone } from "lucide-react";
-import { STATS } from "@/config/site";
+import { STATS, CONTACT, telLink } from "@/config/site";
 
 const hsrFAQs = [
   {
@@ -33,7 +33,7 @@ export default function ChildTherapyHSRLayout() {
     <>
       <SeoHead
         title="Child Therapy Near HSR Layout, Bangalore | Poorvam Care"
-        description="Best child therapy center near HSR Layout, Bangalore. Speech therapy, occupational therapy, ABA therapy, and special education. Just 15 min from HSR Layout. Led by Apoorva Rai, MASLP, 13+ years experience. Call +91 88617 64343 to book."
+        description={`Best child therapy center near HSR Layout, Bangalore. Speech therapy, occupational therapy, ABA therapy, and special education. Just 15 min from HSR Layout. Led by Apoorva Rai, MASLP, 13+ years experience. Call ${CONTACT.phoneDisplay} to book.`}
         canonical="https://poorvamcare.in/child-therapy-hsr-layout-bangalore"
         keywords="child therapy HSR Layout, speech therapy near HSR Layout, occupational therapy HSR Layout Bangalore, therapy center near HSR Layout, speech therapist HSR Layout, ABA therapy near HSR Layout, child development center HSR Layout, best therapy center near HSR Layout Bangalore, speech therapy Bommanahalli, child therapy Koramangala, therapy near BTM Layout, autism therapy HSR Layout, speech delay therapy near HSR Layout, pediatric therapy south Bangalore"
         ogImage="https://poorvamcare.in/og-image.jpg"
@@ -92,7 +92,7 @@ export default function ChildTherapyHSRLayout() {
               <div>
                 <h3 className="font-heading font-bold text-brown-deep mb-1">Contact</h3>
                 <p className="text-brown-mid text-sm font-body">
-                  <a href="tel:+918861764343" className="hover:text-coral transition-colors">+91 88617 64343</a><br />
+                  <a href={telLink} className="hover:text-coral transition-colors">{CONTACT.phoneDisplay}</a><br />
                   Call to book a consultation
                 </p>
               </div>
@@ -231,10 +231,10 @@ export default function ChildTherapyHSRLayout() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

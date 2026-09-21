@@ -2,6 +2,7 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import FAQSection from "@/components/faq-section";
 import { Link } from "wouter";
+import { CONTACT, telLink } from "@/config/site";
 
 const faqData = [
   {
@@ -22,7 +23,7 @@ const faqData = [
   {
     question: "What is the cost of speech therapy in Bangalore?",
     answer:
-      "Session fees vary based on the type of therapy and frequency of sessions. We offer flexible therapy packages to suit different family budgets, from individual sessions to comprehensive monthly plans. Contact us at +91 88617 64343 for an initial consultation where we can discuss your child's needs and recommend a therapy plan with transparent pricing.",
+      `Session fees vary based on the type of therapy and frequency of sessions. We offer flexible therapy packages to suit different family budgets, from individual sessions to comprehensive monthly plans. Contact us at ${CONTACT.phoneDisplay} for an initial consultation where we can discuss your child's needs and recommend a therapy plan with transparent pricing.`,
   },
   {
     question: "How many sessions does a child typically need?",
@@ -42,7 +43,7 @@ const faqData = [
   {
     question: "How do I book an appointment at Poorvam Care?",
     answer:
-      "You can book a consultation by calling us at +91 88617 64343, sending a WhatsApp message to the same number, filling out our online contact form, or visiting our centres in Electronic City Phase 1 or Phase 2, Bangalore. We typically respond within 24 hours and will schedule a convenient time for your first visit.",
+      `You can book a consultation by calling us at ${CONTACT.phoneDisplay}, sending a WhatsApp message to the same number, filling out our online contact form, or visiting our centres in Electronic City Phase 1 or Phase 2, Bangalore. We typically respond within 24 hours and will schedule a convenient time for your first visit.`,
   },
 ];
 
@@ -82,7 +83,7 @@ export default function FAQPage() {
       <FAQSection
         faqs={faqData}
         title="Common Questions from Parents"
-        subtitle="Can't find your answer? Call us at +91 88617 64343 or book a consultation."
+        subtitle={`Can't find your answer? Call us at ${CONTACT.phoneDisplay} or book a consultation.`}
       />
 
       {/* CTA */}
@@ -102,10 +103,10 @@ export default function FAQPage() {
               Book a Consultation
             </Link>
             <a
-              href="tel:+918861764343"
+              href={telLink}
               className="border-2 border-warm-bg text-warm-bg px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg hover:text-brown-deep transition-colors"
             >
-              Call: +91 88617 64343
+              Call: {CONTACT.phoneDisplay}
             </a>
           </div>
         </div>

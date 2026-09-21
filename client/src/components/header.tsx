@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { CONTACT, telLink } from "@/config/site";
 
 type NavLink = {
   label: string;
@@ -198,10 +199,10 @@ export default function Header() {
                     Book Consultation
                   </Link>
                   <a
-                    href="tel:+918861764343"
+                    href={telLink}
                     className="block w-full text-center mt-3 text-brown-mid font-body text-sm hover:text-coral transition-colors"
                   >
-                    Call: +91 88617 64343
+                    Call: {CONTACT.phoneDisplay}
                   </a>
                 </div>
               </div>
