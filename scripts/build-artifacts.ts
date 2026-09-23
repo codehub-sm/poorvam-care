@@ -70,11 +70,19 @@ ${urls}
 `;
 }
 
+/**
+ * `condition` is deliberately absent rather than null.
+ *
+ * The Amplify console shows it as null and the GetApp API returns it that way,
+ * so it was emitted here to match — but `aws amplify update-app` validates the
+ * payload client-side against the API model, where condition is a string, and
+ * rejects every rule with "Invalid type for parameter customRules[n].condition".
+ * The field is optional, so the fix is to omit it.
+ */
 interface AmplifyRule {
   source: string;
   target: string;
   status: string;
-  condition: null;
 }
 
 /**
@@ -86,22 +94,22 @@ interface AmplifyRule {
  */
 export function buildAmplifyRedirects(routes: RouteDef[]): AmplifyRule[] {
   const legacy: AmplifyRule[] = [
-    { source: "/occupationalTherapy.html", target: "/", status: "301", condition: null },
-    { source: "/occupationaltherapy.html", target: "/", status: "301", condition: null },
-    { source: "/speechTherapy.html", target: "/", status: "301", condition: null },
-    { source: "/speechtherapy.html", target: "/", status: "301", condition: null },
-    { source: "/aba.html", target: "/", status: "301", condition: null },
-    { source: "/specialeducation.html", target: "/", status: "301", condition: null },
+    { source: "/occupationalTherapy.html", target: "/", status: "301" },
+    { source: "/occupationaltherapy.html", target: "/", status: "301" },
+    { source: "/speechTherapy.html", target: "/", status: "301" },
+    { source: "/speechtherapy.html", target: "/", status: "301" },
+    { source: "/aba.html", target: "/", status: "301" },
+    { source: "/specialeducation.html", target: "/", status: "301" },
     // Pricing is now discussed on the consultation call, so the published
     // pricing page was retired. It was indexed and linked, so it 301s to the
     // booking page rather than 404ing the demand it still carries.
-    { source: "/service-packages", target: "/book", status: "301", condition: null },
-    { source: "/service-packages/", target: "/book", status: "301", condition: null },
+    { source: "/service-packages", target: "/book", status: "301" },
+    { source: "/service-packages/", target: "/book", status: "301" },
     // A long-dead regex rule once redirected to the literal URL "/$1" (Amplify
     // does not substitute capture groups in targets) and Google indexed it.
     // 301 both encodings home until it drops out of the index.
-    { source: "/$1", target: "/", status: "301", condition: null },
-    { source: "/%241", target: "/", status: "301", condition: null },
+    { source: "/$1", target: "/", status: "301" },
+    { source: "/%241", target: "/", status: "301" },
   ];
 
   // Strip trailing slashes so each page has one canonical URL. Emitted
@@ -114,7 +122,6 @@ export function buildAmplifyRedirects(routes: RouteDef[]): AmplifyRule[] {
       source: `${r.path}/`,
       target: r.path,
       status: "301",
-      condition: null,
     }));
 
   const perRoute: AmplifyRule[] = routes
@@ -123,14 +130,12 @@ export function buildAmplifyRedirects(routes: RouteDef[]): AmplifyRule[] {
       source: r.path,
       target: `${r.path}/index.html`,
       status: "200",
-      condition: null,
     }));
 
   const catchAll: AmplifyRule = {
     source: `</^[^.]+$|\\.(?!(${ASSET_EXTS})$)([^.]+$)/>`,
     target: "/index.html",
     status: "200",
-    condition: null,
   };
 
   return [...legacy, ...trailingSlash, ...perRoute, catchAll];
