@@ -27,17 +27,17 @@ export default function OnlineUaePage() {
       market={MARKETS.uae}
       seoTitle="Online Child Therapy in UAE & Dubai | Speech, OT & Behaviour | Poorvam Care"
       seoDescription="Live online speech therapy, occupational therapy, behavioural support and learning support for children in the UAE. RCI-registered therapists, sessions in Gulf Standard Time, in English, Hindi, Tamil, Telugu and Malayalam."
-      heroBlurb="Paediatric therapy in the UAE typically runs AED 250–600 a session, and most clinics quote only by phone. We deliver the same weekly therapy live over video, in your family's language, at a published price."
+      heroBlurb="Paediatric therapy in the UAE typically runs AED 250–600 a session, and most clinics quote only by phone. We deliver the same weekly therapy live over video, in your family's language, with a clear cost agreed on a short consultation before you commit to anything."
       problemHeading="Why UAE families choose online therapy"
       problem={[
         "Paediatric speech therapy in Dubai and Abu Dhabi is expensive and largely cash-funded. The mandatory basic health insurance package excludes allied health services, so unless a family holds an enhanced corporate plan, therapy is paid out of pocket. Over a year of weekly sessions, that adds up quickly.",
-        "Pricing is also opaque. Most clinics do not publish rates at all — you call, you are invited in for an assessment, and the cost of the actual programme emerges later. We publish our price on this page because we think families deciding whether they can afford a year of therapy deserve to know that up front.",
+        "Pricing is also opaque. Most clinics do not publish rates at all — you call, you are invited in for an assessment, and the cost of the actual programme emerges later. We do it the other way round: a 15-minute consultation where you get a clear figure for your child's plan before you are asked to commit to anything.",
         "There is a language dimension too. The UAE has a very large Indian expatriate population, and many children are growing up between English and a home language — Hindi, Malayalam, Tamil, Telugu, or Kannada. Assessing a bilingual child's language development accurately requires a clinician who understands both languages, or the child's home language gets mistaken for a delay.",
         "Our therapists work in those languages as a matter of course, because that is the population they trained on. For a family raising a bilingual child in Dubai or Sharjah, that is often the difference between a useful assessment and a misleading one.",
       ]}
       reassurances={[
         "Therapy delivered in English, Hindi, Malayalam, Tamil, Telugu or Kannada",
-        "Published per-session price — no assessment-first pricing reveal",
+        "A clear cost on the consultation call — no assessment-first pricing reveal",
         "Sessions in Gulf Standard Time, including evenings after school",
         "Clinicians registered with the Rehabilitation Council of India",
         "This is a private-pay service; it is not billable to UAE health insurance",

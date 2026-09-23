@@ -132,7 +132,7 @@ export default function Hero() {
               className="mt-8 flex flex-col sm:flex-row gap-4"
             >
               <Link
-                href="/contact"
+                href="/book"
                 className="group inline-flex items-center gap-2 bg-coral hover:bg-coral-dark text-white px-7 py-3.5 rounded-xl font-heading font-bold text-base transition-all shadow-lg shadow-coral/25 hover:shadow-xl hover:shadow-coral/30"
               >
                 Book a Consultation

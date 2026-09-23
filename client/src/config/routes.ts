@@ -68,7 +68,6 @@ export const ROUTES: RouteDef[] = [
   // Site pages
   { path: "/about", file: `${P}/about.tsx`, changefreq: "monthly", priority: 0.8 },
   { path: "/contact", file: `${P}/contact.tsx`, changefreq: "monthly", priority: 0.8 },
-  { path: "/service-packages", file: `${P}/service-packages.tsx`, changefreq: "monthly", priority: 0.7 },
   { path: "/faq", file: `${P}/faq.tsx`, changefreq: "monthly", priority: 0.8 },
   { path: "/parent-counselling", file: `${P}/parent-counselling.tsx`, changefreq: "monthly", priority: 0.8 },
   { path: "/blog", file: `${P}/blog.tsx`, changefreq: "weekly", priority: 0.8 },
@@ -102,6 +101,11 @@ export const ROUTES: RouteDef[] = [
   { path: "/online/occupational-therapy", file: `${P}/online-occupational-therapy.tsx`, changefreq: "monthly", priority: 0.9 },
   { path: "/online/behavioural-therapy", file: `${P}/online-behavioural-therapy.tsx`, changefreq: "monthly", priority: 0.9 },
   { path: "/online/special-education", file: `${P}/online-special-education.tsx`, changefreq: "monthly", priority: 0.8 },
+
+  // The one booking endpoint for both funnels — in-centre and online. Noindex
+  // for the same reason /online/enquiry is: a bare form must not compete with
+  // the pages that explain the service. /service-packages 301s here.
+  { path: "/book", file: `${P}/book.tsx`, changefreq: "monthly", priority: 0.5, noIndex: true },
 
   // Conversion endpoint — prerendered and routed, but noindex (set in the page)
   // so it does not compete with /online in search results.

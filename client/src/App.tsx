@@ -16,7 +16,7 @@ const ElectronicCityPhase1 = lazy(() => import("@/pages/electronic-city-phase-1"
 const ElectronicCityPhase2 = lazy(() => import("@/pages/electronic-city-phase-2"));
 const About = lazy(() => import("@/pages/about"));
 const ContactPage = lazy(() => import("@/pages/contact"));
-const ServicePackagesPage = lazy(() => import("@/pages/service-packages"));
+const BookPage = lazy(() => import("@/pages/book"));
 const FAQPage = lazy(() => import("@/pages/faq"));
 const SpeechTherapyForAutism = lazy(() => import("@/pages/speech-therapy-for-autism-bangalore"));
 const OccupationalTherapyForChildren = lazy(() => import("@/pages/occupational-therapy-for-children-bangalore"));
@@ -50,6 +50,10 @@ const OnlineSpecialEducation = lazy(() => import("@/pages/online-special-educati
 // infra/amplify-redirects.json. This hook is a client-side fallback that
 // silently rewrites the URL bar during in-session SPA navigation.
 const LEGACY_REDIRECTS: Record<string, string> = {
+  // Pricing is no longer published — the page it names was retired. Amplify
+  // 301s this URL; this entry covers in-session SPA navigation from any link
+  // we have not found, so a parent lands on the booking page, not a 404.
+  "/service-packages": "/book",
   "/occupationaltherapy.html": "/",
   "/speechtherapy.html": "/",
   "/aba.html": "/",
@@ -106,7 +110,7 @@ const PAGES: Record<string, ComponentType> = {
   "/electronic-city-phase-2": ElectronicCityPhase2,
   "/about": About,
   "/contact": ContactPage,
-  "/service-packages": ServicePackagesPage,
+  "/book": BookPage,
   "/faq": FAQPage,
   "/parent-counselling": ParentCounselling,
   "/blog": BlogPage,

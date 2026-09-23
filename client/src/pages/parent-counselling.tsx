@@ -69,7 +69,7 @@ const faqs = [
   },
   {
     question: "Can parent counselling happen online?",
-    answer: "Yes. Parent counselling is well-suited to online delivery, and we offer teletherapy sessions at ₹800 per 45-minute session. Online sessions are particularly convenient for working parents, families managing complex logistics, or parents who find it easier to talk from the privacy of their own home. In-centre sessions are also available at our Electronic City, Bangalore locations for families who prefer face-to-face support.",
+    answer: "Yes. Parent counselling is well-suited to online delivery, and we offer it as live 45-minute video sessions. Online sessions are particularly convenient for working parents, families managing complex logistics, or parents who find it easier to talk from the privacy of their own home. In-centre sessions are also available at our Electronic City, Bangalore locations for families who prefer face-to-face support.",
   },
   {
     question: "How often should parents attend counselling?",
@@ -77,7 +77,7 @@ const faqs = [
   },
   {
     question: "What is the cost of parent counselling at Poorvam Care?",
-    answer: `In-centre parent counselling sessions at Poorvam Care are ₹800 per 45-minute session. Online sessions are available at ₹800 per session. We offer package plans for families who commit to a block of sessions. Contact us via phone (${CONTACT.phoneDisplay}) or the contact form on our website to enquire about current packages and to book your first session.`,
+    answer: `It depends on how often your family needs sessions and whether you attend in-centre or online, so we work it out with you on a short consultation rather than quoting a figure that may not fit. You will have a clear plan and cost before you commit to anything. Call ${CONTACT.phoneDisplay} or use the contact form to book a consultation.`,
   },
 ];
 
@@ -149,7 +149,7 @@ export default function ParentCounsellingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="/book"
                 className="bg-purple-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-purple-700 transition-colors shadow-lg shadow-purple-600/25"
               >
                 Book a Consultation
@@ -250,13 +250,13 @@ export default function ParentCounsellingPage() {
                   <h3 className="text-xl font-heading font-bold text-gray-900">Online Counselling Available</h3>
                 </div>
                 <p className="text-gray-600 font-body leading-relaxed mb-4">
-                  We understand that attending in-person sessions adds another commitment to an already demanding schedule. Parent counselling is fully available online via video call at ₹800 per 45-minute session — just as effective as in-person, and far more convenient.
+                  We understand that attending in-person sessions adds another commitment to an already demanding schedule. Parent counselling is fully available online in live 45-minute video sessions — just as effective as in-person, and far more convenient.
                 </p>
                 <p className="text-gray-600 font-body leading-relaxed mb-4">
                   Online counselling is available from anywhere in India, making it accessible to families who are not in Bangalore but wish to access Poorvam Care's expertise.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/book?mode=online"
                   className="inline-flex items-center gap-2 text-purple-600 font-heading font-semibold hover:underline"
                 >
                   Book an online session <ArrowRight className="w-4 h-4" />
@@ -339,7 +339,7 @@ export default function ParentCounsellingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/book"
               className="inline-block bg-white text-purple-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Book a Consultation

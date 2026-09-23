@@ -46,7 +46,6 @@
 ## Resources
 - [Blog](https://poorvamcare.in/blog): Guides on early intervention, speech therapy, OT, and ABA
 - [FAQ](https://poorvamcare.in/faq): Common questions on cost, age to start, autism, teletherapy
-- [Service Packages](https://poorvamcare.in/service-packages): Therapy plans and packages
 - [About](https://poorvamcare.in/about): Team, credentials, and approach
 - [Contact & Book](https://poorvamcare.in/contact): Book a consultation
 

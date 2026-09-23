@@ -28,7 +28,7 @@ export default function StickyCtaBar() {
         >
           <div className="flex gap-3">
             <Link
-              href="/contact"
+              href="/book"
               className="flex-1 bg-coral text-white text-center font-heading font-semibold py-3 rounded-xl text-sm hover:bg-coral-dark transition-colors shadow-md shadow-coral/20"
             >
               Book a Consultation

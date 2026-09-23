@@ -79,7 +79,7 @@ export default function OccupationalTherapyForChildren() {
                 Call {CONTACT.phoneDisplay}
               </a>
               <Link
-                href="/contact"
+                href="/book"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-warm-bg font-heading font-semibold rounded-full border border-warm-bg/30 hover:bg-white/20 transition-colors"
               >
                 Book a Free OT Assessment
@@ -180,7 +180,7 @@ export default function OccupationalTherapyForChildren() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/book"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
               Book a Consultation

@@ -124,7 +124,7 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/contact"
+              href="/book"
               className="bg-coral text-white px-6 py-2.5 rounded-full font-heading font-semibold text-sm hover:bg-coral/90 transition-colors shadow-md shadow-coral/20"
             >
               Book Consultation
@@ -192,7 +192,7 @@ export default function Header() {
                 </nav>
                 <div className="p-6 border-t border-brown-light/30">
                   <Link
-                    href="/contact"
+                    href="/book"
                     onClick={() => setOpen(false)}
                     className="block w-full bg-coral text-white text-center py-3 rounded-full font-heading font-semibold hover:bg-coral/90 transition-colors shadow-md shadow-coral/20"
                   >

@@ -1,6 +1,6 @@
 import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
-import OnlineEnquiryForm from "@/components/online-enquiry-form";
+import EnquiryForm from "@/components/enquiry-form";
 import { SITE_URL } from "@/config/site";
 import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import { ShieldCheck, Clock, MessageSquare } from "lucide-react";
@@ -83,7 +83,7 @@ export default function OnlineEnquiryPage() {
             </div>
 
             <div className="bg-white rounded-2xl p-8 border border-brown-light/10 shadow-sm">
-              <OnlineEnquiryForm />
+              <EnquiryForm mode="online" />
             </div>
           </div>
         </div>

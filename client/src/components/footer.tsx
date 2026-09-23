@@ -14,7 +14,6 @@ const serviceLinks = [
 
 const quickLinks = [
   { name: "About Us", href: "/about" },
-  { name: "Pricing & Plans", href: "/service-packages" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];

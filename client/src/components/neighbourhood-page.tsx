@@ -181,7 +181,7 @@ export default function NeighbourhoodPage(props: NeighbourhoodPageProps) {
             <p className="text-lg text-gray-600 font-body mb-8 leading-relaxed">{heroBlurb}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="/book?mode=centre"
                 className="bg-blue-600 text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/25"
               >
                 Book a Consultation
@@ -389,7 +389,7 @@ export default function NeighbourhoodPage(props: NeighbourhoodPageProps) {
           <p className="text-lg text-white/90 font-body mb-8">{ctaBody}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/book?mode=centre"
               className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-heading font-bold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Book a Consultation

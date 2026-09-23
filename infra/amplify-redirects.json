@@ -36,6 +36,18 @@
     "condition": null
   },
   {
+    "source": "/service-packages",
+    "target": "/book",
+    "status": "301",
+    "condition": null
+  },
+  {
+    "source": "/service-packages/",
+    "target": "/book",
+    "status": "301",
+    "condition": null
+  },
+  {
     "source": "/$1",
     "target": "/",
     "status": "301",
@@ -86,12 +98,6 @@
   {
     "source": "/contact/",
     "target": "/contact",
-    "status": "301",
-    "condition": null
-  },
-  {
-    "source": "/service-packages/",
-    "target": "/service-packages",
     "status": "301",
     "condition": null
   },
@@ -228,6 +234,12 @@
     "condition": null
   },
   {
+    "source": "/book/",
+    "target": "/book",
+    "status": "301",
+    "condition": null
+  },
+  {
     "source": "/online/enquiry/",
     "target": "/online/enquiry",
     "status": "301",
@@ -314,12 +326,6 @@
   {
     "source": "/contact",
     "target": "/contact/index.html",
-    "status": "200",
-    "condition": null
-  },
-  {
-    "source": "/service-packages",
-    "target": "/service-packages/index.html",
     "status": "200",
     "condition": null
   },
@@ -452,6 +458,12 @@
   {
     "source": "/online/special-education",
     "target": "/online/special-education/index.html",
+    "status": "200",
+    "condition": null
+  },
+  {
+    "source": "/book",
+    "target": "/book/index.html",
     "status": "200",
     "condition": null
   },

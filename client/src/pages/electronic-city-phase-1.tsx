@@ -168,7 +168,7 @@ export default function ElectronicCityPhase1() {
                   Get Directions
                 </a>
                 <Link
-                  href="/contact"
+                  href="/book?mode=centre"
                   className="border-2 border-coral text-coral px-6 py-3 rounded-xl font-heading font-bold text-sm text-center hover:bg-coral/5 transition-colors"
                 >
                   Book Consultation
@@ -282,7 +282,7 @@ export default function ElectronicCityPhase1() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/book?mode=centre"
               className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
             >
               Book a Consultation

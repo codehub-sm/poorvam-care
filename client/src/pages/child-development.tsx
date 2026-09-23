@@ -157,7 +157,7 @@ export default function ChildDevelopmentPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="/book"
                 className="bg-coral text-white px-8 py-4 rounded-xl font-heading font-bold hover:bg-coral-dark transition-colors shadow-lg shadow-coral/25"
               >
                 Book Free Assessment
@@ -328,7 +328,7 @@ export default function ChildDevelopmentPage() {
             Book a consultation today and let our experts assess how we can help your child thrive.
           </p>
           <Link
-            href="/contact"
+            href="/book"
             className="inline-block bg-white text-coral px-8 py-4 rounded-xl font-heading font-bold hover:bg-warm-bg transition-colors shadow-lg"
           >
             Book a Consultation

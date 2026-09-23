@@ -12,13 +12,23 @@ import {
 } from "@/components/ui/select";
 import { AlertCircle } from "lucide-react";
 import ConsultationBooking from "@/components/consultation-booking";
+import CentreHandoff from "@/components/centre-handoff";
 import { beaconLeadAlert, sendLeadAlert, submitLead } from "@/lib/leads";
 import { trackWhatsAppClick, trackCallClick, trackEvent } from "@/lib/analytics";
-import { CONTACT, whatsappLink, telLink } from "@/config/site";
+import { CONTACT, LOCATIONS, whatsappLink, telLink } from "@/config/site";
 import { MARKET_LIST } from "@/config/markets";
 
 /**
- * Progressive enquiry form for the online offering.
+ * Progressive enquiry form behind every "book a consultation" CTA on the site.
+ *
+ * ONE FORM, TWO ENDINGS. The questions a parent answers are the same whether
+ * the child is seen in Bengaluru or over video; what differs is what happens
+ * after. Online ends at the ₹100 slot fee (ConsultationBooking); in-centre
+ * ends on WhatsApp (CentreHandoff), because a family that can drive to the
+ * centre will not pay a stranger before speaking to one, and the front desk
+ * closes those bookings by chat anyway. Forking the ending rather than the
+ * form is what keeps the lead schema, the step-1-captures-the-lead property
+ * and the abandonment alerts identical across both funnels.
  *
  * The important property is that step 1 SUBMITS ON ITS OWN. A parent who fills
  * in their name and email and then abandons at step 2 is still a captured lead
@@ -36,7 +46,14 @@ import { MARKET_LIST } from "@/config/markets";
  * child resident there. A footer disclaimer contradicted by a booking flow that
  * accepts those clients anyway is worse than no disclaimer — it establishes that
  * we knew. So the gate sits here, in the flow, before any booking exists.
+ *
+ * The gate is online-only on purpose: an in-centre booking is care delivered in
+ * Bengaluru under Indian registration, whoever the family are and wherever they
+ * usually live, so asking a walk-in parent for their country would gate nothing
+ * and cost a field.
  */
+
+export type EnquiryMode = "online" | "centre";
 
 /** Countries we cannot lawfully serve, with the reason surfaced to the user. */
 const BLOCKED_COUNTRIES = ["United States", "Canada"];
@@ -45,6 +62,12 @@ const COUNTRY_OPTIONS = [
   ...MARKET_LIST.map((m) => m.countryName),
   ...BLOCKED_COUNTRIES,
   "Other",
+];
+
+/** Centre choices, plus the answer a parent who does not know the area needs. */
+const CENTRE_OPTIONS = [
+  ...LOCATIONS.map((l) => l.name.replace("Poorvam Care - ", "")),
+  "Whichever has a slot sooner",
 ];
 
 const CONCERNS = [
@@ -59,10 +82,27 @@ const CONCERNS = [
 
 const LANGUAGES = ["English", "Hindi", "Tamil", "Telugu", "Kannada", "Malayalam"];
 
+/**
+ * When the family can actually attend, in the words a parent uses.
+ *
+ * Deliberately coarse. An exact slot picker would promise availability this
+ * form cannot see — the diary lives in the centre software, not here — so the
+ * parent states a window and a human confirms the time.
+ */
+const TIME_PREFERENCES = [
+  "Weekday mornings (9am–12pm)",
+  "Weekday afternoons (12–4pm)",
+  "Weekday evenings (4–7pm)",
+  "Saturdays",
+  "As soon as anything is free",
+];
+
 interface Step1Data {
   parentName: string;
   email: string;
+  phone: string;
   country: string;
+  centre: string;
   childAge: string;
 }
 
@@ -71,7 +111,11 @@ function newLeadId(): string {
   return `L${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`.toUpperCase();
 }
 
-export default function OnlineEnquiryForm() {
+export default function EnquiryForm({ mode = "online" }: { mode?: EnquiryMode }) {
+  const centreMode = mode === "centre";
+  /** Names the funnel in the sheet, the alert email and GA4. */
+  const formName = centreMode ? "centre-enquiry" : "online-enquiry";
+
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [leadId, setLeadId] = useState("");
   const [busy, setBusy] = useState(false);
@@ -80,30 +124,50 @@ export default function OnlineEnquiryForm() {
   const [s1, setS1] = useState<Step1Data>({
     parentName: "",
     email: "",
+    phone: "",
     country: "",
+    centre: "",
     childAge: "",
   });
   const [concern, setConcern] = useState("");
   const [language, setLanguage] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
   const [notes, setNotes] = useState("");
 
-  const blocked = BLOCKED_COUNTRIES.includes(s1.country);
-  const step1Valid =
-    s1.parentName.trim() && s1.email.trim() && s1.country && !blocked;
+  const blocked = !centreMode && BLOCKED_COUNTRIES.includes(s1.country);
+  const step1Valid = centreMode
+    ? s1.parentName.trim() && s1.phone.trim() && s1.centre
+    : s1.parentName.trim() && s1.email.trim() && s1.country && !blocked;
 
   // Set once the team has been emailed about this lead; see header comment.
   const alerted = useRef(false);
 
+  /**
+   * The row both funnels write, minus the fields a step has not collected yet.
+   *
+   * `service` is how the sheet distinguishes an in-centre request from an
+   * online one, and for a centre booking it carries which centre — so the team
+   * can read the destination without opening the message column.
+   */
+  const identity = () => ({
+    parentName: s1.parentName,
+    email: s1.email,
+    phone: s1.phone,
+    country: centreMode ? "India" : s1.country,
+    childAge: s1.childAge,
+    service: centreMode ? `In-centre consultation — ${s1.centre}` : "Online consultation",
+  });
+
   // Latest step-1 payload for the unload alert, read at teardown time.
   const step1Payload = useRef<Record<string, unknown>>({});
-  step1Payload.current = { leadId, stage: "enquiry-step-1", ...s1 };
+  step1Payload.current = { leadId, stage: "enquiry-step-1", ...identity() };
 
   useEffect(() => {
     if (step !== 2) return;
     const alertOnLeave = () => {
       if (alerted.current) return;
       alerted.current = true;
-      beaconLeadAlert(step1Payload.current, "online-enquiry");
+      beaconLeadAlert(step1Payload.current, formName);
     };
     window.addEventListener("pagehide", alertOnLeave);
     return () => {
@@ -111,7 +175,7 @@ export default function OnlineEnquiryForm() {
       // Unmounting on step 2 means an in-app navigation away from the form.
       if (!alerted.current) alertOnLeave();
     };
-  }, [step]);
+  }, [step, formName]);
 
   const submitStep1 = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,13 +184,13 @@ export default function OnlineEnquiryForm() {
 
     const id = newLeadId();
     setLeadId(id);
-    const payload = { leadId: id, stage: "enquiry-step-1", ...s1 };
-    let result = await submitLead(payload, "online-enquiry", { alert: false });
+    const payload = { leadId: id, stage: "enquiry-step-1", ...identity() };
+    let result = await submitLead(payload, formName, { alert: false });
 
     // The Sheet is step 1's only sink, so if it failed the email is the lead's
     // one chance to survive — send it now rather than waiting for step 2.
     if (result.status === "failed") {
-      result = await sendLeadAlert(payload, "online-enquiry");
+      result = await sendLeadAlert(payload, formName);
       if (result.status !== "failed") alerted.current = true;
     }
     setBusy(false);
@@ -147,8 +211,16 @@ export default function OnlineEnquiryForm() {
     // Fire-and-continue: step 1 already captured the lead, so a failure here
     // must not block the parent or lose what we already have.
     await submitLead(
-      { leadId, stage: "enquiry-step-2", ...s1, concern, language, notes },
-      "online-enquiry",
+      {
+        leadId,
+        stage: "enquiry-step-2",
+        ...identity(),
+        concern,
+        language,
+        preferredTime,
+        notes,
+      },
+      formName,
       { alert },
     );
     setBusy(false);
@@ -156,10 +228,10 @@ export default function OnlineEnquiryForm() {
   };
 
   const skipToEnd = () => {
-    trackEvent("enquiry_step2_skipped", { lead_id: leadId });
+    trackEvent("enquiry_step2_skipped", { lead_id: leadId, mode });
     if (!alerted.current) {
       alerted.current = true;
-      void sendLeadAlert(step1Payload.current, "online-enquiry");
+      void sendLeadAlert(step1Payload.current, formName);
     }
     setStep(3);
   };
@@ -201,9 +273,20 @@ export default function OnlineEnquiryForm() {
   }
 
   if (step === 3) {
-    // The lead is captured and the country gate has passed; only now do we
-    // ask for the booking fee. See ConsultationBooking for why that order.
-    return <ConsultationBooking leadId={leadId} parentName={s1.parentName} />;
+    // The lead is captured and, online, the country gate has passed; only now
+    // do we ask for a commitment. See ConsultationBooking for why that order.
+    return centreMode ? (
+      <CentreHandoff
+        leadId={leadId}
+        parentName={s1.parentName}
+        centre={s1.centre}
+        childAge={s1.childAge}
+        concern={concern}
+        preferredTime={preferredTime}
+      />
+    ) : (
+      <ConsultationBooking leadId={leadId} parentName={s1.parentName} />
+    );
   }
 
   if (step === 2) {
@@ -224,6 +307,22 @@ export default function OnlineEnquiryForm() {
               {CONCERNS.map((c) => (
                 <SelectItem key={c} value={c}>
                   {c}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <Label htmlFor="oe-when">When can you usually attend?</Label>
+          <Select value={preferredTime} onValueChange={setPreferredTime}>
+            <SelectTrigger id="oe-when" className="mt-1">
+              <SelectValue placeholder="Select a window that suits you" />
+            </SelectTrigger>
+            <SelectContent>
+              {TIME_PREFERENCES.map((t) => (
+                <SelectItem key={t} value={t}>
+                  {t}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -287,37 +386,73 @@ export default function OnlineEnquiryForm() {
         />
       </div>
 
-      <div>
-        <Label htmlFor="oe-email">Email *</Label>
-        <Input
-          id="oe-email"
-          type="email"
-          value={s1.email}
-          onChange={(e) => setS1({ ...s1, email: e.target.value })}
-          required
-          className="mt-1"
-        />
-      </div>
+      {centreMode ? (
+        <div>
+          <Label htmlFor="oe-phone">Phone / WhatsApp number *</Label>
+          <Input
+            id="oe-phone"
+            type="tel"
+            value={s1.phone}
+            onChange={(e) => setS1({ ...s1, phone: e.target.value })}
+            required
+            className="mt-1"
+            placeholder="e.g. 98765 43210"
+          />
+        </div>
+      ) : (
+        <div>
+          <Label htmlFor="oe-email">Email *</Label>
+          <Input
+            id="oe-email"
+            type="email"
+            value={s1.email}
+            onChange={(e) => setS1({ ...s1, email: e.target.value })}
+            required
+            className="mt-1"
+          />
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="oe-country">Where do you live? *</Label>
-          <Select
-            value={s1.country}
-            onValueChange={(v) => setS1({ ...s1, country: v })}
-          >
-            <SelectTrigger id="oe-country" className="mt-1">
-              <SelectValue placeholder="Select your country" />
-            </SelectTrigger>
-            <SelectContent>
-              {COUNTRY_OPTIONS.map((c) => (
-                <SelectItem key={c} value={c}>
-                  {c}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        {centreMode ? (
+          <div>
+            <Label htmlFor="oe-centre">Which centre? *</Label>
+            <Select
+              value={s1.centre}
+              onValueChange={(v) => setS1({ ...s1, centre: v })}
+            >
+              <SelectTrigger id="oe-centre" className="mt-1">
+                <SelectValue placeholder="Select a centre" />
+              </SelectTrigger>
+              <SelectContent>
+                {CENTRE_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>
+                    {c}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        ) : (
+          <div>
+            <Label htmlFor="oe-country">Where do you live? *</Label>
+            <Select
+              value={s1.country}
+              onValueChange={(v) => setS1({ ...s1, country: v })}
+            >
+              <SelectTrigger id="oe-country" className="mt-1">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>
+                    {c}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
         <div>
           <Label htmlFor="oe-age">Child's age</Label>
           <Input
@@ -329,6 +464,20 @@ export default function OnlineEnquiryForm() {
           />
         </div>
       </div>
+
+      {centreMode && (
+        <div>
+          <Label htmlFor="oe-email-optional">Email</Label>
+          <Input
+            id="oe-email-optional"
+            type="email"
+            value={s1.email}
+            onChange={(e) => setS1({ ...s1, email: e.target.value })}
+            className="mt-1"
+            placeholder="Optional"
+          />
+        </div>
+      )}
 
       <Button
         type="submit"
@@ -353,7 +502,7 @@ export default function OnlineEnquiryForm() {
           <div className="mt-3 flex flex-wrap gap-2">
             <a
               href={whatsappLink(
-                `Hi Poorvam Care, I tried to enquire about online therapy but the form didn't go through. My name is ${s1.parentName}.`,
+                `Hi Poorvam Care, I tried to book a consultation but the form didn't go through. My name is ${s1.parentName}.`,
               )}
               target="_blank"
               rel="noopener noreferrer"
