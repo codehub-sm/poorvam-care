@@ -5,10 +5,7 @@ import { trackWhatsAppClick, trackCallClick } from "@/lib/analytics";
 /**
  * Final step of an IN-CENTRE booking: hand the parent to WhatsApp.
  *
- * The online flow ends at a ₹100 slot fee; this one deliberately does not.
- * A parent booking a Bengaluru centre can walk in, so a payment wall before
- * they have spoken to anyone costs more bookings than the no-shows it
- * prevents. What it does instead is carry the details they just typed into
+ * It carries the details they just typed into
  * the WhatsApp message, so the front desk opens a chat that already says who
  * is asking, for which child, and when they want to come — and can confirm a
  * slot in one reply rather than four.

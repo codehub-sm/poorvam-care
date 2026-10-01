@@ -1,5 +1,4 @@
-import { ClipboardList, BadgeCheck, Video } from "lucide-react";
-import { CONSULTATION_FEE_DISPLAY } from "@/config/payments";
+import { ClipboardList, PhoneCall, Video } from "lucide-react";
 
 /**
  * The three-step "book a consultation" explainer.
@@ -9,11 +8,10 @@ import { CONSULTATION_FEE_DISPLAY } from "@/config/payments";
  * block has to carry the job the price tag used to do: making the next step
  * feel small, concrete, and low-risk for a parent who has never heard of us.
  *
- * The middle step names the booking fee up front. A parent who meets a fee
- * for the first time on the payment screen feels ambushed; one who read
- * about it here, with the reason, reads it as a clinic that takes its slots
- * seriously. The last step promises the time "in your local timezone" — for
- * an overseas parent, timezone confusion is a real booking objection.
+ * No step mentions a fee: fees are agreed case by case once the team has
+ * spoken to the family. The last step promises the time "in your local
+ * timezone" — for an overseas parent, timezone confusion is a real booking
+ * objection.
  */
 
 const STEPS = [
@@ -23,20 +21,20 @@ const STEPS = [
     body: "A two-minute form: your child's age, what you're seeing, and where you live.",
   },
   {
-    icon: BadgeCheck,
-    title: `Reserve your slot for ${CONSULTATION_FEE_DISPLAY}`,
-    body: "A small booking fee holds a priority slot and confirms you're a real family. It comes off your first session.",
+    icon: PhoneCall,
+    title: "We get in touch",
+    body: "Someone from our clinical team calls or WhatsApps you within one working day to find a time that suits you.",
   },
   {
     icon: Video,
     title: "Meet your specialist",
-    body: "We email a confirmed time in your local timezone. A 15-minute call with a therapist who'll tell you honestly whether we can help.",
+    body: "A 15-minute video call, in your local timezone, with a therapist who'll tell you honestly whether we can help.",
   },
 ];
 
 export default function ConsultationSteps({
   heading = "Book your online consultation",
-  subheading,
+  subheading = "Fifteen minutes to work out whether we can actually help your child.",
 }: {
   heading?: string;
   subheading?: string;

@@ -2,7 +2,6 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import EnquiryForm from "@/components/enquiry-form";
 import { SITE_URL } from "@/config/site";
-import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import { ShieldCheck, Clock, MessageSquare } from "lucide-react";
 
 /**
@@ -39,22 +38,19 @@ export default function OnlineEnquiryPage() {
               <h1 className="text-3xl lg:text-4xl font-heading font-extrabold text-brown-deep mb-4">
                 Book your online consultation
               </h1>
-              <p className="text-brown-mid font-body leading-relaxed mb-4">
+              <p className="text-brown-mid font-body leading-relaxed mb-8">
                 A 15-minute call with an RCI-registered therapist. We'll talk through
                 what you're seeing, explain how we'd approach it, and tell you honestly
                 whether online therapy is right for your child — including when the
                 answer is no.
-              </p>
-              <p className="text-brown-mid font-body leading-relaxed mb-8">
-                {CONSULTATION_FEE_COPY.why} {CONSULTATION_FEE_COPY.terms}
               </p>
 
               <div className="space-y-5">
                 {[
                   {
                     icon: Clock,
-                    title: "Paid bookings are confirmed first",
-                    body: "You'll hear from a member of the clinical team within one working day — a confirmed time, not an automated sequence.",
+                    title: "A real person, within one working day",
+                    body: "A member of the clinical team calls or WhatsApps you to fix a time — not an automated sequence.",
                   },
                   {
                     icon: ShieldCheck,

@@ -1,4 +1,3 @@
-import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import OnlineMarketPage from "@/components/online-market-page";
 import { MARKETS } from "@/config/markets";
 
@@ -41,7 +40,6 @@ export default function OnlineUaePage() {
         "Sessions in Gulf Standard Time, including evenings after school",
         "Clinicians registered with the Rehabilitation Council of India",
         "This is a private-pay service; it is not billable to UAE health insurance",
-        CONSULTATION_FEE_COPY.bullet,
       ]}
       faqs={[
         {

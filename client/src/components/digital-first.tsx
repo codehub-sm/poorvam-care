@@ -101,7 +101,7 @@ export default function DigitalFirst({
 
         {!compact && (
           <div className="mt-12 text-center">
-            <ConsultationCta align="center" />
+            <ConsultationCta />
           </div>
         )}
       </div>

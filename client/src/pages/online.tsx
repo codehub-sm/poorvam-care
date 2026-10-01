@@ -1,4 +1,3 @@
-import { CONSULTATION_STEPS_SUBHEADING } from "@/config/payments";
 import ConsultationCta from "@/components/consultation-cta";
 import SeoHead from "@/components/seo-head";
 import StructuredData, {
@@ -175,7 +174,7 @@ export default function OnlinePage() {
         </div>
       </section>
 
-      <ConsultationSteps subheading={CONSULTATION_STEPS_SUBHEADING} />
+      <ConsultationSteps />
 
       <DigitalFirst />
 

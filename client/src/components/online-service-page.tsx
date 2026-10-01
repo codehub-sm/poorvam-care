@@ -1,4 +1,3 @@
-import { CONSULTATION_STEPS_SUBHEADING } from "@/config/payments";
 import ConsultationCta from "@/components/consultation-cta";
 import SeoHead from "@/components/seo-head";
 import StructuredData, {
@@ -114,7 +113,7 @@ export default function OnlineServicePage({
             <p className="text-lg text-brown-mid font-body mb-8 leading-relaxed">
               {heroBlurb}
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <ConsultationCta />
               <a
                 href={whatsappLink(
@@ -212,7 +211,7 @@ export default function OnlineServicePage({
 
       <DigitalFirst compact />
 
-      <ConsultationSteps subheading={CONSULTATION_STEPS_SUBHEADING} />
+      <ConsultationSteps />
 
       <FAQSection
         faqs={faqs}

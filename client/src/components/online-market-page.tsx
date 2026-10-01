@@ -1,4 +1,3 @@
-import { CONSULTATION_FEE_DISPLAY, CONSULTATION_STEPS_SUBHEADING } from "@/config/payments";
 import ConsultationCta from "@/components/consultation-cta";
 import SeoHead from "@/components/seo-head";
 import StructuredData, {
@@ -110,7 +109,7 @@ export default function OnlineMarketPage({
               {heroBlurb}
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <ConsultationCta />
               {market.ctaChannel === "whatsapp" && (
                 <a
@@ -253,7 +252,7 @@ export default function OnlineMarketPage({
 
       <DigitalFirst compact />
 
-      <ConsultationSteps subheading={CONSULTATION_STEPS_SUBHEADING} />
+      <ConsultationSteps />
 
       <FAQSection
         faqs={faqs}
@@ -268,12 +267,11 @@ export default function OnlineMarketPage({
             Start with a 15-minute consultation
           </h2>
           <p className="text-lg text-warm-bg/80 font-body mb-8">
-            Tell us about your child, then reserve a priority slot for{" "}
-            {CONSULTATION_FEE_DISPLAY} — it comes off your first session. We'll tell you
+            Tell us about your child and we'll call you within one working day. We'll tell you
             honestly whether online therapy is the right fit — and if it isn't, we'll
             say so.
           </p>
-          <ConsultationCta tone="dark" align="center" />
+          <ConsultationCta />
         </div>
       </section>
     </>

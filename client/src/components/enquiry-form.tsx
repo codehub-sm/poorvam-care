@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { AlertCircle } from "lucide-react";
-import ConsultationBooking from "@/components/consultation-booking";
+import OnlineConfirmation from "@/components/online-confirmation";
 import CentreHandoff from "@/components/centre-handoff";
 import { beaconLeadAlert, sendLeadAlert, submitLead } from "@/lib/leads";
 import { trackWhatsAppClick, trackCallClick, trackEvent } from "@/lib/analytics";
@@ -23,10 +23,9 @@ import { MARKET_LIST } from "@/config/markets";
  *
  * ONE FORM, TWO ENDINGS. The questions a parent answers are the same whether
  * the child is seen in Bengaluru or over video; what differs is what happens
- * after. Online ends at the ₹100 slot fee (ConsultationBooking); in-centre
- * ends on WhatsApp (CentreHandoff), because a family that can drive to the
- * centre will not pay a stranger before speaking to one, and the front desk
- * closes those bookings by chat anyway. Forking the ending rather than the
+ * after. Online ends on a confirmation with a callback promise
+ * (OnlineConfirmation); in-centre ends on WhatsApp (CentreHandoff), because
+ * the front desk closes those bookings by chat anyway. Forking the ending rather than the
  * form is what keeps the lead schema, the step-1-captures-the-lead property
  * and the abandonment alerts identical across both funnels.
  *
@@ -273,8 +272,7 @@ export default function EnquiryForm({ mode = "online" }: { mode?: EnquiryMode })
   }
 
   if (step === 3) {
-    // The lead is captured and, online, the country gate has passed; only now
-    // do we ask for a commitment. See ConsultationBooking for why that order.
+    // The lead is captured and, online, the country gate has passed.
     return centreMode ? (
       <CentreHandoff
         leadId={leadId}
@@ -285,7 +283,7 @@ export default function EnquiryForm({ mode = "online" }: { mode?: EnquiryMode })
         preferredTime={preferredTime}
       />
     ) : (
-      <ConsultationBooking leadId={leadId} parentName={s1.parentName} />
+      <OnlineConfirmation leadId={leadId} parentName={s1.parentName} />
     );
   }
 

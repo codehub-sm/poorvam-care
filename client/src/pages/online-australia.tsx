@@ -1,4 +1,3 @@
-import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import OnlineMarketPage from "@/components/online-market-page";
 import { MARKETS } from "@/config/markets";
 
@@ -34,7 +33,6 @@ export default function OnlineAustraliaPage() {
         "Plan-managed participants may also use us; our rate sits well below the NDIS price limit",
         "Agency-managed NDIS plans cannot be used for unregistered providers — check your plan type first",
         "Sessions scheduled for Australian afternoons and evenings, not Indian business hours",
-        CONSULTATION_FEE_COPY.bullet,
       ]}
       faqs={[
         {
@@ -60,7 +58,7 @@ export default function OnlineAustraliaPage() {
         {
           question: "What happens in the first session?",
           answer:
-            "Before anything is booked you have a 15-minute consultation with our team — a ₹100 booking fee reserves the slot and comes off your first session — to talk through your concerns and decide whether online therapy suits your child. If you go ahead, the first paid session is an assessment: the therapist works directly with your child over video while you observe, then explains what they have found and proposes goals. You receive a written summary and a home activity plan after every session.",
+            "Before anything is booked you have a 15-minute consultation with our team to talk through your concerns and decide whether online therapy suits your child. If you go ahead, the first paid session is an assessment: the therapist works directly with your child over video while you observe, then explains what they have found and proposes goals. You receive a written summary and a home activity plan after every session.",
         },
       ]}
     />

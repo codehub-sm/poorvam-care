@@ -5,7 +5,6 @@ import SeoHead from "@/components/seo-head";
 import StructuredData, { createBreadcrumbSchema } from "@/components/structured-data";
 import EnquiryForm, { type EnquiryMode } from "@/components/enquiry-form";
 import { SITE_URL } from "@/config/site";
-import { CONSULTATION_FEE_COPY } from "@/config/payments";
 import { trackEvent } from "@/lib/analytics";
 
 /**
@@ -14,8 +13,8 @@ import { trackEvent } from "@/lib/analytics";
  * Before this page the two funnels were not comparable: an online parent could
  * reserve a slot in three steps, while a Bengaluru parent — the family closest
  * to actually paying — got a general contact form and a callback queue. Both
- * now start here and differ only in how they finish: ₹100 reserves an online
- * slot, WhatsApp confirms an in-centre one.
+ * now start here and differ only in how they finish: online ends with a
+ * callback, in-centre with a WhatsApp confirmation.
  *
  * `noindex` for the same reason /online/enquiry is: this is a conversion
  * endpoint, not a landing page. The pages that explain the service should be
@@ -45,7 +44,7 @@ const MODES: {
     icon: Video,
     title: "Online, over video",
     blurb: "Anywhere in India, Australia or the UAE.",
-    ending: `${CONSULTATION_FEE_COPY.cta} reserves a priority slot, adjusted against your first session.`,
+    ending: "We call you within one working day to arrange a video consultation.",
   },
 ];
 
