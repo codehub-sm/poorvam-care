@@ -1,5 +1,10 @@
 [
   {
+    "source": "https://www.poorvamcare.in",
+    "target": "https://poorvamcare.in",
+    "status": "301"
+  },
+  {
     "source": "https://www.poorvamcare.in/<*>",
     "target": "https://poorvamcare.in/<*>",
     "status": "301"

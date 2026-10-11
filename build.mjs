@@ -280,6 +280,9 @@ await writeFile(path.join(out, 'llms-full.txt'), `# ${site.BRAND}: full site tex
  */
 const live = pages.filter((p) => p.path !== '/' && p.path !== '/404');
 const amplifyRules = [
+  // www → apex. Amplify ignores the /<*> form on its own (verified 2026-10-12: www
+  // still answered 200), so the exact-host form from Amplify's docs goes first.
+  { source: 'https://www.poorvamcare.in', target: 'https://poorvamcare.in', status: '301' },
   { source: 'https://www.poorvamcare.in/<*>', target: 'https://poorvamcare.in/<*>', status: '301' },
   ...Object.entries(LEGACY_REDIRECTS).flatMap(([from, to]) => [
     { source: from, target: to, status: '301' },
