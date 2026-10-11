@@ -85,7 +85,7 @@ export default {
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1>Help your child find their words.<span class="h1-sub">Speech therapy, OT and early intervention in Electronic City, Bengaluru</span></h1>
+      <h1>Help your child find their words.<span class="h1-sub">Speech therapy, occupational therapy and early intervention in Electronic City, Bengaluru</span></h1>
       <p class="hero__sub">One team for speech, occupational therapy, ABA and special education, working from one plan for your child. Two centres in Electronic City, and online.</p>
       <div class="hero__acts">
         ${bookButton('Book a consultation', 'assessment', 'btn btn--ink')}
