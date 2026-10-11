@@ -175,7 +175,7 @@ const strip = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&
 // Every FAQ on the site, once. Answer engines quote Q&A pairs more readily than prose.
 const faqSeen = new Set();
 const allFaqs = indexable.flatMap((p) => (p.faqs ?? []).map((f) => ({ ...f, page: p }))).filter((f) => !faqSeen.has(f.q) && faqSeen.add(f.q));
-const svcLine = site.SERVICES.map((s) => s.label.toLowerCase()).join(', ');
+const svcLine = site.SERVICES.map((s) => s.label.replace(/^[A-Z](?=[a-z])/, (c) => c.toLowerCase())).join(', ');
 
 await writeFile(path.join(out, 'llms.txt'), `# ${site.BRAND}
 
@@ -199,6 +199,7 @@ await writeFile(path.join(out, 'llms.txt'), `# ${site.BRAND}
 - Clinical director: ${D.name}, ${D.role}. ${D.credentials}; member of ${D.memberships.join(', ')}. ${D.years} years in practice.
 - Years in practice: ${site.STATS.years}. Families served: ${site.STATS.families}.
 - Ages: ${site.STATS.ages} years.
+- Category: early intervention centre, child development centre, paediatric speech and occupational therapy.
 - Fees: not published. Fees are explained on the first call, after the team understands the child's needs.
 - Online therapy: live video sessions with the same RCI-registered team, in ${site.ONLINE.languages.join(', ')}.
 ${site.GOOGLE_RATING ? `- Google rating: ${site.GOOGLE_RATING.stars} stars from ${site.GOOGLE_RATING.reviews} reviews (${site.GOOGLE_RATING.asOf})\n` : ''}
@@ -207,6 +208,15 @@ ${site.GOOGLE_RATING ? `- Google rating: ${site.GOOGLE_RATING.stars} stars from 
 ${site.SERVICES.map((s) => `- [${s.label}](${urlOf(s.page)}): ${s.blurb}`).join('\n')}
 - [Developmental assessment](${urlOf(site.ASSESSMENT.page)}): for parents who are not sure which therapy their child needs.
 - [Online therapy](${urlOf(site.ONLINE.page)}): ${site.ONLINE.markets.map((m) => m.name).join(', ')}.
+
+## Online therapy: what it covers
+
+- [Online speech therapy](${urlOf('/online/speech-therapy')}): late talkers, unclear speech, language delay, stammering, autism-related communication. The strongest telehealth evidence of the four.
+- [Online occupational therapy](${urlOf('/online/occupational-therapy')}): sensory strategies, fine motor and handwriting, self-care routines, regulation. Delivered as parent coaching; not for hands-on assessment or equipment-based therapy.
+- [Online behavioural therapy and parent training](${urlOf('/online/behavioural-therapy')}): ABA-informed support for meltdowns, transitions, sleep, toileting and routines. Caregiver-mediated; not intensive 20–40 hour direct ABA.
+- [Online special education](${urlOf('/online/special-education')}): one-to-one remedial teaching for reading, writing and maths, including dyslexia-informed teaching and ADHD study skills. No formal diagnosis.
+- [India](${urlOf('/online/india')}): anywhere in India. [Australia](${urlOf('/online/australia')}): suits self-managed and plan-managed NDIS participants. [UAE](${urlOf('/online/uae')}): private pay; not billable to UAE health insurance.
+- Not available to families living in the United States or Canada: speech-language pathology is licensed where the child lives, and an Indian (RCI) registration does not cover it.
 
 ## Centres
 
