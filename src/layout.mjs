@@ -156,12 +156,12 @@ export function areasBlock(heading = 'Therapy near you in south Bengaluru') {
 </section>`;
 }
 
-export function ctaBand(heading = 'Talk to a therapist this week', sub = 'Tell us what you have noticed. We call back within one working day to plan a first assessment.') {
+export function ctaBand(heading = 'Talk to a therapist this week', sub = 'Tell us what you have noticed. We call back within one working day to plan a first assessment.', service = '') {
   return html`<section class="cta-band">
   <div class="wrap">
     <h2>${esc(heading)}</h2>
     <p>${esc(sub)}</p>
-    <div class="cta-band__acts">${bookButton('Book a consultation')}${callButton('btn btn--line btn--on-ink')}</div>
+    <div class="cta-band__acts">${bookButton('Book a consultation', service)}${callButton('btn btn--line btn--on-ink')}</div>
   </div>
 </section>`;
 }
@@ -290,6 +290,10 @@ function footer() {
       <p>${HOURS.display}</p>
       <p><a href="${l.mapUrl}" target="_blank" rel="noopener" data-track="directions">Open in Google Maps</a></p>
     </div>`)}
+    <div>
+      <p class="foot__h">Online therapy</p>
+      <ul><li><a href="${ONLINE.page}">How online therapy works</a></li>${ONLINE.markets.map((m) => `<li><a href="${m.page}">Online in ${m.name}</a></li>`).join('')}<li><a href="/online/speech-therapy">Online speech therapy</a></li><li><a href="/online/occupational-therapy">Online OT</a></li><li><a href="/online/behavioural-therapy">Online behaviour therapy</a></li><li><a href="/online/special-education">Online special education</a></li></ul>
+    </div>
     <div>
       <p class="foot__h">Therapies</p>
       <ul>${SERVICES.map((s) => `<li><a href="${s.page}">${s.label}</a></li>`)}<li><a href="/speech-therapy-for-autism-bangalore">Speech therapy for autism</a></li><li><a href="/speech-therapy-for-speech-delay-bangalore">Speech delay</a></li><li><a href="/online">Online therapy</a></li><li><a href="/blog">Guides for parents</a></li><li><a href="/faq">Questions</a></li></ul>
@@ -426,6 +430,11 @@ export function renderPage(page) {
   const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
   const og = page.ogImage ?? `${SITE_URL}/assets/img/og.png`;
   const local = page.local !== false;
+  // The hub and the three country pages are one hreflang cluster, as on the React site.
+  const cluster = [ONLINE.page, ...ONLINE.markets.map((m) => m.page)];
+  const hreflang = cluster.includes(page.path)
+    ? [...ONLINE.markets.map((m) => `<link rel="alternate" hreflang="${m.hreflang}" href="${urlOf(m.page)}">`), `<link rel="alternate" hreflang="x-default" href="${urlOf(ONLINE.page)}">`].join('\n')
+    : '';
 
   return html`<!doctype html>
 <html lang="en-IN">
@@ -435,6 +444,7 @@ export function renderPage(page) {
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
 ${is404 ? '' : `<link rel="canonical" href="${url}">`}
+${hreflang}
 ${page.noindex || is404 ? '<meta name="robots" content="noindex">' : '<meta name="robots" content="index, follow, max-image-preview:large">'}
 <meta name="theme-color" content="#3446f0">
 <meta property="og:type" content="website">

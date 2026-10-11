@@ -1,4 +1,4 @@
-import { html, bookButton, whatsappButton, serviceList, centresBlock, areasBlock, ctaBand, faqSection, icon } from '../layout.mjs';
+import { html, urlOf, orgId, bookButton, whatsappButton, serviceList, centresBlock, areasBlock, ctaBand, faqSection, icon } from '../layout.mjs';
 import { story } from '../story.mjs';
 import { head, cards, milestoneLadder, more } from '../ui.mjs';
 import { STATS, DIRECTOR, CONTACT, LOCATIONS, SERVICES, SISTER, SUMMER_CAMP, whatsappLink } from '../site.mjs';
@@ -13,7 +13,7 @@ const faqs = [
     a: 'If your child is behind on talking, hard to understand, struggles with play, movement or routines, or has a diagnosis such as autism or ADHD, an assessment will tell you. Our therapist observes your child, listens to what you have noticed, and tells you plainly whether therapy is needed, which kind, and how often.',
   },
   {
-    q: 'What makes Poorvam different from other therapy centres?',
+    q: 'What makes Poorvam different from other therapy centers?',
     a: `Speech therapy, OT, ABA and special education work from one shared plan under one roof, so your child's therapists agree on the goals. The team is RCI registered and led by ${DIRECTOR.name}, ${DIRECTOR.credentials}, with ${STATS.years} years in practice. Parents see the goals, session notes and home practice on their phone.`,
   },
   {
@@ -80,6 +80,7 @@ export default {
   reviewed: '2026-10-11',
   current: '/',
   faqs,
+  schema: SERVICES.map((s) => ({ '@type': ['Service', 'MedicalTherapy'], '@id': `${urlOf(s.page)}#service-summary`, name: s.label, description: s.blurb, url: urlOf(s.page), provider: { '@id': orgId }, areaServed: { '@type': 'Place', name: 'Electronic City, Bengaluru' } })),
   body: html`
 <section class="hero">
   <div class="wrap">

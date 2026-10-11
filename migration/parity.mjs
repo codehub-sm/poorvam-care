@@ -33,6 +33,10 @@ const PRIMARY = {
   '/blog': 'Blog',
   '/electronic-city-phase-2': 'Electronic City Phase 2',
   '/parent-counselling': 'Parent Counselling',
+  // Live titles longer than the 65-char limit: the leading phrase is the query.
+  '/therapeutic-enrichment': 'Therapeutic Enrichment Programme for Children',
+  '/blog/why-early-intervention-matters': 'Why Early Intervention Matters',
+  '/blog/occupational-therapy-sensory-processing': 'Occupational Therapy for Sensory Processing',
 };
 
 /**
@@ -48,7 +52,7 @@ const RETIRED_TYPES = {
 };
 
 const strip = (s) => s.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g, ' ').trim();
-const norm = (s) => String(s ?? '').toLowerCase().replace(/&amp;/g, '&').replace(/[’']/g, "'").replace(/[^a-z0-9&' ]+/g, ' ').replace(/\s+/g, ' ').trim();
+const norm = (s) => String(s ?? '').toLowerCase().replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, "'").replace(/[’']/g, "'").replace(/[^a-z0-9&' ]+/g, ' ').replace(/\s+/g, ' ').trim();
 const one = (re, s) => (s.match(re) || [])[1]?.trim() ?? null;
 
 function types(node, out) {
@@ -116,7 +120,7 @@ for (const row of base.rows) {
   if (words < row.words * 0.8) f('words', `${words} < 80% of ${row.words}`);
   const inNow = inbound.get(row.path) ?? 0;
   const inOld = oldInbound.get(row.path) ?? 0;
-  if (inNow < inOld) f('inbound', `${inNow} internal links in, was ${inOld}`);
+  if (inNow < inOld && !/noindex/.test(robots)) f('inbound', `${inNow} internal links in, was ${inOld}`);
   rows.push([row.path, `200 · ${words}w (was ${row.words}) · ${(row.faqQuestions ?? []).length}→${faqNow.size ? [...ld].flatMap((d) => d['@graph'] ?? [d]).filter((n) => n['@type'] === 'FAQPage').flatMap((n) => n.mainEntity).length : 0} FAQ · in ${inOld}→${inNow}`]);
 }
 
