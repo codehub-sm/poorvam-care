@@ -1,0 +1,197 @@
+[
+  {
+    "source": "https://www.poorvamcare.in/<*>",
+    "target": "https://poorvamcare.in/<*>",
+    "status": "301"
+  },
+  {
+    "source": "/speechAndLanguage.html",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/speechTherapy.html",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/speechtherapy.html",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/occupationalTherapy.html",
+    "target": "/occupational-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/occupationaltherapy.html",
+    "target": "/occupational-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/aba.html",
+    "target": "/aba-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/specialeducation.html",
+    "target": "/special-education-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/developmentalEducation.html",
+    "target": "/special-education-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/socialSkillsGroupTraining.html",
+    "target": "/therapeutic-enrichment",
+    "status": "301"
+  },
+  {
+    "source": "/therapy.html",
+    "target": "/child-development",
+    "status": "301"
+  },
+  {
+    "source": "/about.html",
+    "target": "/about",
+    "status": "301"
+  },
+  {
+    "source": "/team.html",
+    "target": "/about",
+    "status": "301"
+  },
+  {
+    "source": "/gallery.html",
+    "target": "/about",
+    "status": "301"
+  },
+  {
+    "source": "/contact.html",
+    "target": "/contact",
+    "status": "301"
+  },
+  {
+    "source": "/booking.html",
+    "target": "/book",
+    "status": "301"
+  },
+  {
+    "source": "/blog.html",
+    "target": "/blog",
+    "status": "301"
+  },
+  {
+    "source": "/index-2.html",
+    "target": "/",
+    "status": "301"
+  },
+  {
+    "source": "/speech-therapy",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/speech-therapy/",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/occupational-therapy",
+    "target": "/occupational-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/occupational-therapy/",
+    "target": "/occupational-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/aba-therapy",
+    "target": "/aba-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/aba-therapy/",
+    "target": "/aba-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/special-education",
+    "target": "/special-education-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/special-education/",
+    "target": "/special-education-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/teletherapy",
+    "target": "/online",
+    "status": "301"
+  },
+  {
+    "source": "/teletherapy/",
+    "target": "/online",
+    "status": "301"
+  },
+  {
+    "source": "/hearing",
+    "target": "/hearing-center",
+    "status": "301"
+  },
+  {
+    "source": "/hearing/",
+    "target": "/hearing-center",
+    "status": "301"
+  },
+  {
+    "source": "/service-packages",
+    "target": "/book",
+    "status": "301"
+  },
+  {
+    "source": "/service-packages/",
+    "target": "/book",
+    "status": "301"
+  },
+  {
+    "source": "/appointments",
+    "target": "/book",
+    "status": "301"
+  },
+  {
+    "source": "/appointments/",
+    "target": "/book",
+    "status": "301"
+  },
+  {
+    "source": "/index.html",
+    "target": "/",
+    "status": "301"
+  },
+  {
+    "source": "/speech-therapy-electronic-city/",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/speech-therapy-electronic-city/index.html",
+    "target": "/speech-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/speech-therapy-electronic-city",
+    "target": "/speech-therapy-electronic-city/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/<*>",
+    "target": "/404.html",
+    "status": "404-200"
+  }
+]
