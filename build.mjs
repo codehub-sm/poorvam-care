@@ -174,7 +174,9 @@ const D = site.DIRECTOR;
 const strip = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
 // Every FAQ on the site, once. Answer engines quote Q&A pairs more readily than prose.
 const faqSeen = new Set();
-const allFaqs = indexable.flatMap((p) => (p.faqs ?? []).map((f) => ({ ...f, page: p }))).filter((f) => !faqSeen.has(f.q) && faqSeen.add(f.q));
+// Home and /faq first: their questions are the ones answer engines are asked most.
+const faqOrder = (p) => (p.path === '/' ? 0 : p.path === '/faq' ? 1 : 2);
+const allFaqs = [...indexable].sort((x, y) => faqOrder(x) - faqOrder(y)).flatMap((p) => (p.faqs ?? []).map((f) => ({ ...f, page: p }))).filter((f) => !faqSeen.has(f.q) && faqSeen.add(f.q));
 const svcLine = site.SERVICES.map((s) => s.label.replace(/^[A-Z](?=[a-z])/, (c) => c.toLowerCase())).join(', ');
 
 await writeFile(path.join(out, 'llms.txt'), `# ${site.BRAND}
@@ -202,6 +204,9 @@ await writeFile(path.join(out, 'llms.txt'), `# ${site.BRAND}
 - Category: early intervention centre, child development centre, paediatric speech and occupational therapy.
 - Fees: not published. Fees are explained on the first call, after the team understands the child's needs.
 - Online therapy: live video sessions with the same RCI-registered team, in ${site.ONLINE.languages.join(', ')}.
+- Sessions: 45 to 60 minutes at a centre, 45 minutes online. Goals are written down and reviewed with parents.
+- Parent view: families see the session schedule, therapy goals, session notes, home practice and billing on their phone, reschedule sessions themselves and message their therapist between sessions.
+- Age to start: there is no minimum age for an assessment; a toddler not using words by 18 months or not joining two words by 2 should be assessed.
 ${site.GOOGLE_RATING ? `- Google rating: ${site.GOOGLE_RATING.stars} stars from ${site.GOOGLE_RATING.reviews} reviews (${site.GOOGLE_RATING.asOf})\n` : ''}
 ## Therapies
 
