@@ -63,3 +63,4 @@ amplify/src/graphql/subscriptions.ts
 *secret*
 *private*
 amplify/backend/function/*/function-parameters.json
+dist-*/

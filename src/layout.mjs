@@ -313,8 +313,8 @@ function contactBar() {
 
 const AGES = ['Under 2', '2–3', '4–6', '7–10', '11+'];
 
-/** The booking form. Lives in every page's sheet, and inline on /book. */
-export function bookingForm(id = 'bk') {
+/** The booking form. Lives in every page's sheet, and inline on /book, /contact and /online/enquiry. */
+export function bookingForm(id = 'bk', { centre = LOCATIONS[0].id } = {}) {
   const radio = (name, value, label, checked, small = '') => `<label class="chip"><input type="radio" name="${name}" value="${esc(value)}"${checked ? ' checked' : ''}><span>${esc(label)}${small ? `<small>${esc(small)}</small>` : ''}</span></label>`;
   return html`<form class="booking" id="${id}" novalidate data-booking>
   <ol class="booking__steps" aria-hidden="true"><li class="is-on">Need</li><li>Where</li><li>You</li></ol>
@@ -327,7 +327,7 @@ export function bookingForm(id = 'bk') {
   </fieldset>
   <fieldset class="booking__step" data-step="2">
     <legend>Where and when?</legend>
-    <div class="chips">${LOCATIONS.map((l, i) => radio('centre', l.id, l.name, i === 0))}${radio('centre', 'online', 'Online (video)', false)}</div>
+    <div class="chips">${LOCATIONS.map((l) => radio('centre', l.id, l.name, l.id === centre))}${radio('centre', 'online', 'Online (video)', centre === 'online')}</div>
     <div data-when>
       <p class="booking__label">Day</p>
       <div class="chips chips--days" data-days></div>

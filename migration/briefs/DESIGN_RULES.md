@@ -29,6 +29,11 @@ Every section (except the FAQ and the CTA band) MUST be built around a visual co
 - Do NOT edit `assets/css/site.css`, `src/layout.mjs`, `src/ui.mjs`, `src/site.mjs`, `src/story.mjs`, `build.mjs`, or any page you were not assigned. Other agents are writing other pages in parallel. If you need a component or fact that doesn't exist, say so in your report and work around it with existing parts.
 
 ## Verify, it's not optional
-1. `DRAFT=1 node build.mjs` must pass.
-2. A static server is running on port 8092 (`python3 -m http.server 8092 --directory dist`; start it in the background if `curl -s localhost:8092` fails). Run `node tools/shot.mjs <your-scratch-dir> <path> [<path> …]`. Use a scratch dir unique to you, e.g. `/private/tmp/pc-shots-<your-group>`. It prints `HORIZONTAL OVERFLOW` if the page scrolls sideways on a phone; that must never happen.
-3. LOOK at every `-m-*.png` (phone, 390px) and `-d-*.png` (desktop) chunk with the Read tool. Fix anything cramped, overflowing, empty, misaligned, wall-of-text or inconsistent with the reference pages, rebuild, and shoot again.
+Other agents are building at the same time, so build and serve in isolation. Your prompt gives you a GROUP name and a PORT.
+1. Build only your pages into your own folder:
+   `ONLY=/path-a,/path-b OUT=dist-<group> DRAFT=1 node build.mjs`
+   It must pass. (Links to pages outside your set are listed as "DRAFT: linked pages not written yet"; that is fine.)
+2. Serve that folder on your port, once, in the background: `python3 -m http.server <PORT> --directory dist-<group>`.
+3. Screenshot: `PORT=<PORT> node tools/shot.mjs /private/tmp/pc-shots-<group> /path-a /path-b`. It prints `HORIZONTAL OVERFLOW` if a page scrolls sideways on a phone; that must never happen.
+4. LOOK at every `-m-*.png` (phone, 390px) and `-d-*.png` (desktop) chunk with the Read tool. Fix anything cramped, overflowing, empty, misaligned, wall-of-text or inconsistent with the reference pages, rebuild, and shoot again.
+5. When you finish, stop your server and delete `dist-<group>`.

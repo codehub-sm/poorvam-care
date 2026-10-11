@@ -4,6 +4,10 @@
  *
  *   node build.mjs          build, validate, write dist/
  *   DRAFT=1 node build.mjs  same, but links to pages not written yet only warn
+ *   ONLY=/a,/b OUT=dist-x DRAFT=1 node build.mjs
+ *                           build just those pages into dist-x (for parallel
+ *                           page writers: someone else's half-written page
+ *                           can't fail your build, and nobody clobbers dist/)
  *
  * Validation fails the build rather than warning: a broken internal link, a
  * duplicate title or a page with two H1s is a ranking or conversion bug, and a
@@ -26,7 +30,8 @@ import * as site from './src/site.mjs';
 import { LEGACY_REDIRECTS } from './src/redirects.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
-const out = path.join(root, 'dist');
+const out = path.join(root, process.env.OUT || 'dist');
+const ONLY = process.env.ONLY ? new Set(process.env.ONLY.split(',').map((s) => s.trim())) : null;
 const today = new Date().toISOString().slice(0, 10);
 
 /** Every .mjs under src/pages, nested folders included; a module may export one page or a list. */
@@ -42,7 +47,8 @@ async function loadPages(dir) {
   }
   return found;
 }
-const pages = await loadPages(path.join(root, 'src/pages'));
+const pages = (await loadPages(path.join(root, 'src/pages'))).filter((p) => !ONLY || ONLY.has(p?.path));
+if (ONLY && !process.env.DRAFT) { console.error('ONLY= needs DRAFT=1 (links to pages outside the set cannot resolve)'); process.exit(1); }
 
 const DRAFT = process.env.DRAFT === '1';
 const errors = new Set();
@@ -106,7 +112,7 @@ for (const [p, htmlOut] of rendered) {
 }
 
 // A legacy redirect must never shadow a live page, and must land on one.
-for (const [from, to] of Object.entries(LEGACY_REDIRECTS)) {
+if (!ONLY) for (const [from, to] of Object.entries(LEGACY_REDIRECTS)) {
   if (rendered.has(from)) fail('redirects', `${from} is both a page and a redirect`);
   if (!rendered.has(to) && !DRAFT) fail('redirects', `${from} → ${to}, which is not a page`);
 }
@@ -272,8 +278,11 @@ const amplifyRules = [
   ...live.map((p) => ({ source: p.path, target: `${p.path}/index.html`, status: '200' })),
   { source: '/<*>', target: '/404.html', status: '404-200' },
 ];
-await mkdir(path.join(root, 'deploy'), { recursive: true });
-await writeFile(path.join(root, 'deploy/amplify-redirects.json'), JSON.stringify(amplifyRules, null, 2) + '\n');
+// Only a full build may rewrite the deploy rules; a partial one would drop pages from them.
+if (!ONLY) {
+  await mkdir(path.join(root, 'deploy'), { recursive: true });
+  await writeFile(path.join(root, 'deploy/amplify-redirects.json'), JSON.stringify(amplifyRules, null, 2) + '\n');
+}
 
 const missing = [];
 L.forEach((l) => ['cid', 'ftid', 'access'].forEach((k) => { if (l[k] == null) missing.push(`site.LOCATIONS.${l.id}.${k}`); }));
