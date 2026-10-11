@@ -56,6 +56,7 @@ const programmeDetail = `<ul class="ticks">
 
 export default {
   path: PATH,
+  photo: 'enrichment',
   title: 'Therapeutic Enrichment Programme for Children | Poorvam Care',
   description: `Therapist-led small groups in Electronic City, Bangalore: sensory art, movement, yoga, music and social skills, plus a summer therapy camp every ${SUMMER_CAMP.months}.`,
   reviewed: REVIEWED,

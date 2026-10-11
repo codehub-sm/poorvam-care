@@ -48,6 +48,7 @@ const flags = [
 
 export default {
   path: PATH,
+  photo: 'delay',
   title: 'Speech Therapy for Speech Delay in Bangalore | Poorvam Care',
   description: 'Speech therapy for late talkers and speech delay in Electronic City, Bengaluru. Play-based sessions with parent coaching, from 18 months, RCI-registered team.',
   reviewed: REVIEWED,

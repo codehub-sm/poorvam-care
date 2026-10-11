@@ -170,6 +170,7 @@ const faqs = [
 
 export default {
   path: PATH,
+  photo: 'online',
   title: 'Online Therapy for Children | Speech, OT & ABA | Poorvam Care',
   description: 'Live online speech therapy, occupational therapy, behaviour therapy and special education for children in India, Australia and the UAE. RCI-registered therapists.',
   reviewed: REVIEWED,

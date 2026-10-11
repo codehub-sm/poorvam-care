@@ -115,3 +115,6 @@ export function weekPlan({ session, home, tone: t = 'blue' }) {
     <div class="week__col"><span class="week__ico">${icon('home')}</span><strong>At home, between sessions</strong><ul class="ticks">${home.map((s) => `<li>${s}</li>`)}</ul></div>
   </div>`;
 }
+
+
+export { photo } from './layout.mjs';

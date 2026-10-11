@@ -70,6 +70,7 @@ const leave = [
 
 export default {
   path: PATH,
+  photo: 'assessment',
   title: 'Child Development Center in Electronic City, Bangalore',
   description: `Child development centre in Electronic City, Bengaluru: a developmental assessment, then speech, OT, ABA and special education for ages ${STATS.ages}.`,
   reviewed: REVIEWED,

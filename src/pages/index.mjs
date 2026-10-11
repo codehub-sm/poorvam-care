@@ -1,6 +1,6 @@
 import { html, urlOf, orgId, bookButton, whatsappButton, serviceList, centresBlock, areasBlock, ctaBand, faqSection, icon } from '../layout.mjs';
 import { story } from '../story.mjs';
-import { head, cards, milestoneLadder, more } from '../ui.mjs';
+import { head, cards, milestoneLadder, more, photo } from '../ui.mjs';
 import { STATS, DIRECTOR, CONTACT, LOCATIONS, SERVICES, SISTER, SUMMER_CAMP, whatsappLink } from '../site.mjs';
 
 const faqs = [
@@ -99,13 +99,9 @@ export default {
         <li>${icon('check')}${LOCATIONS.length} centres and online</li>
       </ul>
     </div>
-    <div class="orbit" aria-label="Our therapies">
-      <span class="orbit__ring" aria-hidden="true"></span><span class="orbit__ring" aria-hidden="true"></span><span class="orbit__ring" aria-hidden="true"></span>
-      <div class="orbit__core" aria-hidden="true"><div><b>One plan</b><small>six therapies</small></div></div>
-      ${SERVICES.map((s) => `<a class="orbit__chip tone-${s.tone}" href="${s.page}"><span>${icon(s.icon)}</span>${s.short}</a>`)}
-      <span class="orbit__word" aria-hidden="true" style="top:27%;left:22%">ma</span>
-      <span class="orbit__word" aria-hidden="true" style="top:24%;right:22%">ball</span>
-      <span class="orbit__word" aria-hidden="true" style="bottom:27%;right:22%">more</span>
+    <div class="photo-stage">
+      ${photo('home')}
+      <nav aria-label="Our therapies">${SERVICES.map((s) => `<a class="orbit__chip tone-${s.tone}" href="${s.page}"><span>${icon(s.icon)}</span>${s.short}</a>`)}</nav>
     </div>
   </div>
 </section>

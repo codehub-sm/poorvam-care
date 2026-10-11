@@ -61,6 +61,7 @@ const checks = [
 
 export default {
   path: PATH,
+  photo: 'special-ed',
   title: 'Special Education for Children in Bangalore | Poorvam Care',
   description: `Special education for children aged ${STATS.ages} with autism, ADHD and learning disabilities in Electronic City, Bangalore: IEP goals, phonics, writing and maths.`,
   reviewed: REVIEWED,

@@ -61,6 +61,7 @@ const checks = [
 
 export default {
   path: PATH,
+  photo: 'ot',
   title: 'Occupational Therapy for Children in Electronic City, Bangalore',
   description: `Occupational therapy for children aged ${STATS.ages} at our Electronic City Phase 1 and Phase 2 centres, Bangalore: sensory integration, fine motor skills and self-care.`,
   reviewed: REVIEWED,

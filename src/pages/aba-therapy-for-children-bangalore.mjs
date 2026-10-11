@@ -57,6 +57,7 @@ const helpsWith = [
 
 export default {
   path: PATH,
+  photo: 'aba',
   title: 'ABA Therapy for Children in Bangalore | Poorvam Care',
   description: 'Play-based ABA therapy for children with autism and developmental conditions at two Electronic City centres, Bangalore, planned alongside speech and OT.',
   reviewed: REVIEWED,

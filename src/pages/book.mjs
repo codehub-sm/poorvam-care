@@ -7,9 +7,10 @@ import { CONTACT, HOURS, LOCATIONS, ONLINE, STATS } from '../site.mjs';
  * opens with "Online" already chosen. Noindex: a bare form must not compete
  * with the pages that explain each therapy, and neither ever ranked.
  */
-function bookPage({ path, title, description, h1, lede, centre, crumb }) {
+function bookPage({ path, title, description, h1, lede, centre, crumb, photo }) {
   return {
     path,
+    photo,
     title,
     description,
     noindex: true,
@@ -62,6 +63,7 @@ export default [
     lede: 'Tell us what you are seeing. We will explain how we would approach it, and tell you honestly whether we can help your child, including when the answer is no.',
     centre: LOCATIONS[0].id,
     crumb: 'Book a consultation',
+    photo: 'book',
   }),
   bookPage({
     path: '/online/enquiry',
@@ -71,5 +73,6 @@ export default [
     lede: 'A call with an RCI-registered therapist about what you are seeing, how we would approach it online, and whether online therapy is right for your child.',
     centre: 'online',
     crumb: 'Online consultation',
+    photo: 'online',
   }),
 ];

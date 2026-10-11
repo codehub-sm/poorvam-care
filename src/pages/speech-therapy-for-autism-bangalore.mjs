@@ -59,6 +59,7 @@ const team = [
 
 export default {
   path: PATH,
+  photo: 'autism',
   title: 'Speech Therapy for Autism in Bangalore | Poorvam Care',
   description: `Speech therapy for autistic children aged ${STATS.ages} in Electronic City, Bengaluru: words, requesting, conversation and AAC, alongside ABA and OT.`,
   reviewed: REVIEWED,

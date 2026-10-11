@@ -49,6 +49,7 @@ const topics = [
 
 export default {
   path: PATH,
+  photo: 'parent',
   title: 'Parent Counselling for Special Needs Children | Poorvam Care',
   description: 'Parent counselling in Electronic City, Bangalore, for families of children with autism, speech delay or disabilities. In person, or as 45-minute video sessions.',
   reviewed: REVIEWED,

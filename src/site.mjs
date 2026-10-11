@@ -226,6 +226,29 @@ export const FAR_AREAS = [
   { name: 'Marathahalli', page: '/speech-therapy-marathahalli-bangalore' },
 ];
 
+/**
+ * Hero photographs. These are AI-generated illustrations, not pictures of our
+ * centres, staff or the children we work with, and the footer says so. That
+ * is why no centre, locality or about page uses one: there a photo would read
+ * as "this is the place" or "this is the team".
+ * Files: assets/img/photos/<key>-{720,1200}.webp and <key>-1200.jpg.
+ */
+export const PHOTOS = {
+  home: 'A mother and her small daughter playing with a ball during a therapy session, a therapist beside them',
+  speech: 'A speech therapist holding a picture card by her mouth as a toddler reaches for it, his mother watching',
+  ot: 'An occupational therapist watching a young boy thread wooden beads onto a string',
+  aba: 'A therapist and a young boy sharing a high-five after sorting coloured blocks',
+  'special-ed': 'A special educator beside a girl building a word with wooden letter tiles',
+  enrichment: 'A small group of children playing hand drums and shakers in a circle with a therapist',
+  parent: 'A therapist talking with a mother and father on a sofa while their child plays nearby',
+  autism: 'A therapist blowing bubbles while a laughing boy reaches up to pop them',
+  delay: 'A father and toddler pointing at a picture book together, a therapist encouraging them',
+  assessment: 'A therapist observing a small girl stacking blocks while her mother watches',
+  online: 'A mother and son at home waving to a therapist on a laptop video call',
+  book: 'A mother on the phone at home while her child plays behind her',
+};
+export const PHOTO_NOTE = 'Photographs on this site are illustrations, not pictures of our centres, staff or the children we work with.';
+
 /** Embeddable map of a centre's own Google listing; null until the listing's ftid is known. */
 export function mapEmbedUrl(l) {
   if (!l.ftid) return null;

@@ -48,6 +48,7 @@ const helps = [
 
 export default {
   path: PATH,
+  photo: 'speech',
   title: 'Speech Therapy in Electronic City, Bangalore | Poorvam Care',
   description: 'Speech therapy for children at two centres in Electronic City Phase 1 and Phase 2, Bengaluru: late talking, unclear speech, stammering and autism.',
   reviewed: REVIEWED,

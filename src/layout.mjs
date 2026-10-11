@@ -8,7 +8,7 @@
  */
 
 import {
-  SITE_URL, BRAND, GBP_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
+  PHOTOS, PHOTO_NOTE, SITE_URL, BRAND, GBP_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
   GOOGLE_RATING, REVIEWER, LEAD_SINKS, GA4_ID, SOCIAL, SISTER, ONLINE, STATS, telLink, whatsappLink, mapEmbedUrl, reviewsUrl,
 } from './site.mjs';
 
@@ -301,7 +301,7 @@ function footer() {
   </div>
   <div class="wrap foot__base">
     <span>© ${year} ${BRAND}</span>
-    <span>Information on this site is general and does not replace an assessment by a qualified therapist.</span>
+    <span>Information on this site is general and does not replace an assessment by a qualified therapist. ${PHOTO_NOTE}</span>
     <span>Centre management powered by <a href="https://theraflow.in" target="_blank" rel="noopener">TheraFlow</a></span>
   </div>
 </footer>`;
@@ -407,7 +407,23 @@ function analytics() {
  * `local: false` drops the geo.* meta on pages about online therapy, which is
  * not a Bengaluru-only service.
  */
+/** A hero photograph from PHOTOS, as WebP at two widths with a JPEG fallback. */
+export function photo(key, { eager = true, cls = 'hphoto' } = {}) {
+  const alt = PHOTOS[key];
+  if (!alt) throw new Error(`no photo "${key}" in PHOTOS`);
+  const p = `/assets/img/photos/${key}`;
+  return `<figure class="${cls}"><picture><source type="image/webp" srcset="${p}-720.webp 720w, ${p}-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 40vw"><img src="${p}-1200.jpg" alt="${esc(alt)}" width="1200" height="800"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></picture></figure>`;
+}
+
+/** A page with `photo: '<key>'` gets its standard .phero hero split, words left and the photo right. */
+function withHeroPhoto(body, key) {
+  const re = /<section class="phero">\s*<div class="wrap">([\s\S]*?)<\/div>\s*<\/section>/;
+  if (!re.test(body)) throw new Error(`photo "${key}" set but the page has no standard .phero hero`);
+  return body.replace(re, (_, inner) => `<section class="phero phero--photo">\n  <div class="wrap">\n    <div class="phero__main">${inner}</div>\n    ${photo(key)}\n  </div>\n</section>`);
+}
+
 export function renderPage(page) {
+  if (page.photo) page = { ...page, body: withHeroPhoto(page.body, page.photo) };
   const url = urlOf(page.path);
   const is404 = page.path === '/404';
   const graph = [...baseSchema(), ...(page.schema ?? [])];
