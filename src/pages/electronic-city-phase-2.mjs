@@ -74,7 +74,7 @@ export default {
         <li>Well connected to Hosa Road and Bommanahalli</li>
       </ul>
       ${more('How to get there', `<p>From Hosa Road or Bommanahalli, head towards the Electronic City Phase 2 main road in Ananth Nagar. The centre is upstairs, above the Bata showroom, opposite Udupi Aaradhya restaurant. If you are coming by auto or cab, give the driver "Bata showroom, Ananth Nagar". For live directions from where you are, use the Directions button.</p>`)}
-      <div class="phero__acts mt-2">${whatsappButton(`Hi Poorvam Care, I would like to visit the Phase 2 centre.`, 'btn btn--wa')}</div>`, centreCard(L))}
+      <div class="phero__acts mt-2">${whatsappButton(`Hi Poorvam Care, I would like to visit the Phase 2 centre.`, 'btn btn--wa')}</div>`, centreCard(L, { map: true }))}
     ${callout('Coming with a pram or a wheelchair?', `The Phase 2 centre is reached by stairs only. There is no lift. Our <a href="${OTHER.page}">Phase 1 centre on Hulimangla Road</a> has a lift, the same therapists and the same hours.`, 'info')}
   </div>
 </section>

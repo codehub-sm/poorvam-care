@@ -74,7 +74,7 @@ export default {
         <li>Reached from the Electronic City toll gate area</li>
       </ul>
       ${more('How to get there', `<p>From the Electronic City flyover, take the exit towards Hulimangla Road. The centre is about two minutes from the main junction, above RxDx Multi Speciality and near the Sai Mandir Temple. If you are coming by auto or cab, give the driver "RxDx, Hulimangla Road". For live directions from where you are, use the Directions button.</p>`)}
-      <div class="phero__acts mt-2">${whatsappButton('Hi Poorvam Care, I would like to visit the Phase 1 centre.', 'btn btn--wa')}</div>`, centreCard(L))}
+      <div class="phero__acts mt-2">${whatsappButton('Hi Poorvam Care, I would like to visit the Phase 1 centre.', 'btn btn--wa')}</div>`, centreCard(L, { map: true }))}
     ${callout('Lift access', `The Phase 1 centre has a lift, so prams and wheelchairs are fine. If a stair climb matters to you, choose Phase 1 over <a href="${OTHER.page}">Phase 2</a>, which has stairs only.`, 'good')}
   </div>
 </section>

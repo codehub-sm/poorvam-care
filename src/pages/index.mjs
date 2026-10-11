@@ -1,7 +1,7 @@
 import { html, urlOf, orgId, bookButton, whatsappButton, serviceList, centresBlock, areasBlock, ctaBand, faqSection, icon } from '../layout.mjs';
 import { story } from '../story.mjs';
 import { head, cards, milestoneLadder, more, photo } from '../ui.mjs';
-import { STATS, DIRECTOR, CONTACT, LOCATIONS, SERVICES, SISTER, SUMMER_CAMP, whatsappLink } from '../site.mjs';
+import { STATS, DIRECTOR, CONTACT, LOCATIONS, SERVICES, SISTER, SUMMER_CAMP, GOOGLE_RATING, whatsappLink } from '../site.mjs';
 
 const faqs = [
   {
@@ -92,6 +92,7 @@ export default {
         ${whatsappButton(undefined, 'btn btn--line')}
       </div>
       <ul class="hero__proof">
+        ${GOOGLE_RATING ? `<li class="hero__rating">${icon('star')}Rated <b>${GOOGLE_RATING.display}</b> on Google (${GOOGLE_RATING.reviews} reviews)</li>` : ''}
         <li>${icon('check')}RCI-registered therapists</li>
         <li>${icon('check')}${STATS.years} years in practice</li>
         <li>${icon('check')}${STATS.families} families</li>

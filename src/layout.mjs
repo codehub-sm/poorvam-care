@@ -8,7 +8,7 @@
  */
 
 import {
-  PHOTOS, PHOTO_NOTE, SITE_URL, BRAND, GBP_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
+  PHOTOS, PHOTO_NOTE, SITE_URL, BRAND, GBP_NAME, FORMER_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
   GOOGLE_RATING, REVIEWER, LEAD_SINKS, GA4_ID, SOCIAL, SISTER, ONLINE, STATS, telLink, whatsappLink, mapEmbedUrl, reviewsUrl,
 } from './site.mjs';
 
@@ -118,7 +118,7 @@ export function centreCard(l, { map = false } = {}) {
       <p class="centre__near">Closest for ${l.nearby.slice(0, 4).join(', ')}.</p>
       <div class="centre__acts">
         <a class="btn btn--line btn--sm" href="${l.mapUrl}" target="_blank" rel="noopener" data-track="directions">${icon('route')}<span>Directions</span></a>
-        ${reviews && GOOGLE_RATING ? `<a class="btn btn--line btn--sm" href="${reviews}" target="_blank" rel="noopener" data-track="reviews">${icon('star')}<span>Google reviews</span></a>` : ''}
+        ${reviews && l.rating ? `<a class="btn btn--line btn--sm" href="${reviews}" target="_blank" rel="noopener" data-track="reviews">${icon('star')}<span>${l.rating.stars} stars, ${l.rating.reviews} reviews</span></a>` : ''}
         ${bookButton(`Book at ${l.short}`, '', 'btn btn--ink btn--sm', l.id)}
       </div>
     </article>`;
@@ -203,7 +203,7 @@ export function clinicSchema(l) {
     },
     geo: { '@type': 'GeoCoordinates', latitude: l.lat, longitude: l.lng },
     hasMap: l.mapUrl,
-    ...(reviews ? { sameAs: [reviews] } : {}),
+    sameAs: [l.mapUrl, ...(reviews ? [reviews] : [])],
     openingHoursSpecification: HOURS.spec.map((s) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: s.days, opens: s.opens, closes: s.closes })),
     areaServed: l.nearby.map((n) => ({ '@type': 'Place', name: `${n}, Bengaluru` })),
     parentOrganization: { '@id': orgId },
@@ -232,7 +232,7 @@ export function baseSchema() {
       '@type': ['MedicalBusiness', 'EducationalOrganization'],
       '@id': orgId,
       name: BRAND,
-      alternateName: [GBP_NAME, 'Poorvam Child Development Centre', 'Poorvam Early Intervention Centre'],
+      alternateName: [FORMER_NAME, 'Poorvam Child Development Centre', 'Poorvam Early Intervention Centre'],
       description: `Early intervention centre for children aged ${STATS.ages}: speech therapy, occupational therapy, ABA, special education, therapeutic enrichment and parent counselling at two centres in Electronic City, Bengaluru, and online.`,
       url: `${SITE_URL}/`,
       logo: `${SITE_URL}/assets/img/logo.jpg`,

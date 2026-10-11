@@ -14,12 +14,13 @@
 
 export const SITE_URL = 'https://poorvamcare.in';
 export const BRAND = 'Poorvam Care';
+/** What both Google Business Profiles are called (owner, 2026-10-12). */
+export const GBP_NAME = 'Poorvam Care';
 /**
- * What the Google Business Profile is called. GSC shows people search for this
- * exact name ("poorvam care & hearing solutions", 42% CTR), so schema carries it
- * as alternateName and Maps and the site agree.
+ * The older listing name. GSC shows people still search it ("poorvam care &
+ * hearing solutions", 42% CTR), so schema keeps it as an alternateName.
  */
-export const GBP_NAME = 'Poorvam Care & Hearing Solutions';
+export const FORMER_NAME = 'Poorvam Care & Hearing Solutions';
 
 export const CONTACT = {
   phone: '+918884864343',
@@ -51,18 +52,21 @@ export const LOCATIONS = [
     page: '/electronic-city-phase-1',
     short: 'Phase 1',
     name: 'Electronic City Phase 1',
-    // Care shares the hearing centre's building (owner, 2026-10-11). Address and
-    // pin as on that Google listing, so NAP matches across both brands.
-    street: 'Hulimangla Road, near Sai Mandir Temple, above RxDx Multi Speciality, Hulimangala',
-    landmark: 'Above RxDx Multi Speciality, near the Sai Mandir Temple, Hulimangla Road',
+    /** The Google listing this centre's map and reviews come from (owner's link, 2026-10-12). */
+    gbpName: 'Poorvam Care',
+    // Address and pin exactly as on that listing, so name, address and phone read as one entity.
+    street: 'Hulimangala Rd, near Sai Mandir Temple, above RxDx Multi speciality Clinic, Shikaripalya, Electronic City, Hulimangala',
+    landmark: 'Above RxDx Multi Speciality Clinic, near the Sai Mandir Temple, Hulimangala Road',
     postalCode: '560105',
-    lat: 12.8288082,
-    lng: 77.6405814,
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=12.8288082%2C77.6405814',
-    /** Google CID of the Care listing ("Poorvam Care & Hearing Solutions"), where its reviews live. */
-    cid: null,
+    lat: 12.8310616,
+    lng: 77.6481503,
+    mapUrl: 'https://www.google.com/maps/place/Poorvam+Care/@12.8310616,77.6481503,17z/data=!4m6!3m5!1s0x3bae6b00409a1443:0x10297ef00f20f804!8m2!3d12.8310616!4d77.6481503!16s%2Fg%2F11xg5t2rv5',
+    /** As read off the listing on 2026-10-12. */
+    rating: { stars: '5.0', reviews: 16 },
+    /** Google CID (decimal of the ftid's second half); opens the listing where its reviews live. */
+    cid: '1164601548163053572',
     /** Google Maps feature id (0x…:0x…) from the listing URL; drives the map embed. */
-    ftid: null,
+    ftid: '0x3bae6b00409a1443:0x10297ef00f20f804',
     /** Branch id in Theraflow (api.theraflow.in/enquire/poorvam). */
     theraflowLocationId: 2,
     /** Families with prams and wheelchairs decide on this. Confirmed 2026-10-11. */
@@ -74,22 +78,29 @@ export const LOCATIONS = [
     page: '/electronic-city-phase-2',
     short: 'Phase 2',
     name: 'Electronic City Phase 2',
-    street: 'Ananth Nagar, above Bata showroom, opp. Udupi Aaradhya restaurant',
+    /** The Phase 2 Care listing (owner's link, 2026-10-12). */
+    gbpName: 'Poorvam Care',
+    street: 'Ananth Nagar, Phase 1, Phase II, Electronic City, Hebbagodi',
     landmark: 'Above the Bata showroom in Ananth Nagar, opposite Udupi Aaradhya',
     postalCode: '560100',
-    lat: 12.8362391,
-    lng: 77.686838,
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=12.8362391%2C77.686838',
-    cid: null,
-    ftid: null,
+    lat: 12.8362079,
+    lng: 77.6868117,
+    mapUrl: 'https://www.google.com/maps/place/Poorvam+Care/@12.8362079,77.6868117,17z/data=!4m6!3m5!1s0x3bae6d84e96c6c51:0xa28128c091eabca!8m2!3d12.8362079!4d77.6868117!16s%2Fg%2F11sw0t8q00',
+    rating: { stars: '4.6', reviews: 74 },
+    cid: '731855332105432010',
+    ftid: '0x3bae6d84e96c6c51:0xa28128c091eabca',
     theraflowLocationId: 1,
     access: 'Upstairs, reached by stairs. There is no lift.',
     nearby: ['Ananth Nagar', 'Hebbagodi', 'Bommasandra', 'Chandapura', 'Huskur', 'Attibele'],
   },
 ];
 
-/** Real Google rating, only once read off both listings with a date. Null hides every rating claim. */
-export const GOOGLE_RATING = null;
+/**
+ * Both Google listings, read on 2026-10-12. Per-centre values live on each
+ * location; this is the honest summary across both (a range, not an average
+ * of rounded figures). Update when they change; pages print the date.
+ */
+export const GOOGLE_RATING = { display: '4.6–5.0', reviews: 90, asOf: 'October 2026' };
 
 /** Owner-supplied figures already published on the live site. */
 export const SUMMER_CAMP = { runs: true, months: 'April–May', page: '/therapeutic-enrichment' };
@@ -252,7 +263,7 @@ export const PHOTO_NOTE = 'Photographs on this site are illustrations, not pictu
 /** Embeddable map of a centre's own Google listing; null until the listing's ftid is known. */
 export function mapEmbedUrl(l) {
   if (!l.ftid) return null;
-  const pb = `!1m18!1m12!1m3!1d1500!2d${l.lng}!3d${l.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s${l.ftid}!2s${encodeURIComponent(GBP_NAME)}!5e0!3m2!1sen!2sin!4v1728600000000!5m2!1sen!2sin`;
+  const pb = `!1m18!1m12!1m3!1d1500!2d${l.lng}!3d${l.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s${l.ftid}!2s${encodeURIComponent(l.gbpName)}!5e0!3m2!1sen!2sin!4v1728600000000!5m2!1sen!2sin`;
   return `https://www.google.com/maps/embed?pb=${pb}`;
 }
 

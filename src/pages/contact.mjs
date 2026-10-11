@@ -56,7 +56,7 @@ export default {
 <section class="band band--paper" id="centres">
   <div class="wrap">
     ${head('Our two centres in Electronic City', 'Same therapists, same hours. Phase 1 has a lift; Phase 2 is up a flight of stairs.')}
-    <div class="centres">${LOCATIONS.map((l) => centreCard(l))}</div>
+    <div class="centres">${LOCATIONS.map((l) => centreCard(l, { map: true }))}</div>
   </div>
 </section>
 

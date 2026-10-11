@@ -126,7 +126,7 @@ export default {
   <div class="wrap">
     ${head('Where to find the hearing clinic', 'The same two buildings as Poorvam Care, with the same hours.')}
     <div class="centres">${LOCATIONS.map(where)}</div>
-    ${more('Poorvam Care and Poorvam Hearing', `<p>Poorvam Care & Hearing Solutions is one practice with two brands. ${SISTER.name} handles hearing tests and hearing aids for all ages. Poorvam Care, this site, is the children's therapy side: <a href="/child-development">speech therapy, occupational therapy, ABA, special education and more</a>. Our clinical director, ${DIRECTOR.name}, holds a Master of Audiology and Speech-Language Pathology, is RCI registered and is a member of the Indian Speech and Hearing Association.</p>
+    ${more('Poorvam Care and Poorvam Hearing', `<p>Poorvam Care (once listed as Poorvam Care & Hearing Solutions) and Poorvam Hearing are one practice with two brands. ${SISTER.name} handles hearing tests and hearing aids for all ages. Poorvam Care, this site, is the children's therapy side: <a href="/child-development">speech therapy, occupational therapy, ABA, special education and more</a>. Our clinical director, ${DIRECTOR.name}, holds a Master of Audiology and Speech-Language Pathology, is RCI registered and is a member of the Indian Speech and Hearing Association.</p>
       <p>Call or WhatsApp ${CONTACT.phoneDisplay} if you are not sure which you need, and we will point you to the right place.</p>`)}
   </div>
 </section>
