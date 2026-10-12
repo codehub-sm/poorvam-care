@@ -62,7 +62,7 @@ const uses = [
 
 const faqs = [
   { q: 'How much does it cost to rent the hall per hour?', a: `${inr(STUDIO.rates.weekdayDay)} an hour on weekdays before 5 PM, ${inr(STUDIO.rates.weekdayEvening)} an hour on weekday evenings (5–10 PM), and ${inr(STUDIO.rates.weekend)} an hour on Saturdays, Sundays and public holidays. Practice bookings have a 1-hour minimum; events have a 3-hour minimum. 18% GST is extra where applicable.` },
-  { q: 'Can I host a kids\' birthday party?', a: `Yes. The birthday package is 3 hours for up to 40 guests: ${inr(STUDIO.birthday.weekday)} on weekdays or ${inr(STUDIO.birthday.weekend)} on weekends, with chairs and tables, 30 minutes of free decorating time, and your own cake and decor. A ${inr(STUDIO.deposit)} refundable deposit applies.` },
+  { q: 'Can I host a kids\' birthday party?', a: `Yes. The birthday package is 3 hours for up to 40 guests: ${inr(STUDIO.birthday.weekday)} on weekdays or ${inr(STUDIO.birthday.weekend)} on weekends, with 30 minutes of free decorating time and your own cake and decor. Chairs and tables can be added for an extra charge. A ${inr(STUDIO.deposit)} refundable deposit applies.` },
   { q: 'Is there parking?', a: 'Ask us when you book. Tell us how many cars to expect and we will tell you what is available for your date and time.' },
   { q: 'Can yoga or dance teachers book a fixed monthly slot?', a: 'Yes. The same 1-hour slot three days a week, Monday to Friday, is ₹5,000 a month in the morning (6–9 AM) or ₹8,000 a month in the evening (5–10 PM).' },
   { q: 'Is the hall separate from the therapy centre?', a: 'Yes. Poorvam Studio has its own entrance, separate from the Poorvam Care therapy centre in the same building.' },
@@ -83,18 +83,18 @@ const I = {
 /** The hall drawn to scale (about 50 × 30 ft): what renders until real photos exist. */
 function floorPlan() {
   return `<figure class="st-plan"><svg viewBox="0 0 520 340" role="img" aria-labelledby="st-plan-t">
-  <title id="st-plan-t">Floor plan of Poorvam Studio: an open rectangular floor about 50 by 30 feet, a mirror wall along one long side, a separate entrance at the front, AC units, and power points along the walls.</title>
+  <title id="st-plan-t">Floor plan of Poorvam Studio: an open rectangular floor about 50 by 30 feet, a mirror wall along one long side, a separate entrance at the front, centralised AC in the middle of the ceiling, and power points along the walls.</title>
   <rect class="pl-floor" x="30" y="30" width="460" height="270" rx="6"/>
   <g class="pl-grid">${Array.from({ length: 9 }, (_, i) => `<line x1="${30 + (i + 1) * 46}" y1="30" x2="${30 + (i + 1) * 46}" y2="300"/>`).join('')}${Array.from({ length: 5 }, (_, i) => `<line x1="30" y1="${30 + (i + 1) * 45}" x2="490" y2="${30 + (i + 1) * 45}"/>`).join('')}</g>
   <rect class="pl-mirror" x="30" y="30" width="460" height="10"/>
   <text class="pl-label" x="260" y="60" text-anchor="middle">MIRROR WALL</text>
   <path class="pl-door" d="M430 300 v-40 a40 40 0 0 1 40 40"/>
   <text class="pl-label" x="450" y="322" text-anchor="middle">ENTRANCE</text>
-  <rect class="pl-ac" x="60" y="46" width="70" height="12" rx="3"/><rect class="pl-ac" x="390" y="46" width="70" height="12" rx="3"/>
-  <text class="pl-small" x="95" y="78" text-anchor="middle">AC</text><text class="pl-small" x="425" y="78" text-anchor="middle">AC</text>
+  <g class="pl-ac-c"><rect x="226" y="96" width="68" height="44" rx="6"/><path d="M234 108h52M234 118h52M234 128h52"/></g>
+  <text class="pl-small" x="260" y="88" text-anchor="middle">CENTRAL AC</text>
   ${[[30, 150], [30, 240], [490, 150], [490, 240], [200, 300], [300, 300]].map(([x, y]) => `<circle class="pl-plug" cx="${x}" cy="${y}" r="5"/>`).join('')}
-  <text class="pl-big" x="260" y="185" text-anchor="middle">1,500 sq ft</text>
-  <text class="pl-small" x="260" y="210" text-anchor="middle">open floor · about 50 × 30 ft</text>
+  <text class="pl-big" x="260" y="200" text-anchor="middle">1,500 sq ft</text>
+  <text class="pl-small" x="260" y="225" text-anchor="middle">open floor · about 50 × 30 ft</text>
   <text class="pl-small" x="22" y="322">● power points</text>
 </svg><figcaption>Floor plan, drawn to scale. Photos of the hall are coming soon.</figcaption></figure>`;
 }
@@ -124,12 +124,12 @@ function ratesTable() {
 }
 
 const packages = [
-  { name: 'Birthday', hl: true, price: `${inr(STUDIO.birthday.weekday)}`, unit: 'weekdays', alt: `${inr(STUDIO.birthday.weekend)} weekends`, meta: '3 hours', gets: ['Up to 40 guests', 'Chairs and tables', '30 minutes of free decorating time', 'Bring your own cake and decor'], purpose: 'Birthday party' },
+  { name: 'Birthday', hl: true, price: `${inr(STUDIO.birthday.weekday)}`, unit: 'weekdays', alt: `${inr(STUDIO.birthday.weekend)} weekends`, meta: '3 hours', gets: ['Up to 40 guests', '30 minutes of free decorating time', 'Bring your own cake and decor', 'Chairs and tables at extra charge'], purpose: 'Birthday party' },
   { name: 'Instructor morning slot', price: '₹5,000', unit: 'per month', meta: 'Mon–Fri, 6–9 AM', gets: ['The same 1 hour, 3 days a week', 'Your batch, your music', 'Ideal for yoga and fitness'], purpose: 'Yoga batch' },
   { name: 'Instructor evening slot', price: '₹8,000', unit: 'per month', meta: 'Mon–Fri, 5–10 PM', gets: ['The same 1 hour, 3 days a week', 'After-work and after-school batches', 'Ideal for dance and fitness'], purpose: 'Dance practice' },
 ];
 
-const gets = ['Open floor, nothing to move', 'Full-length mirror wall', 'AC included in the rate', 'Chairs and tables on request', 'CCTV and a separate entrance', 'Power points along the walls'];
+const gets = ['Open floor, nothing to move', 'Full-length mirror wall', 'Centralised AC, included in the rate', 'Chairs and tables on request, charged extra', 'CCTV and a separate entrance', 'Power points along the walls'];
 const rules = ['No outdoor footwear on the floor', 'No cooking, smoking or alcohol', 'Music down by 9:30 PM; hall clear by 10 PM', 'No confetti, glitter or tape on the walls', 'The deposit covers any extra cleaning', 'Free cancellation up to 48 hrs before; 50% kept after that'];
 
 function schema(page) {

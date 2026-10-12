@@ -96,7 +96,8 @@ body.studio { margin: 0; background: var(--st-bg); color: var(--st-ink); font: 4
 .st-plan .pl-grid line { stroke: rgb(255 255 255 / .1); stroke-width: 1; }
 .st-plan .pl-mirror { fill: #b9c7ff; opacity: .8; }
 .st-plan .pl-door { fill: none; stroke: var(--st-marigold); stroke-width: 3; stroke-dasharray: 5 4; }
-.st-plan .pl-ac { fill: rgb(255 255 255 / .35); }
+.st-plan .pl-ac-c rect { fill: rgb(255 255 255 / .14); stroke: rgb(255 255 255 / .6); stroke-width: 2; }
+.st-plan .pl-ac-c path { stroke: rgb(255 255 255 / .55); stroke-width: 2; stroke-linecap: round; }
 .st-plan .pl-plug { fill: var(--st-marigold); }
 .st-plan text { fill: #fff; font-family: var(--st-mono); }
 .st-plan .pl-label { font-size: 12px; letter-spacing: .12em; opacity: .85; }
