@@ -92,7 +92,7 @@ export default {
         ${whatsappButton(undefined, 'btn btn--line')}
       </div>
       <ul class="hero__proof">
-        ${GOOGLE_RATING ? `<li class="hero__rating">${icon('star')}Rated <b>${GOOGLE_RATING.display}</b> on Google (${GOOGLE_RATING.reviews} reviews)</li>` : ''}
+        ${GOOGLE_RATING ? `<li class="hero__rating">${icon('star')}<b>${GOOGLE_RATING.stars}</b> on Google</li>` : ''}
         <li>${icon('check')}RCI-registered therapists</li>
         <li>${icon('check')}${STATS.years} years in practice</li>
         <li>${icon('check')}${STATS.families} families</li>

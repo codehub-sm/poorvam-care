@@ -96,11 +96,13 @@ export const LOCATIONS = [
 ];
 
 /**
- * Both Google listings, read on 2026-10-12. Per-centre values live on each
- * location; this is the honest summary across both (a range, not an average
- * of rounded figures). Update when they change; pages print the date.
+ * A site-wide star rating, shown only when set. It must be a figure Google
+ * actually shows: on 2026-10-12 the listings read 5.0 (16 reviews, Phase 1)
+ * and 4.6 (74 reviews, Phase 2), about 4.7 combined. The owner asked for no
+ * counts or dates on the pages, so until a single verified figure is agreed
+ * this stays null and pages link to the Google reviews without a number.
  */
-export const GOOGLE_RATING = { display: '4.6–5.0', reviews: 90, asOf: 'October 2026' };
+export const GOOGLE_RATING = null;
 
 /** Owner-supplied figures already published on the live site. */
 export const SUMMER_CAMP = { runs: true, months: 'April–May', page: '/therapeutic-enrichment' };

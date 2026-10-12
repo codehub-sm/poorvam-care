@@ -550,6 +550,16 @@
     "status": "301"
   },
   {
+    "source": "/studio/",
+    "target": "/studio",
+    "status": "301"
+  },
+  {
+    "source": "/studio/index.html",
+    "target": "/studio",
+    "status": "301"
+  },
+  {
     "source": "/therapeutic-enrichment/",
     "target": "/therapeutic-enrichment",
     "status": "301"
@@ -742,6 +752,11 @@
   {
     "source": "/speech-therapy-whitefield-bangalore",
     "target": "/speech-therapy-whitefield-bangalore/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/studio",
+    "target": "/studio/index.html",
     "status": "200"
   },
   {

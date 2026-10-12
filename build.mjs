@@ -80,7 +80,8 @@ for (const p of pages) {
   if (!p?.path || !p.title || !p.description || !p.body) { fail(p?.path ?? '?', 'missing path/title/description/body'); continue; }
   if (p.path !== '/' && (!p.path.startsWith('/') || p.path.endsWith('/') || /\.\w+$/.test(p.path))) fail(p.path, 'path must be "/" or "/slug" with no trailing slash or extension');
   if (rendered.has(p.path)) fail(p.path, 'two pages share this path');
-  const htmlOut = labelTables(renderPage(p));
+  // A page with its own shell (the studio sub-brand) renders itself; every gate below still applies.
+  const htmlOut = labelTables((p.render ?? renderPage)(p));
   rendered.set(p.path, htmlOut);
   if (p.title.length > 65) fail(p.path, `title is ${p.title.length} chars (max 65): "${p.title}"`);
   if (p.description.length < 110 || p.description.length > 165) fail(p.path, `description is ${p.description.length} chars (want 110–165)`);
@@ -90,8 +91,9 @@ for (const p of pages) {
   const h1 = (htmlOut.match(/<h1[\s>]/g) ?? []).length;
   if (h1 !== 1) fail(p.path, `has ${h1} <h1> elements (want 1)`);
   if (/\bTODO\b|lorem ipsum/i.test(p.body)) fail(p.path, 'contains TODO / placeholder text');
-  // The site publishes no prices (consultation-first, Sep 2026). A rupee figure on any page is a regression.
-  if (/₹\s?\d/.test(p.body) || p.faqs?.some((f) => /₹\s?\d/.test(f.a))) fail(p.path, 'contains a rupee price; the site publishes none');
+  // The therapy site publishes no prices (consultation-first, Sep 2026). A rupee figure on any
+  // page is a regression, except on a page that sells something priced (the studio: prices: true).
+  if (!p.prices && (/₹\s?\d/.test(p.body) || p.faqs?.some((f) => /₹\s?\d/.test(f.a)))) fail(p.path, 'contains a rupee price; the site publishes none');
   if (/[!](?=\s|<|$)/.test(p.body.replace(/<[^>]+>/g, ' ').replace(/<!--[\s\S]*?-->/g, ''))) fail(p.path, 'contains an exclamation mark (brand voice)');
 }
 
@@ -139,9 +141,12 @@ await writeFile(path.join(out, 'site.webmanifest'), JSON.stringify({
 }, null, 2));
 
 const indexable = pages.filter((p) => !p.noindex && p.path !== '/404');
+// llms.txt describes the therapy centre. A separate business on this domain (llms: false)
+// stays out, so answer engines don't tell parents the clinic rents halls.
+const forLlms = indexable.filter((p) => p.llms !== false);
 await writeFile(path.join(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexable.map((p) => `  <url><loc>${urlOf(p.path)}</loc><lastmod>${p.reviewed ?? today}</lastmod></url>`).join('\n')}
+${indexable.map((p) => `  <url><loc>${urlOf(p.path)}</loc><lastmod>${p.reviewed ?? today}</lastmod>${p.changefreq ? `<changefreq>${p.changefreq}</changefreq>` : ''}${p.priority != null ? `<priority>${p.priority}</priority>` : ''}</url>`).join('\n')}
 </urlset>
 `);
 
@@ -176,7 +181,7 @@ const strip = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&
 const faqSeen = new Set();
 // Home and /faq first: their questions are the ones answer engines are asked most.
 const faqOrder = (p) => (p.path === '/' ? 0 : p.path === '/faq' ? 1 : 2);
-const allFaqs = [...indexable].sort((x, y) => faqOrder(x) - faqOrder(y)).flatMap((p) => (p.faqs ?? []).map((f) => ({ ...f, page: p }))).filter((f) => !faqSeen.has(f.q) && faqSeen.add(f.q));
+const allFaqs = [...forLlms].sort((x, y) => faqOrder(x) - faqOrder(y)).flatMap((p) => (p.faqs ?? []).map((f) => ({ ...f, page: p }))).filter((f) => !faqSeen.has(f.q) && faqSeen.add(f.q));
 const svcLine = site.SERVICES.map((s) => s.label.replace(/^[A-Z](?=[a-z])/, (c) => c.toLowerCase())).join(', ');
 
 await writeFile(path.join(out, 'llms.txt'), `# ${site.BRAND}
@@ -207,7 +212,7 @@ await writeFile(path.join(out, 'llms.txt'), `# ${site.BRAND}
 - Sessions: 45 to 60 minutes at a centre, 45 minutes online. Goals are written down and reviewed with parents.
 - Parent view: families see the session schedule, therapy goals, session notes, home practice and billing on their phone, reschedule sessions themselves and message their therapist between sessions.
 - Age to start: there is no minimum age for an assessment; a toddler not using words by 18 months or not joining two words by 2 should be assessed.
-${site.GOOGLE_RATING ? `- Google rating: ${site.GOOGLE_RATING.display} stars across both centres, ${site.GOOGLE_RATING.reviews} reviews (${site.GOOGLE_RATING.asOf})\n` : ''}
+${site.GOOGLE_RATING ? `- Google rating: ${site.GOOGLE_RATING.stars} stars\n` : ''}
 ## Therapies
 
 ${site.SERVICES.map((s) => `- [${s.label}](${urlOf(s.page)}): ${s.blurb}`).join('\n')}
@@ -229,7 +234,7 @@ ${L.map((l) => `### ${site.BRAND}, ${l.name}
 - Address: ${l.street}, Bengaluru ${l.postalCode}, Karnataka, India
 - Landmark: ${l.landmark}
 - Google listing ("${l.gbpName}"): ${l.mapUrl}
-${l.cid && l.rating ? `- Google reviews: ${l.rating.stars} stars from ${l.rating.reviews} reviews (${site.GOOGLE_RATING.asOf}), https://www.google.com/maps?cid=${l.cid}\n` : ''}
+${l.cid ? `- Google reviews: https://www.google.com/maps?cid=${l.cid}\n` : ''}
 - Coordinates: ${l.lat}, ${l.lng}
 - Closest for: ${l.nearby.join(', ')}
 ${l.access ? `- Access: ${l.access}\n` : ''}- Page: ${urlOf(l.page)}`).join('\n\n')}
@@ -246,7 +251,7 @@ ${L.map((l) => `- Closest to ${l.name}: ${site.AREAS.filter((a) => a.centre === 
 
 ## Pages
 
-${indexable.map((p) => `- [${p.title}](${urlOf(p.path)}): ${p.description}`).join('\n')}
+${forLlms.map((p) => `- [${p.title}](${urlOf(p.path)}): ${p.description}`).join('\n')}
 
 ## Top questions
 
@@ -266,7 +271,7 @@ const pageText = (htmlOut) => strip(htmlOut
   .replace(/<\/(h[1-6]|p|li|tr|summary|details|dt|dd)>/g, '\n'));
 await writeFile(path.join(out, 'llms-full.txt'), `# ${site.BRAND}: full site text\n\nGenerated ${today}. Facts here match ${site.SITE_URL}/llms.txt.\n\n## Every question we answer\n\n` +
   allFaqs.map((f) => `### ${f.q}\n${strip(f.a)} (Source: ${urlOf(f.page.path)})`).join('\n\n') + '\n\n' +
-  indexable.map((p) => `---\n\n# ${p.title}\nURL: ${urlOf(p.path)}\n\n${pageText(rendered.get(p.path))}\n`).join('\n'));
+  forLlms.map((p) => `---\n\n# ${p.title}\nURL: ${urlOf(p.path)}\n\n${pageText(rendered.get(p.path))}\n`).join('\n'));
 
 /*
  * Amplify rewrite/redirect rules, generated from the same page list the site is

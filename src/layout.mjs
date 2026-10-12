@@ -118,7 +118,7 @@ export function centreCard(l, { map = false } = {}) {
       <p class="centre__near">Closest for ${l.nearby.slice(0, 4).join(', ')}.</p>
       <div class="centre__acts">
         <a class="btn btn--line btn--sm" href="${l.mapUrl}" target="_blank" rel="noopener" data-track="directions">${icon('route')}<span>Directions</span></a>
-        ${reviews && l.rating ? `<a class="btn btn--line btn--sm" href="${reviews}" target="_blank" rel="noopener" data-track="reviews">${icon('star')}<span>${l.rating.stars} stars, ${l.rating.reviews} reviews</span></a>` : ''}
+        ${reviews ? `<a class="btn btn--line btn--sm" href="${reviews}" target="_blank" rel="noopener" data-track="reviews">${icon('star')}<span>Google reviews</span></a>` : ''}
         ${bookButton(`Book at ${l.short}`, '', 'btn btn--ink btn--sm', l.id)}
       </div>
     </article>`;
@@ -283,6 +283,7 @@ function footer() {
       <p>Speech therapy, occupational therapy, ABA and special education for children aged ${STATS.ages}, at two centres in Electronic City, Bengaluru, and online.</p>
       <p><a href="${telLink}" data-track="call">${CONTACT.phoneDisplay}</a><br><a href="mailto:${CONTACT.email}">${CONTACT.email}</a></p>
       <p>Hearing tests and hearing aids: <a href="${SISTER.url}" rel="noopener">${SISTER.name}</a></p>
+      <p><a href="/studio">Hall for rent</a></p>
     </div>
     ${LOCATIONS.map((l) => html`<div>
       <p class="foot__h"><a href="${l.page}">${l.name}</a></p>
