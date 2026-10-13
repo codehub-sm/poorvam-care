@@ -306,7 +306,7 @@ function footer() {
   </div>
   <div class="wrap foot__base">
     <span>© ${year} ${BRAND}</span>
-    <span>Information on this site is general and does not replace an assessment by a qualified therapist. ${PHOTO_NOTE}</span>
+    <span>General information, not a substitute for an assessment. ${PHOTO_NOTE}</span>
     <span>Centre management powered by <a href="https://theraflow.in" target="_blank" rel="noopener">TheraFlow</a></span>
   </div>
 </footer>`;

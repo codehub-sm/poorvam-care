@@ -264,7 +264,8 @@ export const PHOTOS = {
   online: 'A mother and son at home waving to a therapist on a laptop video call',
   book: 'A mother on the phone at home while her child plays behind her',
 };
-export const PHOTO_NOTE = 'Photographs on this site are illustrations, not pictures of our centres, staff or the children we work with.';
+/** Short enough to share one footer line with the copyright and the TheraFlow credit. */
+export const PHOTO_NOTE = 'Photos are illustrations.';
 
 /** Embeddable map of a centre's own Google listing; null until the listing's ftid is known. */
 export function mapEmbedUrl(l) {
