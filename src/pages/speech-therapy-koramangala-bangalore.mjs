@@ -92,9 +92,9 @@ export default {
     <div class="phero__acts">${bookButton('Book a speech assessment', 'speech', 'btn btn--ink', 'phase-1')}${callButton()}</div>
     ${stats([
       { label: 'Nearest centre', value: 'EC Phase 1', tone: 'blue' },
-      { label: 'Online session', value: '45 min', tone: 'mint' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'violet' },
-      { label: 'Years in practice', value: STATS.years, tone: 'sun' },
+      { label: 'Online session', value: '45 min', tone: 'green' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'sky' },
+      { label: 'Years in practice', value: STATS.years, tone: 'teal' },
     ])}
   </div>
 </section>

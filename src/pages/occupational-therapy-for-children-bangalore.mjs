@@ -87,10 +87,10 @@ export default {
     <p class="answer">Occupational therapy helps children aged ${STATS.ages} with the skills of daily life: holding a pencil, dressing, eating, balance, and coping with noise, touch and movement. Poorvam Care's therapists start with an assessment, then run weekly play-based sessions at our Phase 1 and Phase 2 centres.</p>
     <div class="phero__acts">${bookButton('Book an OT assessment', 'ot', 'btn btn--ink')}${callButton()}</div>
     ${stats([
-      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'mint' },
+      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'green' },
       { label: 'Ages we work with', value: STATS.ages, tone: 'blue' },
-      { label: 'Session length', value: '45–60 min', tone: 'violet' },
-      { label: 'Families seen', value: STATS.families, tone: 'sun' },
+      { label: 'Session length', value: '45–60 min', tone: 'sky' },
+      { label: 'Families seen', value: STATS.families, tone: 'teal' },
     ])}
   </div>
 </section>
@@ -98,7 +98,7 @@ export default {
 <section class="band">
   <div class="wrap">
     ${head('What occupational therapy helps with', 'OT is about the everyday jobs of childhood: playing, eating, dressing, learning and staying calm enough to do them.')}
-    ${cards(helps.map((h) => ({ ...h, tone: 'mint' })), { cols: 3 })}
+    ${cards(helps.map((h) => ({ ...h, tone: 'green' })), { cols: 3 })}
   </div>
 </section>
 
@@ -123,7 +123,7 @@ export default {
       ['Review', 'We check progress against the goals with you and adjust the plan.'],
     ])}
     ${weekPlan({
-      tone: 'mint',
+      tone: 'green',
       session: ['Movement and sensory activities matched to your child', 'Fine motor play: drawing, cutting, threading, building', 'Time with you on what to practise this week'],
       home: ['A short home activity plan for each week', 'Small changes to routines like dressing and meals', 'Notes and home activities on your phone'],
     })}

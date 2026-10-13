@@ -82,9 +82,9 @@ export default {
     <div class="phero__acts">${bookOnline()}${callButton()}</div>
     ${stats([
       { label: 'Session times, your local time', value: '3 pm – 8 pm', tone: 'blue' },
-      { label: 'Minutes per session', value: String(SESSION_MINUTES), tone: 'mint' },
-      { label: 'NDIS plans', value: 'Self- and plan-managed', tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Minutes per session', value: String(SESSION_MINUTES), tone: 'green' },
+      { label: 'NDIS plans', value: 'Self- and plan-managed', tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>
@@ -98,7 +98,7 @@ export default {
       { icon: 'check', title: 'Plan-managed NDIS', text: 'You may use unregistered providers within NDIS price limits. Our fees sit within them.' },
       { icon: 'shield', title: 'Agency-managed NDIS', text: 'Only NDIS-registered providers can be used, and we are not one. Check your plan type first.' },
       { icon: 'clock', title: 'Australian afternoons', text: 'Sessions are set for your after-school hours, not Indian business hours.' },
-    ].map((c) => ({ ...c, tone: 'mint' })), { cols: 4 })}
+    ].map((c) => ({ ...c, tone: 'green' })), { cols: 4 })}
     ${more('Plan-managed? One thing to do first', '<p>Confirm the arrangement with your plan manager before the first session. They may need a Statement by a Supplier form on file, because we are an overseas provider that is not NDIS-registered.</p>')}
   </div>
 </section>

@@ -76,12 +76,43 @@ function labelTables(htmlIn) {
   });
 }
 
+/**
+ * Section backgrounds alternate page shade / white in document order, computed
+ * here so no page can put two same-shade sections side by side or drop in an
+ * off-palette tint. Authors write plain `band`; band--paper is assigned.
+ * Dark or gradient sections (hero, story, band--ink, CTA) reset the rhythm;
+ * the home quick-action strip sits on the page shade.
+ */
+function rhythm(htmlIn) {
+  let prev = 'dark';
+  return htmlIn.replace(/<section class="([^"]*)"/g, (m, cls) => {
+    const list = cls.split(/\s+/);
+    if (list.includes('quick')) { prev = 'bg'; return m; }
+    if (!list.includes('band') || list.includes('band--ink')) { prev = 'dark'; return m; }
+    const shade = prev === 'bg' ? 'paper' : 'bg';
+    prev = shade;
+    const kept = list.filter((c) => !/^band--(paper|mint|violet|sun|green|sky)$/.test(c));
+    if (shade === 'paper') kept.splice(kept.indexOf('band') + 1, 0, 'band--paper');
+    return `<section class="${kept.join(' ')}"`;
+  });
+}
+
+/** Two neighbouring light sections must never share a shade. */
+function rhythmProblems(htmlOut) {
+  const shades = [...htmlOut.matchAll(/<section class="([^"]*)"/g)].map((m) => {
+    const l = m[1].split(/\s+/);
+    return l.includes('quick') ? 'bg' : !l.includes('band') || l.includes('band--ink') ? 'dark' : l.includes('band--paper') ? 'paper' : 'bg';
+  });
+  return shades.some((s, i) => i && s !== 'dark' && s === shades[i - 1]);
+}
+
 for (const p of pages) {
   if (!p?.path || !p.title || !p.description || !p.body) { fail(p?.path ?? '?', 'missing path/title/description/body'); continue; }
   if (p.path !== '/' && (!p.path.startsWith('/') || p.path.endsWith('/') || /\.\w+$/.test(p.path))) fail(p.path, 'path must be "/" or "/slug" with no trailing slash or extension');
   if (rendered.has(p.path)) fail(p.path, 'two pages share this path');
   // A page with its own shell (the studio sub-brand) renders itself; every gate below still applies.
-  const htmlOut = labelTables((p.render ?? renderPage)(p));
+  const htmlOut = p.render ? labelTables(p.render(p)) : rhythm(labelTables(renderPage(p)));
+  if (!p.render && rhythmProblems(htmlOut)) fail(p.path, 'two neighbouring sections share a background shade');
   rendered.set(p.path, htmlOut);
   if (p.title.length > 65) fail(p.path, `title is ${p.title.length} chars (max 65): "${p.title}"`);
   if (p.description.length < 110 || p.description.length > 165) fail(p.path, `description is ${p.description.length} chars (want 110–165)`);
@@ -136,7 +167,7 @@ await cp(path.join(root, 'assets'), path.join(out, 'assets'), { recursive: true 
 // Browsers and Google ask for /favicon.ico at the root whatever the page says.
 await cp(path.join(root, 'assets/img/favicon.ico'), path.join(out, 'favicon.ico'));
 await writeFile(path.join(out, 'site.webmanifest'), JSON.stringify({
-  name: site.BRAND, short_name: site.BRAND, start_url: '/', display: 'browser', background_color: '#ffffff', theme_color: '#3446f0',
+  name: site.BRAND, short_name: site.BRAND, start_url: '/', display: 'browser', background_color: '#ffffff', theme_color: '#064a8b',
   icons: [192, 512].map((n) => ({ src: `/assets/img/favicon-${n}.png`, sizes: `${n}x${n}`, type: 'image/png' })),
 }, null, 2));
 

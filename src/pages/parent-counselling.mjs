@@ -81,10 +81,10 @@ export default {
     <p class="answer">Parent counselling supports parents of children with autism, speech delay or a developmental disability. At Poorvam Care in Electronic City you get a confidential space, clear information about your child's needs, and practical strategies for home, in person or by video.</p>
     <div class="phero__acts">${bookButton('Book parent counselling', 'parent', 'btn btn--ink')}${whatsappButton('Hi Poorvam Care, I would like to ask about parent counselling.', 'btn btn--line')}</div>
     ${stats([
-      { label: 'Ways to meet', value: 'In person or online', tone: 'coral' },
+      { label: 'Ways to meet', value: 'In person or online', tone: 'deep' },
       { label: 'Online session length', value: '45 min', tone: 'blue' },
-      { label: 'Years in practice', value: STATS.years, tone: 'mint' },
-      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'violet' },
+      { label: 'Years in practice', value: STATS.years, tone: 'green' },
+      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'sky' },
     ])}
   </div>
 </section>
@@ -92,7 +92,7 @@ export default {
 <section class="band">
   <div class="wrap">
     ${head('What we cover in parent counselling', 'Sessions follow what your family needs most. These are the topics parents bring most often.')}
-    ${cards(topics.map((t) => ({ ...t, tone: 'coral' })), { cols: 3 })}
+    ${cards(topics.map((t) => ({ ...t, tone: 'deep' })), { cols: 3 })}
   </div>
 </section>
 
@@ -114,8 +114,8 @@ export default {
   <div class="wrap">
     ${head('In the centre or online', 'Choose whichever is easier this month. You can switch.')}
     ${cards([
-      { icon: 'pin', title: 'At an Electronic City centre', text: 'Face to face at Phase 1 or Phase 2, booked around your child\'s therapy if you like.', tone: 'coral' },
-      { icon: 'video', title: 'Online, by live video', text: `45-minute sessions from home, for families in ${markets}.`, tone: 'coral', href: '/online' },
+      { icon: 'pin', title: 'At an Electronic City centre', text: 'Face to face at Phase 1 or Phase 2, booked around your child\'s therapy if you like.', tone: 'deep' },
+      { icon: 'video', title: 'Online, by live video', text: `45-minute sessions from home, for families in ${markets}.`, tone: 'deep', href: '/online' },
     ], { cols: 2 })}
   </div>
 </section>

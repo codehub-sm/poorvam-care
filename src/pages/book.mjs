@@ -40,9 +40,9 @@ function bookPage({ path, title, description, h1, lede, centre, crumb, photo }) 
       </ol>
       ${cards([
         { icon: 'shield', title: 'RCI-registered therapists', text: `Registered with the Rehabilitation Council of India. ${STATS.years} years in practice.`, tone: 'blue' },
-        { icon: 'chat', title: 'In your family\'s language', text: `${ONLINE.languages.join(', ')}.`, tone: 'mint' },
-        { icon: 'clock', title: 'Hours', text: `${HOURS.display}. ${HOURS.closedDisplay}.`, tone: 'violet' },
-        { icon: 'pin', title: 'Two centres and online', text: `${LOCATIONS.map((l) => l.name).join(' and ')}, or video from ${ONLINE.markets.map((m) => m.name).join(', ')}.`, tone: 'sun' },
+        { icon: 'chat', title: 'In your family\'s language', text: `${ONLINE.languages.join(', ')}.`, tone: 'green' },
+        { icon: 'clock', title: 'Hours', text: `${HOURS.display}. ${HOURS.closedDisplay}.`, tone: 'sky' },
+        { icon: 'pin', title: 'Two centres and online', text: `${LOCATIONS.map((l) => l.name).join(' and ')}, or video from ${ONLINE.markets.map((m) => m.name).join(', ')}.`, tone: 'teal' },
       ], { cols: 2, compact: true })}
       <p class="mt-2">Cost depends on what your child needs, so we go through it properly on the call rather than quoting a figure that may not apply. You will have a clear plan and price before anything starts.</p>
       <div class="phero__acts">${callButton()}${whatsappButton(undefined, 'btn btn--wa')}</div>

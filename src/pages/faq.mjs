@@ -29,7 +29,7 @@ const GROUPS = [
     ],
   },
   {
-    id: 'therapies', title: 'Therapies', icon: 'blocks', tone: 'violet', blurb: 'Autism, speech or OT, enrichment and the summer camp.',
+    id: 'therapies', title: 'Therapies', icon: 'blocks', tone: 'sky', blurb: 'Autism, speech or OT, enrichment and the summer camp.',
     faqs: [
       {
         q: 'Do you work with children with autism?',
@@ -50,7 +50,7 @@ const GROUPS = [
     ],
   },
   {
-    id: 'centres-online', title: 'Centres and online', icon: 'pin', tone: 'mint', blurb: 'Where we are, when we are open, and online sessions.',
+    id: 'centres-online', title: 'Centres and online', icon: 'pin', tone: 'green', blurb: 'Where we are, when we are open, and online sessions.',
     faqs: [
       {
         q: 'Where are your centres?',
@@ -67,7 +67,7 @@ const GROUPS = [
     ],
   },
   {
-    id: 'cost', title: 'Cost and practicalities', icon: 'calendar', tone: 'sun', blurb: 'Fees, how many sessions, and how long each one is.',
+    id: 'cost', title: 'Cost and practicalities', icon: 'calendar', tone: 'teal', blurb: 'Fees, how many sessions, and how long each one is.',
     faqs: [
       {
         q: 'What is the cost of speech therapy in Bangalore?',
@@ -107,9 +107,9 @@ export default {
     <div class="phero__acts">${bookButton('Book a consultation', 'assessment', 'btn btn--ink')}${callButton()}</div>
     ${stats([
       { label: 'Open', value: 'Mon–Sat', tone: 'blue' },
-      { label: 'Hours', value: '9 am – 7 pm', tone: 'mint' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'violet' },
-      { label: 'Call back within', value: '1 working day', tone: 'sun' },
+      { label: 'Hours', value: '9 am – 7 pm', tone: 'green' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'sky' },
+      { label: 'Call back within', value: '1 working day', tone: 'teal' },
     ])}
   </div>
 </section>

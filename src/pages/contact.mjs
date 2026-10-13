@@ -46,9 +46,9 @@ export default {
   <div class="wrap">
     ${cards([
       { icon: 'phone', title: 'Call us', text: `<a href="${telLink}" data-track="call">${CONTACT.phoneDisplay}</a>`, tone: 'blue' },
-      { icon: 'whatsapp', title: 'WhatsApp', text: `<a href="${whatsappLink('Hi Poorvam Care, I would like to know about therapy for my child.')}" target="_blank" rel="noopener" data-track="whatsapp">Message ${CONTACT.phoneDisplay}</a>`, tone: 'mint' },
-      { icon: 'book', title: 'Email', text: `<a href="mailto:${CONTACT.email}">${CONTACT.email}</a>`, tone: 'violet' },
-      { icon: 'clock', title: 'Hours', text: `${HOURS.display}. ${HOURS.closedDisplay}.`, tone: 'sun' },
+      { icon: 'whatsapp', title: 'WhatsApp', text: `<a href="${whatsappLink('Hi Poorvam Care, I would like to know about therapy for my child.')}" target="_blank" rel="noopener" data-track="whatsapp">Message ${CONTACT.phoneDisplay}</a>`, tone: 'green' },
+      { icon: 'book', title: 'Email', text: `<a href="mailto:${CONTACT.email}">${CONTACT.email}</a>`, tone: 'sky' },
+      { icon: 'clock', title: 'Hours', text: `${HOURS.display}. ${HOURS.closedDisplay}.`, tone: 'teal' },
     ], { cols: 4, compact: true })}
   </div>
 </section>

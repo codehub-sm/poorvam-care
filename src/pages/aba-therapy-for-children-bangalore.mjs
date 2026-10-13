@@ -84,10 +84,10 @@ export default {
     <p class="answer">ABA (Applied Behaviour Analysis) uses play and positive reinforcement to teach skills that make daily life easier: asking for help, self-care, following routines and coping with change. At Poorvam Care in Electronic City it runs alongside speech therapy and OT, for children aged ${STATS.ages}.</p>
     <div class="phero__acts">${bookButton('Book an ABA consultation', 'aba', 'btn btn--ink')}${callButton()}</div>
     ${stats([
-      { label: 'Ages we work with', value: STATS.ages, tone: 'violet' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'sky' },
       { label: 'Session length', value: '45–60 min', tone: 'blue' },
-      { label: 'Years in practice', value: STATS.years, tone: 'mint' },
-      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'sun' },
+      { label: 'Years in practice', value: STATS.years, tone: 'green' },
+      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'teal' },
     ])}
   </div>
 </section>
@@ -95,7 +95,7 @@ export default {
 <section class="band">
   <div class="wrap">
     ${head('What is ABA therapy?', 'ABA breaks a skill into small steps, teaches each one, and rewards progress. These are the skills families most often ask for.')}
-    ${cards(builds.map((b) => ({ ...b, tone: 'violet' })), { cols: 3 })}
+    ${cards(builds.map((b) => ({ ...b, tone: 'sky' })), { cols: 3 })}
     ${more('How ABA works, in more detail', '<p>Applied Behaviour Analysis is built on how children learn. It teaches new skills step by step and makes behaviour that gets in the way of learning or daily life less likely, mostly by teaching a better way to get the same need met.</p><p>Every programme is individual. It starts from your child\'s strengths and challenges, and the goals might be talking or using pictures to communicate, dressing, following instructions, or playing with other children.</p>')}
   </div>
 </section>
@@ -127,7 +127,7 @@ export default {
       ['Monthly progress report', 'Data on each goal, reviewed with you, and goals moved on.'],
     ])}
     ${weekPlan({
-      tone: 'violet',
+      tone: 'sky',
       session: ['Teaching turns built around your child\'s goals', 'Play and routines to use skills naturally', 'Time with you on one strategy for the week'],
       home: ['One routine to practise, like asking for a snack', 'The same words and rewards the therapist uses', 'Notes and progress on your phone'],
     })}
@@ -138,7 +138,7 @@ export default {
 <section class="band band--paper">
   <div class="wrap">
     ${head('Which children can ABA help?', 'ABA is used most with autistic children, but it supports a range of developmental and behavioural needs.')}
-    ${cards(helpsWith.map((t) => ({ icon: 'child', title: t, tone: 'violet' })), { cols: 3, compact: true })}
+    ${cards(helpsWith.map((t) => ({ icon: 'child', title: t, tone: 'sky' })), { cols: 3, compact: true })}
     ${callout('A diagnosis comes from a doctor', 'Autism, ADHD and ODD are diagnosed by a developmental paediatrician or child psychiatrist. We will tell you if an assessment suggests one, and therapy can start while you wait. A child who loses words or skills should see a paediatrician soon.', 'warn')}
   </div>
 </section>

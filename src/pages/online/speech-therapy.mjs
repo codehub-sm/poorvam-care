@@ -58,7 +58,7 @@ export const PARENT_VIEW = [
 ];
 
 export function parentViewSection(tone) {
-  return html`<section class="band band--violet">
+  return html`<section class="band">
   <div class="wrap">
     ${head('See how therapy is going, on your phone', 'Online families get the same live view of their child\'s therapy as families at our centres.')}
     ${cards(PARENT_VIEW.map((c) => ({ ...c, tone })), { cols: 3 })}
@@ -82,8 +82,8 @@ export function otherOnline(exclude, centre) {
   const items = ONLINE_THERAPIES.filter((t) => t.path !== exclude).map((t) => ({ icon: t.icon, tone: t.tone, title: t.title, text: t.text, href: t.path }));
   items.push(
     { icon: 'video', tone: 'blue', title: 'How online therapy works', text: 'Devices, time zones, languages and what a first online session involves.', href: ONLINE.page },
-    { icon: 'pin', tone: 'mint', title: centre.title, text: centre.text, href: centre.href },
-    { icon: 'search', tone: 'sun', title: 'Not sure which therapy?', text: 'A developmental assessment tells you which therapy, how often and for how long.', href: '/child-development' },
+    { icon: 'pin', tone: 'green', title: centre.title, text: centre.text, href: centre.href },
+    { icon: 'search', tone: 'teal', title: 'Not sure which therapy?', text: 'A developmental assessment tells you which therapy, how often and for how long.', href: '/child-development' },
   );
   return cards(items, { cols: 3 });
 }
@@ -163,9 +163,9 @@ export default {
     <div class="phero__acts">${bookButton('Book an online consultation', 'speech', 'btn btn--ink', 'online')}${whatsappButton(`Hi Poorvam Care, I would like to know about online speech therapy for my child.`, 'btn btn--line')}</div>
     ${stats([
       { label: 'Each online session', value: '45 min', tone: 'blue' },
-      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'mint' },
-      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'green' },
+      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>

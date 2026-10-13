@@ -1,7 +1,7 @@
 import { html, urlOf, orgId, bookButton, whatsappButton, serviceList, centresBlock, areasBlock, ctaBand, faqSection, icon } from '../layout.mjs';
 import { story } from '../story.mjs';
 import { head, cards, milestoneLadder, more, photo } from '../ui.mjs';
-import { STATS, DIRECTOR, CONTACT, LOCATIONS, SERVICES, SISTER, SUMMER_CAMP, GOOGLE_RATING, whatsappLink } from '../site.mjs';
+import { TAGLINE, STATS, DIRECTOR, CONTACT, LOCATIONS, SERVICES, SISTER, SUMMER_CAMP, GOOGLE_RATING, whatsappLink } from '../site.mjs';
 
 const faqs = [
   {
@@ -51,10 +51,10 @@ const faqs = [
 ];
 
 const quick = [
-  { href: '/book?service=assessment', book: 'assessment', ico: 'search', c: 'var(--coral)', t: 'var(--t-coral)', h: 'Book an assessment', s: 'Not sure what your child needs? Start here.' },
+  { href: '/book?service=assessment', book: 'assessment', ico: 'search', c: 'var(--green-d)', t: 'var(--t-green)', h: 'Book an assessment', s: 'Not sure what your child needs? Start here.' },
   { href: '/speech-therapy-for-speech-delay-bangalore', ico: 'speech', c: 'var(--blue)', t: 'var(--t-blue)', h: 'Late to talk', s: 'What to expect by each age, and when to act' },
-  { href: '/speech-therapy-for-autism-bangalore', ico: 'blocks', c: 'var(--violet)', t: 'var(--t-violet)', h: 'Autism support', s: 'Speech, OT and ABA from one plan' },
-  { href: '/online', ico: 'video', c: 'var(--mint)', t: 'var(--t-mint)', h: 'Online therapy', s: 'Live video sessions, India, Australia, UAE' },
+  { href: '/speech-therapy-for-autism-bangalore', ico: 'blocks', c: 'var(--sky)', t: 'var(--t-sky)', h: 'Autism support', s: 'Speech, OT and ABA from one plan' },
+  { href: '/online', ico: 'video', c: 'var(--green-d)', t: 'var(--t-green)', h: 'Online therapy', s: 'Live video sessions, India, Australia, UAE' },
 ];
 
 const signs = [
@@ -85,7 +85,7 @@ export default {
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1>Help your child find their words.<span class="h1-sub">Speech therapy, occupational therapy and early intervention in Electronic City, Bengaluru</span></h1>
+      <h1>${TAGLINE}<span class="h1-sub">Speech therapy, occupational therapy and early intervention in Electronic City, Bengaluru</span></h1>
       <p class="hero__sub">One team for speech, occupational therapy, ABA and special education, working from one plan for your child. Two centres in Electronic City, and online.</p>
       <div class="hero__acts">
         ${bookButton('Book a consultation', 'assessment', 'btn btn--ink')}
@@ -116,7 +116,7 @@ ${story()}
 <section class="band">
   <div class="wrap">
     ${head('Signs it is worth asking a therapist', 'You know your child best. Two or more of these? An assessment gives you a plain answer.')}
-    ${cards(signs.map(([ic, t], i) => ({ icon: ic, title: t, tone: ['blue', 'blue', 'blue', 'violet', 'mint', 'pink'][i] })), { cols: 3, compact: true })}
+    ${cards(signs.map(([ic, t], i) => ({ icon: ic, title: t, tone: ['blue', 'blue', 'blue', 'sky', 'green', 'aqua'][i] })), { cols: 3, compact: true })}
     <div class="phero__acts mt-2">${bookButton('Book an assessment', 'assessment', 'btn btn--ink')}<a class="btn btn--line" href="/child-development">How an assessment works</a></div>
   </div>
 </section>
@@ -142,10 +142,10 @@ ${story()}
   </div>
 </section>
 
-<section class="band band--violet">
+<section class="band">
   <div class="wrap">
     ${head('See how therapy is going, on your phone', 'You should not have to guess. Families get a live view of their child\'s therapy, not just a word at pickup.')}
-    ${cards(app.map(([ic, t, s], i) => ({ icon: ic, title: t, text: s, tone: ['blue', 'mint', 'violet', 'sun'][i] })), { cols: 4 })}
+    ${cards(app.map(([ic, t, s], i) => ({ icon: ic, title: t, text: s, tone: ['blue', 'green', 'sky', 'teal'][i] })), { cols: 4 })}
     ${more('What else is in the parent view', '<p>You can message your therapist between sessions instead of saving a question for the next appointment, and see sessions attended, what has been paid and what is outstanding, so there are no surprises at the end of the month.</p>')}
   </div>
 </section>

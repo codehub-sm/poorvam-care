@@ -74,9 +74,9 @@ export default {
     <div class="phero__acts">${bookOnline()}${whatsappButton('Hi Poorvam Care, I would like to know about online therapy for my child in the UAE.')}</div>
     ${stats([
       { label: 'Session times, UAE time', value: '3 pm – 8 pm', tone: 'blue' },
-      { label: 'India is ahead by', value: '90 min', tone: 'mint' },
-      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'India is ahead by', value: '90 min', tone: 'green' },
+      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>
@@ -89,7 +89,7 @@ export default {
       { icon: 'check', title: 'A clear cost up front', text: 'Explained on the consultation call, before you commit. No assessment-first pricing reveal.' },
       { icon: 'clock', title: 'Gulf Standard Time', text: 'Sessions 3 pm to 8 pm, including evenings after school.' },
       { icon: 'shield', title: 'RCI-registered clinicians', text: `Registered with the Rehabilitation Council of India, with ${STATS.years} years of clinical experience.` },
-    ].map((c) => ({ ...c, tone: 'sun' })), { cols: 4 })}
+    ].map((c) => ({ ...c, tone: 'teal' })), { cols: 4 })}
     ${callout('This is a private-pay service', 'It is not billable to UAE health insurance. Enhanced plans that cover therapy require a DHA-licensed provider and usually a physician referral.', 'info')}
   </div>
 </section>
@@ -100,7 +100,7 @@ export default {
       <p>A 3 pm session in Dubai is 4:30 pm in Bengaluru; an 8 pm finish is 9:30 pm. The UAE has no daylight saving, so the same weekly slot holds all year.</p>`,
       stats([
         { label: 'Your session window, UAE time', value: '3 pm – 8 pm', tone: 'blue' },
-        { label: 'Same window, India time', value: '4:30 – 9:30 pm', tone: 'mint' },
+        { label: 'Same window, India time', value: '4:30 – 9:30 pm', tone: 'green' },
       ]))}
   </div>
 </section>

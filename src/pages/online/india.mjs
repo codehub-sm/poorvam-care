@@ -78,9 +78,9 @@ export default {
     <div class="phero__acts">${bookOnline()}${whatsappButton('Hi Poorvam Care, I would like to know about online therapy for my child in India.')}</div>
     ${stats([
       { label: 'Session times, India time', value: '9 am – 8 pm', tone: 'blue' },
-      { label: 'Minutes per session', value: String(SESSION_MINUTES), tone: 'mint' },
-      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Minutes per session', value: String(SESSION_MINUTES), tone: 'green' },
+      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>
@@ -117,7 +117,7 @@ export default {
     ${split(`${head('Therapy in the language your family speaks', 'A child can only be assessed fairly in the language they actually use.')}
       <p>We match your child to a therapist who works in your home language. A Telugu-speaking child assessed in English will look less able than they are.</p>
       <p>Many children grow up with two languages. Learning two languages does not cause speech delay, and therapy can use both. <span class="muted">Source: ASHA, "Learning Two Languages".</span></p>`,
-      stats(ONLINE.languages.map((l, i) => ({ label: 'Therapy in', value: l, tone: ['blue', 'mint', 'violet', 'sun', 'pink', 'blue'][i] }))).replace('<dl class="stats">', '<dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">'))}
+      stats(ONLINE.languages.map((l, i) => ({ label: 'Therapy in', value: l, tone: ['blue', 'green', 'sky', 'teal', 'aqua', 'blue'][i] }))).replace('<dl class="stats">', '<dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">'))}
   </div>
 </section>
 

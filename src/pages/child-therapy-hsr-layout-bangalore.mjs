@@ -39,17 +39,17 @@ const faqs = [
 
 const why = [
   { icon: 'users', title: 'One team, one plan', text: 'Speech, OT, ABA and special education agree on the goals for your child.', tone: 'blue' },
-  { icon: 'shield', title: 'RCI-registered therapists', text: `Led by ${DIRECTOR.name}, ${DIRECTOR.credentials}, ${STATS.years} years in practice.`, tone: 'violet' },
-  { icon: 'check', title: 'Written, measurable goals', text: 'You know what your child is working on and when it will be reviewed.', tone: 'mint' },
-  { icon: 'home', title: 'Parent training', text: 'Short practice you can do at home, so progress carries on between visits.', tone: 'sun' },
+  { icon: 'shield', title: 'RCI-registered therapists', text: `Led by ${DIRECTOR.name}, ${DIRECTOR.credentials}, ${STATS.years} years in practice.`, tone: 'sky' },
+  { icon: 'check', title: 'Written, measurable goals', text: 'You know what your child is working on and when it will be reviewed.', tone: 'green' },
+  { icon: 'home', title: 'Parent training', text: 'Short practice you can do at home, so progress carries on between visits.', tone: 'teal' },
   { icon: 'calendar', title: 'Progress on your phone', text: 'Schedule, goals, session notes and home practice in one place.', tone: 'blue' },
-  { icon: 'heart', title: `${STATS.families} families`, text: 'Families across south Bengaluru, many from HSR, Koramangala and BTM.', tone: 'pink' },
+  { icon: 'heart', title: `${STATS.families} families`, text: 'Families across south Bengaluru, many from HSR, Koramangala and BTM.', tone: 'aqua' },
 ];
 
 const online = [
   { icon: 'search', title: 'Assessment at the centre', text: 'Meet the therapist in person first, so the plan is built on seeing your child.', tone: 'blue' },
-  { icon: 'video', title: 'Some sessions online', text: 'Speech therapy and parent sessions work well over live video, 45 minutes each.', tone: 'mint' },
-  { icon: 'hand', title: 'OT and ABA in person', text: 'These need hands-on work, so plan centre visits for them.', tone: 'violet' },
+  { icon: 'video', title: 'Some sessions online', text: 'Speech therapy and parent sessions work well over live video, 45 minutes each.', tone: 'green' },
+  { icon: 'hand', title: 'OT and ABA in person', text: 'These need hands-on work, so plan centre visits for them.', tone: 'sky' },
 ];
 
 export default {
@@ -78,9 +78,9 @@ export default {
     <div class="phero__acts">${bookButton('Book at Phase 1', 'assessment', 'btn btn--ink', L.id)}${callButton()}</div>
     ${stats([
       { label: 'Nearest centre', value: 'Phase 1', tone: 'blue' },
-      { label: 'Distance, roughly', value: '6–8 km', tone: 'mint' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'violet' },
-      { label: 'Years in practice', value: STATS.years, tone: 'sun' },
+      { label: 'Distance, roughly', value: '6–8 km', tone: 'green' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'sky' },
+      { label: 'Years in practice', value: STATS.years, tone: 'teal' },
     ])}
   </div>
 </section>

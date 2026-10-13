@@ -60,7 +60,7 @@ export default {
   <div class="wrap quick__grid">${GROUPS.map((g) => {
     const c = CATEGORIES[g.cats[0]];
     return `<a href="#${g.id}" style="--c:var(--${c.tone});--t:var(--t-${c.tone})"><span class="q-ico">${icon(c.icon)}</span><strong>${g.h2.replace(' guides', '')}</strong><span>${POSTS.filter((p) => g.cats.includes(p.category)).length} guides</span></a>`;
-  })}<a href="/book?service=assessment" data-book="assessment" style="--c:var(--coral);--t:var(--t-coral)"><span class="q-ico">${icon('search')}</span><strong>Book an assessment</strong><span>Not sure what your child needs? Start here.</span></a></div>
+  })}<a href="/book?service=assessment" data-book="assessment" style="--c:var(--green-d);--t:var(--t-green)"><span class="q-ico">${icon('search')}</span><strong>Book an assessment</strong><span>Not sure what your child needs? Start here.</span></a></div>
 </nav>
 
 ${GROUPS.map((g, i) => `<section class="band${i % 2 ? ' band--paper' : ''}">

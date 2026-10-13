@@ -87,10 +87,10 @@ export default {
     <p class="answer">Therapeutic enrichment is small-group sensory art, movement, yoga, music and social skills sessions for children with developmental differences. Our therapists run every group in Electronic City, and each activity builds on your child's therapy goals. A summer therapy camp runs every ${SUMMER_CAMP.months}.</p>
     <div class="phero__acts">${bookButton('Book a consultation', 'enrichment', 'btn btn--ink')}${callButton()}</div>
     ${stats([
-      { label: 'Children per group', value: '3–5', tone: 'pink' },
+      { label: 'Children per group', value: '3–5', tone: 'aqua' },
       { label: 'Ages we work with', value: STATS.ages, tone: 'blue' },
-      { label: 'Programmes', value: '5', tone: 'mint' },
-      { label: 'Summer therapy camp', value: SUMMER_CAMP.months, tone: 'sun' },
+      { label: 'Programmes', value: '5', tone: 'green' },
+      { label: 'Summer therapy camp', value: SUMMER_CAMP.months, tone: 'teal' },
     ])}
   </div>
 </section>
@@ -98,7 +98,7 @@ export default {
 <section class="band">
   <div class="wrap">
     ${head('Our five programmes', 'Each one extends therapy goals through activities children want to do.')}
-    ${cards(programmes.map((p) => ({ ...p, tone: 'pink' })), { cols: 3 })}
+    ${cards(programmes.map((p) => ({ ...p, tone: 'aqua' })), { cols: 3 })}
     ${more('What each programme works on', programmeDetail)}
   </div>
 </section>
@@ -128,7 +128,7 @@ export default {
       { icon: 'spark', title: 'All five programmes', text: 'Sensory art, therapeutic yoga, movement, music and rhythm, and social skills groups.' },
       { icon: 'child', title: 'Who it is for', text: 'Children with autism, ADHD, speech delay and other developmental differences.' },
       { icon: 'users', title: 'Led by our therapists', text: 'The same therapy team that runs our groups all year.' },
-    ].map((c) => ({ ...c, tone: 'pink' })), { cols: 4 })}
+    ].map((c) => ({ ...c, tone: 'aqua' })), { cols: 4 })}
     <div class="phero__acts mt-2">${whatsappButton(`Hi Poorvam Care, I would like this year's summer therapy camp dates.`, 'btn btn--wa', 'Ask for camp dates')}${bookButton('Book a consultation', 'enrichment', 'btn btn--line')}</div>
   </div>
 </section>

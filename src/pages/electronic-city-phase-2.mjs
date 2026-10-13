@@ -58,9 +58,9 @@ export default {
     <div class="phero__acts">${bookButton('Book at Phase 2', '', 'btn btn--ink', L.id)}${directions()}${callButton()}</div>
     ${stats([
       { label: 'Open', value: 'Mon–Sat, 9–7', tone: 'blue' },
-      { label: 'Access', value: 'Stairs, no lift', tone: 'sun' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'mint' },
-      { label: 'Therapies here', value: String(SERVICES.length), tone: 'violet' },
+      { label: 'Access', value: 'Stairs, no lift', tone: 'teal' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'green' },
+      { label: 'Therapies here', value: String(SERVICES.length), tone: 'sky' },
     ])}
   </div>
 </section>

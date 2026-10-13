@@ -4,7 +4,7 @@ import { ONLINE } from '../../site.mjs';
 import { onlineSchema, parentViewSection, marketsSection, otherOnline } from './speech-therapy.mjs';
 
 const PATH = '/online/special-education';
-const TONE = 'sun';
+const TONE = 'teal';
 const DESCRIPTION = 'One-to-one online remedial teaching for reading, writing and maths difficulties, including dyslexia and ADHD. Written plans from RCI-registered special educators.';
 
 const faqs = [
@@ -76,10 +76,10 @@ export default {
     <p class="answer">Remedial teaching works almost as well online as across a table. A special educator teaches your child one to one over video, rebuilding reading, writing or maths from where it broke down, at your child's pace. Diagnosing dyslexia or ADHD still needs an in-person assessment.</p>
     <div class="phero__acts">${bookButton('Book an online consultation', 'special-ed', 'btn btn--ink', 'online')}${whatsappButton('Hi Poorvam Care, I would like to know about online special education for my child.', 'btn btn--line')}</div>
     ${stats([
-      { label: 'Each online session', value: '45 min', tone: 'sun' },
+      { label: 'Each online session', value: '45 min', tone: 'teal' },
       { label: 'Ages, broadly', value: '5–14', tone: 'blue' },
-      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'mint' },
-      { label: 'Teaching', value: 'One to one', tone: 'violet' },
+      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'green' },
+      { label: 'Teaching', value: 'One to one', tone: 'sky' },
     ])}
   </div>
 </section>

@@ -23,23 +23,23 @@ const LANG_CODES = { English: 'en', Hindi: 'hi', Kannada: 'kn', Tamil: 'ta', Tel
 /** The four therapies offered online, each in the colour its therapy owns site-wide. */
 export const DISCIPLINES = [
   { href: '/online/speech-therapy', icon: 'speech', tone: 'blue', title: 'Speech and language therapy', text: 'Late talking, unclear speech, language delay, stammering, and communication for autistic children.' },
-  { href: '/online/occupational-therapy', icon: 'hand', tone: 'mint', title: 'Occupational therapy', text: 'Sensory strategies, fine motor skills, handwriting, self-care routines and regulation, coached through you.' },
-  { href: '/online/behavioural-therapy', icon: 'blocks', tone: 'violet', title: 'Behaviour therapy and parent training', text: 'ABA-informed help with meltdowns, transitions, sleep, toileting and daily routines, delivered by coaching you.' },
-  { href: '/online/special-education', icon: 'book', tone: 'sun', title: 'Special education', text: 'Remedial teaching for reading, writing and maths difficulties, including dyslexia and ADHD.' },
+  { href: '/online/occupational-therapy', icon: 'hand', tone: 'green', title: 'Occupational therapy', text: 'Sensory strategies, fine motor skills, handwriting, self-care routines and regulation, coached through you.' },
+  { href: '/online/behavioural-therapy', icon: 'blocks', tone: 'sky', title: 'Behaviour therapy and parent training', text: 'ABA-informed help with meltdowns, transitions, sleep, toileting and daily routines, delivered by coaching you.' },
+  { href: '/online/special-education', icon: 'book', tone: 'teal', title: 'Special education', text: 'Remedial teaching for reading, writing and maths difficulties, including dyslexia and ADHD.' },
 ];
 export const disciplineCards = () => cards(DISCIPLINES, { cols: 4 });
 
 /** What a parent sees on their phone. Grounded in the parent view families already use. */
 export const PARENT_VIEW = [
   { icon: 'calendar', tone: 'blue', title: 'Your schedule, always visible', text: 'See every upcoming session, and book or reschedule yourself, without phone tag.' },
-  { icon: 'check', tone: 'mint', title: 'The actual therapy goals', text: 'Written down and tracked, not a vague "she\'s doing well".' },
-  { icon: 'book', tone: 'violet', title: 'Session notes and reports', text: 'What happened in each session and how your child is progressing.' },
-  { icon: 'home', tone: 'sun', title: 'Home practice, spelled out', text: 'The activities to do between sessions, with instructions, because most progress happens at home.' },
-  { icon: 'chat', tone: 'pink', title: 'Your therapist, a message away', text: 'Ask a question between sessions instead of saving it for the next one.' },
+  { icon: 'check', tone: 'green', title: 'The actual therapy goals', text: 'Written down and tracked, not a vague "she\'s doing well".' },
+  { icon: 'book', tone: 'sky', title: 'Session notes and reports', text: 'What happened in each session and how your child is progressing.' },
+  { icon: 'home', tone: 'teal', title: 'Home practice, spelled out', text: 'The activities to do between sessions, with instructions, because most progress happens at home.' },
+  { icon: 'chat', tone: 'aqua', title: 'Your therapist, a message away', text: 'Ask a question between sessions instead of saving it for the next one.' },
   { icon: 'shield', tone: 'blue', title: 'Billing you can check', text: 'Sessions attended, what has been paid and what is outstanding. No surprises at month end.' },
 ];
 export function parentViewBand(lede = 'You get a live view of your child\'s therapy on your phone, not a word at the end of a call.') {
-  return html`<section class="band band--violet">
+  return html`<section class="band">
   <div class="wrap">
     ${head('You shouldn\'t have to guess how therapy is going', lede)}
     ${cards(PARENT_VIEW, { cols: 3 })}
@@ -129,8 +129,8 @@ export function onlineServiceSchema({ path, name, description, countries, servic
 
 const MARKET_INFO = {
   india: { icon: 'pin', tone: 'blue', text: 'Sessions 9 am to 8 pm, India time. RCI is the registration that applies in India.' },
-  australia: { icon: 'globe', tone: 'mint', text: 'Sessions 3 pm to 8 pm, your local time. Self- and plan-managed NDIS families can use us.' },
-  uae: { icon: 'globe', tone: 'sun', text: 'Sessions 3 pm to 8 pm, UAE time. India is only 90 minutes ahead.' },
+  australia: { icon: 'globe', tone: 'green', text: 'Sessions 3 pm to 8 pm, your local time. Self- and plan-managed NDIS families can use us.' },
+  uae: { icon: 'globe', tone: 'teal', text: 'Sessions 3 pm to 8 pm, UAE time. India is only 90 minutes ahead.' },
 };
 
 const faqs = [
@@ -195,9 +195,9 @@ export default {
     <div class="phero__acts">${bookOnline()}${whatsappButton('Hi Poorvam Care, I would like to know about online therapy for my child.')}</div>
     ${stats([
       { label: 'Countries we serve', value: String(ONLINE.markets.length), tone: 'blue' },
-      { label: 'Minutes per session', value: String(SESSION_MINUTES), tone: 'mint' },
-      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Minutes per session', value: String(SESSION_MINUTES), tone: 'green' },
+      { label: 'Languages', value: String(ONLINE.languages.length), tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>

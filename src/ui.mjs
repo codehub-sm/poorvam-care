@@ -9,7 +9,7 @@
 
 import { html, esc, icon } from './layout.mjs';
 
-const TONES = ['blue', 'mint', 'violet', 'sun', 'pink', 'coral'];
+const TONES = ['blue', 'green', 'sky', 'teal', 'aqua', 'deep'];
 const tone = (t, i) => (TONES.includes(t) ? t : TONES[i % TONES.length]);
 
 /** Section heading with an optional one-line lede. */
@@ -99,7 +99,7 @@ export function soundAgeChart() {
   const pct = (v) => ((v - 2) / (max - 2)) * 100;
   return html`<figure class="sounds" data-reveal>
     <div class="sounds__axis" aria-hidden="true">${[2, 3, 4, 5, 6, 7].map((a) => `<span style="left:${pct(a)}%">${a} yrs</span>`)}</div>
-    <ol>${SOUND_AGES.map((b, i) => `<li class="tone-${['blue', 'mint', 'violet', 'pink'][i]}" style="--from:${pct(b.from)}%;--to:${pct(b.to)}%;--n:${i}">
+    <ol>${SOUND_AGES.map((b, i) => `<li class="tone-${['blue', 'green', 'sky', 'aqua'][i]}" style="--from:${pct(b.from)}%;--to:${pct(b.to)}%;--n:${i}">
       <strong>${b.band}</strong>
       <span class="sounds__bar"><i></i></span>
       <span class="sounds__set">${b.sounds.map((s) => `<em>${esc(s)}</em>`).join('')}</span>

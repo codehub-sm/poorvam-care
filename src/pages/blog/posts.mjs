@@ -23,17 +23,17 @@ const OT_TEAM = { name: 'Poorvam Care OT Team', role: 'Occupational therapy team
 /** Each category owns the colour of the therapy it is about. */
 export const CATEGORIES = {
   'Speech therapy': { tone: 'blue', icon: 'speech', id: 'speech' },
-  'Occupational therapy': { tone: 'mint', icon: 'hand', id: 'ot' },
-  Autism: { tone: 'violet', icon: 'blocks', id: 'autism' },
-  'Child development': { tone: 'sun', icon: 'sprout', id: 'development' },
+  'Occupational therapy': { tone: 'green', icon: 'hand', id: 'ot' },
+  Autism: { tone: 'sky', icon: 'blocks', id: 'autism' },
+  'Child development': { tone: 'teal', icon: 'sprout', id: 'development' },
 };
 
 const SERVICE = {
   speech: { title: 'Speech therapy in Electronic City', href: '/speech-therapy-electronic-city', icon: 'speech', tone: 'blue', text: 'Assessment, weekly sessions and home practice at our two centres or online.' },
   delay: { title: 'Speech therapy for speech delay', href: '/speech-therapy-for-speech-delay-bangalore', icon: 'speech', tone: 'blue', text: 'For children who are late to talk, with what to expect by each age.' },
-  autismSpeech: { title: 'Speech therapy for autism', href: '/speech-therapy-for-autism-bangalore', icon: 'blocks', tone: 'violet', text: 'Communication, requests, play and conversation, planned with OT and ABA.' },
-  ot: { title: 'Occupational therapy for children', href: '/occupational-therapy-for-children-bangalore', icon: 'hand', tone: 'mint', text: 'Sensory needs, fine motor skills, handwriting and daily routines.' },
-  aba: { title: 'ABA therapy for children', href: '/aba-therapy-for-children-bangalore', icon: 'blocks', tone: 'violet', text: 'Building communication and independence with positive, play-based teaching.' },
+  autismSpeech: { title: 'Speech therapy for autism', href: '/speech-therapy-for-autism-bangalore', icon: 'blocks', tone: 'sky', text: 'Communication, requests, play and conversation, planned with OT and ABA.' },
+  ot: { title: 'Occupational therapy for children', href: '/occupational-therapy-for-children-bangalore', icon: 'hand', tone: 'green', text: 'Sensory needs, fine motor skills, handwriting and daily routines.' },
+  aba: { title: 'ABA therapy for children', href: '/aba-therapy-for-children-bangalore', icon: 'blocks', tone: 'sky', text: 'Building communication and independence with positive, play-based teaching.' },
   assessment: { title: 'Developmental assessment', href: '/child-development', icon: 'search', tone: 'blue', text: 'Not sure where to start? An assessment tells you which therapy and how often.' },
 };
 
@@ -302,7 +302,7 @@ ${cards([
   { icon: 'blocks', title: 'Sensory-rich play', text: 'Sand, water, playdough and other tactile materials, under safe, supervised conditions.' },
   { icon: 'route', title: 'Small steps', text: 'Break tasks into small steps and use the same words or pictures to cue each step.' },
   { icon: 'book', title: 'The same plan at home', text: 'Home activities and session notes are on your phone, so everyone at home uses the same strategies.' },
-].map((c) => ({ ...c, tone: 'mint' })), { cols: 2 })}
+].map((c) => ({ ...c, tone: 'green' })), { cols: 2 })}
 
 <h2>Getting started</h2>
 <p>If your child has autism and you are looking for experienced occupational therapy in Bangalore, contact Poorvam Care for a consultation.</p>
@@ -358,7 +358,7 @@ ${cards([
   { icon: 'check', title: 'Data-driven decisions', text: 'Data from every session shows what is working, what needs adjusting, and when goals should move on.' },
   { icon: 'home', title: 'Generalisation', text: 'Skills are practised in many settings, so what is learned in therapy carries over to home, school and the community.' },
   { icon: 'spark', title: 'Motivation', text: 'Visual supports, token economies and preferred activities keep children motivated and engaged.' },
-].map((c) => ({ ...c, tone: 'violet' })), { cols: 2 })}
+].map((c) => ({ ...c, tone: 'sky' })), { cols: 2 })}
 
 <h2>Different ABA approaches</h2>
 <h3>Discrete Trial Training (DTT)</h3>
@@ -483,7 +483,7 @@ ${cards([
   { icon: 'check', title: 'Data-driven', text: 'Clear goals, carefully measured progress, and changes based on how your child responds.' },
   { icon: 'child', title: 'Individualised', text: 'No two children are alike. Every programme is built around your child\'s strengths, challenges and family.' },
   { icon: 'home', title: 'Under one roof', text: 'Speech, OT, ABA, special education, enrichment and parent counselling at two Electronic City centres.' },
-].map((c) => ({ ...c, tone: 'sun' })), { cols: 2 })}
+].map((c) => ({ ...c, tone: 'teal' })), { cols: 2 })}
 <p>See how a <a href="/child-development">developmental assessment</a> works, or read about <a href="/speech-therapy-for-speech-delay-bangalore">speech delay</a>.</p>
 
 <h2>How to get started</h2>
@@ -595,7 +595,7 @@ const sensory = {
 ${cards([
   { icon: 'ear', title: 'Over-responsive', text: 'Ordinary sensations feel overwhelming. A shirt tag feels like sandpaper. A noisy classroom is unbearable.' },
   { icon: 'spark', title: 'Under-responsive', text: 'Sensations don\'t register strongly enough, so the child needs intense input (crashing, spinning, tight hugs) to feel grounded.' },
-].map((c) => ({ ...c, tone: 'mint' })), { cols: 2 })}
+].map((c) => ({ ...c, tone: 'green' })), { cols: 2 })}
 <p>For children with sensory processing issues, this system works differently. Some are <em>over-responsive</em>, some <em>under-responsive</em>, and many children have a mix of both across different senses.</p>
 
 <h2>Signs of sensory processing difficulties</h2>
@@ -620,7 +620,7 @@ ${callout('No diagnosis needed to start', 'Sensory processing issues can exist o
 <p>A sensory-focused OT session at Poorvam Care happens in a therapy room set up for movement and touch: swings, crash pads, climbing, weighted blankets, textured surfaces and sensory bins.</p>
 <p>It looks like play. In reality, every activity is carefully chosen to address specific sensory goals. Sessions typically last 45–60 minutes.</p>
 ${weekPlan({
-  tone: 'mint',
+  tone: 'green',
   session: ['Time in a linear swing to regulate the vestibular (balance) system', 'Digging through a bin of rice and beads to ease tactile defensiveness', 'Proprioceptive heavy work, pushing and pulling, before fine motor tasks'],
   home: ['A "sensory diet" of activities and supports from your therapist', 'Movement breaks, and fidgets during homework', 'Calming routines before transitions, and a way to say "I\'m overwhelmed"'],
 })}

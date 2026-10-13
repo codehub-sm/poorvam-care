@@ -4,7 +4,7 @@ import { STATS, ONLINE } from '../../site.mjs';
 import { onlineSchema, parentViewSection, marketsSection, otherOnline } from './speech-therapy.mjs';
 
 const PATH = '/online/occupational-therapy';
-const TONE = 'mint';
+const TONE = 'green';
 const DESCRIPTION = 'Online occupational therapy for children, coached through you at home: sensory strategies, handwriting, self-care and regulation. 45-minute live sessions.';
 
 const faqs = [
@@ -76,10 +76,10 @@ export default {
     <p class="answer">Yes, for many goals, but it works differently. Online, an occupational therapist coaches you through sensory strategies, handwriting, dressing, mealtimes and calming, in the room where your child struggles. Hands-on checks and specialist equipment still need an in-person visit.</p>
     <div class="phero__acts">${bookButton('Book an online consultation', 'ot', 'btn btn--ink', 'online')}${whatsappButton('Hi Poorvam Care, I would like to know about online occupational therapy for my child.', 'btn btn--line')}</div>
     ${stats([
-      { label: 'Each online session', value: '45 min', tone: 'mint' },
+      { label: 'Each online session', value: '45 min', tone: 'green' },
       { label: 'Who works with your child', value: 'You, coached live', tone: 'blue' },
-      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>

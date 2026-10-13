@@ -80,7 +80,7 @@ export function storyCss() {
   return CHAPTERS.map((_, i) => {
     const n = i + 1;
     const [u, t, s] = BARS[i];
-    return `.story[data-ch="${n}"]{--u:${u}%;--t:${t}%;--s:${s}%}.story[data-ch="${n}"] .talk__say--${n}{opacity:1;transform:none}.story[data-ch="${n}"] .talk__dots i:nth-child(-n+${WORDS[i]}){background:var(--sun);transform:scale(1)}`;
+    return `.story[data-ch="${n}"]{--u:${u}%;--t:${t}%;--s:${s}%}.story[data-ch="${n}"] .talk__say--${n}{opacity:1;transform:none}.story[data-ch="${n}"] .talk__dots i:nth-child(-n+${WORDS[i]}){background:var(--green);transform:scale(1)}`;
   }).join('');
 }
 

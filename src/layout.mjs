@@ -8,7 +8,7 @@
  */
 
 import {
-  PHOTOS, PHOTO_NOTE, SITE_URL, BRAND, GBP_NAME, FORMER_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
+  PHOTOS, PHOTO_NOTE, SITE_URL, BRAND, TAGLINE, UNIT, GBP_NAME, FORMER_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
   GOOGLE_RATING, REVIEWER, LEAD_SINKS, GA4_ID, SOCIAL, SISTER, ONLINE, STATS, telLink, whatsappLink, mapEmbedUrl, reviewsUrl,
 } from './site.mjs';
 
@@ -63,6 +63,11 @@ const ICONS = {
 };
 export const icon = (name, cls = 'i') =>
   `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICONS[name] ?? ICONS.check}</svg>`;
+
+/** The logo lockup: the official mark, then POORVAM set as in the logo, with the unit name under it. */
+export function lockup() {
+  return `<img src="/assets/img/logo-mark.png" alt="" width="44" height="44"><span class="logo__word"><b>POORVAM</b><i>${esc(UNIT.toUpperCase())}</i></span>`;
+}
 
 /* ---------- small blocks ---------- */
 
@@ -136,7 +141,7 @@ export function centresBlock(heading = 'Two centres in Electronic City', lede = 
 
 export function areasBlock(heading = 'Therapy near you in south Bengaluru') {
   const chip = (a) => (a.page ? `<li><a href="${a.page}">${esc(a.name)}</a></li>` : `<li>${esc(a.name)}</li>`);
-  return html`<section class="band band--mint" id="areas">
+  return html`<section class="band" id="areas">
   <div class="wrap">
     <div class="section-head">
       <h2>${esc(heading)}</h2>
@@ -236,6 +241,7 @@ export function baseSchema() {
       description: `Early intervention centre for children aged ${STATS.ages}: speech therapy, occupational therapy, ABA, special education, therapeutic enrichment and parent counselling at two centres in Electronic City, Bengaluru, and online.`,
       url: `${SITE_URL}/`,
       logo: `${SITE_URL}/assets/img/logo.jpg`,
+      slogan: TAGLINE,
       image: `${SITE_URL}/assets/img/og.png`,
       telephone: CONTACT.phone,
       email: CONTACT.email,
@@ -258,10 +264,7 @@ const year = new Date().getFullYear();
 function nav(current) {
   return html`<header class="top">
   <div class="wrap top__in">
-    <a class="logo" href="/" aria-label="${BRAND} home">
-      <img src="/assets/img/logo.jpg" alt="" width="36" height="36">
-      <span>${BRAND}</span>
-    </a>
+    <a class="logo" href="/" aria-label="${BRAND} home">${lockup()}</a>
     <nav class="top__nav" aria-label="Main">${NAV.map((n) => `<a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a>`)}</nav>
     <div class="top__acts">
       <a class="top__call" href="${telLink}" data-track="call">${icon('phone')}<span>${CONTACT.phoneDisplay}</span></a>
@@ -279,7 +282,8 @@ function footer() {
   return html`<footer class="foot">
   <div class="wrap foot__grid">
     <div>
-      <p class="foot__brand">${BRAND}</p>
+      <p class="foot__brand">${lockup()}</p>
+      <p class="foot__tag">${TAGLINE}</p>
       <p>Speech therapy, occupational therapy, ABA and special education for children aged ${STATS.ages}, at two centres in Electronic City, Bengaluru, and online.</p>
       <p><a href="${telLink}" data-track="call">${CONTACT.phoneDisplay}</a><br><a href="mailto:${CONTACT.email}">${CONTACT.email}</a></p>
       <p>Hearing tests and hearing aids: <a href="${SISTER.url}" rel="noopener">${SISTER.name}</a></p>
@@ -463,7 +467,7 @@ export function renderPage(page) {
 ${is404 ? '' : `<link rel="canonical" href="${url}">`}
 ${hreflang}
 ${page.noindex || is404 ? '<meta name="robots" content="noindex">' : '<meta name="robots" content="index, follow, max-image-preview:large">'}
-<meta name="theme-color" content="#3446f0">
+<meta name="theme-color" content="#064a8b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${BRAND}">
 <meta property="og:title" content="${esc(page.title)}">
@@ -482,7 +486,7 @@ ${local ? '<meta name="geo.region" content="IN-KA">\n<meta name="geo.placename" 
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Figtree:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css">
 ${analytics()}
 <script type="application/ld+json">${ld}</script>

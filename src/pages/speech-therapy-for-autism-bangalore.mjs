@@ -51,10 +51,10 @@ const affects = [
 ];
 
 const team = [
-  { icon: 'blocks', title: 'ABA', text: 'Builds requesting, routines and independence, and cuts meltdowns, with the same goals as speech.', href: '/aba-therapy-for-children-bangalore', tone: 'violet' },
-  { icon: 'hand', title: 'Occupational therapy', text: 'Sensory needs, fine motor skills and daily routines like eating and dressing.', href: '/occupational-therapy-for-children-bangalore', tone: 'mint' },
-  { icon: 'book', title: 'Special education', text: 'Reading, writing and early learning taught the way your child learns.', href: '/special-education-for-children-bangalore', tone: 'sun' },
-  { icon: 'spark', title: 'Social skills groups', text: 'Small groups to practise play and conversation with other children.', href: '/therapeutic-enrichment', tone: 'pink' },
+  { icon: 'blocks', title: 'ABA', text: 'Builds requesting, routines and independence, and cuts meltdowns, with the same goals as speech.', href: '/aba-therapy-for-children-bangalore', tone: 'sky' },
+  { icon: 'hand', title: 'Occupational therapy', text: 'Sensory needs, fine motor skills and daily routines like eating and dressing.', href: '/occupational-therapy-for-children-bangalore', tone: 'green' },
+  { icon: 'book', title: 'Special education', text: 'Reading, writing and early learning taught the way your child learns.', href: '/special-education-for-children-bangalore', tone: 'teal' },
+  { icon: 'spark', title: 'Social skills groups', text: 'Small groups to practise play and conversation with other children.', href: '/therapeutic-enrichment', tone: 'aqua' },
 ];
 
 export default {
@@ -87,9 +87,9 @@ export default {
     <div class="phero__acts">${bookButton('Book a speech assessment', 'speech', 'btn btn--ink')}${callButton()}</div>
     ${stats([
       { label: 'Ages we work with', value: STATS.ages, tone: 'blue' },
-      { label: 'Session length', value: '45–60 min', tone: 'violet' },
-      { label: 'Years in practice', value: STATS.years, tone: 'mint' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Session length', value: '45–60 min', tone: 'sky' },
+      { label: 'Years in practice', value: STATS.years, tone: 'green' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>

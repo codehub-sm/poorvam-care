@@ -7,9 +7,9 @@ const CRUMB = [['About', PATH]];
 
 const approach = [
   { icon: 'route', tone: 'blue', title: 'One plan across therapies', text: 'Speech, OT, ABA and special education share one set of goals, so they pull the same way.' },
-  { icon: 'users', tone: 'mint', title: 'Parents in the room', text: 'You see what we practise and leave every session knowing what to do at home.' },
-  { icon: 'calendar', tone: 'violet', title: 'Therapy on your phone', text: 'Schedule, goals, session notes, home practice, messages and billing, all in one parent view.' },
-  { icon: 'search', tone: 'sun', title: 'Assessment first', text: 'A plain answer on what your child needs, which therapy, and how often, before anything starts.' },
+  { icon: 'users', tone: 'green', title: 'Parents in the room', text: 'You see what we practise and leave every session knowing what to do at home.' },
+  { icon: 'calendar', tone: 'sky', title: 'Therapy on your phone', text: 'Schedule, goals, session notes, home practice, messages and billing, all in one parent view.' },
+  { icon: 'search', tone: 'teal', title: 'Assessment first', text: 'A plain answer on what your child needs, which therapy, and how often, before anything starts.' },
 ];
 
 const values = [
@@ -43,9 +43,9 @@ export default {
     <div class="phero__acts">${bookButton('Book a consultation', 'assessment', 'btn btn--ink')}${whatsappButton()}</div>
     ${stats([
       { label: 'Years in practice', value: STATS.years, tone: 'blue' },
-      { label: 'Families seen', value: STATS.families, tone: 'mint' },
-      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'violet' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'sun' },
+      { label: 'Families seen', value: STATS.families, tone: 'green' },
+      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'sky' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'teal' },
     ])}
   </div>
 </section>
@@ -64,7 +64,7 @@ export default {
   </div>
 </section>
 
-<section class="band band--violet">
+<section class="band">
   <div class="wrap">
     ${head('What makes our approach different', 'Your child\'s therapists plan together, and you can see that plan, not just hear about it at pickup.')}
     ${cards(approach, { cols: 4 })}
@@ -99,7 +99,7 @@ export default {
     ${head('Registered and accountable', 'Two things you can check about any therapy centre before you trust it with your child.')}
     ${cards([
       { icon: 'shield', tone: 'blue', title: 'RCI registered', text: 'Our therapists are registered with the Rehabilitation Council of India, the national body for rehabilitation professionals.' },
-      { icon: 'users', tone: 'mint', title: 'ISHA membership', text: 'Our director belongs to the Indian Speech and Hearing Association, the professional body for speech and hearing in India.' },
+      { icon: 'users', tone: 'green', title: 'ISHA membership', text: 'Our director belongs to the Indian Speech and Hearing Association, the professional body for speech and hearing in India.' },
     ], { cols: 2 })}
     ${callout('Hearing tests are at our sister clinic', `Poorvam Care does not test hearing. Hearing tests and hearing aids for children and adults are at <a href="${SISTER.url}" rel="noopener">${SISTER.name}</a>, in the same building as our Phase 1 centre. If hearing might be behind a speech delay, start with a <a href="${SISTER.childHearing}" rel="noopener">child hearing test</a>.`, 'info')}
   </div>

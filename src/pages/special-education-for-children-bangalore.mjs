@@ -87,10 +87,10 @@ export default {
     <p class="answer">Special education teaches children who learn differently in the way they learn best. Poorvam Care's special educators assess your child, write an individualised education plan, and teach attention, reading, writing and maths step by step, at our two centres in Electronic City.</p>
     <div class="phero__acts">${bookButton('Book a learning assessment', 'special-ed', 'btn btn--ink')}${callButton()}</div>
     ${stats([
-      { label: 'Ages we work with', value: STATS.ages, tone: 'sun' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'teal' },
       { label: 'IEP goals reviewed', value: 'Every quarter', tone: 'blue' },
-      { label: 'Session length', value: '45–60 min', tone: 'mint' },
-      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'violet' },
+      { label: 'Session length', value: '45–60 min', tone: 'green' },
+      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'sky' },
     ])}
   </div>
 </section>
@@ -98,7 +98,7 @@ export default {
 <section class="band">
   <div class="wrap">
     ${head('What special education covers', 'We build the foundation skills a child needs to learn anywhere, not just this week\'s homework.')}
-    ${cards(covers.map((c) => ({ ...c, tone: 'sun' })), { cols: 3 })}
+    ${cards(covers.map((c) => ({ ...c, tone: 'teal' })), { cols: 3 })}
     ${more('Why some children need a different approach', '<p>Special education is not about limits. Children with autism, ADHD, learning disabilities, intellectual disabilities and developmental delays often struggle in a regular classroom, not because they lack intelligence, but because they need to be taught differently.</p><p>Our programme rests on three things: an individual assessment, structured teaching, and working closely with the rest of your child\'s therapy team.</p>')}
   </div>
 </section>
@@ -129,7 +129,7 @@ export default {
       ['School and home', 'We share strategies with teachers, and train you to support learning at home.'],
     ])}
     ${weekPlan({
-      tone: 'sun',
+      tone: 'teal',
       session: ['Short, clear tasks built around IEP goals', 'Hands-on materials before pencil and paper', 'Time with you on what to practise'],
       home: ['Ten minutes of practice that fits your evening', 'Reading or number games in daily routines', 'Notes and home activities on your phone'],
     })}
@@ -139,7 +139,7 @@ export default {
 <section class="band band--paper">
   <div class="wrap">
     ${split(`${head('Which children benefit from special education?', 'Children with these needs often learn better with a special educator.')}
-      ${cards(who.map((t) => ({ icon: 'child', title: t, tone: 'sun' })), { cols: 2, compact: true })}`,
+      ${cards(who.map((t) => ({ icon: 'child', title: t, tone: 'teal' })), { cols: 2, compact: true })}`,
       `<div><p><strong>Signs worth an assessment</strong></p>${signs(checks)}</div>`)}
     ${callout('Check hearing and vision first', `A child who cannot hear or see the board clearly can look like a child who cannot learn. Ask your paediatrician about an eye test, and our sister clinic <a href="${SISTER.childHearing}" rel="noopener">${SISTER.name}</a> tests children's hearing. A formal diagnosis of a learning disability comes from a clinical psychologist or developmental paediatrician.`, 'info')}
   </div>

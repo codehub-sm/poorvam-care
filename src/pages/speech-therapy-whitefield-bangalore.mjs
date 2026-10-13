@@ -84,9 +84,9 @@ export default {
     <div class="phero__acts">${bookButton('Book online speech therapy', 'speech', 'btn btn--ink', 'online')}${whatsappButton('Hi Poorvam Care, we live in Whitefield and would like to know about speech therapy for our child.')}</div>
     ${stats([
       { label: 'Online session', value: '45 min', tone: 'blue' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'mint' },
-      { label: 'Years in practice', value: STATS.years, tone: 'violet' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'green' },
+      { label: 'Years in practice', value: STATS.years, tone: 'sky' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>
@@ -99,7 +99,7 @@ export default {
   </div>
 </section>
 
-<section class="band band--violet">
+<section class="band">
   <div class="wrap">
     ${head('How online speech therapy works', 'Five steps from first call to regular sessions. You are part of every one.')}
     ${steps([

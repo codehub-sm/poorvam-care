@@ -44,9 +44,9 @@ const faqs = [
 
 const does = [
   { icon: 'ear', title: 'Hearing tests', text: 'Full hearing tests for adults and older adults, with the results explained.', href: HEARING_TEST, tone: 'blue' },
-  { icon: 'child', title: 'Children\'s hearing tests', text: 'From newborns to teenagers, using tests suited to the child\'s age.', href: SISTER.childHearing, tone: 'mint' },
-  { icon: 'spark', title: 'Hearing aids', text: 'Choosing, fitting and adjusting hearing aids, with support afterwards.', href: SISTER.url, tone: 'violet' },
-  { icon: 'speech', title: 'Speech after hearing loss', text: 'Speech therapy at Poorvam Care, including after a cochlear implant.', href: '/speech-therapy-electronic-city', tone: 'sun' },
+  { icon: 'child', title: 'Children\'s hearing tests', text: 'From newborns to teenagers, using tests suited to the child\'s age.', href: SISTER.childHearing, tone: 'green' },
+  { icon: 'spark', title: 'Hearing aids', text: 'Choosing, fitting and adjusting hearing aids, with support afterwards.', href: SISTER.url, tone: 'sky' },
+  { icon: 'speech', title: 'Speech after hearing loss', text: 'Speech therapy at Poorvam Care, including after a cochlear implant.', href: '/speech-therapy-electronic-city', tone: 'teal' },
 ];
 
 const where = (l) => html`<article class="centre">
@@ -91,9 +91,9 @@ export default {
     <div class="phero__acts"><a class="btn btn--ink" href="${SISTER.url}" rel="noopener">Go to Poorvam Hearing</a>${whatsappButton(WA, 'btn btn--line')}</div>
     ${stats([
       { label: 'Buildings in Electronic City', value: String(LOCATIONS.length), tone: 'blue' },
-      { label: 'Open', value: 'Mon–Sat', tone: 'mint' },
-      { label: 'Hours', value: '9 am – 7 pm', tone: 'violet' },
-      { label: 'Ages tested', value: 'Newborn to adult', tone: 'sun' },
+      { label: 'Open', value: 'Mon–Sat', tone: 'green' },
+      { label: 'Hours', value: '9 am – 7 pm', tone: 'sky' },
+      { label: 'Ages tested', value: 'Newborn to adult', tone: 'teal' },
     ])}
   </div>
 </section>

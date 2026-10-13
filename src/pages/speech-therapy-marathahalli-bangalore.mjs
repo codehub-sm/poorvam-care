@@ -81,9 +81,9 @@ export default {
     <div class="phero__acts">${bookButton('Book a speech assessment', 'speech', 'btn btn--ink', 'phase-1')}${callButton()}</div>
     ${stats([
       { label: 'Nearest centre', value: 'EC Phase 1', tone: 'blue' },
-      { label: 'Online session', value: '45 min', tone: 'mint' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'violet' },
-      { label: 'Families seen', value: STATS.families, tone: 'sun' },
+      { label: 'Online session', value: '45 min', tone: 'green' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'sky' },
+      { label: 'Families seen', value: STATS.families, tone: 'teal' },
     ])}
   </div>
 </section>
@@ -117,7 +117,7 @@ export default {
   </div>
 </section>
 
-<section class="band band--violet">
+<section class="band">
   <div class="wrap">
     ${head('What happens in an online session', 'The same goals and the same therapist as at the centre, with you alongside.')}
     ${weekPlan({

@@ -52,12 +52,12 @@ const faqs = [
 const concerns = [
   { icon: 'speech', title: 'Late to talk', text: 'Few words for their age, or words that are not joining up.', href: '/speech-therapy-for-speech-delay-bangalore', tone: 'blue' },
   { icon: 'chat', title: 'Unclear speech or stammering', text: 'Hard to understand, or sounds that get stuck or repeat.', href: '/speech-therapy-electronic-city', tone: 'blue' },
-  { icon: 'blocks', title: 'Autism, or you suspect it', text: 'Communication, play and routines, from one team and one plan.', href: '/speech-therapy-for-autism-bangalore', tone: 'violet' },
-  { icon: 'spark', title: 'Meltdowns, attention or ADHD', text: 'Behaviour that gets in the way, focus, and following routines.', href: '/aba-therapy-for-children-bangalore', tone: 'violet' },
-  { icon: 'hand', title: 'Sensory needs or clumsiness', text: 'Big reactions to noise or textures, pencil grip, balance, dressing.', href: '/occupational-therapy-for-children-bangalore', tone: 'mint' },
-  { icon: 'book', title: 'Struggling at school', text: 'Reading, writing or maths that is not clicking.', href: '/special-education-for-children-bangalore', tone: 'sun' },
-  { icon: 'users', title: 'Play and making friends', text: 'Small groups for social skills, play and school readiness.', href: '/therapeutic-enrichment', tone: 'pink' },
-  { icon: 'heart', title: 'Just had a diagnosis', text: 'Guidance on what it means and a plan you can use at home.', href: '/parent-counselling', tone: 'coral' },
+  { icon: 'blocks', title: 'Autism, or you suspect it', text: 'Communication, play and routines, from one team and one plan.', href: '/speech-therapy-for-autism-bangalore', tone: 'sky' },
+  { icon: 'spark', title: 'Meltdowns, attention or ADHD', text: 'Behaviour that gets in the way, focus, and following routines.', href: '/aba-therapy-for-children-bangalore', tone: 'sky' },
+  { icon: 'hand', title: 'Sensory needs or clumsiness', text: 'Big reactions to noise or textures, pencil grip, balance, dressing.', href: '/occupational-therapy-for-children-bangalore', tone: 'green' },
+  { icon: 'book', title: 'Struggling at school', text: 'Reading, writing or maths that is not clicking.', href: '/special-education-for-children-bangalore', tone: 'teal' },
+  { icon: 'users', title: 'Play and making friends', text: 'Small groups for social skills, play and school readiness.', href: '/therapeutic-enrichment', tone: 'aqua' },
+  { icon: 'heart', title: 'Just had a diagnosis', text: 'Guidance on what it means and a plan you can use at home.', href: '/parent-counselling', tone: 'deep' },
   { icon: 'ear', title: 'Worried about hearing', text: `Not turning to sounds, or many ear infections. ${SISTER.name} tests children.`, href: SISTER.childHearing, tone: 'blue' },
 ];
 
@@ -102,9 +102,9 @@ export default {
     <div class="phero__acts">${bookButton('Book a developmental assessment', 'assessment', 'btn btn--ink')}${callButton()}</div>
     ${stats([
       { label: 'Therapies under one roof', value: String(SERVICES.length), tone: 'blue' },
-      { label: 'Ages we work with', value: STATS.ages, tone: 'mint' },
-      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'violet' },
-      { label: 'Years in practice', value: STATS.years, tone: 'sun' },
+      { label: 'Ages we work with', value: STATS.ages, tone: 'green' },
+      { label: 'Centres in Electronic City', value: String(LOCATIONS.length), tone: 'sky' },
+      { label: 'Years in practice', value: STATS.years, tone: 'teal' },
     ])}
   </div>
 </section>

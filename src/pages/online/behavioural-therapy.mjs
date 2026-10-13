@@ -4,7 +4,7 @@ import { STATS, ONLINE } from '../../site.mjs';
 import { onlineSchema, parentViewSection, marketsSection, otherOnline } from './speech-therapy.mjs';
 
 const PATH = '/online/behavioural-therapy';
-const TONE = 'violet';
+const TONE = 'sky';
 const DESCRIPTION = 'Online behavioural therapy and ABA-informed parent training for meltdowns, transitions, sleep, toileting and routines. Weekly 45-minute live sessions.';
 
 const faqs = [
@@ -76,10 +76,10 @@ export default {
     <p class="answer">Online behaviour therapy is mostly parent training, and that works well. A therapist helps you understand meltdowns, transitions, sleep and toileting, then coaches you weekly on strategies that hold up at home. Intensive ABA and crisis support need someone in person.</p>
     <div class="phero__acts">${bookButton('Book an online consultation', 'aba', 'btn btn--ink', 'online')}${whatsappButton('Hi Poorvam Care, I would like to know about online behaviour support for my child.', 'btn btn--line')}</div>
     ${stats([
-      { label: 'Each online session', value: '45 min', tone: 'violet' },
+      { label: 'Each online session', value: '45 min', tone: 'sky' },
       { label: 'Who the sessions are for', value: 'Mostly parents', tone: 'blue' },
-      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'mint' },
-      { label: 'Therapists', value: 'RCI registered', tone: 'sun' },
+      { label: 'Open to families in', value: ONLINE.markets.map((m) => m.name).join(', '), tone: 'green' },
+      { label: 'Therapists', value: 'RCI registered', tone: 'teal' },
     ])}
   </div>
 </section>

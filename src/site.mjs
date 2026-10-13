@@ -14,6 +14,10 @@
 
 export const SITE_URL = 'https://poorvamcare.in';
 export const BRAND = 'Poorvam Care';
+/** The brand line: home H1, footer, share image and schema slogan all read this. */
+export const TAGLINE = 'Help your child find their words.';
+/** The unit name set under POORVAM in the lockup, as the logo sets the wordmark. */
+export const UNIT = 'Care';
 /** What both Google Business Profiles are called (owner, 2026-10-12). */
 export const GBP_NAME = 'Poorvam Care';
 /**
@@ -135,11 +139,11 @@ export const REVIEWER = DIRECTOR;
  */
 export const SERVICES = [
   { id: 'speech', label: 'Speech therapy', short: 'Speech', tone: 'blue', icon: 'speech', page: '/speech-therapy-electronic-city', blurb: 'Late talking, unclear speech, stammering and language delay.' },
-  { id: 'ot', label: 'Occupational therapy', short: 'OT', tone: 'mint', icon: 'hand', page: '/occupational-therapy-for-children-bangalore', blurb: 'Sensory needs, fine motor skills, handwriting and daily routines.' },
-  { id: 'aba', label: 'Behaviour therapy (ABA)', short: 'ABA', tone: 'violet', icon: 'blocks', page: '/aba-therapy-for-children-bangalore', blurb: 'Building communication and independence, cutting meltdowns.' },
-  { id: 'special-ed', label: 'Special education', short: 'Special ed', tone: 'sun', icon: 'book', page: '/special-education-for-children-bangalore', blurb: 'Reading, writing and maths taught the way your child learns.' },
-  { id: 'enrichment', label: 'Therapeutic enrichment', short: 'Enrichment', tone: 'pink', icon: 'spark', page: '/therapeutic-enrichment', blurb: 'Small-group play, social skills and school readiness.' },
-  { id: 'parent', label: 'Parent counselling', short: 'Parents', tone: 'coral', icon: 'heart', page: '/parent-counselling', blurb: 'Guidance after a diagnosis, and a plan you can use at home.' },
+  { id: 'ot', label: 'Occupational therapy', short: 'OT', tone: 'green', icon: 'hand', page: '/occupational-therapy-for-children-bangalore', blurb: 'Sensory needs, fine motor skills, handwriting and daily routines.' },
+  { id: 'aba', label: 'Behaviour therapy (ABA)', short: 'ABA', tone: 'sky', icon: 'blocks', page: '/aba-therapy-for-children-bangalore', blurb: 'Building communication and independence, cutting meltdowns.' },
+  { id: 'special-ed', label: 'Special education', short: 'Special ed', tone: 'teal', icon: 'book', page: '/special-education-for-children-bangalore', blurb: 'Reading, writing and maths taught the way your child learns.' },
+  { id: 'enrichment', label: 'Therapeutic enrichment', short: 'Enrichment', tone: 'aqua', icon: 'spark', page: '/therapeutic-enrichment', blurb: 'Small-group play, social skills and school readiness.' },
+  { id: 'parent', label: 'Parent counselling', short: 'Parents', tone: 'deep', icon: 'heart', page: '/parent-counselling', blurb: 'Guidance after a diagnosis, and a plan you can use at home.' },
 ];
 
 /** The first-visit option for a parent who doesn't know which therapy yet. */
