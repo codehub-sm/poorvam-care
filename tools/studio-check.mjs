@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Dry run of the studio booking form with window.open stubbed: weekday, evening, weekend, birthday and the 10 PM guard. Needs dist on PORT (8092). */
+/** Dry run of the studio booking form with window.open stubbed: weekday, evening, weekend, birthday, workshop blocks, brand shoot and the 10 PM guard. Needs dist on PORT (8092). */
 import puppeteer from 'puppeteer-core';
 const port = process.env.PORT || 8092;
 const b = await puppeteer.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
@@ -14,7 +14,14 @@ r.weekdayEve = await set({ start: '18:00', hours: 2 });
 r.weekend = await set({ date: '2026-10-17', start: '10:00', hours: 2 });
 r.birthdayWeekday = await set({ purpose: 'Birthday party', date: '2026-10-14' });
 r.birthdayWeekend = await set({ date: '2026-10-18' });
-r.workshopMin = await set({ purpose: 'Workshop / event / shoot', hours: 1, date: '2026-10-14', start: '09:00' });
+r.workshopMin = await set({ purpose: 'Workshop / creative shoot', hours: 1, date: '2026-10-14', start: '09:00' });
+r.halfDayWeekday = await set({ hours: 4, start: '10:00' });
+r.halfPlusOne = await set({ hours: 5 });
+r.fullDayWeekday = await set({ hours: 8, start: '09:00' });
+r.workshopIntoEvening = await set({ hours: 4, start: '14:00' });
+r.halfDayWeekend = await set({ date: '2026-10-17', hours: 4, start: '10:00' });
+r.fullDayWeekend = await set({ hours: 8, start: '09:00' });
+r.brandShoot = await set({ purpose: 'Brand / commercial shoot', date: '2026-10-14', hours: 2 });
 r.pastTen = await set({ purpose: 'Dance practice', start: '21:00', hours: 3 });
 await set({ start: '18:00', hours: 2 });
 await p.type('[name=name]', 'TEST Parent');

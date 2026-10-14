@@ -55,6 +55,8 @@
   if (!form) return;
   var R = PS.rates || {};
   var B = PS.birthday || {};
+  var K = PS.blocks || {};
+  var isEvent = function (p) { return p === 'Birthday party' || /^(Workshop|Brand)/.test(p); };
   var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var out = {
     total: form.querySelector('[data-total]'), how: form.querySelector('[data-how]'),
@@ -76,16 +78,31 @@
     var startH = parseInt((form.start.value || '0').split(':')[0], 10) + (parseInt((form.start.value || '0:0').split(':')[1], 10) || 0) / 60;
     var hours = Math.max(1, Math.min(16, parseInt(form.hours.value, 10) || 1));
     var birthday = purpose === 'Birthday party';
-    var event = birthday || /^Workshop/.test(purpose);
+    var event = isEvent(purpose);
     var e = { purpose: purpose, weekend: weekend, hours: hours, start: startH, event: event, birthday: birthday };
     if (birthday) {
       e.hours = B.hours;
       e.total = weekend ? B.weekend : B.weekday;
       e.how = 'Birthday package, ' + B.hours + ' hours, ' + (weekend ? 'weekend' : 'weekday') + ' price.';
+    } else if (/^Brand/.test(purpose)) {
+      e.total = PS.commercial * hours;
+      e.how = inr(PS.commercial) + '/hr × ' + hours + ' hrs (brand and commercial shoot rate, any day).';
     } else {
       var rate = weekend ? R.weekend : (startH >= R.eveningFrom ? R.weekdayEvening : R.weekdayDay);
       e.total = rate * hours;
       e.how = inr(rate) + '/hr × ' + hours + ' hr' + (hours > 1 ? 's' : '') + ' (' + (weekend ? 'weekend rate' : startH >= R.eveningFrom ? 'weekday evening rate' : 'weekday off-peak rate') + ').';
+      // Workshop blocks: any time at weekends; on weekdays only when the booking ends by K.dayEnd.
+      if (/^Workshop/.test(purpose) && K.half && (weekend || startH + hours <= K.dayEnd)) {
+        var day_ = weekend ? 'weekend' : 'weekday';
+        [K.half, K.full].forEach(function (b, i) {
+          if (hours < b.hours) return;
+          var t = b[day_] + (hours - b.hours) * rate;
+          if (t < e.total) {
+            e.total = t;
+            e.how = (i ? 'Full day' : 'Half day') + ' (' + b.hours + ' hrs, ' + day_ + ') ' + inr(b[day_]) + (hours > b.hours ? ' + ' + (hours - b.hours) + ' hr' + (hours - b.hours > 1 ? 's' : '') + ' × ' + inr(rate) : '') + '.';
+          }
+        });
+      }
     }
     e.deposit = event ? PS.deposit : 0;
     e.end = startH + e.hours;
@@ -94,7 +111,7 @@
 
   function update() {
     var birthday = form.purpose.value === 'Birthday party';
-    var event = birthday || /^Workshop/.test(form.purpose.value);
+    var event = isEvent(form.purpose.value);
     if (birthday) {
       if (!form.hours.disabled) lastHours = form.hours.value;
       form.hours.value = B.hours; form.hours.disabled = true;

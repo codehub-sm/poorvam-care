@@ -38,9 +38,17 @@ export const STUDIO = {
   /** Rupees per hour. Weekday rate is set by the booking's start time. */
   rates: { weekdayDay: 500, weekdayEvening: 800, weekend: 1000, eveningFrom: 17 },
   birthday: { hours: 3, weekday: 3999, weekend: 5499 },
+  /** Workshop and shoot blocks. On weekdays a block must end by dayEnd, so it never takes an evening slot. */
+  blocks: { half: { hours: 4, weekday: 1800, weekend: 3600 }, full: { hours: 8, weekday: 3500, weekend: 7000 }, dayEnd: 17 },
+  /** Brand and commercial shoots: one hourly rate on any day, event minimum. */
+  commercial: 1000,
+  /** Instructor monthly slots: the same 1 hour, Monday to Friday, 3 or 5 days a week. */
+  monthly: { morning: { 3: 5000, 5: 8000 }, evening: { 3: 8000, 5: 12500 } },
 };
 
 const inr = (n) => `₹${n.toLocaleString('en-IN')}`;
+const B = STUDIO.blocks;
+const M = STUDIO.monthly;
 
 /** Files expected in assets/img/studio/. Only the ones present are used; with none, the floor plan shows instead. */
 const PHOTO_SET = [
@@ -57,14 +65,15 @@ const uses = [
   { t: 'Dance practice', d: 'Crews and solo dancers rehearsing to the mirror.', m: ['1–3 hrs', 'Up to 25 people'] },
   { t: 'Yoga and fitness batches', d: 'Instructors running a regular class at a fixed time.', m: ['Monthly slot', 'Up to 30 mats'] },
   { t: 'Kids\' birthdays', d: 'Games, cake and a clear floor, without a restaurant\'s rush.', m: ['3 hrs', 'Up to 40 guests'] },
-  { t: 'Workshops and shoots', d: 'Talks, small workshops, product and dance shoots.', m: ['Half or full day', 'Up to 40 people'] },
+  { t: 'Workshops and shoots', d: 'Talks, small workshops, creative sessions, photo and video shoots.', m: ['Half or full day', 'Up to 40 people'] },
 ];
 
 const faqs = [
   { q: 'How much does it cost to rent the hall per hour?', a: `${inr(STUDIO.rates.weekdayDay)} an hour on weekdays before 5 PM, ${inr(STUDIO.rates.weekdayEvening)} an hour on weekday evenings (5–10 PM), and ${inr(STUDIO.rates.weekend)} an hour on Saturdays, Sundays and public holidays. Practice bookings have a 1-hour minimum; events have a 3-hour minimum. 18% GST is extra where applicable.` },
   { q: 'Can I host a kids\' birthday party?', a: `Yes. The birthday package is 3 hours for up to 40 guests: ${inr(STUDIO.birthday.weekday)} on weekdays or ${inr(STUDIO.birthday.weekend)} on weekends, with 30 minutes of free decorating time and your own cake and decor. Chairs and tables can be added for an extra charge. A ${inr(STUDIO.deposit)} refundable deposit applies.` },
   { q: 'Is there parking?', a: 'Ask us when you book. Tell us how many cars to expect and we will tell you what is available for your date and time.' },
-  { q: 'Can yoga or dance teachers book a fixed monthly slot?', a: 'Yes. The same 1-hour slot three days a week, Monday to Friday, is ₹5,000 a month in the morning (6–9 AM) or ₹8,000 a month in the evening (5–10 PM).' },
+  { q: 'Can yoga or dance teachers book a fixed monthly slot?', a: `Yes. The same 1-hour slot, Monday to Friday. Mornings (6–9 AM): ${inr(M.morning[3])} a month for 3 days a week, or ${inr(M.morning[5])} for all 5. Evenings (5–10 PM): ${inr(M.evening[3])} a month for 3 days a week, or ${inr(M.evening[5])} for all 5. Weekends are not part of monthly slots.` },
+  { q: 'How much is the hall for a workshop or photo shoot?', a: `A half day (4 hours) is ${inr(B.half.weekday)} on weekdays or ${inr(B.half.weekend)} on weekends. A full day (8 hours, 9 AM–5 PM) is ${inr(B.full.weekday)} on weekdays or ${inr(B.full.weekend)} on weekends. Weekday blocks end by 5 PM; after that the evening rate applies. Brand and commercial shoots are ${inr(STUDIO.commercial)} an hour on any day, 3-hour minimum. Bring your own lights and tell us the total load when you book. A ${inr(STUDIO.deposit)} refundable deposit applies.` },
   { q: 'Is the hall separate from the therapy centre?', a: 'Yes. Poorvam Studio has its own entrance, separate from the Poorvam Care therapy centre in the same building.' },
   { q: 'What\'s the cancellation policy?', a: `Cancel free up to 48 hours before your booking. After that, 50% of the booking amount is kept. The ${inr(STUDIO.deposit)} deposit for parties and events is refunded after the hall is checked.` },
 ];
@@ -125,8 +134,9 @@ function ratesTable() {
 
 const packages = [
   { name: 'Birthday', hl: true, price: `${inr(STUDIO.birthday.weekday)}`, unit: 'weekdays', alt: `${inr(STUDIO.birthday.weekend)} weekends`, meta: '3 hours', gets: ['Up to 40 guests', '30 minutes of free decorating time', 'Bring your own cake and decor', 'Chairs and tables at extra charge'], purpose: 'Birthday party' },
-  { name: 'Instructor morning slot', price: '₹5,000', unit: 'per month', meta: 'Mon–Fri, 6–9 AM', gets: ['The same 1 hour, 3 days a week', 'Your batch, your music', 'Ideal for yoga and fitness'], purpose: 'Yoga batch' },
-  { name: 'Instructor evening slot', price: '₹8,000', unit: 'per month', meta: 'Mon–Fri, 5–10 PM', gets: ['The same 1 hour, 3 days a week', 'After-work and after-school batches', 'Ideal for dance and fitness'], purpose: 'Dance practice' },
+  { name: 'Workshop or shoot', price: inr(B.half.weekday), unit: 'half day', alt: `${inr(B.full.weekday)} full day, weekdays`, meta: '4 hrs or 9 AM–5 PM', gets: [`Weekends: ${inr(B.half.weekend)} half day, ${inr(B.full.weekend)} full day`, 'Talks, classes and creative sessions', `Brand shoots ${inr(STUDIO.commercial)}/hr, 3-hr minimum`, 'Bring your own lights'], purpose: 'Workshop / creative shoot' },
+  { name: 'Instructor mornings', price: inr(M.morning[3]), unit: 'per month', alt: `${inr(M.morning[5])} for 5 days a week`, meta: 'Mon–Fri, 6–9 AM', gets: ['The same 1 hour, 3 or 5 days a week', 'Your batch, your music', 'Ideal for yoga and fitness'], purpose: 'Yoga batch' },
+  { name: 'Instructor evenings', price: inr(M.evening[3]), unit: 'per month', alt: `${inr(M.evening[5])} for 5 days a week`, meta: 'Mon–Fri, 5–10 PM', gets: ['The same 1 hour, 3 or 5 days a week', 'After-work and after-school batches', 'Ideal for dance and fitness'], purpose: 'Dance practice' },
 ];
 
 const gets = ['Open floor, nothing to move', 'Full-length mirror wall', 'Centralised AC, included in the rate', 'Chairs and tables on request, charged extra', 'CCTV and a separate entrance', 'Power points along the walls'];
@@ -163,7 +173,7 @@ function schema(page) {
 
 /** Facts studio.js needs, from the same constants the page renders. */
 function clientConfig() {
-  return `<script>window.PS=${JSON.stringify({ wa: STUDIO_WA, rates: STUDIO.rates, birthday: STUDIO.birthday, deposit: STUDIO.deposit, close: 22, open: 6 }).replace(/</g, '\\u003c')}</script>`;
+  return `<script>window.PS=${JSON.stringify({ wa: STUDIO_WA, rates: STUDIO.rates, birthday: STUDIO.birthday, blocks: STUDIO.blocks, commercial: STUDIO.commercial, deposit: STUDIO.deposit, close: 22, open: 6 }).replace(/</g, '\\u003c')}</script>`;
 }
 
 function analytics() {
@@ -251,7 +261,7 @@ const body = html`
     <form class="st-form" data-studio-form novalidate>
       <label class="st-field st-field--full"><span>What is it for?</span>
         <select name="purpose" required>
-          <option>Dance practice</option><option>Birthday party</option><option>Yoga batch</option><option>Workshop / event / shoot</option>
+          <option>Dance practice</option><option>Birthday party</option><option>Yoga batch</option><option>Workshop / creative shoot</option><option>Brand / commercial shoot</option>
         </select>
       </label>
       <label class="st-field"><span>Date</span><input type="date" name="date" required></label>
