@@ -26,6 +26,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { renderPage, urlOf } from './src/layout.mjs';
+import { emitAssets, isEmitted } from './src/assets.mjs';
 import * as site from './src/site.mjs';
 import { LEGACY_REDIRECTS } from './src/redirects.mjs';
 
@@ -129,7 +130,7 @@ for (const p of pages) {
 }
 
 // Every internal href and src must resolve to a page we build or a file we ship.
-const assetExists = (rel) => existsSync(path.join(root, rel));
+const assetExists = (rel) => existsSync(path.join(root, rel)) || isEmitted(`/${rel}`);
 for (const [p, htmlOut] of rendered) {
   for (const [, attr, raw] of htmlOut.matchAll(/\b(href|src)="([^"]+)"/g)) {
     if (/^(https?:|mailto:|tel:|data:|#)/.test(raw)) continue;
@@ -164,6 +165,7 @@ for (const [p, htmlOut] of rendered) {
   await writeFile(dest, htmlOut);
 }
 await cp(path.join(root, 'assets'), path.join(out, 'assets'), { recursive: true });
+await emitAssets(out);
 // Browsers and Google ask for /favicon.ico at the root whatever the page says.
 await cp(path.join(root, 'assets/img/favicon.ico'), path.join(out, 'favicon.ico'));
 await writeFile(path.join(out, 'site.webmanifest'), JSON.stringify({

@@ -7,6 +7,7 @@
  * links unsafe.
  */
 
+import { asset, fontHead } from './assets.mjs';
 import {
   PHOTOS, PHOTO_NOTE, SITE_URL, BRAND, TAGLINE, UNIT, GBP_NAME, FORMER_NAME, CONTACT, HOURS, LOCATIONS, SERVICES, ASSESSMENT, NAV, DIRECTOR, AREAS, FAR_AREAS,
   GOOGLE_RATING, REVIEWER, LEAD_SINKS, GA4_ID, SOCIAL, SISTER, ONLINE, STATS, telLink, whatsappLink, mapEmbedUrl, reviewsUrl,
@@ -64,9 +65,13 @@ const ICONS = {
 export const icon = (name, cls = 'i') =>
   `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICONS[name] ?? ICONS.check}</svg>`;
 
-/** The logo lockup: the official mark, then POORVAM set as in the logo, with the unit name under it. */
+/**
+ * The logo lockup: the official mark, then POORVAM set as in the logo, with the unit name under it.
+ * Words are written in normal case with a space between them and uppercased by CSS, so the
+ * accessible name reads "Poorvam Care" and stays inside the header link's aria-label.
+ */
 export function lockup() {
-  return `<img src="/assets/img/logo-mark.png" alt="" width="44" height="44"><span class="logo__word"><b>POORVAM</b><i>${esc(UNIT.toUpperCase())}</i></span>`;
+  return `<img src="/assets/img/logo-mark.webp" alt="" width="44" height="44"><span class="logo__word"><b>Poorvam</b> <i>${esc(UNIT)}</i></span>`;
 }
 
 /* ---------- small blocks ---------- */
@@ -417,7 +422,7 @@ export function photo(key, { eager = true, cls = 'hphoto' } = {}) {
   const alt = PHOTOS[key];
   if (!alt) throw new Error(`no photo "${key}" in PHOTOS`);
   const p = `/assets/img/photos/${key}`;
-  return `<figure class="${cls}"><picture><source type="image/webp" srcset="${p}-720.webp 720w, ${p}-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 40vw"><img src="${p}-1200.jpg" alt="${esc(alt)}" width="1200" height="800"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></picture></figure>`;
+  return `<figure class="${cls}"><picture><source type="image/webp" srcset="${p}-720.webp 720w, ${p}-1200.webp 1200w" sizes="(max-width: 860px) 92vw, min(40vw, 30rem)"><img src="${p}-1200.jpg" alt="${esc(alt)}" width="1200" height="800"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></picture></figure>`;
 }
 
 /** A page with `photo: '<key>'` gets its standard .phero hero split, words left and the photo right. */
@@ -484,10 +489,8 @@ ${local ? '<meta name="geo.region" content="IN-KA">\n<meta name="geo.placename" 
 <link rel="icon" href="/assets/img/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Figtree:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/css/site.css">
+${fontHead('care', ['Figtree', 'Montserrat'])}
+<link rel="stylesheet" href="${asset('assets/css/site.css')}">
 ${analytics()}
 <script type="application/ld+json">${ld}</script>
 </head>
@@ -501,7 +504,7 @@ ${footer()}
 ${contactBar()}
 ${bookingDialog()}
 ${clientConfig()}
-<script src="/assets/js/site.js" defer></script>
+<script src="${asset('assets/js/site.js')}" defer></script>
 ${(page.scripts ?? []).map((s) => `<script src="${s}" defer></script>`)}
 </body>
 </html>

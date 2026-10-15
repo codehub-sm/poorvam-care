@@ -11,6 +11,7 @@ import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { esc, html } from './layout.mjs';
+import { asset, fontHead } from './assets.mjs';
 import { SITE_URL, CONTACT, LOCATIONS, GA4_ID } from './site.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -320,10 +321,8 @@ function render(page) {
 <meta name="twitter:description" content="${esc(page.description)}">
 <meta name="twitter:image" content="${ogImage}">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700..800&family=Manrope:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="/assets/css/studio.css">
+${fontHead('studio', ['Manrope'])}
+<link rel="stylesheet" href="${asset('assets/css/studio.css')}">
 ${photos.length ? `<link rel="preload" as="image" href="/assets/img/studio/${photos[0][0]}.webp" fetchpriority="high">` : ''}
 ${analytics()}
 ${schema(page)}
@@ -354,7 +353,7 @@ ${body}
   </div>
 </footer>
 ${clientConfig()}
-<script src="/assets/js/studio.js" defer></script>
+<script src="${asset('assets/js/studio.js')}" defer></script>
 </body>
 </html>
 `;
