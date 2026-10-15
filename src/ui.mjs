@@ -29,7 +29,9 @@ export function cards(items, { cols = 3, compact = false } = {}) {
 export function stats(items) {
   // A value that is words, not a figure, gets a calmer size so it doesn't shout.
   const isText = (v) => String(v).replace(/<[^>]+>/g, '').length > 12 && !/^[₹\d]/.test(String(v));
-  return html`<dl class="stats">${items.map((s, i) => `<div class="tone-${tone(s.tone, i)}"><dt>${s.label}</dt><dd${isText(s.value) ? ' class="is-text"' : ''}>${s.value}</dd></div>`)}</dl>`;
+  // A range like "9–7" or "45–60" never splits at its dash on a narrow card (word joiners either side).
+  const keepRanges = (v) => String(v).replace(/(\S)–(\S)/g, '$1\u2060–\u2060$2');
+  return html`<dl class="stats">${items.map((s, i) => `<div class="tone-${tone(s.tone, i)}"><dt>${s.label}</dt><dd${isText(s.value) ? ' class="is-text"' : ''}>${keepRanges(s.value)}</dd></div>`)}</dl>`;
 }
 
 /** A collapsible "read more" for the detail a few readers want. Crawlers still read it. */

@@ -130,7 +130,15 @@ function ratesTable() {
     ${row('5 PM – 10 PM', 'evening', (i) => (i < 5 ? c(R.weekdayEvening, 'is-eve') : c(R.weekend, 'is-peak')))}
     ${row('Public holidays', 'all day', () => c(R.weekend, 'is-peak'))}
   </tbody>
-</table></div>`;
+</table></div>
+<table class="st-rates st-rates--compact">
+  <caption class="st-sr">Hourly rates</caption>
+  <thead><tr><th scope="col"><span class="st-sr">Time</span></th><th scope="col">Mon–Fri</th><th scope="col">Sat, Sun, holidays</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">6 AM – 5 PM<small>off-peak</small></th>${c(R.weekdayDay, 'is-off')}${c(R.weekend, 'is-peak')}</tr>
+    <tr><th scope="row">5 PM – 10 PM<small>evening</small></th>${c(R.weekdayEvening, 'is-eve')}${c(R.weekend, 'is-peak')}</tr>
+  </tbody>
+</table>`;
 }
 
 const packages = [

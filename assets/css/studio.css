@@ -133,6 +133,9 @@ body.studio { margin: 0; background: var(--st-bg); color: var(--st-ink); font: 4
 .st-rates small { display: block; font: 500 .72rem var(--st-mono); color: var(--st-ink-2); }
 .st-rates td { font: 800 1.05rem var(--st-display); }
 .st-rates tr:last-child > * { border-bottom: 0; }
+/* Phones get the week folded into weekdays and weekends: the 7-day grid would scroll and hide the weekend rate. */
+.st-rates--compact { display: none; min-width: 0; margin-top: 1.6rem; border-radius: var(--st-r); border: 1px solid var(--st-line); border-collapse: separate; border-spacing: 0; background: var(--st-surface); box-shadow: var(--st-shadow); overflow: hidden; }
+@media (max-width: 640px) { .st-tablewrap { display: none; } .st-rates--compact { display: table; } }
 .st-rates .is-off { color: #12805c; }
 .st-rates .is-eve { color: var(--st-indigo); }
 .st-rates .is-peak { color: #b55a00; }
