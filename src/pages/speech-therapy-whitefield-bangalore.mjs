@@ -68,7 +68,7 @@ export default {
     serviceType: 'Speech-language therapy',
     url: urlOf(PATH),
     provider: { '@id': orgId },
-    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1, suggestedMaxAge: 14 },
+    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1.5, suggestedMaxAge: 14 },
     areaServed: ['Whitefield', 'ITPL', 'Varthur', 'Whitefield Main Road', 'Mahadevapura'].map((n) => ({ '@type': 'Place', name: `${n}, Bengaluru` })),
     availableChannel: [
       { '@type': 'ServiceChannel', serviceUrl: urlOf('/online/speech-therapy'), name: 'Online speech therapy by video' },

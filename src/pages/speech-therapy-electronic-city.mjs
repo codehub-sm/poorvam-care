@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'At what age should a child start speech therapy?',
-    a: 'There is no minimum age. If a child is not using single words by 18 months or joining two words by age 2, an assessment is worth doing now rather than waiting. Earlier support is easier for the child, because the gap is smaller and habits are not yet set.',
+    a: 'We see children from 18 months. If your baby is younger and you are worried, start with your paediatrician and a hearing test. If a child is not using single words by 18 months or joining two words by age 2, an assessment is worth doing now rather than waiting. Earlier support is easier for the child, because the gap is smaller and habits are not yet set.',
   },
 ];
 
@@ -41,7 +41,7 @@ const helps = [
   { icon: 'speech', title: 'Late talking', text: 'Few words for their age, or words that are not joining up.', href: '/speech-therapy-for-speech-delay-bangalore' },
   { icon: 'blocks', title: 'Autism and communication', text: 'Making requests, sharing attention, conversation and play.', href: '/speech-therapy-for-autism-bangalore' },
   { icon: 'chat', title: 'Unclear speech', text: 'Sounds swapped or dropped, so others struggle to understand.' },
-  { icon: 'route', title: 'Stammering', text: 'Repeated or stuck sounds, and the worry that comes with them.' },
+  { icon: 'route', title: 'Stammering', text: 'Repeated or stuck sounds, and the worry that comes with them.', href: '/stammering-therapy-for-children-bangalore' },
   { icon: 'book', title: 'Understanding language', text: 'Following instructions, answering questions, learning new words.' },
   { icon: 'users', title: 'Social communication', text: 'Taking turns, staying on topic, reading other people.' },
 ];
@@ -62,7 +62,7 @@ export default {
     serviceType: 'Speech-language therapy',
     url: urlOf(PATH),
     provider: { '@id': orgId },
-    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1, suggestedMaxAge: 14 },
+    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1.5, suggestedMaxAge: 14 },
     areaServed: [...new Set([...LOCATIONS.flatMap((l) => l.nearby), 'Electronic City', 'Bommanahalli', 'HSR Layout'])].map((n) => ({ '@type': 'Place', name: `${n}, Bengaluru` })),
     availableChannel: LOCATIONS.map((l) => ({ '@type': 'ServiceChannel', serviceLocation: { '@id': `${urlOf(l.page)}#business` } })),
   }],
@@ -128,6 +128,7 @@ export default {
   <div class="wrap">
     ${head('More than speech therapy', 'Many children need two kinds of help. All of it is under one roof, from one plan.')}
     ${serviceList(PATH)}
+    <p class="mt-2">Toddler under 3? See <a href="/early-intervention-for-toddlers-bangalore">early intervention</a>. Chewing or eating problems? See <a href="/feeding-therapy-for-children-bangalore">feeding therapy</a>. Live near Electronic City and would rather not travel? Ask about <a href="/home-therapy-electronic-city">speech therapy at home</a>.</p>
     <div class="wrap--narrow">${byline('11 October 2026')}</div>
   </div>
 </section>

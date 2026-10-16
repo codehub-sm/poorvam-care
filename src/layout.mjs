@@ -306,7 +306,7 @@ function footer() {
     </div>
     <div>
       <p class="foot__h">Therapies</p>
-      <ul>${SERVICES.map((s) => `<li><a href="${s.page}">${s.label}</a></li>`)}<li><a href="/speech-therapy-for-autism-bangalore">Speech therapy for autism</a></li><li><a href="/speech-therapy-for-speech-delay-bangalore">Speech delay</a></li><li><a href="/online">Online therapy</a></li><li><a href="/blog">Guides for parents</a></li><li><a href="/faq">Questions</a></li></ul>
+      <ul>${SERVICES.map((s) => `<li><a href="${s.page}">${s.label}</a></li>`)}<li><a href="/speech-therapy-for-autism-bangalore">Speech therapy for autism</a></li><li><a href="/speech-therapy-for-speech-delay-bangalore">Speech delay</a></li><li><a href="/early-intervention-for-toddlers-bangalore">Early intervention</a></li><li><a href="/stammering-therapy-for-children-bangalore">Stammering</a></li><li><a href="/feeding-therapy-for-children-bangalore">Feeding therapy</a></li><li><a href="/home-therapy-electronic-city">Therapy at home</a></li><li><a href="/online">Online therapy</a></li><li><a href="/blog">Guides for parents</a></li><li><a href="/faq">Questions</a></li></ul>
     </div>
   </div>
   <div class="wrap foot__base">

@@ -76,7 +76,7 @@ const app = [
 export default {
   path: '/',
   title: 'Early Intervention Centre in Electronic City | Poorvam Care',
-  description: `Speech therapy, occupational therapy, ABA and special education for children aged ${STATS.ages} at two centres in Electronic City, Bengaluru. RCI-registered team.`,
+  description: `Speech therapy, occupational therapy, ABA and special education for children aged ${STATS.ages} at 2 centres in Electronic City, Bengaluru. RCI-registered team.`,
   reviewed: '2026-10-11',
   current: '/',
   faqs,

@@ -63,7 +63,7 @@ export default {
   path: PATH,
   photo: 'ot',
   title: 'Occupational Therapy for Children in Electronic City, Bangalore',
-  description: `Occupational therapy for children aged ${STATS.ages} at our Electronic City Phase 1 and Phase 2 centres, Bangalore: sensory integration, fine motor skills and self-care.`,
+  description: `Occupational therapy for children aged ${STATS.ages} at two Electronic City centres, Bangalore: sensory integration, fine motor skills and self-care.`,
   reviewed: REVIEWED,
   current: PATH,
   breadcrumb: [['All therapies', '/child-development'], [LABEL, PATH]],
@@ -99,6 +99,7 @@ export default {
   <div class="wrap">
     ${head('What occupational therapy helps with', 'OT is about the everyday jobs of childhood: playing, eating, dressing, learning and staying calm enough to do them.')}
     ${cards(helps.map((h) => ({ ...h, tone: 'green' })), { cols: 3 })}
+    <p class="mt-2">Picky eating or gagging at new foods? See <a href="/feeding-therapy-for-children-bangalore">feeding therapy</a>, which our OT and speech teams run together. Live near Electronic City? Ask about <a href="/home-therapy-electronic-city">OT at home</a>.</p>
   </div>
 </section>
 

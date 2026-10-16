@@ -76,7 +76,7 @@ export default {
     serviceType: 'Speech-language therapy',
     url: urlOf(PATH),
     provider: { '@id': orgId },
-    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1, suggestedMaxAge: 14 },
+    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1.5, suggestedMaxAge: 14 },
     areaServed: ['Koramangala', 'Koramangala 1st Block', 'Koramangala 5th Block', 'Koramangala 8th Block', 'Silk Board', 'Agara'].map((n) => ({ '@type': 'Place', name: `${n}, Bengaluru` })),
     availableChannel: [
       { '@type': 'ServiceChannel', serviceLocation: { '@id': `${urlOf(P1.page)}#business` } },

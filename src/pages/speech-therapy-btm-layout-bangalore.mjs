@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'Does Poorvam Care offer home visits to BTM Layout?',
-    a: `No, we do not offer therapy at home. We do offer <a href="${ONLINE.markets[0].page}">online speech therapy</a>: live video sessions of 45 minutes with the same therapists, plus home activities so practice carries on between centre visits. Many BTM Layout families mix centre sessions with online ones on the days they would rather not travel. Ask us whether that would suit your child.`,
+    a: `Not to BTM Layout. <a href="/home-therapy-electronic-city">Home visits</a> are for families living near our Electronic City centres. We do offer <a href="${ONLINE.markets[0].page}">online speech therapy</a>: live video sessions of 45 minutes with the same therapists, plus home activities so practice carries on between centre visits. Many BTM Layout families mix centre sessions with online ones on the days they would rather not travel. Ask us whether that would suit your child.`,
   },
   {
     q: 'What conditions are treated at Poorvam Care?',
@@ -50,7 +50,7 @@ const helps = [
 const online = [
   { icon: 'search', title: 'Assessment at the centre', text: 'Meet the speech-language pathologist in person first, at Phase 1.', tone: 'blue' },
   { icon: 'video', title: 'Online on busy weeks', text: 'Live video sessions of 45 minutes from home in BTM Layout.', tone: 'blue' },
-  { icon: 'home', title: 'No home visits', text: 'We don\'t send therapists to homes. Online sessions fill that gap.', tone: 'blue' },
+  { icon: 'home', title: 'Home visits nearer the centres', text: 'Therapists visit homes near Electronic City only. Online sessions fill that gap.', tone: 'blue' },
 ];
 
 export default {

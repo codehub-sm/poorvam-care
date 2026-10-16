@@ -12,7 +12,7 @@ const GROUPS = [
     faqs: [
       {
         q: 'What age should I start speech therapy for my child?',
-        a: 'Earlier is easier, and support started before age 3 makes the most of a time when language grows fastest. Ask a speech-language pathologist if your child is not babbling by 12 months, not using single words by 18 months, or not joining two words by age 2. There is no minimum age: we see toddlers, including children under 2, through play-based therapy. <a href="/speech-therapy-for-speech-delay-bangalore">Read about speech delay</a>.',
+        a: 'Earlier is easier, and support started before age 3 makes the most of a time when language grows fastest. Ask a speech-language pathologist if your child is not babbling by 12 months, not using single words by 18 months, or not joining two words by age 2. We see toddlers from 18 months, through play-based therapy that coaches you too. <a href="/early-intervention-for-toddlers-bangalore">Early intervention for toddlers</a>. <a href="/speech-therapy-for-speech-delay-bangalore">Read about speech delay</a>.',
       },
       {
         q: 'How do I know if my child needs occupational therapy?',

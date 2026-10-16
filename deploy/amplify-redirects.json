@@ -330,6 +330,16 @@
     "status": "301"
   },
   {
+    "source": "/early-intervention-for-toddlers-bangalore/",
+    "target": "/early-intervention-for-toddlers-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/early-intervention-for-toddlers-bangalore/index.html",
+    "target": "/early-intervention-for-toddlers-bangalore",
+    "status": "301"
+  },
+  {
     "source": "/electronic-city-phase-1/",
     "target": "/electronic-city-phase-1",
     "status": "301"
@@ -360,6 +370,16 @@
     "status": "301"
   },
   {
+    "source": "/feeding-therapy-for-children-bangalore/",
+    "target": "/feeding-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/feeding-therapy-for-children-bangalore/index.html",
+    "target": "/feeding-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
     "source": "/hearing-center/",
     "target": "/hearing-center",
     "status": "301"
@@ -367,6 +387,16 @@
   {
     "source": "/hearing-center/index.html",
     "target": "/hearing-center",
+    "status": "301"
+  },
+  {
+    "source": "/home-therapy-electronic-city/",
+    "target": "/home-therapy-electronic-city",
+    "status": "301"
+  },
+  {
+    "source": "/home-therapy-electronic-city/index.html",
+    "target": "/home-therapy-electronic-city",
     "status": "301"
   },
   {
@@ -550,6 +580,16 @@
     "status": "301"
   },
   {
+    "source": "/stammering-therapy-for-children-bangalore/",
+    "target": "/stammering-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
+    "source": "/stammering-therapy-for-children-bangalore/index.html",
+    "target": "/stammering-therapy-for-children-bangalore",
+    "status": "301"
+  },
+  {
     "source": "/studio/",
     "target": "/studio",
     "status": "301"
@@ -645,6 +685,11 @@
     "status": "200"
   },
   {
+    "source": "/early-intervention-for-toddlers-bangalore",
+    "target": "/early-intervention-for-toddlers-bangalore/index.html",
+    "status": "200"
+  },
+  {
     "source": "/electronic-city-phase-1",
     "target": "/electronic-city-phase-1/index.html",
     "status": "200"
@@ -660,8 +705,18 @@
     "status": "200"
   },
   {
+    "source": "/feeding-therapy-for-children-bangalore",
+    "target": "/feeding-therapy-for-children-bangalore/index.html",
+    "status": "200"
+  },
+  {
     "source": "/hearing-center",
     "target": "/hearing-center/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/home-therapy-electronic-city",
+    "target": "/home-therapy-electronic-city/index.html",
     "status": "200"
   },
   {
@@ -752,6 +807,11 @@
   {
     "source": "/speech-therapy-whitefield-bangalore",
     "target": "/speech-therapy-whitefield-bangalore/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/stammering-therapy-for-children-bangalore",
+    "target": "/stammering-therapy-for-children-bangalore/index.html",
     "status": "200"
   },
   {

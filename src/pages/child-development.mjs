@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: 'At what age should early intervention begin?',
-    a: `As soon as you notice a concern. Help that starts before age 3 tends to make the biggest difference, because the gap is smaller and habits are not yet set, but therapy helps at any age. Our therapies are for children aged ${STATS.ages}, and we assess toddlers younger than that too.`,
+    a: `As soon as you notice a concern. Help that starts before age 3 tends to make the biggest difference, because the gap is smaller and habits are not yet set, but therapy helps at any age. Our therapies are for children aged ${STATS.ages}. <a href="/early-intervention-for-toddlers-bangalore">Early intervention for toddlers</a>.`,
   },
   {
     q: 'What is ABA therapy and how does it work?',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: 'Do you provide home-based therapy programs?',
-    a: 'Yes, in the form of parent training and home programmes, so you can practise therapy goals every day at home. Our therapists see children at our two centres in Electronic City, and speech therapy, behaviour therapy, special education and OT guidance are also available as <a href="/online">live online sessions</a>.',
+    a: 'Yes. For families living near our Electronic City centres, speech therapists, occupational therapists and ABA therapists can come to your home. <a href="/home-therapy-electronic-city">Therapy at home</a>. Every child also gets a home programme and parent training, and speech therapy, behaviour therapy, special education and OT guidance are available as <a href="/online">live online sessions</a>.',
   },
   {
     q: 'What qualifications do your therapists have?',
@@ -51,12 +51,15 @@ const faqs = [
 
 const concerns = [
   { icon: 'speech', title: 'Late to talk', text: 'Few words for their age, or words that are not joining up.', href: '/speech-therapy-for-speech-delay-bangalore', tone: 'blue' },
-  { icon: 'chat', title: 'Unclear speech or stammering', text: 'Hard to understand, or sounds that get stuck or repeat.', href: '/speech-therapy-electronic-city', tone: 'blue' },
+  { icon: 'chat', title: 'Unclear speech', text: 'Hard to understand, or sounds said the wrong way.', href: '/speech-therapy-electronic-city', tone: 'blue' },
+  { icon: 'speech', title: 'Stammering', text: 'Sounds or words that repeat, stretch or get stuck.', href: '/stammering-therapy-for-children-bangalore', tone: 'blue' },
+  { icon: 'calendar', title: 'Toddler under 3', text: 'Behind on words, walking or play. Early help from 18 months.', href: '/early-intervention-for-toddlers-bangalore', tone: 'green' },
   { icon: 'blocks', title: 'Autism, or you suspect it', text: 'Communication, play and routines, from one team and one plan.', href: '/speech-therapy-for-autism-bangalore', tone: 'sky' },
   { icon: 'spark', title: 'Meltdowns, attention or ADHD', text: 'Behaviour that gets in the way, focus, and following routines.', href: '/aba-therapy-for-children-bangalore', tone: 'sky' },
   { icon: 'hand', title: 'Sensory needs or clumsiness', text: 'Big reactions to noise or textures, pencil grip, balance, dressing.', href: '/occupational-therapy-for-children-bangalore', tone: 'green' },
   { icon: 'book', title: 'Struggling at school', text: 'Reading, writing or maths that is not clicking.', href: '/special-education-for-children-bangalore', tone: 'teal' },
   { icon: 'users', title: 'Play and making friends', text: 'Small groups for social skills, play and school readiness.', href: '/therapeutic-enrichment', tone: 'aqua' },
+  { icon: 'home', title: 'Picky eating or gagging', text: 'Very few foods, trouble chewing, or every meal a battle.', href: '/feeding-therapy-for-children-bangalore', tone: 'green' },
   { icon: 'heart', title: 'Just had a diagnosis', text: 'Guidance on what it means and a plan you can use at home.', href: '/parent-counselling', tone: 'deep' },
   { icon: 'ear', title: 'Worried about hearing', text: `Not turning to sounds, or many ear infections. ${SISTER.name} tests children.`, href: SISTER.childHearing, tone: 'blue' },
 ];
@@ -84,7 +87,7 @@ export default {
     serviceType: 'Developmental assessment',
     url: urlOf(PATH),
     provider: { '@id': orgId },
-    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1, suggestedMaxAge: 14 },
+    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1.5, suggestedMaxAge: 14 },
     areaServed: [...new Set([...LOCATIONS.flatMap((l) => l.nearby), 'Electronic City', 'Bengaluru'])].map((n) => ({ '@type': 'Place', name: n === 'Bengaluru' ? n : `${n}, Bengaluru` })),
     availableChannel: LOCATIONS.map((l) => ({ '@type': 'ServiceChannel', serviceLocation: { '@id': `${urlOf(l.page)}#business` } })),
     hasOfferCatalog: {
@@ -145,7 +148,7 @@ export default {
 
 <section class="band band--paper">
   <div class="wrap">
-    ${split(`${head('Who the assessment is for', 'Any child aged 2 to 14 whose development worries you, with or without a diagnosis.')}
+    ${split(`${head('Who the assessment is for', `Any child aged ${STATS.ages} whose development worries you, with or without a diagnosis.`)}
       ${signs([
         'Behind on talking or hard to understand',
         'Struggles with play, friends or sharing attention',

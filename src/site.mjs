@@ -114,7 +114,23 @@ export const SUMMER_CAMP = { runs: true, months: 'April–May', page: '/therapeu
 export const STATS = {
   years: '13+',
   families: '1000+',
-  ages: '2–14',
+  /** Youngest age therapy starts is 18 months (owner, 2026-10-16); reads as "children aged …" and "Ages …". */
+  ages: '18 months–14 years',
+};
+
+/** Early intervention: the toddler years, from the youngest age the centre starts therapy (owner, 2026-10-16). */
+export const EARLY = { from: '18 months', to: '3 years', page: '/early-intervention-for-toddlers-bangalore' };
+
+/**
+ * Therapy at home (owner, 2026-10-16): speech, OT and ABA therapists visit
+ * families who live near either centre. Special education and groups stay at
+ * the centres. `areas` is the centres' own nearby lists, so the page can't
+ * promise a locality the centres don't serve.
+ */
+export const HOME_VISITS = {
+  page: '/home-therapy-electronic-city',
+  services: ['speech', 'ot', 'aba'],
+  get areas() { return ['Electronic City Phase 1', 'Electronic City Phase 2', ...LOCATIONS.flatMap((l) => l.nearby)]; },
 };
 
 /** The one clinician the site names. */

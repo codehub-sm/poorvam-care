@@ -34,6 +34,7 @@ const SERVICE = {
   autismSpeech: { title: 'Speech therapy for autism', href: '/speech-therapy-for-autism-bangalore', icon: 'blocks', tone: 'sky', text: 'Communication, requests, play and conversation, planned with OT and ABA.' },
   ot: { title: 'Occupational therapy for children', href: '/occupational-therapy-for-children-bangalore', icon: 'hand', tone: 'green', text: 'Sensory needs, fine motor skills, handwriting and daily routines.' },
   aba: { title: 'ABA therapy for children', href: '/aba-therapy-for-children-bangalore', icon: 'blocks', tone: 'sky', text: 'Building communication and independence with positive, play-based teaching.' },
+  early: { title: 'Early intervention for toddlers', href: '/early-intervention-for-toddlers-bangalore', icon: 'calendar', tone: 'green', text: 'Assessment and play-based therapy from 18 months, with you coached at every step.' },
   assessment: { title: 'Developmental assessment', href: '/child-development', icon: 'search', tone: 'blue', text: 'Not sure where to start? An assessment tells you which therapy and how often.' },
 };
 
@@ -423,7 +424,7 @@ const earlyIntervention = {
   book: ['Book an assessment', 'assessment'],
   summary: 'Why the first five years matter so much for the brain, what the research shows, and what waiting and seeing can cost.',
   answer: 'The brain grows faster in the first five years than at any other time, so therapy started early works with that growth instead of against settled habits. If you are worried about talking, movement, behaviour or play, get an evaluation now.',
-  related: ['10-signs-child-needs-speech-therapy', 'what-is-aba-therapy-guide', SERVICE.assessment],
+  related: ['10-signs-child-needs-speech-therapy', 'what-is-aba-therapy-guide', SERVICE.early],
   faqs: [
     { q: 'What is early intervention?', a: 'Early intervention is therapy and support for young children with developmental delays or differences, ideally before age 5: speech therapy, occupational therapy, ABA and special education, with parents trained to carry the work into daily life.' },
     { q: 'Is it too late if my child is over 5?', a: 'No. Therapy at any age can produce meaningful progress. The early years are when change comes fastest, which is why we suggest acting as soon as you are worried, but older children and teenagers also make real gains.' },
@@ -534,7 +535,7 @@ ${cards([
 <h2>At what age should speech therapy begin?</h2>
 <p>Early intervention works. Research consistently shows that children with autism who start speech therapy before age 3 have significantly better language, communication and social outcomes than those who start later.</p>
 <p>That said, it's never too late. Children and adolescents also make meaningful gains with speech therapy, especially when therapy addresses the specific communication challenges they face at their age.</p>
-<p>At Poorvam Care there is no minimum age for an assessment. If your child isn't babbling by 12 months, isn't using single words by 16 months, has lost speech they previously had, avoids eye contact, or doesn't respond to their name, get an assessment.</p>
+<p>At Poorvam Care we see children from 18 months. If your child isn't babbling by 12 months, isn't using single words by 16 months, has lost speech they previously had, avoids eye contact, or doesn't respond to their name, get an assessment.</p>
 <p>Don't wait. Even if there's no diagnosis yet, early support only helps. See <a href="/blog/10-signs-child-needs-speech-therapy">10 signs your child may need speech therapy</a>.</p>
 ${callout('See a doctor too if speech is lost', 'A child who loses words or other skills should be seen by a paediatrician or developmental paediatrician as well as a speech therapist. A developmental paediatrician can also give a formal autism diagnosis.', 'warn')}
 

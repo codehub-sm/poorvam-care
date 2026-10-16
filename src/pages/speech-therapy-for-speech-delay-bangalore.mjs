@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'Do you offer speech therapy for toddlers under 2 years old?',
-    a: 'Yes. We see toddlers from around 12 to 18 months. For very young children, therapy is play-based and leans heavily on parent coaching, so you learn ways to build talking into meals, bath time and play every day between sessions.',
+    a: 'Yes. We see toddlers from 18 months. If your baby is younger and you are worried, start with your paediatrician and a hearing test. For very young children, therapy is play-based and leans heavily on parent coaching, so you learn ways to build talking into meals, bath time and play every day between sessions.',
   },
   {
     q: 'Should we wait and see if our child grows out of it?',
@@ -62,7 +62,7 @@ export default {
     serviceType: 'Speech-language therapy for speech and language delay',
     url: urlOf(PATH),
     provider: { '@id': orgId },
-    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1, suggestedMaxAge: 14 },
+    audience: { '@type': 'PeopleAudience', suggestedMinAge: 1.5, suggestedMaxAge: 14 },
     relevantSpecialty: 'SpeechPathology',
     areaServed: [...new Set([...LOCATIONS.flatMap((l) => l.nearby), 'Electronic City', 'Bengaluru'])].map((n) => ({ '@type': 'Place', name: n === 'Bengaluru' ? n : `${n}, Bengaluru` })),
     availableChannel: LOCATIONS.map((l) => ({ '@type': 'ServiceChannel', serviceLocation: { '@id': `${urlOf(l.page)}#business` } })),
