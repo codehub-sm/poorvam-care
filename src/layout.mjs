@@ -467,6 +467,7 @@ export function renderPage(page) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="msvalidate.01" content="B008514175438EC25D86BB5386D18F79">
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
 ${is404 ? '' : `<link rel="canonical" href="${url}">`}
