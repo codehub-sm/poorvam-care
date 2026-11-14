@@ -183,6 +183,11 @@ ${indexable.map((p) => `  <url><loc>${urlOf(p.path)}</loc><lastmod>${p.reviewed 
 </urlset>
 `);
 
+// IndexNow (Bing, Yandex, Seznam, Naver): the key file proves we own the host, so
+// tools/indexnow.mjs can push changed URLs instead of waiting for a recrawl.
+const INDEXNOW_KEY = '43c468391d9d4208e9d4d14d402c3345';
+await writeFile(path.join(out, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY);
+
 await writeFile(path.join(out, 'robots.txt'), `User-agent: *
 Allow: /
 
